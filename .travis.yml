@@ -1,0 +1,9 @@
+language: erlang
+otp_releat:
+  - R16B03-1
+install:
+  - './_test/bootstrap.sh'
+script:
+  - './_test/check-exercises.sh'
+cache:
+  - apt
