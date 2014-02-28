@@ -1,5 +1,5 @@
 language: erlang
-otp_releat:
+otp_release:
   - R16B03-1
 install:
   - './_test/bootstrap.sh'
