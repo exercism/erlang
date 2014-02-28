@@ -5,3 +5,7 @@ Exercism exercises in Erlang
 The MIT License (MIT)
 
 Copyright (c) 2014 Katrina Owen, _@kytrinyx.com
+## License
+The MIT License (MIT)
+
+Copyright (c) 2014 Katrina Owen, _@kytrinyx.com
