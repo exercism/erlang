@@ -3,7 +3,7 @@
 % erl -noshell -eval "eunit:test(allergies, [verbose])" -s init stop
 %
 
--module(allergies_tests).
+-module(allergies_test).
 
 -include_lib("eunit/include/eunit.hrl").
 

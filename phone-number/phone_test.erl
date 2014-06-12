@@ -2,7 +2,7 @@
 % elc *.erl
 % erl -noshell -eval "eunit:test(phone, [verbose])" -s init stop
 %
--module(phone_tests).
+-module(phone_test).
 
 -include_lib("eunit/include/eunit.hrl").
 
