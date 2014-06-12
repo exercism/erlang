@@ -4,7 +4,19 @@
   "repository": "https://github.com/exercism/xerlang",
   "active": false,
   "problems": [
-
+      "bob",
+      "word-count",
+      "accumulate",
+      "anagram",
+      "beer-song",
+      "nucleotide-count",
+      "rna-transcription",
+      "point-mutations",
+      "phone-number",
+      "etl",
+      "allergies",
+      "trinary",
+      "luhn"
   ],
   "deprecated": [
 
