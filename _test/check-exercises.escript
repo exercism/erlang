@@ -5,9 +5,7 @@ main( [] ) ->
 	Modules = [{X, compile(X)} || X <- Examples],
 	[compile_tests(X) || X <- Modules],
 	Results = [run_tests(X) || X <- Modules],
-	io:fwrite( "Results~p: ~n", [Results] ),
-	io:fwrite( "Results~p: ~n", [ erlang:length([X || X <- Results, X =:= ok]) ] ),
-	init:stop( erlang:length([X || X <- Results, X =:= ok]) );
+	erlang:halt( erlang:length([X || X <- Results, X =:= ok]) );
 main( _ ) -> usage().
 
 
