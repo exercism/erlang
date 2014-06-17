@@ -2,24 +2,33 @@
 
 main( [] ) -> 
 	Examples = filelib:wildcard( "*/example.erl" ),
-	Modules = [{X, compile_example(X)} || X <- Examples],
+	Modules = [{X, compile(X)} || X <- Examples],
 	[compile_tests(X) || X <- Modules],
-	[eunit:test(Module) || {_Example, {Module, _Binary}} <- Modules];
+	Results = [run_tests(X) || X <- Modules],
+	io:fwrite( "Results~p: ~n", [Results] ),
+	io:fwrite( "Results~p: ~n", [ erlang:length([X || X <- Results, X =:= ok]) ] ),
+	init:stop( erlang:length([X || X <- Results, X =:= ok]) );
 main( _ ) -> usage().
 
 
 
-compile_example( Example ) ->
-	{compile, Example, {ok, Module, Binary}} = {compile, Example, compile:file( Example, [binary, return_errors] )},
-	{load, Module, {module, Module}} = {load, Module, code:load_binary( Module, Example, Binary )},
+compile( File ) ->
+	Compile = compile:file( File, [binary, return_errors] ),
+	{compile, File, {ok, Module, Binary}} = {compile, File, Compile},
+	Load = code:load_binary( Module, File, Binary ),
+	{load, Module, Load} = {load, Module, Load},
 	{Module, Binary}.
 
 
 compile_tests( {Example, {Example_module, _Binary}} ) ->
-	Tests_file = erlang:atom_to_list(Example_module) ++ "_tests.erl",
-	{compile, Tests_file, {ok, Module, Binary}}
-	= {compile, Tests_file, compile:file( filename:join( [filename:dirname(Example), Tests_file] ),[binary, return_errors] )},
-	{load, Module, {module, Module}} = {load, Module, code:load_binary( Module, Tests_file, Binary )}.
+	Filename = erlang:atom_to_list(Example_module) ++ "_tests.erl",
+	Filepath = filename:join( [filename:dirname(Example), Filename] ),
+	compile( Filepath ).
+
+
+run_tests( {_Example, {Module, _Binary}} ) ->
+	io:fwrite( "~p: ", [Module] ),
+	eunit:test( Module ).
 
 
 usage() ->
