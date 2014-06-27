@@ -15,6 +15,7 @@
     "grains",
     "anagram",
     "nucleotide-count",
+    "atbash-cipher",
     "phone-number",
     "grade-school",
     "word-count",
