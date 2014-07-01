@@ -1,6 +1,6 @@
--module(dna).
+-module( nucleotide_count ).
 
--export([count/2, nucleotide_counts/1, validate/1]).
+-export( [count/2, dna/1, validate/1] ).
 
 count(Dna, N) ->
     validate(N),
@@ -21,8 +21,8 @@ validate(N) ->
         _ -> erlang:error("Invalid nucleotide")
     end.
 
-nucleotide_counts(Dna) ->
-    [{"A", count(Dna, "A")},
+dna( Dna ) ->
+    {{"A", count(Dna, "A")},
      {"T", count(Dna, "T")},
      {"C", count(Dna, "C")},
-     {"G", count(Dna, "G")}].
+     {"G", count(Dna, "G")}}.
