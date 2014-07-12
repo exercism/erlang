@@ -24,7 +24,8 @@
     "allergies",
     "luhn",
     "trinary",
-    "meetup"
+    "meetup",
+    "parallel-letter-frequency"
   ],
   "deprecated": [
 
