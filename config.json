@@ -2,9 +2,23 @@
   "slug": "erlang",
   "language": "Erlang",
   "repository": "https://github.com/exercism/xerlang",
-  "active": false,
+  "active": true,
   "problems": [
-
+    "leap",
+    "rna-transcription",
+    "accumulate",
+    "bob",
+    "point-mutations",
+    "anagram",
+    "nucleotide-count",
+    "phone-number",
+    "grade-school",
+    "word-count",
+    "etl",
+    "beer-song",
+    "allergies",
+    "luhn",
+    "trinary"
   ],
   "deprecated": [
 
