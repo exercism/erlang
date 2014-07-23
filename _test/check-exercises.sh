@@ -7,7 +7,7 @@ check_assignment () {
     testfn=${intest##*/}
     assignment=${testfn%_test.erl}
     workdir=$(mktemp -d "${tmp}${assignment}.XXXXXXXXXX")
-    modname=$(awk '/^-module/ { sub(/.*\(\s*/, ""); sub(/\s*\).*$/, ""); print }' "${inexample}")
+    modname=$(awk '/^-module/ { sub(/.*\(/, ""); sub(/\).*$/, "");  print }' "${inexample}" )
     cp "${inexample}" "${workdir}/${modname}.erl"
     cp "${intest}" "${workdir}/${testfn}"
     (
