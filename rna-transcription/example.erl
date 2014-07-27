@@ -4,7 +4,11 @@
 to_rna(Strand) ->
   lists:map(fun transcribe_to_rna/1, Strand).
 
+transcribe_to_rna($G) ->
+     $C;
+transcribe_to_rna($C) ->
+     $G;
 transcribe_to_rna($T) ->
-     $U;
-transcribe_to_rna(Nucleotide) ->
-    Nucleotide.
+     $A;
+transcribe_to_rna($A) ->
+     $U.
