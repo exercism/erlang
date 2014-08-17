@@ -16,7 +16,7 @@ count(Dna, N) ->
 
 % Check if N is a valid nucleotide.
 validate(N) ->
-    case lists:member(N, ["A", "T", "C", "G", "U"]) of
+    case lists:member(N, ["A", "T", "C", "G"]) of
         true -> true;
         _ -> erlang:error("Invalid nucleotide")
     end.
