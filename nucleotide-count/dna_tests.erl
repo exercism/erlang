@@ -11,9 +11,6 @@ repetitive_cytidine_gets_counted_test() ->
 counts_only_thymidine_test() ->
     ?assertEqual(dna:count("GGGGGTAACCCGG", "T"), 1).
 
-dna_has_no_uracil_test() ->
-    ?assertEqual(dna:count("GATTACA", "U"), 0).
-
 validates_nucleotides_test() ->
     ?assertException(error, "Invalid nucleotide", dna:count("GACT", "X")).
 
