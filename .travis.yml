@@ -4,6 +4,8 @@ otp_release:
 install:
   - './_test/bootstrap.sh'
 script:
+  - bin/fetch-configlet
+  - bin/configlet .
   - './_test/check-exercises.sh'
 cache:
   - apt
