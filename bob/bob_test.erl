@@ -6,7 +6,7 @@ responds_to_something_test() ->
     bob_responds("Tom-ay-to, tom-aaaah-to.", "Whatever.").
 
 responds_to_shouts_test() ->
-    bob_responds("WATCH OUT!", "Woah, chill out!").
+    bob_responds("WATCH OUT!", "Whoa, chill out!").
 
 responds_to_questions_test() ->
     bob_responds("Does this cryogenic chamber make me look fat?", "Sure.").
@@ -18,17 +18,17 @@ responds_to_acronyms_test() ->
     bob_responds("It's OK if you don't want to go to the DMV.", "Whatever.").
 
 responds_to_forceful_questions_test() ->
-    bob_responds("WHAT THE HELL WERE YOU THINKING?", "Woah, chill out!").
+    bob_responds("WHAT THE HELL WERE YOU THINKING?", "Whoa, chill out!").
 
 responds_to_shouting_with_special_characters_test() ->
     bob_responds("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!",
-                 "Woah, chill out!").
+                 "Whoa, chill out!").
 
 responds_to_shouting_numbers_test() ->
-    bob_responds("1, 2, 3, GO!", "Woah, chill out!").
+    bob_responds("1, 2, 3, GO!", "Whoa, chill out!").
 
 responds_to_shouting_with_no_exclamation_mark_test() ->
-    bob_responds("I HATE YOU", "Woah, chill out!").
+    bob_responds("I HATE YOU", "Whoa, chill out!").
 
 responds_to_statement_containing_question_mark_test() ->
     bob_responds("Ending with ? means a question", "Whatever.").
@@ -60,7 +60,7 @@ responds_to_question_with_only_numbers_test() ->
     bob_responds("4?", "Sure.").
 
 responds_to_unicode_shout_test() ->
-    bob_responds("\xdcML\xc4\xdcTS!", "Woah, chill out!").
+    bob_responds("\xdcML\xc4\xdcTS!", "Whoa, chill out!").
 
 responds_to_unicode_non_shout_test() ->
     bob_responds("\xdcML\xe4\xdcTS!", "Whatever.").
