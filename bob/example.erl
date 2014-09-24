@@ -7,7 +7,7 @@ response_for(String) ->
     first_match(
       String,
       [{fun is_all_spaces/1, "Fine. Be that way!"},
-       {fun is_shouting/1, "Woah, chill out!"},
+       {fun is_shouting/1, "Whoa, chill out!"},
        {fun is_question/1, "Sure."},
        {fun (_) -> true end, "Whatever."}]).
 
