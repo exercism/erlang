@@ -1,4 +1,8 @@
--module(accumulate_test).
+% To run tests:
+% erl -make
+% erl -noshell -eval "eunit:test(accumulate, [verbose])" -s init stop
+
+-module(accumulate_tests).
 -import(accumulate, [accumulate/2]).
 -include_lib("eunit/include/eunit.hrl").
 
