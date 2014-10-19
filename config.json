@@ -18,6 +18,7 @@
     "phone-number",
     "grade-school",
     "word-count",
+    "circular-buffer",
     "etl",
     "gigasecond",
     "beer-song",
