@@ -6,19 +6,19 @@
 -include_lib("eunit/include/eunit.hrl").
 
 transcribes_cytidine_unchanged_test() ->
-  ?assertEqual("C", rna_transcription:to_rna("G")).
+  ?assertEqual("C", rna_transcription:from_dna("G")).
 
 transcribes_guanosine_unchanged_test() ->
-  ?assertEqual("G", rna_transcription:to_rna("C")).
+  ?assertEqual("G", rna_transcription:from_dna("C")).
 
 transcribes_adenosine_unchanged_test() ->
-  ?assertEqual("A", rna_transcription:to_rna("T")).
+  ?assertEqual("A", rna_transcription:from_dna("T")).
 
 transcribes_thymidine_to_uracil_test() ->
-  ?assertEqual("U", rna_transcription:to_rna("A")).
+  ?assertEqual("U", rna_transcription:from_dna("A")).
 
 transcribes_all_occurences_test() ->
   ?assertEqual(
       "UGCACCAGAAUU",
-      rna_transcription:to_rna("ACGTGGTCTTAA")
+      rna_transcription:from_dna("ACGTGGTCTTAA")
   ).
