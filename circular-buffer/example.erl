@@ -19,6 +19,36 @@ write_attempt( Pid, Item ) ->
 
 
 
+handle( {read, Pid},  {0, MaxSize, Queue}) ->
+  Pid ! {read, empty, erlang:self()},
+  {0, MaxSize, Queue};
+handle( {read, Pid},  {CurrentSize, MaxSize, Queue}) ->
+  {Result, NewQueue} = queue:out(Queue),
+  Pid ! {read, Result, erlang:self()},
+  {CurrentSize-1, MaxSize, NewQueue};
+handle( {write, Item}, {MaxSize, MaxSize, Queue}) ->
+  {_Old, TmpQueue} = queue:out(Queue),
+  NewQueue = queue:in(Item, TmpQueue),
+  {MaxSize, MaxSize, NewQueue};
+handle( {write, Item}, {CurrentSize, MaxSize, Queue}) ->
+  NewQueue = queue:in(Item, Queue),
+  {CurrentSize+1, MaxSize, NewQueue};
+handle( {write_attempt, _Item, Pid}, {MaxSize, MaxSize, Queue}) ->
+  Pid ! {write_attempt, false, erlang:self()},
+  {MaxSize, MaxSize, Queue};
+handle( {write_attempt, Item, Pid}, {CurrentSize, MaxSize, Queue}) ->
+  Pid ! {write_attempt, true, erlang:self()},
+  NewQueue = queue:in(Item, Queue),
+  {CurrentSize+1, MaxSize, NewQueue};
+handle( {size, Pid}, {CurrentSize, MaxSize, Queue}) ->
+  Pid ! {size, MaxSize, Queue},
+  {CurrentSize, MaxSize, Queue}.
+
+loop(State) ->
+  receive
+    Request ->
+      loop(handle(Request, State))
+  end.
 
 loop( Current_size, Max_size, Queue ) ->
       receive
