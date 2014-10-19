@@ -1,4 +1,4 @@
--module(example).
+-module(etl).
 
 -export([transform/1]).
 

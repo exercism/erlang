@@ -21,7 +21,19 @@
     "beer-song",
     "allergies",
     "luhn",
-    "trinary"
+    "trinary",
+    "atbash-cipher",
+    "bank-account",
+    "binary",
+    "circular-buffer",
+    "clock",
+    "difference-of-squares",
+    "grains",
+    "hamming",
+    "largest-series-product",
+    "parallel-letter-frequency",
+    "robot-simulator",
+    "series"  
   ],
   "deprecated": [
 

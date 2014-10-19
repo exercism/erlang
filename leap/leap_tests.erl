@@ -1,20 +1,11 @@
-% To run tests:
-% erl -make
-% erl -noshell -eval "eunit:test(leap, [verbose])" -s init stop
-%
+-module( leap_tests ).
+-include_lib( "eunit/include/eunit.hrl" ).
 
--module(leap_tests).
+one_test() -> ?assert( leap:is_leap_year(1996) ).
 
--include_lib("eunit/include/eunit.hrl").
+two_test() -> ?assert( leap:is_leap_year(2000) ).
 
-leap_year_test() ->
-    ?assert(leap:leap_year(1996)).
+three_test() -> ?assertNot( leap:is_leap_year(1900) ).
 
-non_leap_year_test() ->
-    ?assertNot(leap:leap_year(1997)).
+four_test() -> ?assertNot( leap:is_leap_year(1997) ).
 
-century_test() ->
-    ?assertNot(leap:leap_year(1900)).
-
-fourth_century_test() ->
-    ?assert(leap:leap_year(2400)).
