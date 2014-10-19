@@ -14,7 +14,7 @@ dna_has_no_uracil_test() ->
     ?assertEqual( nucleotide_count:count("GATTACA", "U"), 0 ).
 
 validates_nucleotides_test() ->
-    ?assertException( error, "Invalid nucleotide", nucleotide_count:count("GACT", "X") ).
+    ?assertException( error, "Invalid nucleotide", nucleotide_count:count("GACX", "X") ).
 
 empty_dna_string_has_no_nucleotides_test() ->
     ?assertEqual( nucleotide_count:dna(""), {{"A", 0}, {"T", 0}, {"C", 0}, {"G", 0}} ).

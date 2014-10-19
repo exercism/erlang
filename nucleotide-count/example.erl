@@ -1,9 +1,9 @@
 -module( nucleotide_count ).
-
+-compile(export_all).
 -export( [count/2, dna/1, validate/1] ).
 
 count(Dna, N) ->
-    validate(N),
+    validate_strand(Dna),
 
     lists:foldl(
       fun(X, Sum) ->
@@ -14,9 +14,13 @@ count(Dna, N) ->
       end,
       0, Dna).
 
-% Check if N is a valid nucleotide.
+
+validate_strand("") -> true;
+validate_strand(Strand) ->
+  lists:all( fun validate/1, Strand).
+
 validate(N) ->
-    case lists:member(N, ["A", "T", "C", "G"]) of
+    case lists:member(N, "ATCGU") of
         true -> true;
         _ -> erlang:error("Invalid nucleotide")
     end.
