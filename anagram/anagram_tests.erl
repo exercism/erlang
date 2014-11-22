@@ -1,4 +1,4 @@
--module(anagram_test).
+-module( anagram_tests ).
 -include_lib("eunit/include/eunit.hrl").
 
 no_matches_test() ->

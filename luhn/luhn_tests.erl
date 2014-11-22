@@ -1,4 +1,4 @@
--module(luhn_test).
+-module( luhn_tests ).
 -include_lib("eunit/include/eunit.hrl").
 
 invalid_test() ->

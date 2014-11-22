@@ -1,8 +1,9 @@
--module(dna).
--export([to_rna/1]).
+-module( rna_transcription ).
+-export( [from_dna/1] ).
 
-to_rna(Strand) ->
-  lists:map(fun transcribe_to_rna/1, Strand).
+from_dna( Strand ) -> lists:map( fun transcribe_to_rna/1, Strand ).
+
+
 
 transcribe_to_rna($G) ->
      $C;

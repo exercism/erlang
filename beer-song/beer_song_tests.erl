@@ -1,4 +1,4 @@
--module(beer_song_test).
+-module( beer_song_tests ).
 -include_lib("eunit/include/eunit.hrl").
 
 verse_test() ->
