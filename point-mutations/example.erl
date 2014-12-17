@@ -1,6 +1,12 @@
 -module(dna).
 
--export([hammingDistance/2]).
+-export([hamming_distance/2]).
 
-hammingDistance(_, _) ->
-    0.
+hamming_distance(From, To) ->
+    Comparisons = lists:zipwith(fun(X,Y) -> case X =:= Y of
+                                          true -> 0;
+                                          false -> 1
+                                      end
+                          end,
+                          From, To),
+    lists:sum(Comparisons).
