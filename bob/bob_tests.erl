@@ -1,4 +1,4 @@
--module(bob_test).
+-module(bob_tests).
 
 -include_lib("eunit/include/eunit.hrl").
 

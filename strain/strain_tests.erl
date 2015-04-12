@@ -1,4 +1,4 @@
--module(strain_test).
+-module(strain_tests).
 
 -include_lib("eunit/include/eunit.hrl").
 

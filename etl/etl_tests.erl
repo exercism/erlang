@@ -1,4 +1,4 @@
--module(etl_test).
+-module(etl_tests).
 
 -include_lib("eunit/include/eunit.hrl").
 

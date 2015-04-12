@@ -1,4 +1,4 @@
--module(word_count_test).
+-module(word_count_tests).
 -include_lib("eunit/include/eunit.hrl").
 
 %% dict should be used to implement wound_count:count/1.

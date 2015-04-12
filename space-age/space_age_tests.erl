@@ -1,4 +1,4 @@
--module(space_age_test).
+-module(space_age_tests).
 
 -include_lib("eunit/include/eunit.hrl").
 
