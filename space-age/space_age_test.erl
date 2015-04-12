@@ -41,7 +41,7 @@ age_in_neptune_years_test() ->
     equalFloat(space_age:ageOn(neptune, Seconds), 1.58).
 
 equalFloat(A, B) ->
-    ?assertEqual(round(A,2), B).
+    ?assertEqual(B, round(A,2)).
 
 round(Number, Precision) ->
     P = math:pow(10, Precision),

@@ -47,4 +47,4 @@ sing_all_the_rest_of_the_verses_test() ->
     "Go to the store and buy some more, 99 bottles of beer on the wall.\n\n").
 
 compareNestedLists(Response, Expected) ->
-  ?assertEqual(lists:flatten(Response), lists:flatten(Expected)).
+  ?assertEqual(lists:flatten(Expected), lists:flatten(Response)).

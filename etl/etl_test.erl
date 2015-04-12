@@ -51,6 +51,6 @@ transform_full_dataset_test() ->
   erl_transform(Old, Expected).
 
 erl_transform(Old,New) ->
-    ?assertEqual(example:transform(Old), New).
+    ?assertEqual(New, example:transform(Old)).
 
 
