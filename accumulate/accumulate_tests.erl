@@ -3,7 +3,6 @@
 % erl -noshell -eval "eunit:test(accumulate, [verbose])" -s init stop
 
 -module(accumulate_tests).
--import(accumulate, [accumulate/2]).
 -include_lib("eunit/include/eunit.hrl").
 
 accumulate_squares_test() ->
