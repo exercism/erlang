@@ -8,30 +8,31 @@
 -include_lib("eunit/include/eunit.hrl").
 
 no_allergies_at_all_test() ->
-    ?assertEqual(allergies:allergies(0), []).
+    ?assertEqual([], allergies:allergies(0)).
 
 allergic_to_just_eggs_test() ->
-    ?assertEqual(allergies:allergies(1), ['eggs']).
+    ?assertEqual(['eggs'], allergies:allergies(1)).
 
 allergic_to_just_peanuts_test() ->
-    ?assertEqual(allergies:allergies(2), ['peanuts']).
+    ?assertEqual(['peanuts'], allergies:allergies(2)).
 
 allergic_to_just_strawberries_test() ->
-    ?assertEqual(allergies:allergies(8), ['strawberries']).
+    ?assertEqual(['strawberries'], allergies:allergies(8)).
 
 allergic_to_eggs_and_peanuts_test() ->
-    ?assertEqual(allergies:allergies(3), ['eggs', 'peanuts']).
+    ?assertEqual(['eggs', 'peanuts'], allergies:allergies(3)).
 
 allergic_to_more_than_eggs_but_not_peanuts_test() ->
-    ?assertEqual(allergies:allergies(5), ['eggs', 'shellfish']).
+    ?assertEqual(['eggs', 'shellfish'], allergies:allergies(5)).
 
 allergic_to_lots_of_stuff_test() ->
-    ?assertEqual(allergies:allergies(248), ['strawberries', 'tomatoes', 'chocolate',
-                                            'pollen', 'cats']).
+    ?assertEqual(
+       ['strawberries', 'tomatoes', 'chocolate', 'pollen', 'cats'], allergies:allergies(248)).
 
 allergic_to_everything_test() ->
-    ?assertEqual(allergies:allergies(255),['eggs', 'peanuts', 'shellfish', 'strawberries',
-                                           'tomatoes', 'chocolate', 'pollen', 'cats']).
+    ?assertEqual(
+       ['eggs', 'peanuts', 'shellfish', 'strawberries', 'tomatoes', 'chocolate', 'pollen', 'cats'],
+       allergies:allergies(255)).
 
 no_allergies_means_not_allergic_test() ->
     ?assertNot(allergies:isAllergicTo('peanuts', 0)),
@@ -45,5 +46,6 @@ allergic_to_eggs_and_other_stuff_test() ->
     ?assert(allergies:isAllergicTo('eggs', 5)).
 
 ignore_non_allergen_score_parts_test() ->
-    ?assertEqual(allergies:allergies(509), ['eggs', 'shellfish', 'strawberries',
-                                            'tomatoes', 'chocolate', 'pollen', 'cats']).
+    ?assertEqual(
+       ['eggs', 'shellfish', 'strawberries', 'tomatoes', 'chocolate', 'pollen', 'cats'],
+       allergies:allergies(509)).

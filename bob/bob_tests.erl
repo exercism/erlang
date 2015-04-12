@@ -1,4 +1,4 @@
--module(bob_test).
+-module(bob_tests).
 
 -include_lib("eunit/include/eunit.hrl").
 
@@ -66,5 +66,4 @@ responds_to_unicode_non_shout_test() ->
     bob_responds("\xdcML\xe4\xdcTS!", "Whatever.").
 
 bob_responds(Question, Answer) ->
-    ?assertEqual(bob:response_for(Question),
-                  Answer).
+    ?assertEqual(Answer, bob:response_for(Question)).
