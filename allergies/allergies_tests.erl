@@ -1,5 +1,5 @@
 % To run tests:
-% elc *.erl
+% erlc *.erl
 % erl -noshell -eval "eunit:test(allergies, [verbose])" -s init stop
 %
 
