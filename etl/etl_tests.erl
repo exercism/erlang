@@ -2,6 +2,10 @@
 
 -include_lib("eunit/include/eunit.hrl").
 
+% To run tests:
+% erlc -make
+% erl -noshell -eval "eunit:test(etl, [verbose])" -s init stop
+
 transform_one_value_test() ->
   erl_transform([{"a", [1]}], [{1, "a"}]).
 
