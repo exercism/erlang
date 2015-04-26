@@ -1,4 +1,4 @@
--module(example).
+-module(trinary).
 -export([to_decimal/1]).
 -define(BASE, 3).
 
