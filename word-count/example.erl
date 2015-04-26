@@ -1,7 +1,7 @@
 -module(word_count).
 -export([count/1]).
 
--spec count(string()) -> dict().
+-spec count(string()) -> dict:dict(string(), integer()).
 count(S) ->
     lists:foldl(fun (K, Acc) -> dict:update_counter(K, 1, Acc) end,
                 dict:new(),
