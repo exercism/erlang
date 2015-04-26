@@ -1,4 +1,4 @@
--module(example).
+-module(etl).
 
 -export([transform/1]).
 
@@ -11,25 +11,25 @@ transform(OldValue) ->
     )
   ).
 
-
 invert(Pairs) ->
   lists:foldl(
     fun({Key, Values}, A) ->
       lists:foldl(
-        fun(Value, Acc) -> 
+        fun(Value, Acc) ->
           orddict:update(
-            string:to_lower(Value), 
-            fun (Old) -> 
+            string:to_lower(Value),
+            fun (Old) ->
               lists:flatten([Old] ++ [Key])
-            end, 
-            Key, 
+            end,
+            Key,
             Acc
           )
         end,
         A,
         Values
       )
-    end, 
+    end,
     orddict:new(),
     Pairs
   ).
+
