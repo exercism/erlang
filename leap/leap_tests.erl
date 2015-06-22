@@ -18,3 +18,7 @@ century_test() ->
 
 fourth_century_test() ->
     ?assert(leap:leap_year(2400)).
+
+wrong_type_test() ->
+    ?assertError(function_clause, leap:leap_year("1996")).
+
