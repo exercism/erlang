@@ -6,6 +6,6 @@ install:
 script:
   - bin/fetch-configlet
   - bin/configlet .
-  - './_test/check-exercises.sh'
+  - './_test/check-exercises.escript'
 cache:
   - apt
