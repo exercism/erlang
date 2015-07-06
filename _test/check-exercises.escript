@@ -1,14 +1,12 @@
 #! /usr/bin/env escript
 
-main( [] ) -> 
+main( [] ) ->
 	Examples = filelib:wildcard( "*/example.erl" ),
 	Modules = [{X, compile(X)} || X <- Examples],
 	[compile_tests(X) || X <- Modules],
 	Results = [run_tests(X) || X <- Modules],
-	erlang:halt( erlang:length([X || X <- Results, X =:= ok]) );
+	erlang:halt( erlang:length([X || X <- Results, X =/= ok]) );
 main( _ ) -> usage().
-
-
 
 compile( File ) ->
 	Compile = compile:file( File, [binary, return_errors] ),
