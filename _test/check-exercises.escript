@@ -24,7 +24,7 @@ compile_tests( {Example, {Example_module, _Binary}} ) ->
 
 run_tests( {_Example, {Module, _Binary}} ) ->
 	io:fwrite( "~p: ", [Module] ),
-	eunit:test( Module ).
+	eunit:test( Module, [verbose] ).
 
 
 usage() ->
