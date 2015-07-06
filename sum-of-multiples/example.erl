@@ -6,17 +6,17 @@
 
 -spec sumOfMultiplesDefault(pos_integer()) -> non_neg_integer().
 sumOfMultiplesDefault(A) ->
-    sumOfMultiples([3,5], A).
+  sumOfMultiples([3,5], A).
 
 -spec sumOfMultiples([pos_integer()], pos_integer()) -> non_neg_integer().
 sumOfMultiples(Multiples, A) ->
-    foldl(fun(X, Sum) -> case multiple(Multiples, X) of
-                             true -> Sum + X;
-                             false -> Sum
-                         end
-          end,
-          0,
-          seq(1, A-1)).
+  foldl(fun(X, Sum) -> case multiple(Multiples, X) of
+                         true -> Sum + X;
+                         false -> Sum
+                       end
+        end,
+        0,
+        seq(1, A-1)).
 
 multiple(List, X) ->
-    any(fun(E) -> (X rem E) =:= 0 end, List).
+  any(fun(E) -> (X rem E) =:= 0 end, List).

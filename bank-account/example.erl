@@ -20,29 +20,29 @@ withdraw( _Pid, _Amount ) -> 0.
 
 
 call( true, Pid, Request, Argument ) ->
-	Pid ! {Request, Argument, erlang:self()},
-	receive
-		{Request, Answer} -> Answer
-	end.
+  Pid ! {Request, Argument, erlang:self()},
+  receive
+    {Request, Answer} -> Answer
+  end.
 
 loop( Balance ) ->
-	receive
-		{balance, _Argument, Pid} ->
-			Pid ! {balance, Balance},
-			loop( Balance );
-		{charge, Amount, Pid} ->
-			Charge = loop_charge( Balance, Amount ),
-			Pid ! {charge, Charge},
-			loop( Balance - Charge );
-		{close, _Argument, Pid} ->
-			Pid ! {close, Balance};
-		{deposit, Amount} ->
-			loop( Balance + Amount );
-		{withdraw, Amount, Pid} ->
-			Withdraw = erlang:min( Balance, Amount ),
-			Pid ! {withdraw, Withdraw},
-			loop( Balance - Withdraw )
-	end.
+  receive
+    {balance, _Argument, Pid} ->
+      Pid ! {balance, Balance},
+      loop( Balance );
+    {charge, Amount, Pid} ->
+      Charge = loop_charge( Balance, Amount ),
+      Pid ! {charge, Charge},
+      loop( Balance - Charge );
+    {close, _Argument, Pid} ->
+      Pid ! {close, Balance};
+    {deposit, Amount} ->
+      loop( Balance + Amount );
+    {withdraw, Amount, Pid} ->
+      Withdraw = erlang:min( Balance, Amount ),
+      Pid ! {withdraw, Withdraw},
+      loop( Balance - Withdraw )
+  end.
 
 loop_charge( Balance, Amount ) when Balance >= Amount -> Amount;
 loop_charge( _Balance, _Amount ) -> 0.

@@ -15,7 +15,7 @@
 schedule(Year, Month, DayOfWeek, Period) ->
   DoW = maps:get(DayOfWeek, ?DAY_MAP),
   [Day] = [Day || Day <- day_range(Period, Year, Month),
-          calendar:day_of_the_week({Year, Month, Day}) =:= DoW],
+                  calendar:day_of_the_week({Year, Month, Day}) =:= DoW],
   {Year, Month, Day}.
 
 day_range(first, _Year, _Month) ->

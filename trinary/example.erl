@@ -21,9 +21,9 @@ to_decimal(StringNumeric) ->
 %%
 
 numeric_or(StringNumeric, Or) -> case re:run(StringNumeric, "^[0-9]+$") of
-  {match, _} -> StringNumeric;
-  nomatch    -> Or
-end.
+                                   {match, _} -> StringNumeric;
+                                   nomatch    -> Or
+                                 end.
 
 %%
 %% builds a numeric character list indexed by position (i.e. [{Num, Index}, ...])

@@ -8,13 +8,13 @@
 -include_lib("eunit/include/eunit.hrl").
 
 leap_year_test() ->
-    ?assert(leap:leap_year(1996)).
+  ?assert(leap:leap_year(1996)).
 
 non_leap_year_test() ->
-    ?assertNot(leap:leap_year(1997)).
+  ?assertNot(leap:leap_year(1997)).
 
 century_test() ->
-    ?assertNot(leap:leap_year(1900)).
+  ?assertNot(leap:leap_year(1900)).
 
 fourth_century_test() ->
-    ?assert(leap:leap_year(2400)).
+  ?assert(leap:leap_year(2400)).

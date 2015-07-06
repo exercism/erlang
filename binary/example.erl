@@ -2,14 +2,14 @@
 -export( [to_decimal/1] ).
 
 to_decimal( String ) ->
-	    try
-	    {_N, Result} = lists:foldr( fun to_decimal/2, {0, 0}, String ),
-	    Result
+  try
+    {_N, Result} = lists:foldr( fun to_decimal/2, {0, 0}, String ),
+    Result
 
-	    catch
-	    _:_ -> 0
+  catch
+    _:_ -> 0
 
-	    end.
+  end.
 
 
 

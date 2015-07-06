@@ -8,14 +8,14 @@ checksum(Number) ->
     lists:reverse(
       lists:filter(
         fun(C) ->
-          ($0 =< C) andalso (C =< $9)
+            ($0 =< C) andalso (C =< $9)
         end,
         Number
-      )
-    ),
+       )
+     ),
     odd,
     0
-  ).
+   ).
 
 
 

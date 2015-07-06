@@ -7,29 +7,29 @@ transform(OldValue) ->
     orddict:from_list(
       lists:flatten(
         invert(OldValue)
-      )
-    )
-  ).
+       )
+     )
+   ).
 
 invert(Pairs) ->
   lists:foldl(
     fun({Key, Values}, A) ->
-      lists:foldl(
-        fun(Value, Acc) ->
-          orddict:update(
-            string:to_lower(Value),
-            fun (Old) ->
-              lists:flatten([Old] ++ [Key])
-            end,
-            Key,
-            Acc
-          )
-        end,
-        A,
-        Values
-      )
+        lists:foldl(
+          fun(Value, Acc) ->
+              orddict:update(
+                string:to_lower(Value),
+                fun (Old) ->
+                    lists:flatten([Old] ++ [Key])
+                end,
+                Key,
+                Acc
+               )
+          end,
+          A,
+          Values
+         )
     end,
     orddict:new(),
     Pairs
-  ).
+   ).
 

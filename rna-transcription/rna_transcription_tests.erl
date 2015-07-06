@@ -19,6 +19,6 @@ transcribes_thymidine_to_uracil_test() ->
 
 transcribes_all_occurences_test() ->
   ?assertEqual(
-      "UGCACCAGAAUU",
-      rna_transcription:to_rna("ACGTGGTCTTAA")
-  ).
+     "UGCACCAGAAUU",
+     rna_transcription:to_rna("ACGTGGTCTTAA")
+    ).
