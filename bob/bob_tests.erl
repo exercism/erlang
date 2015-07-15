@@ -1,3 +1,6 @@
+% To run tests:
+% erl -make && erl -noshell -eval "eunit:test(bob, [verbose])" -s init stop
+
 -module(bob_tests).
 
 -include_lib("eunit/include/eunit.hrl").
