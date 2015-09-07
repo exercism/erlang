@@ -7,32 +7,10 @@
 % erl -noshell -eval "eunit:test(etl, [verbose])" -s init stop
 
 transform_one_value_test() ->
-  erl_transform([{"a", [1]}], [{1, "a"}]).
-
-transform_one_word_test() ->
-  erl_transform([{"hello", ["WORLD"]}], [{"world", "hello"}]).
-
-transform_more_values_test() ->
-  erl_transform([{"hello", ["WORLD", "GSCHOOLERS"]}], [{"gschoolers", "hello"}, {"world", "hello"}]).
-
-transform_multiple_keys_from_one_value_test() ->
-  erl_transform([{"a", [1]}, {"b", [1]}], [{1, "ab"}]).
+  erl_transform([{1, ["a"]}], [{"a", 1}]).
 
 transform_multiple_keys_from_multiple_values_test() ->
-  erl_transform([{"a", [1]}, {"b", [4]}], [{1, "a"}, {4, "b"}]).
-
-transform_more_keys_test() ->
-  Old = [
-         {"a", ["APPLE", "ARTICHOKE"]},
-         {"b", ["BOAT", "BALLERINA"]}
-        ],
-  Expected = [
-              {"apple", "a"},
-              {"artichoke", "a"},
-              {"ballerina", "b"},
-              {"boat", "b"}
-             ],
-  erl_transform(Old, Expected).
+  erl_transform([{1, ["a", "e"]}, {4, ["b"]}], [{"a", 1}, {"b", 4}, {"e", 1}]).
 
 transform_full_dataset_test() ->
   Old = [
@@ -55,5 +33,4 @@ transform_full_dataset_test() ->
   erl_transform(Old, Expected).
 
 erl_transform(Old, New) ->
-  ?assertEqual(New, etl:transform(Old)).
-
+  ?assertEqual(lists:sort(New), lists:sort(etl:transform(Old))).
