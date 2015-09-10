@@ -12,10 +12,13 @@ bottles(N) ->
 verse(0) ->
   "No more bottles of beer on the wall, no more bottles of beer.\n"
   "Go to the store and buy some more, 99 bottles of beer on the wall.\n";
+verse(1) ->
+  "1 bottle of beer on the wall, 1 bottle of beer.\n"
+  "Take it down and pass it around, no more bottles of beer on the wall.\n";
 verse(N) ->
   io_lib:format(
     "~s of beer on the wall, ~s of beer.\n"
-    "Take it down and pass it around, ~s of beer on the wall.\n",
+    "Take one down and pass it around, ~s of beer on the wall.\n",
     [bottles(N), bottles(N), bottles(N - 1)]).
 
 -spec sing(non_neg_integer()) -> iolist().
