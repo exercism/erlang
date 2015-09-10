@@ -23,7 +23,9 @@ call( true, Pid, Request, Argument ) ->
   Pid ! {Request, Argument, erlang:self()},
   receive
     {Request, Answer} -> Answer
-  end.
+  end;
+call( false, _Pid, _Request, _Argument ) ->
+  {error, account_closed}.
 
 loop( Balance ) ->
   receive
