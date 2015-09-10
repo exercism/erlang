@@ -1,22 +1,43 @@
 -module(atbash_cipher_tests).
 -include_lib("eunit/include/eunit.hrl").
 
-encode_all_test() -> ?assert( lists:seq($z, $a, -1) =:= atbash_cipher:encode(lists:seq($a, $z)) ).
+encode(Str) ->
+    atbash_cipher:encode(Str).
 
-decode_all_test() -> ?assert( lists:seq($z, $a, -1) =:= atbash_cipher:decode(lists:seq($a, $z)) ).
+decode(Str) ->
+    atbash_cipher:decode(Str).
 
-encode_all_caps_test() -> ?assert( lists:seq($Z, $A, -1) =:= atbash_cipher:encode(lists:seq($A, $Z)) ).
+encode_no_test() ->
+    ?assertEqual("ml", encode("no")).
 
-decode_all_caps_test() -> ?assert( lists:seq($Z, $A, -1) =:= atbash_cipher:decode(lists:seq($A, $Z)) ).
+encode_yes_test() ->
+    ?assertEqual("bvh", encode("yes")).
 
-examples_encode_test() -> ?assert( "gvhg" =:= atbash_cipher:encode("test") ).
+encode_OMG_test() ->
+    ?assertEqual("lnt", encode("OMG")).
 
-examples_decode_test() -> ?assert( "test" =:= atbash_cipher:decode("gvhg") ).
+encode_O_M_G_test() ->
+    ?assertEqual("lnt", encode("O M G")).
 
-encode_decode_test() ->
-  String = "The quick brown fox jumps over the lazy dog.",
-  ?assert( String =:= atbash_cipher:decode(atbash_cipher:encode(String)) ).
+encode_long_word_test() ->
+    ?assertEqual("nrmwy oldrm tob", encode("mindblowingly")).
 
-alphanumeric_encode_test() -> ?assert( "gvhg: 1, 2, 3." =:= atbash_cipher:encode("test: 1, 2, 3.") ).
+encode_numbers_test() ->
+    ?assertEqual("gvhgr mt123 gvhgr mt",
+                 encode("Testing, 1 2 3, testing.")).
 
-alphanumeric_decode_test() -> ?assert( "test: 1, 2, 3." =:= atbash_cipher:encode("gvhg: 1, 2, 3.") ).
+encode_sentence_test() ->
+    ?assertEqual("gifgs rhurx grlm",
+                 encode("Truth is fiction.")).
+
+encode_all_things_test() ->
+    Plaintext = "The quick brown fox jumps over the lazy dog.",
+    Ciphertext = "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt",
+    ?assertEqual(Ciphertext, encode(Plaintext)).
+
+decode_word_test() ->
+    ?assertEqual("exercism", decode("vcvix rhn")).
+
+decode_sentence_test() ->
+    ?assertEqual("anobstacleisoftenasteppingstone",
+                 decode("zmlyh gzxov rhlug vmzhg vkkrm thglm v")).
