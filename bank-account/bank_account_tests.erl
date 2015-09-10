@@ -11,7 +11,7 @@ close_account_test() ->
   bank_account:deposit( Bank_account, 1 ),
   Amount = bank_account:close( Bank_account ),
   ?assert(Amount =:= 1),
-  ?assertError(function_clause, bank_account:balance( Bank_account )).
+  ?assertEqual({error, account_closed}, bank_account:balance( Bank_account )).
 
 deposit_test() ->
   Bank_account = bank_account:create(),
