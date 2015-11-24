@@ -4,6 +4,7 @@
   "repository": "https://github.com/exercism/xerlang",
   "active": true,
   "problems": [
+    "hello-world",
     "leap",
     "rna-transcription",
     "accumulate",
