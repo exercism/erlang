@@ -11,6 +11,9 @@ sum_to_3_test() ->
 
 sum_to_10_test() ->
   ?assertEqual(23, sumOfMultiplesDefault(10)).
+  
+sum_to_100_test() ->
+  ?assertEqual(2318, sumOfMultiplesDefault(100)).
 
 sum_to_1000_test() ->
   ?assertEqual(233168, sumOfMultiplesDefault(1000)).
