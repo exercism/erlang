@@ -34,7 +34,7 @@ get_students_in_a_grade_test() ->
   ?assertEqual(["Bradley","Franklin"], lists:sort(Students)).
 
 get_students_in_a_non_existant_grade_test() ->
-  ?assertEqual(grade_school:new(), grade_school:get(1, [])).
+  ?assertEqual([], grade_school:get(1, grade_school:new())).
 
 sort_school_test() ->
   S1 = grade_school:add("Jennifer", 4, grade_school:new()),
