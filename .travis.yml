@@ -10,3 +10,4 @@ script:
 - "./_test/check-exercises.escript"
 cache:
 - apt
+sudo: false
