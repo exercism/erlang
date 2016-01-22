@@ -1,5 +1,7 @@
 # xErlang
 
+[![Join the chat at https://gitter.im/exercism/xerlang](https://badges.gitter.im/exercism/xerlang.svg)](https://gitter.im/exercism/xerlang?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Exercism exercises in Erlang
 
 ## Contributing Guide
