@@ -1,9 +1,8 @@
 #! /usr/bin/env escript
 
 main( [] ) ->
-	Examples = filelib:wildcard( "*/example.erl" ), % TODO: remove this when done!
-	Examples1 = filelib:wildcard( "exercises/*/example.erl" ) ++ Examples,
-	Modules = [{X, compile(X)} || X <- Examples1],
+	Examples = filelib:wildcard( "exercises/*/example.erl" ),
+	Modules = [{X, compile(X)} || X <- Examples],
 	[compile_tests(X) || X <- Modules],
 	Results = [run_tests(X) || X <- Modules],
 	erlang:halt( erlang:length([X || X <- Results, X =/= ok]) );
