@@ -3,8 +3,7 @@
 -export([score/1]).
 
 score( Word ) ->
-  Scores = lists:map( fun get_char_value/1, string:to_lower( Word ) ),
-  lists:sum( Scores ).
+  lists:foldl(fun(X, Sum) -> get_char_value(X) + Sum end, 0, Word).
 
 get_char_value( $q ) -> 10;
 get_char_value( $z ) -> 10;
@@ -22,4 +21,7 @@ get_char_value( $m ) ->  3;
 get_char_value( $p ) ->  3;
 get_char_value( $d ) ->  2;
 get_char_value( $g ) ->  2;
-get_char_value( _ )  ->  1.
+get_char_value( C ) when C >= $a, C =< $z ->  1;
+get_char_value( C ) when C >= $A, C =< $Z ->
+  [C2] = string:to_lower( [C] ),
+  get_char_value( C2 ).  
