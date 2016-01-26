@@ -1,7 +1,7 @@
 #! /usr/bin/env escript
 
 main( [] ) ->
-	Examples = filelib:wildcard( "*/example.erl" ),
+	Examples = filelib:wildcard( "exercises/*/example.erl" ),
 	Modules = [{X, compile(X)} || X <- Examples],
 	[compile_tests(X) || X <- Modules],
 	Results = [run_tests(X) || X <- Modules],
