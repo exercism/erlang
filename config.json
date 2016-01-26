@@ -36,7 +36,8 @@
     "largest-series-product",
     "meetup",
     "parallel-letter-frequency",
-    "triangle"
+    "triangle",
+    "scrabble-score"  
   ],
   "deprecated": [
 
