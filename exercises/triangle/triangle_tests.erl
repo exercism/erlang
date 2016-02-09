@@ -4,11 +4,11 @@
 -module(triangle_tests).
 -include_lib("eunit/include/eunit.hrl").
 
-equiliteral_triangles_have_equal_sides_test() ->
-    ?assertMatch(equiliteral, triangle:kind(2,2,2)).
+equilateral_triangles_have_equal_sides_test() ->
+    ?assertMatch(equilateral, triangle:kind(2,2,2)).
 
-larger_equiliteral_triangles_also_have_equal_sides_test() ->
-    ?assertMatch(equiliteral, triangle:kind(10, 10, 10)).
+larger_equilateral_triangles_also_have_equal_sides_test() ->
+    ?assertMatch(equilateral, triangle:kind(10, 10, 10)).
 
 isosceles_triangles_have_at_least_two_sides_equal_test() ->
     ?assertMatch(isosceles, triangle:kind(3, 4, 4)).
