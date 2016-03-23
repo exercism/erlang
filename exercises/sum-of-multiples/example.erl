@@ -1,12 +1,8 @@
 -module(sum_of_multiples).
 
--export([sumOfMultiplesDefault/1, sumOfMultiples/2]).
+-export([sumOfMultiples/2]).
 
 -import(lists, [foldl/3, seq/2, any/2]).
-
--spec sumOfMultiplesDefault(pos_integer()) -> non_neg_integer().
-sumOfMultiplesDefault(A) ->
-  sumOfMultiples([3,5], A).
 
 -spec sumOfMultiples([pos_integer()], pos_integer()) -> non_neg_integer().
 sumOfMultiples(Multiples, A) ->
