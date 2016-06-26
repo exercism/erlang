@@ -40,7 +40,7 @@
     "scrabble-score"  
   ],
   "deprecated": [
-
+    "point-mutations"
   ],
   "ignored": [
     "docs",
