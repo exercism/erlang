@@ -37,7 +37,8 @@
     "meetup",
     "parallel-letter-frequency",
     "triangle",
-    "scrabble-score"  
+    "scrabble-score",
+    "zipper"
   ],
   "deprecated": [
     "point-mutations"
