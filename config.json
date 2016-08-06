@@ -48,6 +48,8 @@
     "_test"
   ],
   "foregone": [
-
+    "binary-search",
+    "lens-person",
+    "linked-list"
   ]
 }
