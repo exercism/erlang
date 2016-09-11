@@ -1,0 +1,9 @@
+{application, accumulate,
+  [{description, "exercism.io - accumulate"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
