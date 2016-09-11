@@ -21,9 +21,9 @@ is_equal(C, C) ->
 is_equal(_, _) ->
   false.
 
-minutes_add( Clock, Minutes ) ->
-  TotalMinutes =  (hour_minutes2minutes(Clock) + Minutes) rem day_minutes(),
-  minutes2hour_minutes(TotalMinutes).
+minutes_add(#?MODULE{normalized = Mins}, Minutes ) ->
+  TotalMinutes = mod(Mins + Minutes, ?MINUTES_PER_DAY),
+  #?MODULE{normalized = TotalMinutes}.
 
 
 minutes_delete( Clock, Minutes) ->

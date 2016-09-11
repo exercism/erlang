@@ -3,6 +3,8 @@
 
 -define(assertClockString(String, Hour, Minute), ?assertEqual(String, clock:to_string(clock:create( Hour, Minute)))).
 
+-define(assertClockAdd(String, Hour, Minute, Add), ?assertEqual(String, clock:to_string(clock:minutes_add(clock:create(Hour, Minute), Add)))).
+
 create_on_the_hour_test() ->
   ?assertClockString("08:00", 8, 0).
 
@@ -60,126 +62,58 @@ create_negative_hour_and_minutes_both_roll_over_test() ->
 create_negative_hour_and_minutes_both_roll_over_continuously_test() ->
   ?assertClockString("22:10", -121, -5810).
 
+
+
+add_minutes_test() ->
+  ?assertClockAdd("10:03", 10, 0, 3).
+
+add_no_minutes_test() ->
+  ?assertClockAdd("06:41", 6, 41, 0).
+
+add_to_next_hour_test() ->
+  ?assertClockAdd("01:25", 0, 45, 40).
+
+add_more_than_one_hour_test() ->
+  ?assertClockAdd("11:01", 10, 0, 61).
+
+add_more_than_two_hours_with_carry_test() ->
+  ?assertClockAdd("03:25", 0, 45, 160).
+
+
+add_across_midnight_test() ->
+  ?assertClockAdd("00:01", 23, 59, 2).
+
+add_more_than_one_day_test() ->
+  ?assertClockAdd("06:32", 5, 32, 1500). %% 1500 min => 25 h
+
+add_more_than_two_days_test() ->
+  ?assertClockAdd("11:21", 1, 1, 3500).
+
+subtract_minutes_test() ->
+  ?assertClockAdd("10:00", 10, 3, -3).
+
+subtract_to_previous_hour_test() ->
+  ?assertClockAdd("09:33", 10, 3, -30).
+
+subtract_more_than_an_hour_test() ->
+  ?assertClockAdd("08:53", 10, 3, -70).
+
+subtract_across_midnight_test() ->
+  ?assertClockAdd("23:59", 0, 3, -4).
+
+subtract_more_than_two_hours_test() ->
+  ?assertClockAdd("21:20", 0, 0, -160).
+
+subtract_more_than_two_hours_with_borrow_test() ->
+  ?assertClockAdd("03:35", 6, 15, -160).
+
+subtract_more_than_one_day_test() ->
+  ?assertClockAdd("04:32", 5, 32, -1500). %%1500 min => 25 h
+
+subtract_more_than_two_days_test() ->
+  ?assertClockAdd("00:20", 2, 20, -3000).
+
 %%{
-%%   "add": {
-%%      "description": [
-%%         "Test adding and subtracting minutes."
-%%      ],
-%%      "cases": [
-%%         {
-%%            "description": "add minutes",
-%%            "hour": 10,
-%%            "minute": 0,
-%%            "add": 3,
-%%            "expected": "10:03"
-%%         },
-%%         {
-%%            "description": "add no minutes",
-%%            "hour": 6,
-%%            "minute": 41,
-%%            "add": 0,
-%%            "expected": "06:41"
-%%         },
-%%         {
-%%            "description": "add to next hour",
-%%            "hour": 0,
-%%            "minute": 45,
-%%            "add": 40,
-%%            "expected": "01:25"
-%%         },
-%%         {
-%%            "description": "add more than one hour",
-%%            "hour": 10,
-%%            "minute": 0,
-%%            "add": 61,
-%%            "expected": "11:01"
-%%         },
-%%         {
-%%            "description": "add more than two hours with carry",
-%%            "hour": 0,
-%%            "minute": 45,
-%%            "add": 160,
-%%            "expected": "03:25"
-%%         },
-%%         {
-%%            "description": "add across midnight",
-%%            "hour": 23,
-%%            "minute": 59,
-%%            "add": 2,
-%%            "expected": "00:01"
-%%         },
-%%         {
-%%            "description": "add more than one day (1500 min = 25 hrs)",
-%%            "hour": 5,
-%%            "minute": 32,
-%%            "add": 1500,
-%%            "expected": "06:32"
-%%         },
-%%         {
-%%            "description": "add more than two days",
-%%            "hour": 1,
-%%            "minute": 1,
-%%            "add": 3500,
-%%            "expected": "11:21"
-%%         },
-%%         {
-%%            "description": "subtract minutes",
-%%            "hour": 10,
-%%            "minute": 3,
-%%            "add": -3,
-%%            "expected": "10:00"
-%%         },
-%%         {
-%%            "description": "subtract to previous hour",
-%%            "hour": 10,
-%%            "minute": 3,
-%%            "add": -30,
-%%            "expected": "09:33"
-%%         },
-%%         {
-%%            "description": "subtract more than an hour",
-%%            "hour": 10,
-%%            "minute": 3,
-%%            "add": -70,
-%%            "expected": "08:53"
-%%         },
-%%         {
-%%            "description": "subtract across midnight",
-%%            "hour": 0,
-%%            "minute": 3,
-%%            "add": -4,
-%%            "expected": "23:59"
-%%         },
-%%         {
-%%            "description": "subtract more than two hours",
-%%            "hour": 0,
-%%            "minute": 0,
-%%            "add": -160,
-%%            "expected": "21:20"
-%%         },
-%%         {
-%%            "description": "subtract more than two hours with borrow",
-%%            "hour": 6,
-%%            "minute": 15,
-%%            "add": -160,
-%%            "expected": "03:35"
-%%         },
-%%         {
-%%            "description": "subtract more than one day (1500 min = 25 hrs)",
-%%            "hour": 5,
-%%            "minute": 32,
-%%            "add": -1500,
-%%            "expected": "04:32"
-%%         },
-%%         {
-%%            "description": "subtract more than two days",
-%%            "hour": 2,
-%%            "minute": 20,
-%%            "add": -3000,
-%%            "expected": "00:20"
-%%         }
-%%      ]
-%%   },
 %%   "equal": {
 %%      "description": [
 %%         "Construct two separate clocks, set times, test if they are equal."
