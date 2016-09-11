@@ -113,192 +113,80 @@ subtract_more_than_one_day_test() ->
 subtract_more_than_two_days_test() ->
   ?assertClockAdd("00:20", 2, 20, -3000).
 
-%%{
-%%   "equal": {
-%%      "description": [
-%%         "Construct two separate clocks, set times, test if they are equal."
-%%      ],
-%%      "cases": [
-%%         {
-%%            "description": "clocks with same time",
-%%            "clock1": {
-%%               "hour": 15,
-%%               "minute": 37
-%%            },
-%%            "clock2": {
-%%               "hour": 15,
-%%               "minute": 37
-%%            },
-%%            "expected": true
-%%         },
-%%         {
-%%            "description": "clocks a minute apart",
-%%            "clock1": {
-%%               "hour": 15,
-%%               "minute": 36
-%%            },
-%%            "clock2": {
-%%               "hour": 15,
-%%               "minute": 37
-%%            },
-%%            "expected": false
-%%         },
-%%         {
-%%            "description": "clocks an hour apart",
-%%            "clock1": {
-%%               "hour": 14,
-%%               "minute": 37
-%%            },
-%%            "clock2": {
-%%               "hour": 15,
-%%               "minute": 37
-%%            },
-%%            "expected": false
-%%         },
-%%         {
-%%            "description": "clocks with hour overflow",
-%%            "clock1": {
-%%               "hour": 10,
-%%               "minute": 37
-%%            },
-%%            "clock2": {
-%%               "hour": 34,
-%%               "minute": 37
-%%            },
-%%            "expected": true
-%%         },
-%%         {
-%%            "description": "clocks with hour overflow by several days",
-%%            "clock1": {
-%%               "hour": 3,
-%%               "minute": 11
-%%            },
-%%            "clock2": {
-%%               "hour": 99,
-%%               "minute": 11
-%%            },
-%%            "expected": true
-%%         },
-%%         {
-%%            "description": "clocks with negative hour",
-%%            "clock1": {
-%%               "hour": 22,
-%%               "minute": 40
-%%            },
-%%            "clock2": {
-%%               "hour": -2,
-%%               "minute": 40
-%%            },
-%%            "expected": true
-%%         },
-%%         {
-%%            "description": "clocks with negative hour that wraps",
-%%            "clock1": {
-%%               "hour": 17,
-%%               "minute": 3
-%%            },
-%%            "clock2": {
-%%               "hour": -31,
-%%               "minute": 3
-%%            },
-%%            "expected": true
-%%         },
-%%         {
-%%            "description": "clocks with negative hour that wraps multiple times",
-%%            "clock1": {
-%%               "hour": 13,
-%%               "minute": 49
-%%            },
-%%            "clock2": {
-%%               "hour": -83,
-%%               "minute": 49
-%%            },
-%%            "expected": true
-%%         },
-%%         {
-%%            "description": "clocks with minute overflow",
-%%            "clock1": {
-%%               "hour": 0,
-%%               "minute": 1
-%%            },
-%%            "clock2": {
-%%               "hour": 0,
-%%               "minute": 1441
-%%            },
-%%            "expected": true
-%%         },
-%%         {
-%%            "description": "clocks with minute overflow by several days",
-%%            "clock1": {
-%%               "hour": 2,
-%%               "minute": 2
-%%            },
-%%            "clock2": {
-%%               "hour": 2,
-%%               "minute": 4322
-%%            },
-%%            "expected": true
-%%         },
-%%         {
-%%            "description": "clocks with negative minute",
-%%            "clock1": {
-%%               "hour": 2,
-%%               "minute": 40
-%%            },
-%%            "clock2": {
-%%               "hour": 3,
-%%               "minute": -20
-%%            },
-%%            "expected": true
-%%         },
-%%         {
-%%            "description": "clocks with negative minute that wraps",
-%%            "clock1": {
-%%               "hour": 4,
-%%               "minute": 10
-%%            },
-%%            "clock2": {
-%%               "hour": 5,
-%%               "minute": -1490
-%%            },
-%%            "expected": true
-%%         },
-%%         {
-%%            "description": "clocks with negative minute that wraps multiple times",
-%%            "clock1": {
-%%               "hour": 6,
-%%               "minute": 15
-%%            },
-%%            "clock2": {
-%%               "hour": 6,
-%%               "minute": -4305
-%%            },
-%%            "expected": true
-%%         },
-%%         {
-%%            "description": "clocks with negative hours and minutes",
-%%            "clock1": {
-%%               "hour": 7,
-%%               "minute": 32
-%%            },
-%%            "clock2": {
-%%               "hour": -12,
-%%               "minute": -268
-%%            },
-%%            "expected": true
-%%         },
-%%         {
-%%            "description": "clocks with negative hours and minutes that wrap",
-%%            "clock1": {
-%%               "hour": 18,
-%%               "minute": 7
-%%            },
-%%            "clock2": {
-%%               "hour": -54,
-%%               "minute": -11513
-%%            },
-%%            "expected": true
-%%         }
-%%      ]
-%%   }
-%%}
+
+equal_clocks_with_same_time_test() ->
+  Clock1 = clock:create(15, 37),
+  Clock2 = clock:create(15, 37),
+  ?assert(clock:is_equal(Clock1, Clock2)).
+
+equal_clocks_a_minute_apart_test() ->
+  Clock1 = clock:create(15, 36),
+  Clock2 = clock:create(15, 37),
+  ?assertNot(clock:is_equal(Clock1, Clock2)).
+
+equal_clocks_an_hour_apart_test() ->
+  Clock1 = clock:create(14, 37),
+  Clock2 = clock:create(15, 37),
+  ?assertNot(clock:is_equal(Clock1, Clock2)).
+
+
+equal_clocks_with_hour_overflow_test() ->
+  Clock1 = clock:create(10, 37),
+  Clock2 = clock:create(34, 37),
+  ?assert(clock:is_equal(Clock1, Clock2)).
+
+equal_clocks_with_hour_overflow_by_several_days_test() ->
+  Clock1 = clock:create(3, 11),
+  Clock2 = clock:create(99, 11),
+  ?assert(clock:is_equal(Clock1, Clock2)).
+
+equal_clocks_with_negative_hour_test() ->
+  Clock1 = clock:create(22, 40),
+  Clock2 = clock:create(-2, 40),
+  ?assert(clock:is_equal(Clock1, Clock2)).
+
+equal_clocks_with_negative_hour_that_wraps_test() ->
+  Clock1 = clock:create(17, 3),
+  Clock2 = clock:create(-31, 3),
+  ?assert(clock:is_equal(Clock1, Clock2)).
+
+equal_clocks_with_negative_hour_that_wraps_multiple_times_test() ->
+  Clock1 = clock:create(13, 49),
+  Clock2 = clock:create(-83, 49),
+  ?assert(clock:is_equal(Clock1, Clock2)).
+
+equal_clocks_with_minute_overflow_test() ->
+  Clock1 = clock:create(0, 1),
+  Clock2 = clock:create(0, 1441),
+  ?assert(clock:is_equal(Clock1, Clock2)).
+
+equal_clocks_with_minute_overflow_by_several_days_test() ->
+  Clock1 = clock:create(2, 2),
+  Clock2 = clock:create(2, 4322),
+  ?assert(clock:is_equal(Clock1, Clock2)).
+
+equal_clocks_with_negative_minute_test() ->
+  Clock1 = clock:create(2, 40),
+  Clock2 = clock:create(3, -20),
+  ?assert(clock:is_equal(Clock1, Clock2)).
+
+equal_clocks_with_negative_minute_that_wraps_test() ->
+  Clock1 = clock:create(4, 10),
+  Clock2 = clock:create(5, -1490),
+  ?assert(clock:is_equal(Clock1, Clock2)).
+
+equal_clocks_with_negative_minute_that_wraps_multiple_times_test() ->
+  Clock1 = clock:create(6, 15),
+  Clock2 = clock:create(6, -4305),
+  ?assert(clock:is_equal(Clock1, Clock2)).
+
+equal_clocks_with_negative_hours_and_minutes_test() ->
+  Clock1 = clock:create(7, 32),
+  Clock2 = clock:create(-12, -268),
+  ?assert(clock:is_equal(Clock1, Clock2)).
+
+equal_clocks_with_negative_hours_and_minutes_that_wrap_test() ->
+  Clock1 = clock:create(18, 7),
+  Clock2 = clock:create(-54, -11513),
+  ?assert(clock:is_equal(Clock1, Clock2)).
+
