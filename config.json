@@ -3,6 +3,183 @@
   "language": "Erlang",
   "repository": "https://github.com/exercism/xerlang",
   "active": true,
+  "exercises": [
+    {
+      "slug": "hello-world",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "leap",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "rna-transcription",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "accumulate",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "bob",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "sum-of-multiples",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "strain",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "hamming",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "space-age",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "grains",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "anagram",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "nucleotide-count",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "atbash-cipher",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "phone-number",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "robot-simulator",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "grade-school",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "binary",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "word-count",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "circular-buffer",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "etl",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "clock",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "gigasecond",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "beer-song",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "difference-of-squares",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "allergies",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "bank-account",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "luhn",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "series",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "trinary",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "largest-series-product",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "meetup",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "parallel-letter-frequency",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "triangle",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "scrabble-score",
+      "topics": [],
+      "difficulty": 1
+    },
+    {
+      "slug": "zipper",
+      "topics": [],
+      "difficulty": 1
+    }
+  ],
   "deprecated": [
     "point-mutations"
   ],
@@ -14,182 +191,5 @@
     "binary-search",
     "lens-person",
     "linked-list"
-  ],
-  "exercises": [
-    {
-      "difficulty": 1,
-      "slug": "hello-world",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "leap",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "rna-transcription",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "accumulate",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "bob",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "sum-of-multiples",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "strain",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "hamming",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "space-age",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "grains",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "anagram",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "nucleotide-count",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "atbash-cipher",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "phone-number",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "robot-simulator",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "grade-school",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "binary",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "word-count",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "circular-buffer",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "etl",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "clock",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "gigasecond",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "beer-song",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "difference-of-squares",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "allergies",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "bank-account",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "luhn",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "series",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "trinary",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "largest-series-product",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "meetup",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "parallel-letter-frequency",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "triangle",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "scrabble-score",
-      "topics": []
-    },
-    {
-      "difficulty": 1,
-      "slug": "zipper",
-      "topics": []
-    }
   ]
 }
