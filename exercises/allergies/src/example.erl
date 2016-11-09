@@ -1,15 +1,15 @@
--module(allergies).
+-module(example).
 
 -export([allergies/1, is_allergic_to/2]).
 
--define(ALLERGIES, ['eggs',             % 2^0
-                    'peanuts',          % 2^1
-                    'shellfish',        % 2^2
-                    'strawberries',     % 2^3
-                    'tomatoes',
-                    'chocolate',
-                    'pollen',
-                    'cats']).
+-define(ALLERGIES, ['eggs',         % 2^0
+                    'peanuts',      % 2^1
+                    'shellfish',    % 2^2
+                    'strawberries', % 2^3
+                    'tomatoes',     % 2^4
+                    'chocolate',    % 2^5
+                    'pollen',       % 2^6
+                    'cats']).       % 2^7
 
 allergies(Score) ->
   lists:filter(fun (X) -> is_allergic_to(X, Score) end, ?ALLERGIES).
@@ -32,4 +32,3 @@ index(Index, [_|Allergies], A) ->
   index(Index+1, Allergies, A);
 index(_, [], _) ->
   not_found.
-
