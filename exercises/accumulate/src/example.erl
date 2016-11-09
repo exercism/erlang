@@ -1,4 +1,4 @@
--module('accumulate').
+-module(example).
 -export([accumulate/2]).
 
 %%
