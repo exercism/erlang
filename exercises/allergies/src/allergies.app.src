@@ -1,0 +1,9 @@
+{application, allergies,
+  [{description, "exercism.io - allergies"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
