@@ -1,4 +1,5 @@
--module(anagram).
+-module(example).
+
 -export([find/2]).
 
 -spec find(string(), [string()]) -> [string()].
