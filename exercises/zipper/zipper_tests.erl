@@ -19,8 +19,8 @@ t1() -> bt(1, bt(2, empty(), leaf(3)), leaf(4)).
 t2() -> bt(1, bt(5, empty(), leaf(3)), leaf(4)).
 t3() -> bt(1, bt(2, leaf(5), leaf(3)), leaf(4)).
 t4() -> bt(1, leaf(2),                 leaf(4)).
-t5() -> bt(1, bt(2, nil, leaf(3)), bt(6, leaf(7), leaf(8))).
-t6() -> bt(1, bt(2, nil,     leaf(5)), leaf(4)).
+t5() -> bt(1, bt(2, empty(), leaf(3)), bt(6, leaf(7), leaf(8))).
+t6() -> bt(1, bt(2, empty(), leaf(5)), leaf(4)).
 
 data_is_retained_test() ->
     Exp = t1(),
