@@ -178,6 +178,11 @@
       "slug": "zipper",
       "topics": [],
       "difficulty": 1
+    },
+    {
+      "slug": "roman-numerals",
+      "topics": [],
+      "difficulty": 1
     }
   ],
   "deprecated": [
