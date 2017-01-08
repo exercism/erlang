@@ -11,7 +11,6 @@ numerals(Number) ->
     to_roman(Number, "", ?DIGITS).
 
 to_roman(0, Roman, _) -> Roman;
-to_roman(_, Roman, []) -> Roman;
 to_roman(N, Roman, Digits) ->
     {R, D} = hd(Digits),
     if
