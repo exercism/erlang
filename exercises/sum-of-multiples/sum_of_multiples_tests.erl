@@ -1,5 +1,5 @@
 -module(sum_of_multiples_tests).
--import(sum_of_multiples, [sumOfMultiplesDefault/1, sumOfMultiples/2]).
+-import(sum_of_multiples, [sumOfMultiples/2]).
 
 -include_lib("eunit/include/eunit.hrl").
 
