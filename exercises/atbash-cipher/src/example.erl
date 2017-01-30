@@ -1,4 +1,4 @@
--module(atbash_cipher).
+-module(example).
 
 -export([encode/1, decode/1]).
 
