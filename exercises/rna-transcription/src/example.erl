@@ -1,4 +1,4 @@
--module(rna_transcription).
+-module(example).
 -export([to_rna/1]).
 
 to_rna(Strand) ->
