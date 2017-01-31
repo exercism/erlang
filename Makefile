@@ -3,6 +3,8 @@ EXERCISE_FOLDERS = \
 
 SHELL = bash
 
+REBAR3 = rebar3
+
 test: $(EXERCISE_FOLDERS:%=%_test)
 
 %_test:
@@ -11,5 +13,4 @@ test: $(EXERCISE_FOLDERS:%=%_test)
 		false; \
 	fi
 	@echo "running tests for $(*:exercises/%_test=%)"
-	@cd $*; rebar3 eunit
-
+	@cd $*; $(REBAR3) eunit
