@@ -1,4 +1,4 @@
--module( robot_simulator ).
+-module( example ).
 
 -export( [advance/1, control/2, create/0, direction/1, left/1, place/3, position/1, right/1] ).
 
