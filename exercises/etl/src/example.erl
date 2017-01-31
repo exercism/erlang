@@ -1,4 +1,4 @@
--module(etl).
+-module(example).
 
 -export([transform/1]).
 
@@ -32,4 +32,3 @@ invert(Pairs) ->
     orddict:new(),
     Pairs
    ).
-

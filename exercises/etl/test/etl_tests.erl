@@ -1,10 +1,7 @@
 -module(etl_tests).
 
+-include("exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
-
-% To run tests:
-% erlc -make
-% erl -noshell -eval "eunit:test(etl, [verbose])" -s init stop
 
 transform_one_value_test() ->
   erl_transform([{1, ["a"]}], [{"a", 1}]).
@@ -33,4 +30,4 @@ transform_full_dataset_test() ->
   erl_transform(Old, Expected).
 
 erl_transform(Old, New) ->
-  ?assertEqual(lists:sort(New), lists:sort(etl:transform(Old))).
+  ?assertEqual(lists:sort(New), lists:sort((sut(etl)):transform(Old))).
