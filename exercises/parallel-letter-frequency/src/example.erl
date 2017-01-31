@@ -1,4 +1,4 @@
--module( parallel_letter_frequency ).
+-module( example ).
 
 -export( [dict/1] ).
 

@@ -1,0 +1,9 @@
+{application, parallel_letter_frequency,
+  [{description, "exercism.io - parallel-letter-frequency"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
