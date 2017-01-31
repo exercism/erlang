@@ -1,4 +1,4 @@
--module(phone).
+-module(example).
 
 -export([number/1, areacode/1, pretty_print/1]).
 
