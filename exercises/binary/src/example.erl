@@ -1,4 +1,4 @@
--module(binary_string). % binary is a "sticky module" so we have to use another name.
+-module(example). % binary is a "sticky module" so we have to use another name.
 -export( [to_decimal/1] ).
 
 to_decimal( String ) ->
