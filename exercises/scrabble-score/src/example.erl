@@ -1,4 +1,4 @@
--module(scrabble_score).
+-module(example).
 
 -export([score/1]).
 
@@ -24,4 +24,4 @@ get_char_value( $g ) ->  2;
 get_char_value( C ) when C >= $a, C =< $z ->  1;
 get_char_value( C ) when C >= $A, C =< $Z ->
   [C2] = string:to_lower( [C] ),
-  get_char_value( C2 ).  
+  get_char_value( C2 ).

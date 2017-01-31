@@ -1,7 +1,11 @@
 -module(scrabble_score_tests).
+
+-include("exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
--define(checkScore(N, S), ?assertEqual(N, scrabble_score:score(S))).
+-define(TESTED_MODULE, (sut(scrabble))).
+
+-define(checkScore(N, S), ?assertEqual(N, ?TESTED_MODULE:score(S))).
 
 empty_word_scores_zero_test() -> ?checkScore(0, "").
 
