@@ -1,4 +1,4 @@
--module(leap).
+-module(example).
 
 -export([leap_year/1]).
 

@@ -1,0 +1,9 @@
+{application, leap,
+  [{description, "exercism.io - leap"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
