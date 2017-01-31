@@ -1,4 +1,4 @@
--module(zipper).
+-module(example).
 
 -export([new_tree/3, empty/0]).
 
