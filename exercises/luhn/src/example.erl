@@ -1,4 +1,4 @@
--module(luhn).
+-module(example).
 -export([valid/1, create/1, checksum/1]).
 
 
