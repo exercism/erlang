@@ -1,4 +1,4 @@
--module(bank_account).
+-module(example).
 
 -export( [balance/1, charge/2, close/1, create/0, deposit/2, withdraw/2] ).
 

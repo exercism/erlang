@@ -1,0 +1,9 @@
+{application, bank_account,
+  [{description, "exercism.io - bank-account"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
