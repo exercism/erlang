@@ -1,4 +1,4 @@
--module( series ).
+-module( example ).
 
 -export( [from_string/2] ).
 

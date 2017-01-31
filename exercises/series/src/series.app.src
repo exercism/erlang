@@ -1,0 +1,9 @@
+{application, series,
+  [{description, "exercism.io - series"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
