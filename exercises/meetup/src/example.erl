@@ -1,4 +1,4 @@
--module(meetup).
+-module(example).
 -export([schedule/4]).
 
 -type year() :: non_neg_integer().
@@ -31,4 +31,3 @@ day_range(teenth, _Year, _Month) ->
 day_range(last, Year, Month) ->
   LastDay = calendar:last_day_of_the_month(Year, Month),
   lists:seq(LastDay - 6, LastDay).
-

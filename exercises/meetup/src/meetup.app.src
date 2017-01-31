@@ -1,0 +1,9 @@
+{application, meetup,
+  [{description, "exercism.io - meetup"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
