@@ -1,4 +1,4 @@
--module('clock').
+-module(example).
 
 -export([create/2,
   is_equal/2,

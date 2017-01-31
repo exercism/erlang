@@ -1,9 +1,13 @@
 -module('clock_tests').
+
+-include("exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
--define(assertClockString(String, Hour, Minute), ?assertEqual(String, clock:to_string(clock:create( Hour, Minute)))).
+-define(TESTED_MODULE, (sut(clock))).
 
--define(assertClockAdd(String, Hour, Minute, Add), ?assertEqual(String, clock:to_string(clock:minutes_add(clock:create(Hour, Minute), Add)))).
+-define(assertClockString(String, Hour, Minute), ?assertEqual(String, ?TESTED_MODULE:to_string(?TESTED_MODULE:create( Hour, Minute)))).
+
+-define(assertClockAdd(String, Hour, Minute, Add), ?assertEqual(String, ?TESTED_MODULE:to_string(?TESTED_MODULE:minutes_add(?TESTED_MODULE:create(Hour, Minute), Add)))).
 
 create_on_the_hour_test() ->
   ?assertClockString("08:00", 8, 0).
@@ -115,78 +119,77 @@ subtract_more_than_two_days_test() ->
 
 
 equal_clocks_with_same_time_test() ->
-  Clock1 = clock:create(15, 37),
-  Clock2 = clock:create(15, 37),
-  ?assert(clock:is_equal(Clock1, Clock2)).
+  Clock1 = ?TESTED_MODULE:create(15, 37),
+  Clock2 = ?TESTED_MODULE:create(15, 37),
+  ?assert(?TESTED_MODULE:is_equal(Clock1, Clock2)).
 
 equal_clocks_a_minute_apart_test() ->
-  Clock1 = clock:create(15, 36),
-  Clock2 = clock:create(15, 37),
-  ?assertNot(clock:is_equal(Clock1, Clock2)).
+  Clock1 = ?TESTED_MODULE:create(15, 36),
+  Clock2 = ?TESTED_MODULE:create(15, 37),
+  ?assertNot(?TESTED_MODULE:is_equal(Clock1, Clock2)).
 
 equal_clocks_an_hour_apart_test() ->
-  Clock1 = clock:create(14, 37),
-  Clock2 = clock:create(15, 37),
-  ?assertNot(clock:is_equal(Clock1, Clock2)).
+  Clock1 = ?TESTED_MODULE:create(14, 37),
+  Clock2 = ?TESTED_MODULE:create(15, 37),
+  ?assertNot(?TESTED_MODULE:is_equal(Clock1, Clock2)).
 
 
 equal_clocks_with_hour_overflow_test() ->
-  Clock1 = clock:create(10, 37),
-  Clock2 = clock:create(34, 37),
-  ?assert(clock:is_equal(Clock1, Clock2)).
+  Clock1 = ?TESTED_MODULE:create(10, 37),
+  Clock2 = ?TESTED_MODULE:create(34, 37),
+  ?assert(?TESTED_MODULE:is_equal(Clock1, Clock2)).
 
 equal_clocks_with_hour_overflow_by_several_days_test() ->
-  Clock1 = clock:create(3, 11),
-  Clock2 = clock:create(99, 11),
-  ?assert(clock:is_equal(Clock1, Clock2)).
+  Clock1 = ?TESTED_MODULE:create(3, 11),
+  Clock2 = ?TESTED_MODULE:create(99, 11),
+  ?assert(?TESTED_MODULE:is_equal(Clock1, Clock2)).
 
 equal_clocks_with_negative_hour_test() ->
-  Clock1 = clock:create(22, 40),
-  Clock2 = clock:create(-2, 40),
-  ?assert(clock:is_equal(Clock1, Clock2)).
+  Clock1 = ?TESTED_MODULE:create(22, 40),
+  Clock2 = ?TESTED_MODULE:create(-2, 40),
+  ?assert(?TESTED_MODULE:is_equal(Clock1, Clock2)).
 
 equal_clocks_with_negative_hour_that_wraps_test() ->
-  Clock1 = clock:create(17, 3),
-  Clock2 = clock:create(-31, 3),
-  ?assert(clock:is_equal(Clock1, Clock2)).
+  Clock1 = ?TESTED_MODULE:create(17, 3),
+  Clock2 = ?TESTED_MODULE:create(-31, 3),
+  ?assert(?TESTED_MODULE:is_equal(Clock1, Clock2)).
 
 equal_clocks_with_negative_hour_that_wraps_multiple_times_test() ->
-  Clock1 = clock:create(13, 49),
-  Clock2 = clock:create(-83, 49),
-  ?assert(clock:is_equal(Clock1, Clock2)).
+  Clock1 = ?TESTED_MODULE:create(13, 49),
+  Clock2 = ?TESTED_MODULE:create(-83, 49),
+  ?assert(?TESTED_MODULE:is_equal(Clock1, Clock2)).
 
 equal_clocks_with_minute_overflow_test() ->
-  Clock1 = clock:create(0, 1),
-  Clock2 = clock:create(0, 1441),
-  ?assert(clock:is_equal(Clock1, Clock2)).
+  Clock1 = ?TESTED_MODULE:create(0, 1),
+  Clock2 = ?TESTED_MODULE:create(0, 1441),
+  ?assert(?TESTED_MODULE:is_equal(Clock1, Clock2)).
 
 equal_clocks_with_minute_overflow_by_several_days_test() ->
-  Clock1 = clock:create(2, 2),
-  Clock2 = clock:create(2, 4322),
-  ?assert(clock:is_equal(Clock1, Clock2)).
+  Clock1 = ?TESTED_MODULE:create(2, 2),
+  Clock2 = ?TESTED_MODULE:create(2, 4322),
+  ?assert(?TESTED_MODULE:is_equal(Clock1, Clock2)).
 
 equal_clocks_with_negative_minute_test() ->
-  Clock1 = clock:create(2, 40),
-  Clock2 = clock:create(3, -20),
-  ?assert(clock:is_equal(Clock1, Clock2)).
+  Clock1 = ?TESTED_MODULE:create(2, 40),
+  Clock2 = ?TESTED_MODULE:create(3, -20),
+  ?assert(?TESTED_MODULE:is_equal(Clock1, Clock2)).
 
 equal_clocks_with_negative_minute_that_wraps_test() ->
-  Clock1 = clock:create(4, 10),
-  Clock2 = clock:create(5, -1490),
-  ?assert(clock:is_equal(Clock1, Clock2)).
+  Clock1 = ?TESTED_MODULE:create(4, 10),
+  Clock2 = ?TESTED_MODULE:create(5, -1490),
+  ?assert(?TESTED_MODULE:is_equal(Clock1, Clock2)).
 
 equal_clocks_with_negative_minute_that_wraps_multiple_times_test() ->
-  Clock1 = clock:create(6, 15),
-  Clock2 = clock:create(6, -4305),
-  ?assert(clock:is_equal(Clock1, Clock2)).
+  Clock1 = ?TESTED_MODULE:create(6, 15),
+  Clock2 = ?TESTED_MODULE:create(6, -4305),
+  ?assert(?TESTED_MODULE:is_equal(Clock1, Clock2)).
 
 equal_clocks_with_negative_hours_and_minutes_test() ->
-  Clock1 = clock:create(7, 32),
-  Clock2 = clock:create(-12, -268),
-  ?assert(clock:is_equal(Clock1, Clock2)).
+  Clock1 = ?TESTED_MODULE:create(7, 32),
+  Clock2 = ?TESTED_MODULE:create(-12, -268),
+  ?assert(?TESTED_MODULE:is_equal(Clock1, Clock2)).
 
 equal_clocks_with_negative_hours_and_minutes_that_wrap_test() ->
-  Clock1 = clock:create(18, 7),
-  Clock2 = clock:create(-54, -11513),
-  ?assert(clock:is_equal(Clock1, Clock2)).
-
+  Clock1 = ?TESTED_MODULE:create(18, 7),
+  Clock2 = ?TESTED_MODULE:create(-54, -11513),
+  ?assert(?TESTED_MODULE:is_equal(Clock1, Clock2)).
