@@ -1,7 +1,9 @@
 -module(word_count_tests).
+
+-include("exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
-%% dict should be used to implement wound_count:count/1.
+-define(TESTED_MODULE, (sut(word_count))).
 
 count_one_word_test() ->
   assert_count(
@@ -62,4 +64,4 @@ symbols_are_separators_test() ->
      {"broken", 1}]).
 
 assert_count(S, Expect) ->
-  ?assertEqual(orddict:from_list(Expect), orddict:from_list(dict:to_list(word_count:count(S)))).
+  ?assertEqual(orddict:from_list(Expect), orddict:from_list(dict:to_list(?TESTED_MODULE:count(S)))).

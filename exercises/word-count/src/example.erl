@@ -1,4 +1,4 @@
--module(word_count).
+-module(example).
 -export([count/1]).
 
 -spec count(string()) -> dict:dict(string(), integer()).
