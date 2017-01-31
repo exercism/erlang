@@ -3,61 +3,54 @@
 -include("exercism.hrl").
 -include_lib( "eunit/include/eunit.hrl" ).
 
-get_module_name() ->
-  sut(circular_buffer).
+-define(TESTED_MODULE, (sut(circular_buffer))).
 
 create_test() ->
-  CircularBuffer = get_module_name(),
-  Pid = CircularBuffer:create( 5 ),
-  ?assert( {ok, 5} =:= CircularBuffer:size(Pid) ).
+  Pid = ?TESTED_MODULE:create( 5 ),
+  ?assert( {ok, 5} =:= ?TESTED_MODULE:size(Pid) ).
 
 write_read_test() ->
-  CircularBuffer = get_module_name(),
-  Pid = CircularBuffer:create( 4 ),
-  ?assert( {error, empty} =:= CircularBuffer:read(Pid) ),
-  CircularBuffer:write( Pid, 1 ),
-  ?assert( {ok, 1} =:= CircularBuffer:read(Pid) ).
+  Pid = ?TESTED_MODULE:create( 4 ),
+  ?assert( {error, empty} =:= ?TESTED_MODULE:read(Pid) ),
+  ?TESTED_MODULE:write( Pid, 1 ),
+  ?assert( {ok, 1} =:= ?TESTED_MODULE:read(Pid) ).
 
 write_read_many_test() ->
-  CircularBuffer = get_module_name(),
-  Pid = CircularBuffer:create( 3 ),
-  CircularBuffer:write( Pid, 1 ),
-  CircularBuffer:write( Pid, 2 ),
-  CircularBuffer:write( Pid, 3 ),
-  ?assert( {ok, 1} =:= CircularBuffer:read(Pid) ),
-  ?assert( {ok, 2} =:= CircularBuffer:read(Pid) ),
-  ?assert( {ok, 3} =:= CircularBuffer:read(Pid) ).
+  Pid = ?TESTED_MODULE:create( 3 ),
+  ?TESTED_MODULE:write( Pid, 1 ),
+  ?TESTED_MODULE:write( Pid, 2 ),
+  ?TESTED_MODULE:write( Pid, 3 ),
+  ?assert( {ok, 1} =:= ?TESTED_MODULE:read(Pid) ),
+  ?assert( {ok, 2} =:= ?TESTED_MODULE:read(Pid) ),
+  ?assert( {ok, 3} =:= ?TESTED_MODULE:read(Pid) ).
 
 over_write_read_test() ->
-  CircularBuffer = get_module_name(),
-  Pid = CircularBuffer:create( 2 ),
-  CircularBuffer:write( Pid, 1 ),
-  CircularBuffer:write( Pid, 2 ),
-  CircularBuffer:write( Pid, 3 ),
-  CircularBuffer:write( Pid, 4 ),
-  ?assert( {ok, 3} =:= CircularBuffer:read(Pid) ),
-  ?assert( {ok, 4} =:= CircularBuffer:read(Pid) ),
-  ?assert( {error, empty} =:= CircularBuffer:read(Pid) ).
+  Pid = ?TESTED_MODULE:create( 2 ),
+  ?TESTED_MODULE:write( Pid, 1 ),
+  ?TESTED_MODULE:write( Pid, 2 ),
+  ?TESTED_MODULE:write( Pid, 3 ),
+  ?TESTED_MODULE:write( Pid, 4 ),
+  ?assert( {ok, 3} =:= ?TESTED_MODULE:read(Pid) ),
+  ?assert( {ok, 4} =:= ?TESTED_MODULE:read(Pid) ),
+  ?assert( {error, empty} =:= ?TESTED_MODULE:read(Pid) ).
 
 write_attempt_test() ->
-  CircularBuffer = get_module_name(),
-  Pid = CircularBuffer:create( 1 ),
-  Attempt1 = CircularBuffer:write_attempt( Pid, 1 ),
+  Pid = ?TESTED_MODULE:create( 1 ),
+  Attempt1 = ?TESTED_MODULE:write_attempt( Pid, 1 ),
   ?assert( ok =:= Attempt1 ),
-  Attempt2 = CircularBuffer:write_attempt( Pid, 2 ),
+  Attempt2 = ?TESTED_MODULE:write_attempt( Pid, 2 ),
   ?assert( {error, full} =:= Attempt2 ),
-  ?assert( {ok, 1} =:= CircularBuffer:read(Pid) ).
+  ?assert( {ok, 1} =:= ?TESTED_MODULE:read(Pid) ).
 
 producer_consumer_test() ->
-  CircularBuffer = get_module_name(),
-  Pid = CircularBuffer:create( 3 ),
+  Pid = ?TESTED_MODULE:create( 3 ),
   erlang:spawn( fun() ->
-                    [CircularBuffer:write(Pid, X) || X <- [1,2,3]]
+                    [?TESTED_MODULE:write(Pid, X) || X <- [1,2,3]]
                 end ),
   My_pid = erlang:self(),
   Ref = erlang:make_ref(),
   erlang:spawn( fun() ->
-                    My_pid ! {Ref, [CircularBuffer:read(Pid) || _X <- [1,2,3]]}
+                    My_pid ! {Ref, [?TESTED_MODULE:read(Pid) || _X <- [1,2,3]]}
                 end ),
   Reads = receive
             {Ref, R} -> R

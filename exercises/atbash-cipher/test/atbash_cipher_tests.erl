@@ -3,15 +3,13 @@
 -include("exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
--define(TESTED_MODULE, sut(atbash_cipher)).
+-define(TESTED_MODULE, (sut(atbash_cipher))).
 
 encode(Str) ->
-    Module = ?TESTED_MODULE,
-    Module:encode(Str).
+    ?TESTED_MODULE:encode(Str).
 
 decode(Str) ->
-    Module = ?TESTED_MODULE,
-    Module:decode(Str).
+    ?TESTED_MODULE:decode(Str).
 
 encode_no_test() ->
     ?assertEqual("ml", encode("no")).

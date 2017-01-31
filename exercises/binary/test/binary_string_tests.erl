@@ -3,8 +3,7 @@
 -include("exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
-get_module_name() ->
-  sut(binary_string).
+-define(TESTED_MODULE, (sut(binary_string))).
 
 one_test() -> check( "1" ).
 
@@ -21,9 +20,7 @@ twenty_six_test() -> check( "11010" ).
 large_test() -> check( "10001101000" ).
 
 carrot_test() ->
-  Binary = get_module_name(),
-  ?assert(0 =:= Binary:to_decimal( "carrot" )).
+  ?assert(0 =:= ?TESTED_MODULE:to_decimal( "carrot" )).
 
 check(String) ->
-  Binary = get_module_name(),
-  ?assert(Binary:to_decimal(String) =:= erlang:list_to_integer(String, 2)).
+  ?assert(?TESTED_MODULE:to_decimal(String) =:= erlang:list_to_integer(String, 2)).

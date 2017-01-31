@@ -3,36 +3,30 @@
 -include("exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
-get_module_name() ->
-  sut(beer_song).
+-define(TESTED_MODULE, (sut(beer_song))).
 
 verse_test() ->
-  BeerSong = get_module_name(),
-  compare_nested_lists(BeerSong:verse(8),
+  compare_nested_lists(?TESTED_MODULE:verse(8),
                        "8 bottles of beer on the wall, 8 bottles of beer.\n"
                        "Take one down and pass it around, 7 bottles of beer on the wall.\n").
 
 verse_0_test() ->
-  BeerSong = get_module_name(),
-  compare_nested_lists(BeerSong:verse(0),
+  compare_nested_lists(?TESTED_MODULE:verse(0),
                        "No more bottles of beer on the wall, no more bottles of beer.\n"
                        "Go to the store and buy some more, 99 bottles of beer on the wall.\n").
 
 verse_1_test() ->
-  BeerSong = get_module_name(),
-  compare_nested_lists(BeerSong:verse(1),
+  compare_nested_lists(?TESTED_MODULE:verse(1),
                        "1 bottle of beer on the wall, 1 bottle of beer.\n"
                        "Take it down and pass it around, no more bottles of beer on the wall.\n").
 
 verse_2_test() ->
-  BeerSong = get_module_name(),
-  compare_nested_lists(BeerSong:verse(2),
+  compare_nested_lists(?TESTED_MODULE:verse(2),
                        "2 bottles of beer on the wall, 2 bottles of beer.\n"
                        "Take one down and pass it around, 1 bottle of beer on the wall.\n").
 
 singing_several_verses_test() ->
-  BeerSong = get_module_name(),
-  compare_nested_lists(BeerSong:sing(8, 6),
+  compare_nested_lists(?TESTED_MODULE:sing(8, 6),
                        "8 bottles of beer on the wall, 8 bottles of beer.\n"
                        "Take one down and pass it around, 7 bottles of beer on the wall.\n\n"
 
@@ -43,8 +37,7 @@ singing_several_verses_test() ->
                        "Take one down and pass it around, 5 bottles of beer on the wall.\n\n").
 
 sing_all_the_rest_of_the_verses_test() ->
-  BeerSong = get_module_name(),
-  compare_nested_lists(BeerSong:sing(3),
+  compare_nested_lists(?TESTED_MODULE:sing(3),
                        "3 bottles of beer on the wall, 3 bottles of beer.\n"
                        "Take one down and pass it around, 2 bottles of beer on the wall.\n\n"
 

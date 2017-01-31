@@ -3,7 +3,9 @@
 -include("exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
--define(assertGrains(Grains, Square), ?assertMatch(Grains, (sut(grains)):square(Square))).
+-define(TESTED_MODULE, (sut(grains))).
+
+-define(assertGrains(Grains, Square), ?assertMatch(Grains, ?TESTED_MODULE:square(Square))).
 
 square_1_test() ->
   ?assertGrains(1, 1).
@@ -27,4 +29,4 @@ square_64_test() ->
   ?assertGrains(9223372036854775808, 64).
 
 total_grains_test() ->
-  ?assertMatch(18446744073709551615, (sut(grains)):total()).
+  ?assertMatch(18446744073709551615, ?TESTED_MODULE:total()).

@@ -3,8 +3,7 @@
 -include("exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
-get_module_name() ->
-  sut(bob).
+-define(TESTED_MODULE, (sut(bob))).
 
 responds_to_something_test() ->
   bob_responds("Tom-ay-to, tom-aaaah-to.", "Whatever.").
@@ -70,5 +69,4 @@ responds_to_unicode_non_shout_test() ->
   bob_responds("\xdcML\xe4\xdcTS!", "Whatever.").
 
 bob_responds(Question, Answer) ->
-  Bob = get_module_name(),
-  ?assertEqual(Answer, Bob:response_for(Question)).
+  ?assertEqual(Answer, ?TESTED_MODULE:response_for(Question)).
