@@ -1,4 +1,4 @@
--module(grains).
+-module(example).
 -export([square/1, total/0]).
 
 square(N) ->
@@ -14,4 +14,3 @@ total() ->
   lists:foldl(fun(Elem, Acc) -> square(Elem) + Acc end,
               0,
               lists:seq(1, 64)).
-
