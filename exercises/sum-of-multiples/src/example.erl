@@ -1,4 +1,4 @@
--module(sum_of_multiples).
+-module(example).
 
 -export([sumOfMultiples/2]).
 
