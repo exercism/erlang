@@ -1,9 +1,14 @@
 -module(difference_of_squares_tests).
+
+-include("exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
--define(assertSumOfSquares(Expected, Number), ?assertEqual(Expected, difference_of_squares:sum_of_squares(Number))).
--define(assertSquareOfSums(Expected, Number), ?assertEqual(Expected, difference_of_squares:square_of_sums(Number))).
--define(assertDifference(Expected, Number), ?assertEqual(Expected, difference_of_squares:difference_of_squares(Number))).
+-define(assertSumOfSquares(Expected, Number), ?assertEqual(Expected, (get_module_name()):sum_of_squares(Number))).
+-define(assertSquareOfSums(Expected, Number), ?assertEqual(Expected, (get_module_name()):square_of_sums(Number))).
+-define(assertDifference(Expected, Number), ?assertEqual(Expected, (get_module_name()):difference_of_squares(Number))).
+
+get_module_name() ->
+  sut(difference_of_squares).
 
 %% Square the sum of the numbers up to the given number
 

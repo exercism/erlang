@@ -1,4 +1,4 @@
--module(difference_of_squares).
+-module(example).
 
 -export( [sum_of_squares/1, square_of_sums/1, difference_of_squares/1] ).
 
