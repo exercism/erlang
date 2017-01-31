@@ -1,4 +1,4 @@
--module(triangle).
+-module(example).
 
 -export([kind/3]).
 
