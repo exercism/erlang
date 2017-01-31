@@ -1,4 +1,4 @@
--module(trinary).
+-module(example).
 -export([to_decimal/1]).
 -define(BASE, 3).
 
@@ -61,4 +61,3 @@ accumulate(T, Sum) ->
 %%
 
 trinary(Integer, Index) -> Integer * math:pow(?BASE, Index).
-
