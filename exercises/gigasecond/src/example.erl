@@ -1,4 +1,4 @@
--module(gigasecond).
+-module(example).
 -export([from/1]).
 
 -define(GIGASECOND, 1000000000).
@@ -8,4 +8,3 @@ from({Year, Month, Day}) ->
 from(DateTime) ->
   Seconds = calendar:datetime_to_gregorian_seconds(DateTime),
   calendar:gregorian_seconds_to_datetime(Seconds + ?GIGASECOND).
-

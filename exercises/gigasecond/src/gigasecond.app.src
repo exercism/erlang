@@ -1,0 +1,9 @@
+{application, gigasecond,
+  [{description, "exercism.io - gigasecond"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
