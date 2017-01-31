@@ -1,4 +1,4 @@
--module(grade_school).
+-module(example).
 
 -export([add/3, get/2, sort/1, new/0]).
 

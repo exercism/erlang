@@ -1,0 +1,9 @@
+{application, grade_school,
+  [{description, "exercism.io - grade-school"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
