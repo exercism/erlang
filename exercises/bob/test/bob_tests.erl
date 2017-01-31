@@ -1,9 +1,10 @@
-% To run tests:
-% erl -make && erl -noshell -eval "eunit:test(bob, [verbose])" -s init stop
-
 -module(bob_tests).
 
+-include("exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
+
+get_module_name() ->
+  sut(bob).
 
 responds_to_something_test() ->
   bob_responds("Tom-ay-to, tom-aaaah-to.", "Whatever.").
@@ -69,4 +70,5 @@ responds_to_unicode_non_shout_test() ->
   bob_responds("\xdcML\xe4\xdcTS!", "Whatever.").
 
 bob_responds(Question, Answer) ->
-  ?assertEqual(Answer, bob:response_for(Question)).
+  Bob = get_module_name(),
+  ?assertEqual(Answer, Bob:response_for(Question)).

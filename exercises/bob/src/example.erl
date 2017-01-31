@@ -1,4 +1,4 @@
--module(bob).
+-module(example).
 
 -export([response_for/1]).
 
