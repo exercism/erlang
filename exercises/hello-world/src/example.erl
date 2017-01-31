@@ -1,4 +1,4 @@
--module(hello_world).
+-module(example).
 -export([greet/0, greet/1]).
 
 greet() -> "Hello, World!".
