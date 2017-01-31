@@ -1,4 +1,4 @@
--module(strain).
+-module(example).
 
 -export([keep/2, discard/2]).
 
