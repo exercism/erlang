@@ -1,0 +1,9 @@
+{application, nucleotide_count,
+  [{description, "exercism.io - nucleotide-count"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.

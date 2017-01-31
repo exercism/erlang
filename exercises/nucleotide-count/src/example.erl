@@ -1,4 +1,4 @@
--module(dna).
+-module(example).
 
 -export([count/2, nucleotide_counts/1, validate/1]).
 
