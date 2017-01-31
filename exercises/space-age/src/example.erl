@@ -1,4 +1,4 @@
--module(space_age).
+-module(example).
 
 -export([ageOn/2]).
 
