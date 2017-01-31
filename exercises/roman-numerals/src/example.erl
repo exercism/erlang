@@ -1,4 +1,4 @@
--module(roman_numerals).
+-module(example).
 
 -export([numerals/1]).
 

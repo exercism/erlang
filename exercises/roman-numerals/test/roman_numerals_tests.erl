@@ -1,13 +1,12 @@
 -module(roman_numerals_tests).
 
+-include("exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
-% To run tests:
-% erlc -make
-% erl -noshell -eval "eunit:test(etl, [verbose])" -s init stop
+-define(TESTED_MODULE, (sut(roman_numerals))).
 
 expect_roman(Number, Expected) ->
-  ?assertEqual(roman_numerals:numerals(Number), Expected).
+  ?assertEqual(?TESTED_MODULE:numerals(Number), Expected).
 
 convert_1_test() -> expect_roman(1, "I").
 
