@@ -1,0 +1,9 @@
+{application, largest_series_product,
+  [{description, "exercism.io - largest-series-product"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.

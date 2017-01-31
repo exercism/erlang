@@ -1,4 +1,4 @@
--module('largest_series_product').
+-module(example).
 
 -export([lsp/2]).
 
