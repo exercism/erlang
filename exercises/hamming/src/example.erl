@@ -1,4 +1,4 @@
--module(dna).
+-module(example).
 
 -export([hamming_distance/2]).
 
