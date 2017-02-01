@@ -1,5 +1,7 @@
 #!/usr/bin/env escript
 
+main([])->
+    main(["all"]);
 main(["all"]) ->
     Examples = filelib:wildcard("exercises/*/rebar.conf"),
     ExampleBasePaths = [extract_base_pathes(X) || X <- Examples],
