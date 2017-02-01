@@ -6,9 +6,8 @@ otp_release:
 - 19.2
 install:
 - "./_test/bootstrap.sh"
-- bin/fetch-configlet
 script:
-- bin/configlet .
+- configlet .
 - make test # "./_test/check-exercises.escript"
 cache:
   - apt
