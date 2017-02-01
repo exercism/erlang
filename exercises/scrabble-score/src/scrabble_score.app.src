@@ -1,0 +1,9 @@
+{application, scrabble_score,
+  [{description, "exercism.io - scrabble-score"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.

@@ -1,0 +1,9 @@
+{application, clock,
+  [{description, "exercism.io - clock"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.

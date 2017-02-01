@@ -1,0 +1,9 @@
+{application, robot_simulator,
+  [{description, "exercism.io - robot-simulator"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.

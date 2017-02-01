@@ -1,0 +1,9 @@
+{application, hello_world,
+  [{description, "exercism.io - hello-world"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.

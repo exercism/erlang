@@ -1,13 +1,17 @@
 ---
 language: erlang
 otp_release:
-- 17.4
+- 17.5
+- 18.3
+- 19.2
 install:
 - "./_test/bootstrap.sh"
 script:
-- bin/fetch-configlet
-- bin/configlet .
-- "./_test/check-exercises.escript"
+- configlet .
+- make test # "./_test/check-exercises.escript"
 cache:
-- apt
+  - apt
+  - directories:
+    - $HOME/bin
+
 sudo: false

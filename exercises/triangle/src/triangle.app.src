@@ -1,0 +1,9 @@
+{application, triangle,
+  [{description, "exercism.io - triangle"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.

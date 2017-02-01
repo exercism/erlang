@@ -1,0 +1,9 @@
+{application, sum_of_multiples,
+  [{description, "exercism.io - sum-of-multiples"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.

@@ -1,0 +1,9 @@
+{application, anagram,
+  [{description, "exercism.io - anagram"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.

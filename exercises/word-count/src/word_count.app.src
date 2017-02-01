@@ -1,0 +1,9 @@
+{application, word_count,
+  [{description, "exercism.io - word-count"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
