@@ -8,7 +8,7 @@ install:
 - "./_test/bootstrap.sh"
 script:
 - configlet .
-- make test # "./_test/check-exercises.escript"
+- "./_test/check-exercises.escript"
 cache:
   - apt
   - directories:

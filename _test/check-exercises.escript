@@ -1,32 +1,70 @@
-#! /usr/bin/env escript
+#!/usr/bin/env escript
 
-main( [] ) ->
-	Examples = filelib:wildcard( "exercises/*/example.erl" ),
-	Modules = [{X, compile(X)} || X <- Examples],
-	[compile_tests(X) || X <- Modules],
-	Results = [run_tests(X) || X <- Modules],
-	erlang:halt( erlang:length([X || X <- Results, X =/= ok]) );
-main( _ ) -> usage().
-
-compile( File ) ->
-	Compile = compile:file( File, [binary, return_errors] ),
-	{compile, File, {ok, Module, Binary}} = {compile, File, Compile},
-	Load = code:load_binary( Module, File, Binary ),
-	{load, Module, Load} = {load, Module, Load},
-	{Module, Binary}.
+main(["all"]) ->
+    Examples = filelib:wildcard("exercises/*/rebar.conf"),
+    ExampleBasePaths = [extract_base_pathes(X) || X <- Examples],
+    Exercises = [X -- "exercises/" || X <- ExampleBasePaths],
+    run_exercises(Exercises);
+main(["single", Exercise]) ->
+    main(["list", Exercise]);
+main(["list"|Exercises]) ->
+    run_exercises(Exercises).
 
 
-compile_tests( {Example, {Example_module, _Binary}} ) ->
-	Filename = erlang:atom_to_list(Example_module) ++ "_tests.erl",
-	Filepath = filename:join( [filename:dirname(Example), Filename] ),
-	compile( Filepath ).
+extract_base_pathes(ConfPath) ->
+    ConfPath1 = lists:reverse(ConfPath),
+    ConfPath2 = ConfPath1 -- "rebar.conf/",
+    lists:reverse(ConfPath2).
 
 
-run_tests( {_Example, {Module, _Binary}} ) ->
-	io:fwrite( "~p: ", [Module] ),
-	eunit:test( Module, [verbose] ).
+run_exercises([E|Es]) when is_list(E)->
+    run_exercises([E|Es], length([E|Es]), 0, 0).
 
 
-usage() ->
-	io:fwrite( "Usage: ~s~n", [escript:script_name()] ),
-	io:fwrite( "~s will compile and run Erlang examples and test cases in sub directories of where it is started.~n", [escript:script_name()] ).
+run_exercises([], Items, Items, Result) ->
+    io:format("Finished.~n"),
+    halt(Result);
+run_exercises([E|Es], Items, Current, Result) ->
+    io:format("Processing ~p. of ~p Items (~p%).~n",
+              [Current + 1, Items, Current/Items*100]),
+    run_exercises(Es, Items, Current + 1, Result + run_rebar(E)).
+
+
+run_rebar(Exercise) ->
+    Rebar = os:find_executable("rebar3"),
+    Port = open_port({spawn_executable, Rebar},
+                     [{line, 1024},
+                      {cd, "exercises/" ++ Exercise},
+                      {args, ["eunit"]},
+                      exit_status,
+                      in,
+                      binary,
+                      eof]),
+    loop_rebar(Port, no_exitcode, no_eof).
+
+
+loop_rebar(Port, 0, eof) ->
+    true = port_close(Port),
+    0;
+loop_rebar(Port, ExCode, eof) when is_integer(ExCode) ->
+    true = port_close(Port),
+    1;
+loop_rebar(Port, ExCode, EOF) ->
+    {ExCode1, EOF1} =
+        receive
+            {Port, {data, {eol, Data}}} ->
+                io:format("~s~n", [Data]),
+                {ExCode, EOF};
+            {Port, {data, {noeol, Data}}} ->
+                io:format("~s", [Data]),
+                {ExCode, EOF};
+            {Port, {exit_status, Code}} ->
+                {Code, EOF};
+            {Port, eof} ->
+                {ExCode, eof};
+            Foo ->
+                io:format("~p~n", [Foo]),
+                {ExCode, EOF}
+        end,
+    loop_rebar(Port, ExCode1, EOF1).
+
