@@ -1,6 +1,7 @@
 -module(example).
 
--export( [balance/1, charge/2, close/1, create/0, deposit/2, withdraw/2] ).
+-export( [balance/1, charge/2, close/1, create/0, deposit/2, withdraw/2, test_version/0] ).
+
 
 balance( Pid ) -> call( erlang:is_process_alive(Pid), Pid, balance, 0 ).
 
@@ -16,6 +17,9 @@ deposit( _Pid, _Amount ) -> ok.
 
 withdraw( Pid, Amount ) when Amount > 0 -> call( erlang:is_process_alive(Pid), Pid, withdraw, Amount );
 withdraw( _Pid, _Amount ) -> 0.
+
+test_version() ->
+    1.
 
 
 
