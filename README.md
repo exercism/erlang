@@ -13,7 +13,8 @@ For general information about how exercism works, please see the
 
 Please make sure you have installed erlang/OTP and `rebar3` as
 described on [Installing Erlang](http://exercism.io/languages/erlang/installing)
-or `docs/INSTALLATION.md` in this repository.
+or `docs/INSTALLATION.md` in this repository. Also run
+`bin/fetch-configlet` to download the JSON-checker.
 
 Please make sure you use one of the releases of erlang/OTP as
 specified in `.travis.yml`, as these are the ones officially tested
@@ -73,7 +74,15 @@ students if the exercise becomes tricky or might not be obvious.
 -define(TESTED_MODULE, (sut(<erlangified_slug_name>))).
 ```
 
+### Before pushing
 
+Please make sure, that all tests pass by running
+`_test/check-exercises.escript`. On windows you might need to call
+`escript _test/check-exercises.escript`. Also a run of `bin/configlet`
+should pass without error message.
+
+Both programms will be run on travis and a merge is unlikely when
+tests fail.
 
 ## License
 
