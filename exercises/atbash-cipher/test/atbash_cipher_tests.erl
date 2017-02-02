@@ -1,9 +1,8 @@
 -module(atbash_cipher_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(atbash_cipher))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
 
 encode(Str) ->
     ?TESTED_MODULE:encode(Str).
