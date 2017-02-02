@@ -15,174 +15,174 @@
       "difficulty": 1
     },
     {
-      "slug": "rna-transcription",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
       "slug": "accumulate",
       "topics": [],
       "difficulty": 1
     },
     {
-      "slug": "bob",
+      "slug": "rna-transcription",
       "topics": [],
-      "difficulty": 1
+      "difficulty": 2
     },
     {
-      "slug": "sum-of-multiples",
+      "slug": "bob",
       "topics": [],
-      "difficulty": 1
+      "difficulty": 2
     },
     {
       "slug": "strain",
       "topics": [],
-      "difficulty": 1
+      "difficulty": 2
     },
     {
       "slug": "hamming",
       "topics": [],
-      "difficulty": 1
+      "difficulty": 2
     },
     {
       "slug": "space-age",
       "topics": [],
-      "difficulty": 1
+      "difficulty": 2
     },
     {
       "slug": "grains",
       "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "anagram",
-      "topics": [],
-      "difficulty": 1
+      "difficulty": 2
     },
     {
       "slug": "nucleotide-count",
       "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "atbash-cipher",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "phone-number",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "robot-simulator",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "grade-school",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "binary",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "word-count",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "circular-buffer",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "etl",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "clock",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "gigasecond",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "beer-song",
-      "topics": [],
-      "difficulty": 1
+      "difficulty": 2
     },
     {
       "slug": "difference-of-squares",
       "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "allergies",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "bank-account",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "luhn",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "series",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "trinary",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "largest-series-product",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "meetup",
-      "topics": [],
-      "difficulty": 1
-    },
-    {
-      "slug": "parallel-letter-frequency",
-      "topics": [],
-      "difficulty": 1
+      "difficulty": 2
     },
     {
       "slug": "triangle",
       "topics": [],
-      "difficulty": 1
+      "difficulty": 2
+    },
+    {
+      "slug": "sum-of-multiples",
+      "topics": [],
+      "difficulty": 3
+    },
+    {
+      "slug": "anagram",
+      "topics": [],
+      "difficulty": 3
+    },
+    {
+      "slug": "atbash-cipher",
+      "topics": [],
+      "difficulty": 3
+    },
+    {
+      "slug": "phone-number",
+      "topics": [],
+      "difficulty": 3
+    },
+    {
+      "slug": "binary",
+      "topics": [],
+      "difficulty": 3
+    },
+    {
+      "slug": "gigasecond",
+      "topics": [],
+      "difficulty": 3
+    },
+    {
+      "slug": "trinary",
+      "topics": [],
+      "difficulty": 3
     },
     {
       "slug": "scrabble-score",
       "topics": [],
-      "difficulty": 1
+      "difficulty": 3
     },
     {
-      "slug": "zipper",
+      "slug": "robot-simulator",
       "topics": [],
-      "difficulty": 1
+      "difficulty": 4
+    },
+    {
+      "slug": "grade-school",
+      "topics": [],
+      "difficulty": 4
+    },
+    {
+      "slug": "word-count",
+      "topics": [],
+      "difficulty": 4
+    },
+    {
+      "slug": "clock",
+      "topics": [],
+      "difficulty": 4
+    },
+    {
+      "slug": "allergies",
+      "topics": [],
+      "difficulty": 4
+    },
+    {
+      "slug": "series",
+      "topics": [],
+      "difficulty": 4
+    },
+    {
+      "slug": "parallel-letter-frequency",
+      "topics": [],
+      "difficulty": 4
     },
     {
       "slug": "roman-numerals",
       "topics": [],
-      "difficulty": 1
+      "difficulty": 4
+    },
+    {
+      "slug": "largest-series-product",
+      "topics": [],
+      "difficulty": 5
+    },
+    {
+      "slug": "etl",
+      "topics": [],
+      "difficulty": 6
+    },
+    {
+      "slug": "bank-account",
+      "topics": [],
+      "difficulty": 6
+    },
+    {
+      "slug": "luhn",
+      "topics": [],
+      "difficulty": 6
+    },
+    {
+      "slug": "meetup",
+      "topics": [],
+      "difficulty": 6
+    },
+    {
+      "slug": "circular-buffer",
+      "topics": [],
+      "difficulty": 7
+    },
+    {
+      "slug": "beer-song",
+      "topics": [],
+      "difficulty": 7
+    },
+    {
+      "slug": "zipper",
+      "topics": [],
+      "difficulty": 8
     }
   ],
   "deprecated": [
