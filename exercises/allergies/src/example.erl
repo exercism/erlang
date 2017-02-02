@@ -1,6 +1,6 @@
 -module(example).
 
--export([allergies/1, is_allergic_to/2]).
+-export([allergies/1, is_allergic_to/2, test_version/0]).
 
 -define(ALLERGIES, ['eggs',         % 2^0
                     'peanuts',      % 2^1
@@ -32,3 +32,6 @@ index(Index, [_|Allergies], A) ->
   index(Index+1, Allergies, A);
 index(_, [], _) ->
   not_found.
+
+test_version() ->
+    1.
