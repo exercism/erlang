@@ -1,6 +1,6 @@
 -module(example).
 
--export([response_for/1]).
+-export([response_for/1, test_version/0]).
 
 -spec response_for(string()) -> string().
 response_for(String) ->
@@ -10,6 +10,11 @@ response_for(String) ->
      {fun is_shouting/1, "Whoa, chill out!"},
      {fun is_question/1, "Sure."},
      {fun (_) -> true end, "Whatever."}]).
+
+test_version() ->
+    1.
+
+
 
 first_match(S, [{F, Res} | Fs]) ->
   case F(S) of
