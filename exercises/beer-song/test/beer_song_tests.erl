@@ -1,9 +1,9 @@
 -module(beer_song_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(beer_song))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 verse_test() ->
   compare_nested_lists(?TESTED_MODULE:verse(8),

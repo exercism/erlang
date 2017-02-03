@@ -1,5 +1,6 @@
 -module(example).
--export([verse/1, sing/1, sing/2]).
+
+-export([verse/1, sing/1, sing/2, test_version/0]).
 
 bottles(0) ->
   "no more bottles";
@@ -28,3 +29,6 @@ sing(N) ->
 -spec sing(non_neg_integer(), non_neg_integer()) -> iolist().
 sing(From, To) ->
   lists:map(fun (N) -> [verse(N), "\n"] end, lists:seq(From, To, -1)).
+
+test_version() ->
+    1.
