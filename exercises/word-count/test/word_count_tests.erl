@@ -1,9 +1,9 @@
 -module(word_count_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(word_count))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 count_one_word_test() ->
   assert_count(
