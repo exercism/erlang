@@ -1,6 +1,6 @@
 -module(example).
 
--export([kind/3]).
+-export([kind/3, test_version/0]).
 
 kind(A,B,C) when (A =< 0) or (B =< 0) or (C =< 0) ->
     {error, "all side lengths must be positive"};
@@ -11,3 +11,6 @@ kind(A,_,A) -> isosceles;
 kind(A,A,_) -> isosceles;
 kind(_,B,B) -> isosceles;
 kind(_,_,_) -> scalene.
+
+test_version() ->
+    1.

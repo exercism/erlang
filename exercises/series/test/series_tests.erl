@@ -1,9 +1,9 @@
 -module( series_tests ).
 
--include("exercism.hrl").
--include_lib( "eunit/include/eunit.hrl" ).
-
 -define(TESTED_MODULE, (sut(series))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 three_test() -> ?assert( ?TESTED_MODULE:from_string(3, "01234") =:= ["012", "123", "234"] ).
 

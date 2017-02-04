@@ -1,9 +1,9 @@
 -module('largest_series_product_tests').
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(largest_series_product))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 can_find_the_largest_product_of_2_with_numbers_in_order_test() ->
   ?assertEqual(72, ?TESTED_MODULE:lsp("0123456789", 2)).

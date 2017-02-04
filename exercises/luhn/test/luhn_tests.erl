@@ -1,9 +1,9 @@
 -module(luhn_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(luhn))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 invalid_test() ->
   ?assertNot(?TESTED_MODULE:valid("1111")),

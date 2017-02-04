@@ -1,6 +1,6 @@
 -module(example).
 
--export([sumOfMultiples/2]).
+-export([sumOfMultiples/2, test_version/0]).
 
 -import(lists, [foldl/3, seq/2, any/2]).
 
@@ -13,6 +13,11 @@ sumOfMultiples(Multiples, A) ->
         end,
         0,
         seq(1, A-1)).
+
+test_version() ->
+    1.
+
+
 
 multiple(List, X) ->
   any(fun(E) -> (X rem E) =:= 0 end, List).

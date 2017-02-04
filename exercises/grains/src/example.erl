@@ -1,5 +1,5 @@
 -module(example).
--export([square/1, total/0]).
+-export([square/1, total/0, test_version/0]).
 
 square(N) ->
   square(N, 1).
@@ -14,3 +14,6 @@ total() ->
   lists:foldl(fun(Elem, Acc) -> square(Elem) + Acc end,
               0,
               lists:seq(1, 64)).
+
+test_version() ->
+    1.

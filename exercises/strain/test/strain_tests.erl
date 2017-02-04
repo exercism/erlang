@@ -1,9 +1,9 @@
 -module(strain_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(strain))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 empty_keep_test() ->
   ?assertEqual([], ?TESTED_MODULE:keep(fun(X) -> X < 10 end, [])).

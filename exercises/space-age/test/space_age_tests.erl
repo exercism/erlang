@@ -1,9 +1,9 @@
 -module(space_age_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(space_age))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 age_in_earth_years_test() ->
   equalFloat(?TESTED_MODULE:ageOn(earth, 1000000000), 31.69).

@@ -1,5 +1,5 @@
 -module(example).
--export([valid/1, create/1, checksum/1]).
+-export([valid/1, create/1, checksum/1, test_version/0]).
 
 
 
@@ -40,3 +40,8 @@ valid(Number) ->
 
 create(Number) ->
   lists:flatten([Number, ($: - (checksum(Number ++ [$0]) rem 10))]).
+
+
+
+test_version() ->
+    1.

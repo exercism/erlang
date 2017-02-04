@@ -1,5 +1,5 @@
 -module(example). % binary is a "sticky module" so we have to use another name.
--export( [to_decimal/1] ).
+-export( [to_decimal/1, test_version/0] ).
 
 to_decimal( String ) ->
   try
@@ -10,6 +10,9 @@ to_decimal( String ) ->
     _:_ -> 0
 
   end.
+
+test_version() ->
+    1.
 
 
 

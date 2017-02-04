@@ -1,9 +1,9 @@
 -module( parallel_letter_frequency_tests ).
 
--include("exercism.hrl").
--include_lib( "eunit/include/eunit.hrl" ).
-
 -define(TESTED_MODULE, (sut(parallel_letter_frequency))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 single_test() ->
   Frequencies = dict:to_list( ?TESTED_MODULE:dict(["asd"]) ),

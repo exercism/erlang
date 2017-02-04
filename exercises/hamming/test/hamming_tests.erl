@@ -1,9 +1,9 @@
 -module(hamming_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(hamming))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 empty_test()->
   ?assertEqual(0, ?TESTED_MODULE:hamming_distance("", "")).

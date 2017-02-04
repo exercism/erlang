@@ -1,9 +1,9 @@
 -module( circular_buffer_tests ).
 
--include("exercism.hrl").
--include_lib( "eunit/include/eunit.hrl" ).
-
 -define(TESTED_MODULE, (sut(circular_buffer))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 create_test() ->
   Pid = ?TESTED_MODULE:create( 5 ),

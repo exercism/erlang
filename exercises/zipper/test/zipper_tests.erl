@@ -1,9 +1,9 @@
 -module(zipper_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(zipper))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 %% Fixtures and helpers
 

@@ -1,9 +1,9 @@
 -module(triangle_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(triangle))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 equilateral_triangles_have_equal_sides_test() ->
     ?assertMatch(equilateral, ?TESTED_MODULE:kind(2,2,2)).

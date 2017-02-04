@@ -1,9 +1,9 @@
 -module(leap_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(leap))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 leap_year_test() ->
   ?assert(?TESTED_MODULE:leap_year(1996)).

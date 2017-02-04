@@ -1,9 +1,9 @@
 -module(dna_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(dna))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 empty_dna_string_has_no_adenine_test() ->
   ?assertEqual(0, ?TESTED_MODULE:count("", "A")).

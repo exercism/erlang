@@ -1,9 +1,9 @@
 -module(meetup_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(meetup))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 monteenth_of_may_2013_test() ->
   ?assertEqual({2013, 5, 13},

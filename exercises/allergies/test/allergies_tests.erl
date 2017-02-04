@@ -1,9 +1,8 @@
 -module(allergies_tests).
 
+-define(TESTED_MODULE, (sut(accumulate))).
+-define(TEST_VERSION, 1).
 -include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
--define(TESTED_MODULE, (sut(allergies))).
 
 no_allergies_at_all_test() ->
   ?assertEqual([], ?TESTED_MODULE:allergies(0)).

@@ -1,12 +1,14 @@
 -module(example).
 
--export([lsp/2]).
+-export([lsp/2, test_version/0]).
 
 -define(is_digit(C), ((C >= $0) and (C =< $9))).
 
 lsp(_String, N) when N < 0 -> error;
 lsp(String, N) -> lsp(erlang:length(String), String, N).
 
+test_version() ->
+    1.
 
 
 lsp(Length, _String, N) when Length < N -> error;

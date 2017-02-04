@@ -1,5 +1,5 @@
 -module(example).
--export([schedule/4]).
+-export([schedule/4, test_version/0]).
 
 -type year() :: non_neg_integer().
 -type month() :: 1..12.
@@ -17,6 +17,11 @@ schedule(Year, Month, DayOfWeek, Period) ->
   [Day] = [Day || Day <- day_range(Period, Year, Month),
                   calendar:day_of_the_week({Year, Month, Day}) =:= DoW],
   {Year, Month, Day}.
+
+test_version() ->
+    1.
+
+
 
 day_range(first, _Year, _Month) ->
   lists:seq(1, 7);

@@ -1,9 +1,9 @@
 -module(binary_string_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(binary_string))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 one_test() -> check( "1" ).
 

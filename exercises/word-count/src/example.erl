@@ -1,11 +1,16 @@
 -module(example).
--export([count/1]).
+-export([count/1, test_version/0]).
 
 -spec count(string()) -> dict:dict(string(), integer()).
 count(S) ->
   lists:foldl(fun (K, Acc) -> dict:update_counter(K, 1, Acc) end,
               dict:new(),
               tokenize(string:to_lower(S))).
+
+test_version() ->
+    1.
+
+
 
 is_alnum(C) ->
   (C >= $a andalso C =< $z) orelse (C >= $0 andalso C =< $9).

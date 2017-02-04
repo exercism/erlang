@@ -1,9 +1,9 @@
 -module(roman_numerals_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(roman_numerals))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 expect_roman(Number, Expected) ->
   ?assertEqual(?TESTED_MODULE:numerals(Number), Expected).

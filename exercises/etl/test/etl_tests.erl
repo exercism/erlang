@@ -1,9 +1,9 @@
 -module(etl_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(etl))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 transform_one_value_test() ->
   erl_transform([{1, ["a"]}], [{"a", 1}]).

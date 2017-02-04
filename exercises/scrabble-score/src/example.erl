@@ -1,9 +1,12 @@
 -module(example).
 
--export([score/1]).
+-export([score/1, test_version/0]).
 
 score( Word ) ->
   lists:foldl(fun(X, Sum) -> get_char_value(X) + Sum end, 0, Word).
+
+test_version() ->
+    1.
 
 get_char_value( $q ) -> 10;
 get_char_value( $z ) -> 10;

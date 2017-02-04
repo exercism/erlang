@@ -1,9 +1,8 @@
 -module(accumulate_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(accumulate))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
 
 accumulate_squares_test() ->
   Fn = fun(Number) -> Number * Number end,

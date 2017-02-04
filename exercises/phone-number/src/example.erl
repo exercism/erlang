@@ -1,6 +1,6 @@
 -module(example).
 
--export([number/1, areacode/1, pretty_print/1]).
+-export([number/1, areacode/1, pretty_print/1, test_version/0]).
 
 -define(ZEROS, "0000000000").
 
@@ -33,3 +33,6 @@ areacode(String) ->
 pretty_print(String) ->
   {AreaCode, Exchange, Subscriber} = parts(String),
   lists:flatten(io_lib:format("\(~s\) ~s-~s", [AreaCode, Exchange, Subscriber])).
+
+test_version() ->
+    1.

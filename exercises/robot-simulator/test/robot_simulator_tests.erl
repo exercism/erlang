@@ -1,9 +1,9 @@
 -module( robot_simulator_tests ).
 
--include("exercism.hrl").
--include_lib( "eunit/include/eunit.hrl" ).
-
 -define(TESTED_MODULE, (sut(robot_simulator))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 create_test() ->
   Robot = ?TESTED_MODULE:create(),
