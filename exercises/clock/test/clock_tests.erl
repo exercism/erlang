@@ -1,9 +1,9 @@
 -module('clock_tests').
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(clock))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 -define(assertClockString(String, Hour, Minute), ?assertEqual(String, ?TESTED_MODULE:to_string(?TESTED_MODULE:create( Hour, Minute)))).
 
