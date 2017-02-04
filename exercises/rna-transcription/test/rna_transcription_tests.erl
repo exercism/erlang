@@ -1,9 +1,9 @@
 -module(rna_transcription_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(rna_transcription))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 transcribes_cytidine_unchanged_test() ->
   ?assertEqual("C", ?TESTED_MODULE:to_rna("G")).
