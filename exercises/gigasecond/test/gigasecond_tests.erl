@@ -1,9 +1,9 @@
 -module(gigasecond_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(gigasecond))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 one_test() ->
   Gs = ?TESTED_MODULE:from({2011, 4, 25}),
