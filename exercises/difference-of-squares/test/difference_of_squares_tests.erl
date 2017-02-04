@@ -1,9 +1,9 @@
 -module(difference_of_squares_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(difference_of_squares))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 -define(assertSumOfSquares(Expected, Number), ?assertEqual(Expected, ?TESTED_MODULE:sum_of_squares(Number))).
 -define(assertSquareOfSums(Expected, Number), ?assertEqual(Expected, ?TESTED_MODULE:square_of_sums(Number))).
