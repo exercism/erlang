@@ -1,6 +1,6 @@
 -module(example).
 
--export([add/3, get/2, sort/1, new/0]).
+-export([add/3, get/2, sort/1, new/0, test_version/0]).
 
 %% Define the grade school type
 -type school() :: [{integer(),[string(),...]}].
@@ -28,3 +28,6 @@ sort(S) ->
 -spec new() -> school().
 new() ->
   [].
+
+test_version() ->
+    1.

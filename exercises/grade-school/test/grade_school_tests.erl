@@ -1,9 +1,9 @@
 -module(grade_school_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(grade_school))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 add_student_test() ->
   S1 = ?TESTED_MODULE:add("Aimee", 2, ?TESTED_MODULE:new()),
