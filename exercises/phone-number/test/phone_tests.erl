@@ -1,9 +1,9 @@
 -module(phone_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(phone))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 cleans_number_test() ->
   ?assertEqual("1234567890", ?TESTED_MODULE:number("(123) 456-7890")).
