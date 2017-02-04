@@ -1,5 +1,5 @@
 -module(example).
--export([to_decimal/1]).
+-export([to_decimal/1, test_version/0]).
 -define(BASE, 3).
 
 %%
@@ -15,6 +15,9 @@ to_decimal(StringNumeric) ->
 
   % integer sum
   round(lists:sum(Tokens)).
+
+test_version() ->
+    1.
 
 %%
 %% if string is all numeric, return it; otherwise, return given default

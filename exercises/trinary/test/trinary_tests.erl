@@ -1,9 +1,9 @@
 -module(trinary_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(trinary))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 trinary_1_is_decimal_1_test() ->
   ?assertEqual(1, ?TESTED_MODULE:to_decimal("1")).
