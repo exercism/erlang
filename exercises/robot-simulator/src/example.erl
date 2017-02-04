@@ -1,6 +1,14 @@
 -module( example ).
 
--export( [advance/1, control/2, create/0, direction/1, left/1, place/3, position/1, right/1] ).
+-export([advance/1,
+         control/2,
+         create/0,
+         direction/1,
+         left/1,
+         place/3,
+         position/1,
+         right/1,
+         test_version/0]).
 
 advance( Robot ) -> Robot ! advance.
 
@@ -19,6 +27,9 @@ place( Robot, Direction, Position ) -> Robot ! {place, Direction, Position}.
 position( Robot ) -> request( Robot, position ).
 
 right( Robot ) -> Robot ! {turn, right}.
+
+test_version() ->
+    1.
 
 
 
