@@ -1,6 +1,6 @@
 -module(example).
 
--export([numerals/1]).
+-export([numerals/1, test_version/0]).
 
 -define(DIGITS, [{"M", 1000}, {"CM", 900}, {"D", 500}, {"CD", 400},
                  {"C", 100}, {"XC", 90},  {"L", 50}, {"XL", 40},
@@ -9,6 +9,11 @@
 -spec numerals(non_neg_integer()) -> string().
 numerals(Number) ->
     to_roman(Number, "", ?DIGITS).
+
+test_version() ->
+    1.
+
+
 
 to_roman(0, Roman, _) -> Roman;
 to_roman(N, Roman, Digits) ->
