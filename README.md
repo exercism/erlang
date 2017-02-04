@@ -68,10 +68,9 @@ students if the exercise becomes tricky or might not be obvious.
 ```erl
 -module(<test module name>).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(<erlangified_slug_name>))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
 ```
 
 ### Before pushing
