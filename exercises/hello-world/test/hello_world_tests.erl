@@ -1,9 +1,9 @@
 -module(hello_world_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(hello_world))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 no_name_test() ->
   ?assertEqual("Hello, World!", ?TESTED_MODULE:greet()).
