@@ -1,9 +1,9 @@
 -module(scrabble_score_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(scrabble))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 -define(checkScore(N, S), ?assertEqual(N, ?TESTED_MODULE:score(S))).
 
