@@ -1,12 +1,14 @@
 -module( example ).
 
--export( [dict/1] ).
+-export( [dict/1, test_version/0] ).
 
 dict( Texts ) ->
   Pids = [letter_frequency(X) || X <- Texts],
   Dicts = [receive_dict(X) || X <- Pids],
   merge_dicts( Dicts ).
 
+test_version() ->
+    1.
 
 
 letter_frequency( String ) ->
