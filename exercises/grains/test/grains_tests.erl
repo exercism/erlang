@@ -1,9 +1,9 @@
 -module(grains_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(grains))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 -define(assertGrains(Grains, Square), ?assertMatch(Grains, ?TESTED_MODULE:square(Square))).
 
