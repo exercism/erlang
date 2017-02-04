@@ -1,9 +1,9 @@
 -module(sum_of_multiples_tests).
 
--include("exercism.hrl").
--include_lib("eunit/include/eunit.hrl").
-
 -define(TESTED_MODULE, (sut(sum_of_multiples))).
+-define(TEST_VERSION, 1).
+-include("exercism.hrl").
+
 
 sum_with_3_5_to_1_test() ->
   ?assertEqual(0, ?TESTED_MODULE:sumOfMultiples([3, 5], 1)).
