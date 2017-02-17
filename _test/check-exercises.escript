@@ -3,7 +3,7 @@
 main([])->
     main(["all"]);
 main(["all"]) ->
-    Examples = filelib:wildcard("exercises/*/rebar.conf"),
+    Examples = filelib:wildcard("exercises/*/rebar.config"),
     ExampleBasePaths = [extract_base_pathes(X) || X <- Examples],
     Exercises = [X -- "exercises/" || X <- ExampleBasePaths],
     run_exercises(Exercises);
