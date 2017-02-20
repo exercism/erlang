@@ -150,6 +150,11 @@
       "difficulty": 5
     },
     {
+      "slug": "rotational-cipher",
+      "topics": [],
+      "difficulty": 5
+    },
+    {
       "slug": "etl",
       "topics": [],
       "difficulty": 6
