@@ -1,0 +1,9 @@
+{application, rotational_cipher,
+  [{description, "exercism.io - rotational-cipher"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
