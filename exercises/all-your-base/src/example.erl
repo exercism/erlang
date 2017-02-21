@@ -25,7 +25,7 @@ internalize([H|_], Base, _Acc) when H >= Base ->
 internalize([H|T], Base, Acc) ->
   internalize(T, Base, Acc * Base + H).
 
-externalize(0, Base, Acc) ->
+externalize(0, _Base, Acc) ->
   {ok, Acc};
 externalize(Input, Base, Acc) ->
   Digit = Input rem Base,
