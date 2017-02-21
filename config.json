@@ -85,17 +85,7 @@
       "difficulty": 3
     },
     {
-      "slug": "binary",
-      "topics": [],
-      "difficulty": 3
-    },
-    {
       "slug": "gigasecond",
-      "topics": [],
-      "difficulty": 3
-    },
-    {
-      "slug": "trinary",
       "topics": [],
       "difficulty": 3
     },
@@ -196,7 +186,11 @@
     }
   ],
   "deprecated": [
-    "point-mutations"
+    "point-mutations",
+    "binary",
+    "trinary",
+    "octal",
+    "hexadecimal"
   ],
   "ignored": [
     "docs",
