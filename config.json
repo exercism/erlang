@@ -85,17 +85,7 @@
       "difficulty": 3
     },
     {
-      "slug": "binary",
-      "topics": [],
-      "difficulty": 3
-    },
-    {
       "slug": "gigasecond",
-      "topics": [],
-      "difficulty": 3
-    },
-    {
-      "slug": "trinary",
       "topics": [],
       "difficulty": 3
     },
@@ -126,6 +116,11 @@
     },
     {
       "slug": "allergies",
+      "topics": [],
+      "difficulty": 4
+    },
+    {
+      "slug": "all-your-base",
       "topics": [],
       "difficulty": 4
     },
@@ -191,7 +186,11 @@
     }
   ],
   "deprecated": [
-    "point-mutations"
+    "point-mutations",
+    "binary",
+    "trinary",
+    "octal",
+    "hexadecimal"
   ],
   "ignored": [
     "docs",
