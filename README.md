@@ -9,7 +9,7 @@ Exercism exercises in Erlang
 For general information about how exercism works, please see the
 [contributing guide](https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md#the-exercise-data).
 
-### Seting up your system for local development on the track
+### Setting up your system for local development on the track
 
 Please make sure you have installed erlang/OTP and `rebar3` as
 described on [Installing Erlang](http://exercism.io/languages/erlang/installing)
@@ -41,7 +41,7 @@ compatible with erlang syntax.
    3.3. Change the old erlangified_slug_name on the first line to the new one.
    3.4. Change the old slug-name on the second line to the new one.
    3.5. Leave `include/exercism.hrl` untouched.
-4. Create a testfile/-module in `test`-folder. It is prefered to name
+4. Create a testfile/-module in `test`-folder. It is preferred to name
    it after the erlangified_slug_name and insert the boilerplate code
    shown below.
 5. Implement your example in `src/example.erl` and use `example` as
@@ -80,7 +80,7 @@ Please make sure, that all tests pass by running
 `escript _test/check-exercises.escript`. Also a run of `bin/configlet`
 should pass without error message.
 
-Both programms will be run on travis and a merge is unlikely when
+Both programs will be run on Travis and a merge is unlikely when
 tests fail.
 
 ## License
