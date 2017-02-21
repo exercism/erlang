@@ -1,5 +1,5 @@
-{application, binary,
-  [{description, "exercism.io - binary"},
+{application, all_your_base,
+  [{description, "exercism.io - all-your-base"},
     {vsn, "git"},
     {modules, []},
     {registered, []},
