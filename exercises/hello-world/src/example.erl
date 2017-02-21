@@ -1,8 +1,8 @@
 -module(example).
--export([greet/0, greet/1, test_version/0]).
+-export([hello/0, test_version/0]).
 
-greet() -> "Hello, World!".
-greet(Name) -> "Hello, " ++ Name ++ "!".
+hello() ->
+  "Hello, World!".
 
 test_version() ->
-    1.
+  2.
