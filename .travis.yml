@@ -9,6 +9,7 @@ install:
 script:
 - configlet .
 - "./_test/check-exercises.escript"
+- "./bin/journey-test.sh"
 cache:
   - apt
   - directories:
