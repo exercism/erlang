@@ -179,6 +179,28 @@ get_cpu_architecture() {
   esac
 }
 
+solve_all_exercises() {
+  local exercism_exercises_dir="$1"
+  local exercism_configfile="$2"
+
+  local xerlang=$(pwd)
+  local exercism_cli="./exercism --config ${exercism_config_file}"
+  local exercises=$(ls exercises | sed 's|/||g')
+  local total_exercises=$(echo $exercises | wc -w)
+  local current_exercise_number=1
+  # local tempfile="${TMPDIR:-/tmp}/journey-test.sh-unignore_all_tests.txt"
+
+  pushd ${exercism_exercises_dir}
+  for exercise in $exercises; do
+    echo -e "\n\n"
+    echo "=================================================="
+    echo "${current_exercise_number} of ${total_exercises} -- ${exercise}"
+    echo "=================================================="
+
+    ${exercism_cli} fetch erlang ${exercise}
+  done
+}
+
 main() {
   cd "${EXECPATH}"
 
@@ -212,6 +234,8 @@ main() {
   # Create a CLI install and config just for this build; this script does not use your CLI install.
   download_exercism_cli $(get_operating_system) $(get_cpu_architecture) "${exercism_home}"
   configure_exercism_cli "${exercism_home}" "${exercism_config_file}" "${xapi_port}"
+
+  solve_all_exercises "${exercism_home}" "${exercism_config_file}"
 }
 
 # Show expanded commands
