@@ -199,7 +199,7 @@ solve_all_exercises() {
 
     ${exercism_cli} fetch erlang ${exercise}
     local module=$(echo $exercise | sed s/-/_/g)
-    cat "${exercism_exercises_dir}/exercises/${exercise}/src/example.erl" \
+    cat "${xerlang}/exercises/${exercise}/src/example.erl" \
       | sed "s/-module(example)./-module(${module})./" \
       > "${exercism_exercises_dir}/erlang/${exercise}/src/${module}.erl"
 
