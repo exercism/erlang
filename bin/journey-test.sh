@@ -116,6 +116,53 @@ download_exercism_cli() {
   # "curl..." :: HTTP 302 headers, including "Location" -- URL to redirect to.
   # "awk..." :: pluck last path segment from "Location" (i.e. the version number)
   local version="$(curl --head --silent ${latest} | awk -v FS=/ '/Location:/{print $NF}' | tr -d '\r')"
+
+  local download_url_suffix
+  local unzip_command
+  local unzip_from_file_option
+  if [[ ${os} == "windows" ]] ; then
+    download_url_suffix="zip"
+    unzip_command="unzip -d"
+    unzip_from_file_option=""
+  else
+    download_url_suffix="tgz"
+    unzip_command="tar xz -C"
+    unzip_from_file_option="-f"
+  fi
+  local download_url=${CLI_RELEASES}/download/${version}/exercism-${os}-${arch}.${download_url_suffix}
+
+  mkdir -p ${exercism_home}
+  local temp=`mktemp`
+  curl -s --location ${download_url} > ${temp}
+  ${unzip_command} ${exercism_home} ${unzip_from_file_option} ${temp}
+}
+
+get_operating_system() {
+  case $(uname) in
+      (Darwin*)
+          echo "mac";;
+      (Linux*)
+          echo "linux";;
+      (Windows*)
+          echo "windows";;
+      (MINGW*)
+          echo "windows";;
+      (*)
+          echo "linux";;
+  esac
+}
+
+get_cpu_architecture() {
+  case $(uname -m) in
+      (*64*)
+          echo 64bit;;
+      (*686*)
+          echo 32bit;;
+      (*386*)
+          echo 32bit;;
+      (*)
+          echo 64bit;;
+  esac
 }
 
 main() {
