@@ -1,4 +1,4 @@
--module( example ).
+-module(example).
 
 -export([advance/1,
          control/2,
