@@ -139,9 +139,9 @@ download_exercism_cli() {
 
 configure_exercism_cli() {
   local exercism_home="$1"
-  local exercism_configfile="$2"
+  local exercism_config_file="$2"
   local xapi_port=$3
-  local exercism="./exercism --config ${exercism_configfile}"
+  local exercism="./exercism --config ${exercism_config_file}"
 
   mkdir -p "${exercism_home}"
   pushd "${exercism_home}"
@@ -211,7 +211,7 @@ main() {
 
   # Create a CLI install and config just for this build; this script does not use your CLI install.
   download_exercism_cli $(get_operating_system) $(get_cpu_architecture) "${exercism_home}"
-  configure_exercism_cli "${exercism_home}" "${exercism_configfile}" "${xapi_port}"
+  configure_exercism_cli "${exercism_home}" "${exercism_config_file}" "${xapi_port}"
 }
 
 # Show expanded commands
