@@ -1,4 +1,4 @@
--module(dna_tests).
+-module(nucleotide_count_tests).
 
 -define(TESTED_MODULE, (sut(nucleotide_count))).
 -define(TEST_VERSION, 1).
