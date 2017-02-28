@@ -82,6 +82,10 @@ make_local_trackler() {
   [[ $(which bundler) != "" ]] || gem install bundler
   bundle install
   gem build trackler.gemspec
+
+  # Make this the trackler that x-api will use when we build it
+  gem install --local "trackler-${version}.gem"
+  popd
 }
 
 main() {
