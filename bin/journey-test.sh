@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+assert_installed() {
+  local ok=0
+  for executable in $@; do
+    if [[ "`which $executable`" == "" ]]; then
+      echo "Missing executable: $executable"
+      ok=1
+    fi
+  done
+  if [[ "$ok" != "0" ]]; then exit $ok; fi
+}
+
 main() {
   cd "${EXECPATH}"
 
@@ -15,8 +26,7 @@ main() {
   local xapi_port=9292
 
   # fail fast if required tools are missing
-  assert_installed "erl"
-  assert_installed "rebar3"
+  assert_installed "erl" "rebar3"
 }
 
 # Show expanded commands
