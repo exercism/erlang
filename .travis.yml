@@ -6,6 +6,8 @@ otp_release:
 - 19.2
 install:
 - "./_test/bootstrap.sh"
+- rvm install 2.2.5
+- rvm use 2.2.5
 script:
 - configlet .
 # - "./_test/check-exercises.escript"
