@@ -85,17 +85,7 @@
       "difficulty": 3
     },
     {
-      "slug": "binary",
-      "topics": [],
-      "difficulty": 3
-    },
-    {
       "slug": "gigasecond",
-      "topics": [],
-      "difficulty": 3
-    },
-    {
-      "slug": "trinary",
       "topics": [],
       "difficulty": 3
     },
@@ -130,6 +120,11 @@
       "difficulty": 4
     },
     {
+      "slug": "all-your-base",
+      "topics": [],
+      "difficulty": 4
+    },
+    {
       "slug": "series",
       "topics": [],
       "difficulty": 4
@@ -146,6 +141,11 @@
     },
     {
       "slug": "largest-series-product",
+      "topics": [],
+      "difficulty": 5
+    },
+    {
+      "slug": "rotational-cipher",
       "topics": [],
       "difficulty": 5
     },
@@ -186,7 +186,11 @@
     }
   ],
   "deprecated": [
-    "point-mutations"
+    "point-mutations",
+    "binary",
+    "trinary",
+    "octal",
+    "hexadecimal"
   ],
   "ignored": [
     "docs",

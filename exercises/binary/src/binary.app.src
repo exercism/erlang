@@ -1,9 +1,0 @@
-{application, binary,
-  [{description, "exercism.io - binary"},
-    {vsn, "git"},
-    {modules, []},
-    {registered, []},
-    {applications, [kernel,
-      stdlib]},
-    {env, []}
-  ]}.

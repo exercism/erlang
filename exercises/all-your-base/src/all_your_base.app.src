@@ -1,0 +1,9 @@
+{application, all_your_base,
+  [{description, "exercism.io - all-your-base"},
+    {vsn, "git"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.

@@ -3,7 +3,7 @@
 main([])->
     main(["all"]);
 main(["all"]) ->
-    Examples = filelib:wildcard("exercises/*/rebar.conf"),
+    Examples = filelib:wildcard("exercises/*/rebar.config"),
     ExampleBasePaths = [extract_base_pathes(X) || X <- Examples],
     Exercises = [X -- "exercises/" || X <- ExampleBasePaths],
     run_exercises(Exercises);
@@ -15,7 +15,7 @@ main(["list"|Exercises]) ->
 
 extract_base_pathes(ConfPath) ->
     ConfPath1 = lists:reverse(ConfPath),
-    ConfPath2 = ConfPath1 -- "rebar.conf/",
+    ConfPath2 = ConfPath1 -- "rebar.config/",
     lists:reverse(ConfPath2).
 
 
