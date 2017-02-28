@@ -1,4 +1,4 @@
--module( example ).
+-module(example).
 
 -export( [dict/1, test_version/0] ).
 
