@@ -1,6 +1,6 @@
 -module(dna_tests).
 
--define(TESTED_MODULE, (sut(dna))).
+-define(TESTED_MODULE, (sut(nucleotide_count))).
 -define(TEST_VERSION, 1).
 -include("exercism.hrl").
 
