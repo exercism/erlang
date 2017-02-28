@@ -249,7 +249,7 @@ main() {
 }
 
 # Show expanded commands
-set -x
+set -ex
 
 # Determine path of this script as well as the current execution dir
 SCRIPTPATH=$(pushd `dirname $0` > /dev/null && pwd && popd > /dev/null)
