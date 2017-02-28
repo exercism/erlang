@@ -137,6 +137,20 @@ download_exercism_cli() {
   ${unzip_command} ${exercism_home} ${unzip_from_file_option} ${temp}
 }
 
+configure_exercism_cli() {
+  local exercism_home="$1"
+  local exercism_configfile="$2"
+  local xapi_port=$3
+  local exercism="./exercism --config ${exercism_configfile}"
+
+  mkdir -p "${exercism_home}"
+  pushd "${exercism_home}"
+  $exercism configure --dir="${exercism_home}"
+  $exercism configure --api "http://localhost:${xapi_port}"
+  $exercism debug
+  popd
+}
+
 get_operating_system() {
   case $(uname) in
       (Darwin*)
