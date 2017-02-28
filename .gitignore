@@ -6,3 +6,4 @@ bin/configlet
 bin/configlet.exe
 _build/
 rebar.lock
+/build/
