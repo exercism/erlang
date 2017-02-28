@@ -1,6 +1,6 @@
 -module(phone_tests).
 
--define(TESTED_MODULE, (sut(phone))).
+-define(TESTED_MODULE, (sut(phone_number))).
 -define(TEST_VERSION, 1).
 -include("exercism.hrl").
 
