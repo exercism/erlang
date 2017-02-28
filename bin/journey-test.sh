@@ -104,6 +104,20 @@ start_x_api() {
   popd
 }
 
+download_exercism_cli() {
+  local os="$1"
+  local arch="$2"
+  local exercism_home="$3"
+
+  local CLI_RELEASES=https://github.com/exercism/cli/releases
+
+  local latest=${CLI_RELEASES}/latest
+
+  # "curl..." :: HTTP 302 headers, including "Location" -- URL to redirect to.
+  # "awk..." :: pluck last path segment from "Location" (i.e. the version number)
+  local version="$(curl --head --silent ${latest} | awk -v FS=/ '/Location:/{print $NF}' | tr -d '\r')"
+}
+
 main() {
   cd "${EXECPATH}"
 
@@ -133,6 +147,10 @@ main() {
   # Fire up the local x-api
   assert_ruby_installed "${xapi_home}"
   start_x_api "${xapi_home}"
+
+  # Create a CLI install and config just for this build; this script does not use your CLI install.
+  download_exercism_cli $(get_operating_system) $(get_cpu_architecture) "${exercism_home}"
+  configure_exercism_cli "${exercism_home}" "${exercism_configfile}" "${xapi_port}"
 }
 
 # Show expanded commands
