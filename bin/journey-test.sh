@@ -88,6 +88,22 @@ make_local_trackler() {
   popd
 }
 
+start_x_api() {
+  local xapi_home="$1"
+
+  pushd "$xapi_home"
+
+  gem install bundler
+  bundle install
+  RACK_ENV=development rackup &
+  xapi_pid=$!
+  sleep 5
+
+  echo "x-api is running, pid is ${xapi_pid}."
+
+  popd
+}
+
 main() {
   cd "${EXECPATH}"
 
@@ -113,6 +129,10 @@ main() {
   git_clone "trackler" "${trackler_home}"
   assert_ruby_installed "${trackler_home}"
   make_local_trackler "${trackler_home}" "${xapi_home}"
+
+  # Fire up the local x-api
+  assert_ruby_installed "${xapi_home}"
+  start_x_api "${xapi_home}"
 }
 
 # Show expanded commands
