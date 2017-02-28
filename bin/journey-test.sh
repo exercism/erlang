@@ -198,6 +198,16 @@ solve_all_exercises() {
     echo "=================================================="
 
     ${exercism_cli} fetch erlang ${exercise}
+    local module=$(echo $exercise | sed s/-/_/g)
+    cat "${exercism_exercises_dir}/exercises/${exercise}/src/example.erl" \
+      | sed "s/-module(example)./-module(${module})./" \
+      > "${exercism_exercises_dir}/erlang/${exercise}/src/${module}.erl"
+
+    pushd "${exercism_exercises_dir}/erlang/${exercise}"
+    rebar3 eunit
+    popd
+
+    current_exercise_number=$((current_exercise_number + 1))
   done
 }
 
