@@ -1,4 +1,4 @@
--module(phone_tests).
+-module(phone_number_tests).
 
 -define(TESTED_MODULE, (sut(phone_number))).
 -define(TEST_VERSION, 1).
