@@ -1,6 +1,6 @@
 {application, atbash_cipher,
   [{description, "exercism.io - atbash-cipher"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

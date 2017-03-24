@@ -1,6 +1,6 @@
 {application, scrabble_score,
   [{description, "exercism.io - scrabble-score"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

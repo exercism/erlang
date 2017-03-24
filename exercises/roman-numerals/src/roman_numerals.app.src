@@ -1,6 +1,6 @@
 {application, roman_numerals,
   [{description, "exercism.io - roman-numerals"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

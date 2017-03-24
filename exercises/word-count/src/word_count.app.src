@@ -1,6 +1,6 @@
 {application, word_count,
   [{description, "exercism.io - word-count"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

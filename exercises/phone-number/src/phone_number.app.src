@@ -1,6 +1,6 @@
 {application, phone_number,
   [{description, "exercism.io - phone-number"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

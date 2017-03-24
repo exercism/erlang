@@ -1,6 +1,6 @@
 {application, etl,
   [{description, "exercism.io - etl"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

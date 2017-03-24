@@ -1,6 +1,6 @@
 {application, difference_of_squares,
   [{description, "exercism.io - difference-of-squares"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,
