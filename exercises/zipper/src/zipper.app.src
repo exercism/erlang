@@ -1,6 +1,6 @@
 {application, zipper,
   [{description, "exercism.io - zipper"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

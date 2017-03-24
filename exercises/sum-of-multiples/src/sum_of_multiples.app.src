@@ -1,6 +1,6 @@
 {application, sum_of_multiples,
   [{description, "exercism.io - sum-of-multiples"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

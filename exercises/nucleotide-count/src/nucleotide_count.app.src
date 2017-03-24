@@ -1,6 +1,6 @@
 {application, nucleotide_count,
   [{description, "exercism.io - nucleotide-count"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

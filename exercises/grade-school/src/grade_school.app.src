@@ -1,6 +1,6 @@
 {application, grade_school,
   [{description, "exercism.io - grade-school"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

@@ -1,6 +1,6 @@
 {application, allergies,
   [{description, "exercism.io - allergies"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,
