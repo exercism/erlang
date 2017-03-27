@@ -9,15 +9,11 @@ Update your Homebrew to latest:
 $ brew update
 ```
 
-Install Erlang:
+Install Erlang and Rebar3:
 
 ```bash
-$ brew install erlang
+$ brew install erlang rebar@3
 ```
-
-Also fetch the latest `rebar3` from rebar3.org and put it somewhere in
-your `$PATH` and make it executable. (PRs that describe this better or
-via `brew` are welcome).
 
 ### On Linux
 
