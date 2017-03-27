@@ -4,7 +4,7 @@
 
 Exercism exercises in Erlang
 
-## Contributing Guide
+## Contributing guide
 
 For general information about how exercism works, please see the
 [contributing guide](https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md#the-exercise-data).
