@@ -6,7 +6,7 @@
 
 
 expect_roman(Number, Expected) ->
-  ?assertEqual(?TESTED_MODULE:numerals(Number), Expected).
+  ?assertEqual(Expected, ?TESTED_MODULE:numerals(Number)).
 
 convert_1_test() -> expect_roman(1, "I").
 
