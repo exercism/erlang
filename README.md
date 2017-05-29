@@ -83,8 +83,3 @@ should pass without error message.
 Both programs will be run on Travis and a merge is unlikely when
 tests fail.
 
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2014 Katrina Owen, _@kytrinyx.com
