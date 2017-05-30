@@ -1,6 +1,6 @@
 -module(allergies_tests).
 
--define(TESTED_MODULE, (sut(accumulate))).
+-define(TESTED_MODULE, (sut(allergies))).
 -define(TEST_VERSION, 1).
 -include("exercism.hrl").
 

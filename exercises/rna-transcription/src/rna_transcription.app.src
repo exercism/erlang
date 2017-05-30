@@ -1,6 +1,6 @@
 {application, rna_transcription,
   [{description, "exercism.io - rna-transcription"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

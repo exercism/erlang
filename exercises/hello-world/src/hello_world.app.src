@@ -1,6 +1,6 @@
 {application, hello_world,
   [{description, "exercism.io - hello-world"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

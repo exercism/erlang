@@ -1,6 +1,6 @@
 {application, all_your_base,
   [{description, "exercism.io - all-your-base"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

@@ -1,6 +1,6 @@
 {application, hamming,
   [{description, "exercism.io - hamming"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

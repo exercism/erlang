@@ -1,6 +1,6 @@
 {application, clock,
   [{description, "exercism.io - clock"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

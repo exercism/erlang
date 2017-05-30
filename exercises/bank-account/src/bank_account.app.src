@@ -1,6 +1,6 @@
 {application, bank_account,
   [{description, "exercism.io - bank-account"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

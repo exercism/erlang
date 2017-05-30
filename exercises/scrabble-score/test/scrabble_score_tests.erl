@@ -1,6 +1,6 @@
 -module(scrabble_score_tests).
 
--define(TESTED_MODULE, (sut(scrabble))).
+-define(TESTED_MODULE, (sut(scrabble_score))).
 -define(TEST_VERSION, 1).
 -include("exercism.hrl").
 

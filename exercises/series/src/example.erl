@@ -1,4 +1,4 @@
--module( example ).
+-module(example).
 
 -export( [from_string/2, test_version/0] ).
 

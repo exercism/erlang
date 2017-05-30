@@ -1,6 +1,6 @@
 {application, space_age,
   [{description, "exercism.io - space-age"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

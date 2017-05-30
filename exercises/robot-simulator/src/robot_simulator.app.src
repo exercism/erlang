@@ -1,6 +1,6 @@
 {application, robot_simulator,
   [{description, "exercism.io - robot-simulator"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,

@@ -1,6 +1,6 @@
 {application, triangle,
   [{description, "exercism.io - triangle"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,
