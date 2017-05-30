@@ -2,7 +2,6 @@
 
 -define(TESTED_MODULE, (sut(rotational_cipher))).
 -define(TEST_VERSION, 1).
--include_lib("proper/include/proper.hrl").
 -include("exercism.hrl").
 
 %%% To use this testsuite completely do run
@@ -79,20 +78,21 @@ decrypt_punctuation_test() ->
 decrypt_all_letters_test() ->
   ?assertEqual("The quick brown fox jumps over the lazy dog.", ?TESTED_MODULE:decrypt("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.", 13)).
 
-%% Properties tested via `proper`
-
-prop_decrypt_encrypt_is_id() ->
-  ?FORALL({Input, N}, {string(), integer(0,26)},
-    ?TESTED_MODULE:decrypt(?TESTED_MODULE:encrypt(Input, N), N) == Input).
-
-prop_decrypt_is_encrypt_with_another_key() ->
-  ?FORALL({Input, N}, {string(), integer(0,26)},
-    ?TESTED_MODULE:decrypt(Input, 26 - N) == ?TESTED_MODULE:encrypt(Input, N)).
-
-prop_encrypt_13_twice_is_id() ->
-  ?FORALL(Input, string(),
-    ?TESTED_MODULE:encrypt(?TESTED_MODULE:encrypt(Input, 13), 13) == Input).
-
-prop_decrypt_13_twice_is_id() ->
-  ?FORALL(Input, string(),
-    ?TESTED_MODULE:decrypt(?TESTED_MODULE:decrypt(Input, 13), 13) == Input).
+%%% Properties tested via `proper`
+%
+%prop_decrypt_encrypt_is_id() ->
+%  ?FORALL({Input, N}, {string(), integer(0,26)},
+%    ?TESTED_MODULE:decrypt(?TESTED_MODULE:encrypt(Input, N), N) == Input).
+%
+%prop_decrypt_is_encrypt_with_another_key() ->
+%  ?FORALL({Input, N}, {string(), integer(0,26)},
+%    ?TESTED_MODULE:decrypt(Input, 26 - N) == ?TESTED_MODULE:encrypt(Input, N)).
+%
+%prop_encrypt_13_twice_is_id() ->
+%  ?FORALL(Input, string(),
+%    ?TESTED_MODULE:encrypt(?TESTED_MODULE:encrypt(Input, 13), 13) == Input).
+%
+%prop_decrypt_13_twice_is_id() ->
+%  ?FORALL(Input, string(),
+%    ?TESTED_MODULE:decrypt(?TESTED_MODULE:decrypt(Input, 13), 13) == Input).
+%
