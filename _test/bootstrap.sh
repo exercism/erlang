@@ -11,8 +11,6 @@ if [[ ! -f ~/bin/rebar3 ]]; then
     chmod a+x ~/bin/rebar3
 fi
 
-if [[ ! -f ~/bin/configlet ]]; then
-    ./bin/fetch-configlet
-    cp ./bin/configlet ~/bin/configlet
-fi
-
+# fetch configlet and move it into $PATH
+./bin/fetch-configlet
+cp ./bin/configlet ~/bin/configlet
