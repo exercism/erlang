@@ -26,6 +26,13 @@
       "difficulty": 1
     },
     {
+      "slug": "collatz-conjecture",
+      "topics":[
+
+      ],
+      "difficulty": 1
+    },
+    {
       "slug": "rna-transcription",
       "topics": [
 
