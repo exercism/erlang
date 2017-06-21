@@ -5,13 +5,13 @@
 -include("exercism.hrl").
 
 
-transcribes_cytidine_unchanged_test() ->
+transcribes_cytidine_to_guanosine_test() ->
   ?assertEqual("C", ?TESTED_MODULE:to_rna("G")).
 
-transcribes_guanosine_unchanged_test() ->
+transcribes_guanosine_to_cytidine_test() ->
   ?assertEqual("G", ?TESTED_MODULE:to_rna("C")).
 
-transcribes_adenosine_unchanged_test() ->
+transcribes_adenosine_to_thymidine_test() ->
   ?assertEqual("A", ?TESTED_MODULE:to_rna("T")).
 
 transcribes_thymidine_to_uracil_test() ->
