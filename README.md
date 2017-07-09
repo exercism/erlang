@@ -12,7 +12,7 @@ For general information about how exercism works, please see the
 ### Setting up your system for local development on the track
 
 Please make sure you have installed erlang/OTP and `rebar3` as
-described on [Installing Erlang](http://exercism.io/languages/erlang/installing)
+described on [Installing Erlang](http://exercism.io/languages/erlang/installation)
 or `docs/INSTALLATION.md` in this repository. Also run
 `bin/fetch-configlet` to download the JSON-checker.
 
