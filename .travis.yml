@@ -9,7 +9,7 @@ install:
 - rvm install 2.2.5
 - rvm use 2.2.5
 script:
-- configlet .
+- configlet lint .
 # - "./_test/check-exercises.escript"
 - "./bin/journey-test.sh"
 cache:
