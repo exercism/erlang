@@ -66,7 +66,7 @@ make_local_trackler() {
 
   pushd $trackler
 
-  git submodule init -- common
+  git submodule init -- problem-specifications
   git submodule update
 
   # Bake in local version of xerlang, this is what we are testing.

@@ -54,7 +54,7 @@ Repeat steps 5., 6., and 7. until all tests are implemented and your
 solution passes all tests.
 
 If there is a `exercises/<slug-name>/canonical-data.json`
-in [x-common](https://github.com/exercism/x-common), make sure to
+in [problem-specifications](https://github.com/exercism/problem-specifications), make sure to
 implement your tests and examples in a way that the canonical data is
 integrated and not violated.
 

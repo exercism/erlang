@@ -9,7 +9,7 @@
 
 
 %%% These tests are inspired by
-%%% https://github.com/exercism/x-common/blob/932c674a0554ad0db3645e9d2a473a515876d6eb/exercises/rotational-cipher/canonical-data.json
+%%% https://github.com/exercism/problem-specifications/blob/932c674a0554ad0db3645e9d2a473a515876d6eb/exercises/rotational-cipher/canonical-data.json
 %%% But don't have a generic `rotate/2` function, but split the tests into
 %%% encryption and decryption.
 %%% Also some property based tests are added into the mix.
