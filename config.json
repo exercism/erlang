@@ -262,6 +262,13 @@
 
       ],
       "difficulty": 8
+    },
+    {
+      "slug": "spiral-matrix",
+      "topics": [
+
+      ],
+      "difficulty": 8
     }
   ],
   "deprecated": [
