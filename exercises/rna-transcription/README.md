@@ -66,4 +66,3 @@ Rosalind [http://rosalind.info/problems/rna](http://rosalind.info/problems/rna)
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
-

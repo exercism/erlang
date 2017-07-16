@@ -75,4 +75,3 @@ Event Manager by JumpstartLab [http://tutorials.jumpstartlab.com/projects/eventm
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
-
