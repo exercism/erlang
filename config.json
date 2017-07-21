@@ -1,7 +1,5 @@
 {
-  "slug": "erlang",
   "language": "Erlang",
-  "repository": "https://github.com/exercism/erlang",
   "active": true,
   "exercises": [
     {
