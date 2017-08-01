@@ -1,7 +1,8 @@
 -module(meetup).
 
--export([test_version/0]).
+-export([schedule/4, test_version/0]).
 
-
+schedule(Year, Month, DayOfWeek, Period) ->
+  undefined.
 
 test_version() -> 1.
