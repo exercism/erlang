@@ -1,7 +1,8 @@
 -module(hello_world).
 
--export([test_version/0]).
+-export([hello/0, test_version/0]).
 
+hello() ->
+  undefined.
 
-
-test_version() -> 1.
+test_version() -> 2.
