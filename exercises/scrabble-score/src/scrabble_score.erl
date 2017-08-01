@@ -1,7 +1,8 @@
 -module(scrabble_score).
 
--export([test_version/0]).
+-export([score/1, test_version/0]).
 
-
+score(Word) ->
+  undefined.
 
 test_version() -> 1.
