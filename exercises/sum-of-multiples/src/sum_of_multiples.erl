@@ -1,7 +1,8 @@
 -module(sum_of_multiples).
 
--export([test_version/0]).
+-export([sumOfMultiples/2, test_version/0]).
 
-
+sumOfMultiples(Multiples, N) ->
+  undefined.
 
 test_version() -> 1.
