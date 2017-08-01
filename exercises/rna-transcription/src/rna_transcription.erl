@@ -1,7 +1,8 @@
 -module(rna_transcription).
 
--export([test_version/0]).
+-export([to_rna/1, test_version/0]).
 
-
+to_rna(Strand) ->
+  undefined.
 
 test_version() -> 1.
