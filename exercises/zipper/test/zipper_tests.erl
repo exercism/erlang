@@ -8,7 +8,7 @@
 %% Fixtures and helpers
 
 bt(V, L, R) -> ?TESTED_MODULE:new_tree(V, L, R).
-empty() -> ?TESTED_MODULE:empty().
+empty() -> nil.
 leaf(V) -> ?TESTED_MODULE:new_tree(V, empty(), empty()).
 
 

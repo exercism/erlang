@@ -2,10 +2,10 @@
 
 sut(Module) ->
   {ok, Files} = file:list_dir("./src"),
-  case lists:member(atom_to_list(Module) ++ ".erl", Files) of
-    true  -> Module;
-    false -> example
+  case lists:member("example.erl", Files) of
+    true  -> example;
+    false -> Module
   end.
 
 version_test() ->
-    ?assertMatch(?TEST_VERSION, ?TESTED_MODULE:test_version()).
+  ?assertMatch(?TEST_VERSION, ?TESTED_MODULE:test_version()).

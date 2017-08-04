@@ -1,8 +1,6 @@
 -module(example).
 
--export([new_tree/3, empty/0, test_version/0]).
-
--export([from_tree/1, to_tree/1, up/1, left/1, right/1, value/1, set_value/2, set_left/2, set_right/2]).
+-export([from_tree/1, to_tree/1, up/1, left/1, right/1, value/1, set_value/2, set_left/2, set_right/2, new_tree/3, test_version/0]).
 
 -export_type([tree/0, zipper/0]).
 
@@ -26,8 +24,6 @@ new_tree(Value, Left, Right) ->
           left  = Left,
           right = Right}.
 
-empty() -> nil.
-
 test_version() ->
     1.
 
@@ -43,7 +39,7 @@ to_tree(Z = #zipper{trail = [_|_]}) -> to_tree(up(Z));
 to_tree(Z = #zipper{trail = []}) ->
     new_tree(Z#zipper.value, Z#zipper.left, Z#zipper.right).
 
-up(#zipper{trail = []}) -> empty();
+up(#zipper{trail = []}) -> nil;
 up(Z = #zipper{trail = [{left, V, R}|T]}) ->
     #zipper{value = V,
             left  = new_tree(Z#zipper.value, Z#zipper.left, Z#zipper.right),
