@@ -43,14 +43,14 @@ triangles_with_negative_sides_are_illegal_test() ->
     ?assertMatch({error, "all side lengths must be positive"},
                  ?TESTED_MODULE:kind(3, 4, -5)).
 
-triangles_violating_triangle_inequality_are_illegel_test() ->
+triangles_violating_triangle_inequality_are_illegal_test() ->
     ?assertMatch({error, "side lengths violate triangle inequality"},
                  ?TESTED_MODULE:kind(1, 1, 3)).
 
-triangles_violating_triangle_inequality_are_illegel_2_test() ->
+triangles_violating_triangle_inequality_are_illegal_2_test() ->
     ?assertMatch({error, "side lengths violate triangle inequality"},
                  ?TESTED_MODULE:kind(2, 4, 2)).
 
-triangles_violating_triangle_inequality_are_illegel_3_test() ->
+triangles_violating_triangle_inequality_are_illegal_3_test() ->
     ?assertMatch({error, "side lengths violate triangle inequality"},
                  ?TESTED_MODULE:kind(7, 3, 2)).
