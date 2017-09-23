@@ -12,7 +12,7 @@ close( Pid ) -> call( erlang:is_process_alive(Pid), Pid, close, 0 ).
 
 create() -> erlang:spawn( fun () -> loop(0) end ).
 
-deposit( Pid, Amount ) when Amount > 0 -> Pid ! {deposit, Amount};
+deposit( Pid, Amount ) when Amount > 0 -> call( erlang:is_process_alive(Pid), Pid, deposit, Amount );
 deposit( _Pid, _Amount ) -> ok.
 
 withdraw( Pid, Amount ) when Amount > 0 -> call( erlang:is_process_alive(Pid), Pid, withdraw, Amount );
@@ -42,7 +42,8 @@ loop( Balance ) ->
       loop( Balance - Charge );
     {close, _Argument, Pid} ->
       Pid ! {close, Balance};
-    {deposit, Amount} ->
+    {deposit, Amount, Pid} ->
+      Pid ! {deposit, Amount},
       loop( Balance + Amount );
     {withdraw, Amount, Pid} ->
       Withdraw = erlang:min( Balance, Amount ),
