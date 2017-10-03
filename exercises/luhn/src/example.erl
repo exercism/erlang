@@ -19,11 +19,12 @@ checksum(Number) ->
 
 
 
-is_numeric(Number) -> 
-  case re:run(Number, "^[0-9 ]+$") of
-    {match, _} -> true;
-    nomatch    -> false
-  end.
+is_numeric(Number) ->
+  lists:all(
+  	fun(C) ->
+  		(($0 =< C) andalso (C =< $9)) or (C == $\s)
+  	end,
+  	Number).
 
 
 
@@ -47,7 +48,24 @@ checksum([H | ReversedNumber], even, Total) when H >= $5 ->
 
 
 valid(Number) ->
-  is_numeric(Number) andalso checksum(Number) rem 10 == 0 andalso is_min_length(Number).
+  case is_numeric(Number) of
+    true ->
+      case is_min_length(Number) of
+      	true ->
+	      case lists:filter(
+	        fun(C) ->
+	            ($0 =< C) andalso (C =< $9)
+	        end,
+	        Number
+	      ) of
+	        Number2 = [_|_] ->
+	          checksum(Number2) rem 10 == 0;
+	        _ -> false
+	      end;
+        _ -> false
+      end;
+    _ -> false
+ end.
 
 
 
