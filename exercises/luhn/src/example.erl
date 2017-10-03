@@ -1,5 +1,5 @@
 -module(example).
--export([valid/1, create/1, checksum/1, isNumeric/1, isMinLength/1, test_version/0]).
+-export([valid/1, test_version/0]).
 
 
 
@@ -19,16 +19,16 @@ checksum(Number) ->
 
 
 
-isNumeric(Number) -> 
+is_numeric(Number) -> 
   case re:run(Number, "^[0-9 ]+$") of
-    {match, Captured} -> true;
+    {match, _} -> true;
     nomatch    -> false
   end.
 
 
 
-isMinLength(Number) -> 
-  re:replace(Number, "(^\\s+)|(\\s+$)", "", [global,{return,list}]).
+is_min_length(Number) -> 
+  length(re:replace(Number, "(^\\s+)|(\\s+$)", "", [global,{return,list}])) > 1.
 
 
 
@@ -47,14 +47,9 @@ checksum([H | ReversedNumber], even, Total) when H >= $5 ->
 
 
 valid(Number) ->
-  isNumeric(Number) andalso checksum(Number) rem 10 == 0 andalso length(isMinLength(Number)) > 1.
-
-
-
-create(Number) ->
-  lists:flatten([Number, ($: - (checksum(Number ++ [$0]) rem 10))]).
+  is_numeric(Number) andalso checksum(Number) rem 10 == 0 andalso is_min_length(Number).
 
 
 
 test_version() ->
-    1.
+    1.1.
