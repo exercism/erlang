@@ -1,21 +1,36 @@
 -module(example).
--export([valid/1, create/1, checksum/1, test_version/0]).
+-export([valid/1, test_version/0]).
 
 
 
 checksum(Number) ->
   checksum(
     lists:reverse(
-      lists:filter(
-        fun(C) ->
-            ($0 =< C) andalso (C =< $9)
-        end,
-        Number
-       )
+      filter_input(Number)
      ),
     odd,
     0
    ).
+
+
+
+is_numeric(Number) ->
+  lists:all(
+  	fun(C) ->
+  		(($0 =< C) andalso (C =< $9)) or (C == $\s)
+  	end,
+  	Number
+  ).
+
+
+
+filter_input(Number) ->
+  lists:filter(
+    fun(C) ->
+      ($0 =< C) andalso (C =< $9)
+    end,
+    Number
+  ).
 
 
 
@@ -34,14 +49,17 @@ checksum([H | ReversedNumber], even, Total) when H >= $5 ->
 
 
 valid(Number) ->
-  checksum(Number) rem 10 == 0.
-
-
-
-create(Number) ->
-  lists:flatten([Number, ($: - (checksum(Number ++ [$0]) rem 10))]).
+  case is_numeric(Number) of
+    true ->
+      case filter_input(Number) of
+        Number2 = [_,_|_] ->
+          checksum(Number2) rem 10 == 0;
+        _ -> false
+      end;
+    _ -> false
+  end.
 
 
 
 test_version() ->
-    1.
+    2.
