@@ -53,7 +53,6 @@ valid(Number) ->
     true ->
       case filter_input(Number) of
         Number2 = [_,_|_] ->
-          io:format(Number2),
           checksum(Number2) rem 10 == 0;
         _ -> false
       end;
