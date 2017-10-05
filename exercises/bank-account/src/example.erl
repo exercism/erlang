@@ -1,55 +1,80 @@
 -module(example).
 
--export( [balance/1, charge/2, close/1, create/0, deposit/2, withdraw/2, test_version/0] ).
+-export([
+  balance/1,
+  charge/2,
+  close/1,
+  create/0,
+  deposit/2,
+  withdraw/2,
+  test_version/0
+]).
 
+-export([
+  init/1,
+  handle_call/3,
+  handle_cast/2
+]).
 
-balance( Pid ) -> call( erlang:is_process_alive(Pid), Pid, balance, 0 ).
+-behaviour(gen_server).
 
-charge( Pid, Amount ) when Amount > 0 -> call( erlang:is_process_alive(Pid), Pid, charge, Amount );
-charge( _Pid, _Amount ) -> 0.
+-record(account, {pid}).
 
-close( Pid ) -> call( erlang:is_process_alive(Pid), Pid, close, 0 ).
-
-create() -> erlang:spawn( fun () -> loop(0) end ).
-
-deposit( Pid, Amount ) when Amount > 0 -> call( erlang:is_process_alive(Pid), Pid, deposit, Amount );
-deposit( _Pid, _Amount ) -> ok.
-
-withdraw( Pid, Amount ) when Amount > 0 -> call( erlang:is_process_alive(Pid), Pid, withdraw, Amount );
-withdraw( _Pid, _Amount ) -> 0.
 
 test_version() ->
     1.
 
 
+%%% Public API
 
-call( true, Pid, Request, Argument ) ->
-  Pid ! {Request, Argument, erlang:self()},
-  receive
-    {Request, Answer} -> Answer
-  end;
-call( false, _Pid, _Request, _Argument ) ->
-  {error, account_closed}.
+create() ->
+  {ok, PID} = gen_server:start(?MODULE, [], []),
+  #account{pid=PID}.
 
-loop( Balance ) ->
-  receive
-    {balance, _Argument, Pid} ->
-      Pid ! {balance, Balance},
-      loop( Balance );
-    {charge, Amount, Pid} ->
-      Charge = loop_charge( Balance, Amount ),
-      Pid ! {charge, Charge},
-      loop( Balance - Charge );
-    {close, _Argument, Pid} ->
-      Pid ! {close, Balance};
-    {deposit, Amount, Pid} ->
-      Pid ! {deposit, Amount},
-      loop( Balance + Amount );
-    {withdraw, Amount, Pid} ->
-      Withdraw = erlang:min( Balance, Amount ),
-      Pid ! {withdraw, Withdraw},
-      loop( Balance - Withdraw )
-  end.
+balance(#account{pid=PID}) ->
+  gen_server:call(PID, balance, infinity).
 
-loop_charge( Balance, Amount ) when Balance >= Amount -> Amount;
-loop_charge( _Balance, _Amount ) -> 0.
+charge(#account{pid=PID}, Amount) ->
+  gen_server:call(PID, {charge, Amount}, infinity).
+
+close(#account{pid=PID}) ->
+  gen_server:call(PID, close, infinity).
+
+deposit(#account{pid=PID}, Amount) ->
+  gen_server:call(PID, {deposit, Amount}, infinity).
+
+withdraw(#account{pid=PID}, Amount) ->
+  gen_server:call(PID, {withdraw, Amount}, infinity).
+
+%%% gen_server API
+
+init([]) ->
+  {ok, 0}.
+
+handle_call(_, _From, closed) ->
+  {reply, {error, account_closed}, closed};
+handle_call(close, _From, Balance) ->
+  {reply, Balance, closed};
+handle_call(balance, _From, Balance) ->
+  {reply, Balance, Balance};
+handle_call({deposit, Amount}, _From, Balance) when Amount > 0 ->
+  {reply, Amount, Balance + Amount};
+handle_call({deposit, _}, _From, Balance) ->
+  {reply, Balance, Balance};
+handle_call({withdraw, Amount}, _From, Balance) when Amount > Balance ->
+  {reply, Balance, 0};
+handle_call({withdraw, Amount}, _From, Balance) when Amount > 0 ->
+  Balance1 = Balance - Amount,
+  {reply, Amount, Balance1};
+handle_call({withdraw, _}, _From, Balance) ->
+  {reply, 0, Balance};
+handle_call({charge, Amount}, _From, Balance) when Amount > Balance ->
+  {reply, 0, Balance};
+handle_call({charge, Amount}, _From, Balance) when Amount > 0 ->
+  {reply, Amount, Balance - Amount};
+handle_call({charge, _}, _From, Balance) ->
+  {reply, 0, Balance}.
+
+
+handle_cast(_, Balance) ->
+  {noreply, Balance}.

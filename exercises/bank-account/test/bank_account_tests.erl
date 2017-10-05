@@ -29,10 +29,8 @@ deposit_fail_test() ->
 deposit_many_test() ->
   BankAccount = ?TESTED_MODULE:create(),
   [erlang:spawn( fun () -> ?TESTED_MODULE:deposit(BankAccount, X) end ) || X <- lists:seq(1, 10)],
-  % First = ?TESTED_MODULE:balance(BankAccount),
   timer:sleep(100),
   Last = ?TESTED_MODULE:balance(BankAccount),
-  % ?assert(First < 55),
   ?assert(Last =:= 55).
 
 withdraw_test() ->
@@ -60,10 +58,8 @@ withdraw_many_test() ->
   BankAccount = ?TESTED_MODULE:create(),
   ?TESTED_MODULE:deposit(BankAccount, 55 ),
   [erlang:spawn( fun () -> ?TESTED_MODULE:withdraw(BankAccount, X) end ) || X <- lists:seq(1, 10)],
-  First = ?TESTED_MODULE:balance(BankAccount),
   timer:sleep(100),
   Last = ?TESTED_MODULE:balance(BankAccount),
-  ?assert(First > 0),
   ?assert(Last =:= 0).
 
 charge_test() ->
@@ -91,8 +87,6 @@ charge_many_test() ->
   BankAccount = ?TESTED_MODULE:create(),
   ?TESTED_MODULE:deposit(BankAccount, 55 ),
   [erlang:spawn( fun () -> ?TESTED_MODULE:charge(BankAccount, 10) end ) || _X <- lists:seq(1, 10)],
-  First = ?TESTED_MODULE:balance(BankAccount),
   timer:sleep(100),
   Last = ?TESTED_MODULE:balance(BankAccount),
-  ?assert(First > 0),
   ?assert(Last =:= 5).
