@@ -6,12 +6,7 @@
 checksum(Number) ->
   checksum(
     lists:reverse(
-      lists:filter(
-        fun(C) ->
-            ($0 =< C) andalso (C =< $9)
-        end,
-        Number
-       )
+      filter_input(Number)
      ),
     odd,
     0
@@ -24,12 +19,18 @@ is_numeric(Number) ->
   	fun(C) ->
   		(($0 =< C) andalso (C =< $9)) or (C == $\s)
   	end,
-  	Number).
+  	Number
+  ).
 
 
 
-is_min_length(Number) -> 
-  length(re:replace(Number, "(^\\s+)|(\\s+$)", "", [global,{return,list}])) > 1.
+filter_input(Number) ->
+  lists:filter(
+    fun(C) ->
+      ($0 =< C) andalso (C =< $9)
+    end,
+    Number
+  ).
 
 
 
@@ -50,24 +51,16 @@ checksum([H | ReversedNumber], even, Total) when H >= $5 ->
 valid(Number) ->
   case is_numeric(Number) of
     true ->
-      case is_min_length(Number) of
-      	true ->
-	      case lists:filter(
-	        fun(C) ->
-	            ($0 =< C) andalso (C =< $9)
-	        end,
-	        Number
-	      ) of
-	        Number2 = [_|_] ->
-	          checksum(Number2) rem 10 == 0;
-	        _ -> false
-	      end;
+      case filter_input(Number) of
+        Number2 = [_,_|_] ->
+          io:format(Number2),
+          checksum(Number2) rem 10 == 0;
         _ -> false
       end;
     _ -> false
- end.
+  end.
 
 
 
 test_version() ->
-    1.1.
+    2.

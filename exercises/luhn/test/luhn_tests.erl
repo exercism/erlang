@@ -1,7 +1,7 @@
 -module(luhn_tests).
 
 -define(TESTED_MODULE, (sut(luhn))).
--define(TEST_VERSION, 1.1).
+-define(TEST_VERSION, 2).
 -include("exercism.hrl").
 
 single_digit_strings_can_not_be_valid_test() ->
