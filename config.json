@@ -381,6 +381,16 @@
       "topics": [
 
       ]
+    },
+    {
+      "uuid": "1a8abaa2-04f5-0e80-7986-5fb33995971caeb1496",
+      "slug": "two-fer",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+
+      ]
     }
   ],
   "foregone": [
