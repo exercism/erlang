@@ -6,7 +6,7 @@
 
 
 say_you_test() ->
-  ?assertEqual("One for you, one for me.", ?TESTED_MODULE:two_fer("")).
+  ?assertEqual("One for you, one for me.", ?TESTED_MODULE:two_fer()).
 
 say_alice_test() ->
   ?assertEqual("One for Alice, one for me.", ?TESTED_MODULE:two_fer("Alice")).

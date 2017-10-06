@@ -193,6 +193,16 @@
       ]
     },
     {
+      "uuid": "1a8abaa2-04f5-0e80-7986-5fb33995971caeb1496",
+      "slug": "two-fer",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+
+      ]
+    },
+    {
       "uuid": "a2d4ca29-54e2-4969-bfc9-ee483acf9caf",
       "slug": "robot-simulator",
       "core": false,
@@ -378,16 +388,6 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 8,
-      "topics": [
-
-      ]
-    },
-    {
-      "uuid": "1a8abaa2-04f5-0e80-7986-5fb33995971caeb1496",
-      "slug": "two-fer",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 3,
       "topics": [
 
       ]

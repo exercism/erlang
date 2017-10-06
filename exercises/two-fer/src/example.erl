@@ -1,13 +1,11 @@
 -module(example).
--export([two_fer/1, test_version/0]).
+-export([two_fer/1, two_fer/0, test_version/0]).
+
+two_fer() ->
+  lists:flatten("One for you, one for me.").
 
 two_fer(Name) ->
-  case Name of
-    "" ->
-      "One for you, one for me.";
-    _ ->
-      "One for " ++ Name ++ ", one for me."
-  end.
+  lists:flatten(io_lib:format("One for ~s, one for me.", [Name])).
 
 test_version() ->
   1.
