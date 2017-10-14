@@ -293,6 +293,16 @@
       ]
     },
     {
+      "uuid": "28b7e4fa-0511-f480-5128-5531913fca21458a2d9",
+      "slug": "sieve",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 4,
+      "topics": [
+
+      ]
+    },
+    {
       "uuid": "b312ff0e-90e3-4dd8-99dc-df4a9deb1907",
       "slug": "largest-series-product",
       "core": false,
