@@ -11,6 +11,7 @@ sieve([], P) ->
     lists:reverse(P);
 sieve(S, P) ->
     N = hd(S),
-    sieve(lists:filter(fun(X) -> X rem N /= 0 end, S), [N|P]).
+    R = lists:filter(fun(X) -> X rem N /= 0 end, S),
+    sieve(R, [N|P]).
 
 test_version() -> 1.
