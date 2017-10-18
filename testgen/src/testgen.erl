@@ -40,5 +40,5 @@ find_git(Dir) ->
 
 parent_dir(Dir) ->
     DirRev0 = lists:reverse(Dir),
-    DirRev1 = lists:dropwhile(fun(C) -> C =/= $/ end, DirRev0),
+    DirRev1 = lists:dropwhile(fun(C) -> not lists:member(C, [$/, $\\]) end, DirRev0),
     lists:reverse(tl(DirRev1)).
