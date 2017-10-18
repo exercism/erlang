@@ -9,6 +9,8 @@ Exercism exercises in Erlang
 For general information about how exercism works, please see the
 [contributing guide](https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md#the-exercise-data).
 
+If you create “claiming” PRs with obviously unfinished code, please provide an estimate in the PR description when you will continue to work on the PR or you think it will be finished.
+
 ### Setting up your system for local development on the track
 
 Please make sure you have installed erlang/OTP and `rebar3` as
