@@ -33,8 +33,12 @@ find_git(Dir) ->
             {ok, Dir};
 
         _ ->
-            Rid0 = lists:reverse(Dir),
-            Rid1 = lists:dropwhile(fun(C) -> C /= $/ end, Rid0),
-            Dir1 = lists:reverse(tl(Rid1)),
-            find_git(Dir1)
+            Parent = parent_dir(Dir),
+            find_git(Parent)
     end.
+
+
+parent_dir(Dir) ->
+    DirRev0 = lists:reverse(Dir),
+    DirRev1 = lists:dropwhile(fun(C) -> C =/= $/ end, DirRev0),
+    lists:reverse(tl(DirRev1)).
