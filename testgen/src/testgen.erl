@@ -33,12 +33,6 @@ find_git(Dir) ->
             {ok, Dir};
 
         _ ->
-            Parent = parent_dir(Dir),
+            Parent = tg_file_tools:parent_dir(Dir),
             find_git(Parent)
     end.
-
-
-parent_dir(Dir) ->
-    DirRev0 = lists:reverse(Dir),
-    DirRev1 = lists:dropwhile(fun(C) -> not lists:member(C, [$/, $\\]) end, DirRev0),
-    lists:reverse(tl(DirRev1)).
