@@ -16,7 +16,16 @@ main([]) ->
         error -> io:format("No git basedir found, please specifiy manually~n")
     end;
 main([GitPath]) ->
-    io:format("Using ~s as basepath~n", [GitPath]).
+    io:format("Using ~s as basepath~n", [GitPath]),
+    SpecFiles0 = filelib:wildcard("canonical_data/exercises/*/canonical-data.json", GitPath),
+    SpecFiles1 = lists:filtermap(fun(Path) ->
+        Name = tg_file_tools:extract_name(Path),
+        case tgen:check(Name) of
+            {true, Module} -> {true, {Module, Path}};
+            _ -> false
+        end
+    end, SpecFiles0),
+    io:format("~p~n", [SpecFiles1]).
 
 %%====================================================================
 %% Internal functions
