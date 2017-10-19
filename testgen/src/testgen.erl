@@ -23,7 +23,11 @@ main([GitPath]) ->
     SpecFiles1 = lists:filtermap(fun(Path) ->
         Name = tg_file_tools:extract_name(Path),
         case tgen:check(Name) of
-            {true, Module} -> {true, #tgen{module=Module, path=Path}};
+            {true, Module} ->
+                {true, #tgen{
+                    module=Module,
+                    path=Path
+                }};
             _ -> false
         end
     end, SpecFiles0),
