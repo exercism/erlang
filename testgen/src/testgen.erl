@@ -3,6 +3,8 @@
 %% API exports
 -export([main/1]).
 
+-include("tgen.hrl").
+
 %%====================================================================
 %% API functions
 %%====================================================================
@@ -21,7 +23,7 @@ main([GitPath]) ->
     SpecFiles1 = lists:filtermap(fun(Path) ->
         Name = tg_file_tools:extract_name(Path),
         case tgen:check(Name) of
-            {true, Module} -> {true, {Module, Path}};
+            {true, Module} -> {true, #tgen{module=Module, path=Path}};
             _ -> false
         end
     end, SpecFiles0),
