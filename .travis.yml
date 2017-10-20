@@ -10,6 +10,7 @@ install:
 - rvm use 2.2.5
 script:
 - configlet lint .
+- cd testgen; rebar3 escriptize # TODO: before merging into master, try to do this in a separate env via buildmatrix
 # - "./_test/check-exercises.escript"
 - "./bin/journey-test.sh"
 cache:
