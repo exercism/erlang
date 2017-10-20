@@ -23,4 +23,9 @@ check(Name) ->
 
 -spec generate(tgen()) -> ok. 
 generate(Generator = #tgen{}) ->
-    io:format("Generating ~s~n", [Generator#tgen.name]).
+    io:format("Generating ~s~n", [Generator#tgen.name]),
+    case file:read_file(Generator#tgen.path) of
+        {ok, Content} ->
+            JSON = jsx:decode(Content, [return_maps, {labels, atom}]),
+            io:format("Parsed JSON: ~p~n", [JSON])
+    end.
