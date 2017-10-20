@@ -20,20 +20,21 @@ main([]) ->
 main([GitPath]) ->
     io:format("Using ~s as basepath~n", [GitPath]),
     SpecFiles0 = filelib:wildcard("canonical_data/exercises/*/canonical-data.json", GitPath),
-    SpecFiles1 = lists:filtermap(fun(Path) ->
-        Name = tg_file_tools:extract_name(Path),
-        case tgen:check(Name) of
-            {true, Module} ->
-                {true, #tgen{
-                    module = Module,
-                    name   = Name,
-                    path   = Path
-                }};
-            _ -> false
-        end
-    end, SpecFiles0),
+    SpecFiles1 = lists:filtermap(fun filter_by_generator_and_create_record/1, SpecFiles0),
     io:format("~p~n", [SpecFiles1]).
 
 %%====================================================================
 %% Internal functions
 %%====================================================================
+
+filter_by_generator_and_create_record(Path) ->
+    Name = tg_file_tools:extract_name(Path),
+    case tgen:check(Name) of
+        {true, Module} ->
+            {true, #tgen{
+                module = Module,
+                name   = Name,
+                path   = Path
+            }};
+        _ -> false
+    end.
