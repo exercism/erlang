@@ -4,7 +4,7 @@
     check/1
 ]).
 
--callback available() -> bool().
+-callback available() -> boolean().
 
 -spec check(string()) -> {true, atom()} | false.
 check(Name) ->
