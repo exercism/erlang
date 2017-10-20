@@ -1,5 +1,5 @@
 -record(tgen, {
     module :: atom(),
-    name   :: string(),
+    name   :: string() | binary(),
     path   :: file:filename()
 }).
