@@ -10,6 +10,7 @@
 -type tgen() :: #tgen{}.
 
 -callback available() -> boolean().
+-callback generate(jsx:json_term()) -> {ok, string()} | {error, atom()}.
 
 -spec check(string()) -> {true, atom()} | false.
 check(Name) ->
