@@ -26,6 +26,15 @@ generate(Generator = #tgen{}) ->
     io:format("Generating ~s~n", [Generator#tgen.name]),
     case file:read_file(Generator#tgen.path) of
         {ok, Content} ->
-            JSON = jsx:decode(Content, [return_maps, {labels, atom}]),
-            io:format("Parsed JSON: ~p~n", [JSON])
+            process_json(Generator, Content)
+    end.
+
+process_json(G = #tgen{name = GName}, Content) when is_list(GName) ->
+    process_json(G#tgen{name = list_to_binary(GName)}, Content);
+process_json(#tgen{name = GName}, Content) ->
+    case jsx:decode(Content, [return_maps, {labels, atom}]) of
+        JSON = #{exercise := GName} ->
+            io:format("Parsed JSON: ~p~n", [JSON]);
+        #{exercise := Name} ->
+            io:format("Name in JSON (~p) and name for generator (~p) do not line up", [Name, GName])
     end.
