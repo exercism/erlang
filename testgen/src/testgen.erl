@@ -25,8 +25,9 @@ main([GitPath]) ->
         case tgen:check(Name) of
             {true, Module} ->
                 {true, #tgen{
-                    module=Module,
-                    path=Path
+                    module = Module,
+                    name   = Name,
+                    path   = Path
                 }};
             _ -> false
         end
