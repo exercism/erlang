@@ -2,15 +2,29 @@
 
 -export([
     check/1,
-    generate/1
+    generate/1,
+    to_test_name/1
+]).
+
+-export_type([
+    tgen/0,
+    exercise_json/0
 ]).
 
 -include("tgen.hrl").
 
 -type tgen() :: #tgen{}.
 
+-type exercise_json() :: #{
+    description := binary(),
+    expected    := jsx:json_term(),
+    property    := binary(),
+    binary()    => jsx:json_term()
+}.
+
 -callback available() -> boolean().
--callback generate(jsx:json_term()) -> {ok, string()} | {error, atom()}.
+-callback generate_test(exercise_json()) -> {ok, string()} | {error, atom()}.
+
 
 -spec check(string()) -> {true, atom()} | false.
 check(Name) ->
@@ -32,10 +46,23 @@ generate(Generator = #tgen{}) ->
 
 process_json(G = #tgen{name = GName}, Content) when is_list(GName) ->
     process_json(G#tgen{name = list_to_binary(GName)}, Content);
-process_json(#tgen{name = GName}, Content) ->
-    case jsx:decode(Content, [return_maps, {labels, atom}]) of
-        JSON = #{exercise := GName} ->
-            io:format("Parsed JSON: ~p~n", [JSON]);
+process_json(#tgen{name = GName, module = Module}, Content) ->
+    case jsx:decode(Content, [return_maps, {labels, attempt_atom}]) of
+        JSON = #{exercise := GName, cases := Cases} ->
+            io:format("Parsed JSON: ~p~n", [JSON]),
+            Tests = lists:map(fun Module:generate_test/1, Cases),
+            io:format("Teststuff: ~p~n", [Tests]);
         #{exercise := Name} ->
             io:format("Name in JSON (~p) and name for generator (~p) do not line up", [Name, GName])
     end.
+
+-spec to_test_name(string() | binary()) -> string() | binary().
+to_test_name(Name) when is_binary(Name) ->
+    list_to_binary(to_test_name(binary_to_list(Name)));
+to_test_name(Name) when is_list(Name) ->
+    lists:filtermap(fun
+        (C) when (($a =< C) and (C =< $z)) or (C == $_) -> {true, C};
+        (C) when (($A =< C) and (C =< $Z)) -> {true, C - $A + $a};
+        ($\s) -> {true, $_};
+        (_) -> false
+    end, Name) ++ "_test".
