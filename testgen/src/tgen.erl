@@ -1,8 +1,13 @@
 -module(tgen).
 
 -export([
-    check/1
+    check/1,
+    generate/1
 ]).
+
+-include("tgen.hrl").
+
+-type tgen() :: #tgen{}.
 
 -callback available() -> boolean().
 
@@ -15,3 +20,7 @@ check(Name) ->
     catch
         _:_ -> false
     end.
+
+-spec generate(tgen()) -> ok. 
+generate(Generator = #tgen{}) ->
+    io:format("Generating ~s~n", [Generator#tgen.name]).

@@ -21,7 +21,7 @@ main([GitPath]) ->
     io:format("Using ~s as basepath~n", [GitPath]),
     SpecFiles0 = filelib:wildcard("canonical_data/exercises/*/canonical-data.json", GitPath),
     SpecFiles1 = lists:filtermap(fun filter_by_generator_and_create_record/1, SpecFiles0),
-    io:format("~p~n", [SpecFiles1]).
+    lists:map(fun tgen:generate/1, SpecFiles1).
 
 %%====================================================================
 %% Internal functions
