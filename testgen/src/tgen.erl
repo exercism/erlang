@@ -81,14 +81,18 @@ generate_module(ModuleName, Tests, Version) ->
     [<<"-module('">>, SluggedModName, <<"_tests').\n">>,
      <<"\n">>,
      <<"-define(TESTED_MODULE, (sut('">>, SluggedModName, <<"'))).\n">>,
-     <<"-define(TEST_VERSION, 2).\n">>,
+     <<"-define(TEST_VERSION, ">>, Version, <<").\n">>,
      <<"-include(\"exercism.hrl\").\n">>,
      <<"\n">>,
      <<"\n">>] ++ lists:map(fun to_binary/1, Tests).
 
 to_binary(#{testname := Name, testimpl := Impl}) ->
     [Name, <<"() ->\n">>,
-     impl(Impl, <<"    ">>), "."].
+     impl(Impl, <<"    ">>)].
 
-impl({Call, Args}, Indent) ->
-    [Indent, Call].
+impl([H], Indent) ->
+    [Indent, impl(H, Indent), <<".\n\n">>];
+impl([H|T], Indent) ->
+    [Indent, impl(H, Indent), <<",\n">>] ++ impl(T, Indent); 
+impl({Call, _Args}, _Indent) ->
+    [Call].
