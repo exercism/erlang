@@ -51,7 +51,6 @@ process_json(#tgen{name = GName, module = Module}, Content) ->
         JSON = #{exercise := GName, cases := Cases} ->
             io:format("Parsed JSON: ~p~n", [JSON]),
             Tests = lists:map(fun Module:generate_test/1, Cases),
-            io:format("Teststuff: ~p~n", [Tests]),
             ModuleContent = generate_module(binary_to_list(GName), Tests, "2"), % TODO: Read version dynamically and pass as Integer!
             io:format("module content: ~n~s~n", [ModuleContent]);
         #{exercise := Name} ->
