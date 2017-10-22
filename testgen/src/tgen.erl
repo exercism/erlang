@@ -52,7 +52,7 @@ process_json(#tgen{name = GName, module = Module}, Content) ->
             io:format("Parsed JSON: ~p~n", [JSON]),
             Tests = lists:map(fun Module:generate_test/1, Cases),
             io:format("Teststuff: ~p~n", [Tests]),
-            ModuleContent = generate_module(binary_to_list(GName), Tests, <<"2">>),
+            ModuleContent = generate_module(binary_to_list(GName), Tests, "2"), % TODO: Read version dynamically and pass as Integer!
             io:format("module content: ~n~s~n", [ModuleContent]);
         #{exercise := Name} ->
             io:format("Name in JSON (~p) and name for generator (~p) do not line up", [Name, GName])
@@ -62,7 +62,7 @@ process_json(#tgen{name = GName, module = Module}, Content) ->
 
 -spec to_test_name(string() | binary()) -> string() | binary().
 to_test_name(Name) when is_binary(Name) ->
-    list_to_binary(to_test_name(binary_to_list(Name)));
+    to_test_name(binary_to_list(Name));
 to_test_name(Name) when is_list(Name) ->
     slugify(Name) ++ "_test".
 
@@ -78,21 +78,35 @@ slugify(Name) when is_list(Name) ->
 
 generate_module(ModuleName, Tests, Version) ->
     SluggedModName = slugify(ModuleName),
-    [<<"-module('">>, SluggedModName, <<"_tests').\n">>,
-     <<"\n">>,
-     <<"-define(TESTED_MODULE, (sut('">>, SluggedModName, <<"'))).\n">>,
-     <<"-define(TEST_VERSION, ">>, Version, <<").\n">>,
-     <<"-include(\"exercism.hrl\").\n">>,
-     <<"\n">>,
-     <<"\n">>] ++ lists:map(fun to_binary/1, Tests).
 
-to_binary(#{testname := Name, testimpl := Impl}) ->
-    [Name, <<"() ->\n">>,
-     impl(Impl, <<"    ">>)].
+    Abstract = [
+        erl_syntax:attribute(
+            erl_syntax:text("module"),
+            [erl_syntax:atom(SluggedModName ++ "_tests")]),
+        nl,
+        erl_syntax:attribute(
+            erl_syntax:text("define"), [
+                erl_syntax:text("TESTED_MODULE"),
+                erl_syntax:parentheses(
+                    erl_syntax:application(
+                        erl_syntax:text("sut"), [
+                            erl_syntax:atom(SluggedModName)]))]),
+        erl_syntax:attribute(
+            erl_syntax:text("define"), [
+                erl_syntax:text("TEST_VERSION"),
+                erl_syntax:text(Version)]),
+        erl_syntax:attribute(
+            erl_syntax:text("include"), [
+                erl_syntax:abstract("exercism.hrl")]),
+        nl,
+        nl] ++ inter(nl, Tests),
 
-impl([H], Indent) ->
-    [Indent, impl(H, Indent), <<".\n\n">>];
-impl([H|T], Indent) ->
-    [Indent, impl(H, Indent), <<",\n">>] ++ impl(T, Indent); 
-impl({Call, _Args}, _Indent) ->
-    [Call].
+    Result0 = lists:map(
+        fun (nl) -> io_lib:format("~n", []);
+            (Tree) -> io_lib:format("~s~n", [erl_prettypr:format(Tree)])
+        end, Abstract),
+    Result1 = lists:flatten(Result0).
+
+inter(_, []) -> [];
+inter(_, [X]) -> [X];
+inter(Delim, [X|Xs]) -> [X, Delim|Xs].

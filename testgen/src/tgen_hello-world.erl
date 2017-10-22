@@ -13,7 +13,13 @@ available() ->
 
 generate_test(#{description := Desc, expected := Exp, property := Prop}) ->
     TestName = tgen:to_test_name(Desc),
-    #{testname    => TestName,
-      funs_tested => [Prop],
-      testimpl    => [{<<"?assertEqual">>, [Exp, {<<"?TESTED_MODULE:", Prop/binary>>, []}]}]
-    }.
+    Expected = binary_to_list(Exp),
+    Property = binary_to_list(Prop),
+    erl_syntax:function(
+        erl_syntax:text(TestName), [
+            erl_syntax:clause(none, [
+                erl_syntax:application(
+                    erl_syntax:text("?assertEqual"), [
+                        erl_syntax:abstract(Expected),
+                        erl_syntax:application(
+                            erl_syntax:text("?TESTED_MODULE:" ++ Property), [])])])]).
