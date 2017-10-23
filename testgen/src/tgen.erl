@@ -15,6 +15,12 @@
 
 -type tgen() :: #tgen{}.
 
+-type canonical_data() :: #{
+    exercise := binary(),
+    version  := binary(),
+    cases    := exercise_json()
+}.
+
 -type exercise_json() :: #{
     description := binary(),
     expected    := jsx:json_term(),
@@ -23,7 +29,9 @@
 }.
 
 -callback available() -> boolean().
--callback generate_test(exercise_json()) -> {ok, string()} | {error, atom()}.
+-callback init(canonical_data()) -> {ok, term()}.
+-callback version(term()) -> string().
+-callback generate_test(exercise_json(), term()) -> {ok, erl_syntax:syntax_tree() | [erl_syntax:syntax_tree()]}.
 
 
 -spec check(string()) -> {true, atom()} | false.
@@ -41,18 +49,25 @@ generate(Generator = #tgen{}) ->
     io:format("Generating ~s~n", [Generator#tgen.name]),
     case file:read_file(Generator#tgen.path) of
         {ok, Content} ->
-            process_json(Generator, Content)
+            {ModName, TestModule} = process_json(Generator, Content),
+            {ok, IODevice} = file:open([Generator#tgen.dest, "/test/", ModName, ".erl"], [write]),
+            io:format(IODevice, "~s", [TestModule]),
+            file:close(IODevice)
     end.
 
 process_json(G = #tgen{name = GName}, Content) when is_list(GName) ->
     process_json(G#tgen{name = list_to_binary(GName)}, Content);
 process_json(#tgen{name = GName, module = Module}, Content) ->
     case jsx:decode(Content, [return_maps, {labels, attempt_atom}]) of
-        JSON = #{exercise := GName, cases := Cases} ->
-            io:format("Parsed JSON: ~p~n", [JSON]),
-            Tests = lists:map(fun Module:generate_test/1, Cases),
-            ModuleContent = generate_module(binary_to_list(GName), Tests, "2"), % TODO: Read version dynamically and pass as Integer!
-            io:format("module content: ~n~s~n", [ModuleContent]);
+        _JSON = #{exercise := GName, cases := Cases} ->
+            % io:format("Parsed JSON: ~p~n", [JSON]),
+            {TestImpls, _State} = lists:foldl(fun (Spec, {Tests, State}) ->
+                {ok, Test, NewState} = Module:generate_test(Spec, State),
+                {[Test|Tests], NewState}
+            end, {[], undefined}, Cases),
+            {ModuleName, ModuleContent} = generate_module(binary_to_list(GName), TestImpls, Module:version(undefined)), % TODO: Read version dynamically and pass as Integer!
+            
+            {ModuleName, io_lib:format("~s", [ModuleContent])};
         #{exercise := Name} ->
             io:format("Name in JSON (~p) and name for generator (~p) do not line up", [Name, GName])
     end.
@@ -100,11 +115,11 @@ generate_module(ModuleName, Tests, Version) ->
         nl,
         nl] ++ inter(nl, Tests),
 
-    lists:flatten(
+    {SluggedModName ++ "_tests", lists:flatten(
         lists:map(
             fun (nl) -> io_lib:format("~n", []);
                 (Tree) -> io_lib:format("~s~n", [erl_prettypr:format(Tree)])
-            end, Abstract)).
+            end, Abstract))}.
 
 inter(_, []) -> [];
 inter(_, [X]) -> [X];
