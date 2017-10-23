@@ -100,11 +100,11 @@ generate_module(ModuleName, Tests, Version) ->
         nl,
         nl] ++ inter(nl, Tests),
 
-    Result0 = lists:map(
-        fun (nl) -> io_lib:format("~n", []);
-            (Tree) -> io_lib:format("~s~n", [erl_prettypr:format(Tree)])
-        end, Abstract),
-    Result1 = lists:flatten(Result0).
+    lists:flatten(
+        lists:map(
+            fun (nl) -> io_lib:format("~n", []);
+                (Tree) -> io_lib:format("~s~n", [erl_prettypr:format(Tree)])
+            end, Abstract)).
 
 inter(_, []) -> [];
 inter(_, [X]) -> [X];
