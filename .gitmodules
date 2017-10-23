@@ -1,0 +1,3 @@
+[submodule "canonical_data"]
+	path = canonical_data
+	url = https://github.com/exercism/problem-specifications.git
