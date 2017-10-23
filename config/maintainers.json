@@ -1,29 +1,29 @@
 {
   "maintainers": [
     {
-      "github_username": "xymbol",
-      "show_on_website": false,
       "alumnus": false,
-      "name": null,
+      "avatar_url": null,
       "bio": null,
+      "github_username": "xymbol",
       "link_text": null,
       "link_url": null,
-      "avatar_url": null
+      "name": null,
+      "show_on_website": false
     },
     {
+      "alumnus": true,
       "github_username": "etrepum",
-      "show_on_website": false,
-      "alumnus": true
+      "show_on_website": false
     },
     {
-      "github_username": "NobbZ",
-      "show_on_website": true,
       "alumnus": false,
-      "name": "Norbert Melzer",
+      "avatar_url": null,
       "bio": "Found out about erlang via exercism, got hooked by its lightweight processes and how they are used as first class citizen. After fixing some trivial bugs in the track, I have been added to the team.",
+      "github_username": "NobbZ",
       "link_text": null,
       "link_url": null,
-      "avatar_url": null
+      "name": "Norbert Melzer",
+      "show_on_website": true
     }
   ]
 }
