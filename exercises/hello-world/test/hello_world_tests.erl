@@ -6,4 +6,4 @@
 
 
 say_hi_test() ->
-  ?assertEqual("Hello, World!", ?TESTED_MODULE:hello()).
+    ?assertEqual("Hello, World!", ?TESTED_MODULE:hello()).
