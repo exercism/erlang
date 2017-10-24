@@ -69,17 +69,23 @@ search_git_upwards() ->
         error -> error
     end.
 
-execute(#{command := "generate", spec_path := SpecPath, out_path := OutPath}) ->
-    SpecPathStr = binary_to_list(SpecPath),
-    OutPathStr = binary_to_list(OutPath),
-    SpecFiles0 = filelib:wildcard("*/canonical-data.json", SpecPathStr),
-    SpecFiles1 = lists:filtermap(fun filter_by_generator_and_create_record/1, SpecFiles0),
-    SpecFiles2 = lists:map(fun(TGen) -> TGen#tgen{path = SpecPathStr ++ "/" ++ TGen#tgen.path, dest = OutPathStr ++ "/" ++ TGen#tgen.name} end, SpecFiles1),
-    lists:map(fun tgen:generate/1, SpecFiles2).
+execute(#{command := "generate", spec_path := SpecPath, out_path := OutPath, exercises := [_|_] = Exercises}) ->
+    case get(log_unavailable) of % TODO: Get rid of the use of the process dictionary!
+        undefined -> put(log_unavailable, true);
+        _ -> ok
+    end,
+    SpecFiles = lists:map(fun (Exercise) -> {Exercise, iolist_to_binary([SpecPath, $/, Exercise, "/canonical-data.json"])} end, Exercises),
+    Generators0 = lists:filtermap(fun filter_by_generator_and_create_record/1, SpecFiles),
+    Generators1 = lists:map(fun (Generator) -> Generator#tgen{dest = iolist_to_binary([OutPath, $/, Generator#tgen.name])} end, Generators0),
+    lists:map(fun tgen:generate/1, Generators1);
+execute(Config = #{command := "generate", spec_path := SpecPath, exercises := all}) ->
+    SpecFiles = filelib:wildcard("*/canonical-data.json", binary_to_list(SpecPath)),
+    Exercises = lists:map(fun tg_file_tools:extract_name/1, SpecFiles),
+    put(log_unavailable, false), % TODO: Get rid of the use of the process dictionary!
+    execute(maps:put(exercises, Exercises, Config)).
 
 
-filter_by_generator_and_create_record(Path) ->
-    Name = tg_file_tools:extract_name(Path),
+filter_by_generator_and_create_record({Name, Path}) ->
     case tgen:check(Name) of
         {true, Module} ->
             {true, #tgen{
@@ -87,5 +93,10 @@ filter_by_generator_and_create_record(Path) ->
                 name   = Name,
                 path   = Path
             }};
-        _ -> false
+        _ ->
+            case get(log_unavailable) of
+                true -> io:format("No generator for '~s' available~n", [Name]);
+                _ -> ok
+            end,
+            false
     end.

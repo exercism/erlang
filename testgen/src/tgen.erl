@@ -50,9 +50,16 @@ generate(Generator = #tgen{}) ->
     case file:read_file(Generator#tgen.path) of
         {ok, Content} ->
             {ModName, TestModule} = process_json(Generator, Content),
-            {ok, IODevice} = file:open([Generator#tgen.dest, "/test/", ModName, ".erl"], [write]),
-            io:format(IODevice, "~s", [TestModule]),
-            file:close(IODevice)
+            TestfilePath = iolist_to_binary([Generator#tgen.dest, "/test/", ModName, ".erl"]),
+            case file:open(TestfilePath, [write]) of
+                {ok, IODevice} ->
+                    io:format(IODevice, "~s", [TestModule]),
+                    file:close(IODevice);
+                {error, Reason} ->
+                    io:format("Not able to open ~p because of ~p.", [[Generator#tgen.dest, "/test/", ModName, ".erl"], Reason])
+            end;
+        {error, Reason} ->
+            io:format("Not able to open ~s because of ~p.", [Generator#tgen.path, Reason])
     end.
 
 process_json(G = #tgen{name = GName}, Content) when is_list(GName) ->
