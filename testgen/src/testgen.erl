@@ -34,7 +34,7 @@ process_args([], Config = #{path := Path}) ->
         true -> Config1
     end,
 
-    Config2;
+    process_args([], Config2);
 process_args([], Config) ->
     Config1 = case maps:is_key(path, Config) and not (maps:is_key(out_path, Config) or maps:is_key(spec_path, Config)) of
         false -> maps:put(path, search_git_upwards(), Config);
