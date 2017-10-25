@@ -52,6 +52,7 @@ generate(Generator = #tgen{}) ->
             {ModName, TestModule} = process_json(Generator, Content),
             TestfilePath = iolist_to_binary([Generator#tgen.dest, "/test/", ModName, ".erl"]),
             #{
+                name   => Generator#tgen.name,
                 module => ModName,
                 impl   => TestModule,
                 path   => TestfilePath
