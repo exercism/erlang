@@ -86,11 +86,12 @@ execute(#{command := "generate", spec_path := SpecPath, out_path := OutPath, exe
     lists:map(
         fun
             (#{name := Name, impl := Impl, path := Path}) ->
-                io:format("Writing ~s~n", [Name]),
+                io:format("Writing ~s", [Name]),
                 case file:open(Path, [write]) of
                     {ok, IODevice} ->
                         io:format(IODevice, "~s", [Impl]),
-                        file:close(IODevice);
+                        file:close(IODevice),
+                        io:format(", finished~n");
                     {error, Reason} ->
                         io:format("Can not open ~p for writing because of ~p.~n", [Path, Reason])
                 end;

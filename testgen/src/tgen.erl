@@ -46,11 +46,12 @@ check(Name) ->
 
 -spec generate(tgen()) -> ok.
 generate(Generator = #tgen{}) ->
-    io:format("Generating ~s~n", [Generator#tgen.name]),
+    io:format("Generating ~s", [Generator#tgen.name]),
     case file:read_file(Generator#tgen.path) of
         {ok, Content} ->
             {ModName, TestModule} = process_json(Generator, Content),
             TestfilePath = iolist_to_binary([Generator#tgen.dest, "/test/", ModName, ".erl"]),
+            io:format(", finished~n"),
             #{
                 name   => Generator#tgen.name,
                 module => ModName,
@@ -58,6 +59,7 @@ generate(Generator = #tgen{}) ->
                 path   => TestfilePath
             };
         {error, Reason} ->
+            io:format(", failed (~p)~n", [Reason]),
             {error, Reason, Generator#tgen.path}
     end.
 
