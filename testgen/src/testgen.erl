@@ -69,6 +69,11 @@ search_git_upwards() ->
         error -> error
     end.
 
+execute(Config = #{command := "generate", spec_path := SpecPath, exercises := all}) ->
+    SpecFiles = filelib:wildcard("*/canonical-data.json", binary_to_list(SpecPath)),
+    Exercises = lists:map(fun tg_file_tools:extract_name/1, SpecFiles),
+    put(log_unavailable, false), % TODO: Get rid of the use of the process dictionary!
+    execute(maps:put(exercises, Exercises, Config));
 execute(#{command := "generate", spec_path := SpecPath, out_path := OutPath, exercises := [_|_] = Exercises}) ->
     case get(log_unavailable) of % TODO: Get rid of the use of the process dictionary!
         undefined -> put(log_unavailable, true);
@@ -88,11 +93,6 @@ execute(#{command := "generate", spec_path := SpecPath, out_path := OutPath, exe
                     io:format("Can not open ~p for writing because of ~p.~n", [Path, Reason])
             end
         end, Contents);
-execute(Config = #{command := "generate", spec_path := SpecPath, exercises := all}) ->
-    SpecFiles = filelib:wildcard("*/canonical-data.json", binary_to_list(SpecPath)),
-    Exercises = lists:map(fun tg_file_tools:extract_name/1, SpecFiles),
-    put(log_unavailable, false), % TODO: Get rid of the use of the process dictionary!
-    execute(maps:put(exercises, Exercises, Config)).
 
 
 filter_by_generator_and_create_record({Name, Path}) ->
