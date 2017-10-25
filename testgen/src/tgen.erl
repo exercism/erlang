@@ -57,7 +57,7 @@ generate(Generator = #tgen{}) ->
                 path   => TestfilePath
             };
         {error, Reason} ->
-            io:format("Not able to open ~s because of ~p.", [Generator#tgen.path, Reason])
+            {error, Reason, Generator#tgen.path}
     end.
 
 process_json(G = #tgen{name = GName}, Content) when is_list(GName) ->

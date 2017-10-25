@@ -84,7 +84,8 @@ execute(#{command := "generate", spec_path := SpecPath, out_path := OutPath, exe
     Generators1 = lists:map(fun (Generator) -> Generator#tgen{dest = iolist_to_binary([OutPath, $/, Generator#tgen.name])} end, Generators0),
     Contents = lists:map(fun tgen:generate/1, Generators1),
     lists:map(
-        fun (#{impl := Impl, path := Path}) ->
+        fun
+            (#{name := Name, impl := Impl, path := Path}) ->
             case file:open(Path, [write]) of
                 {ok, IODevice} ->
                     io:format(IODevice, "~s", [Impl]),
@@ -92,7 +93,9 @@ execute(#{command := "generate", spec_path := SpecPath, out_path := OutPath, exe
                 {error, Reason} ->
                     io:format("Can not open ~p for writing because of ~p.~n", [Path, Reason])
             end
-        end, Contents);
+            ({error, Reason, Path}) ->
+                io:format("Can not open ~p for reading because of ~p.~n", [Path, Reason])
+        end, Contents).
 
 
 filter_by_generator_and_create_record({Name, Path}) ->
