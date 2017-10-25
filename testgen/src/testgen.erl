@@ -77,7 +77,17 @@ execute(#{command := "generate", spec_path := SpecPath, out_path := OutPath, exe
     SpecFiles = lists:map(fun (Exercise) -> {Exercise, iolist_to_binary([SpecPath, $/, Exercise, "/canonical-data.json"])} end, Exercises),
     Generators0 = lists:filtermap(fun filter_by_generator_and_create_record/1, SpecFiles),
     Generators1 = lists:map(fun (Generator) -> Generator#tgen{dest = iolist_to_binary([OutPath, $/, Generator#tgen.name])} end, Generators0),
-    lists:map(fun tgen:generate/1, Generators1);
+    Contents = lists:map(fun tgen:generate/1, Generators1),
+    lists:map(
+        fun (#{impl := Impl, path := Path}) ->
+            case file:open(Path, [write]) of
+                {ok, IODevice} ->
+                    io:format(IODevice, "~s", [Impl]),
+                    file:close(IODevice);
+                {error, Reason} ->
+                    io:format("Can not open ~p for writing because of ~p.~n", [Path, Reason])
+            end
+        end, Contents);
 execute(Config = #{command := "generate", spec_path := SpecPath, exercises := all}) ->
     SpecFiles = filelib:wildcard("*/canonical-data.json", binary_to_list(SpecPath)),
     Exercises = lists:map(fun tg_file_tools:extract_name/1, SpecFiles),
