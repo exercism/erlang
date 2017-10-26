@@ -97,7 +97,13 @@ execute(#{command := "generate", spec_path := SpecPath, out_path := OutPath, exe
                 end;
             ({error, Reason, Path}) ->
                 io:format("Can not open ~p for reading because of ~p.~n", [Path, Reason])
-        end, Contents).
+        end, Contents);
+execute(#{command := "check"}) ->
+    io:format("This command has not been implemented yet");
+execute(#{command := "help"}) ->
+    io:format("This command has not been implemented yet");
+execute(_) ->
+    io:format("Unknown command. Only generate is available right now.")
 
 
 filter_by_generator_and_create_record({Name, Path}) ->
