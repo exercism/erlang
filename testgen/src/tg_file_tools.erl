@@ -5,8 +5,8 @@
     parent_dir/1
 ]).
 
-extract_name("canonical_data/exercises/" ++ Rest) ->
-    lists:takewhile(fun(C) -> not lists:member(C, [$/, $\\]) end, Rest).
+extract_name(Name) ->
+    lists:takewhile(fun(C) -> not lists:member(C, [$/, $\\]) end, Name).
 
 parent_dir(Dir) ->
     DirRev0 = lists:reverse(Dir),

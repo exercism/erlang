@@ -44,15 +44,23 @@ check(Name) ->
         _:_ -> false
     end.
 
--spec generate(tgen()) -> ok. 
+-spec generate(tgen()) -> ok.
 generate(Generator = #tgen{}) ->
-    io:format("Generating ~s~n", [Generator#tgen.name]),
+    io:format("Generating ~s", [Generator#tgen.name]),
     case file:read_file(Generator#tgen.path) of
         {ok, Content} ->
             {ModName, TestModule} = process_json(Generator, Content),
-            {ok, IODevice} = file:open([Generator#tgen.dest, "/test/", ModName, ".erl"], [write]),
-            io:format(IODevice, "~s", [TestModule]),
-            file:close(IODevice)
+            TestfilePath = iolist_to_binary([Generator#tgen.dest, "/test/", ModName, ".erl"]),
+            io:format(", finished~n"),
+            #{
+                name   => Generator#tgen.name,
+                module => ModName,
+                impl   => TestModule,
+                path   => TestfilePath
+            };
+        {error, Reason} ->
+            io:format(", failed (~p)~n", [Reason]),
+            {error, Reason, Generator#tgen.path}
     end.
 
 process_json(G = #tgen{name = GName}, Content) when is_list(GName) ->
@@ -66,7 +74,7 @@ process_json(#tgen{name = GName, module = Module}, Content) ->
                 {[Test|Tests], NewState}
             end, {[], undefined}, Cases),
             {ModuleName, ModuleContent} = generate_module(binary_to_list(GName), TestImpls, Module:version(undefined)), % TODO: Read version dynamically and pass as Integer!
-            
+
             {ModuleName, io_lib:format("~s", [ModuleContent])};
         #{exercise := Name} ->
             io:format("Name in JSON (~p) and name for generator (~p) do not line up", [Name, GName])
