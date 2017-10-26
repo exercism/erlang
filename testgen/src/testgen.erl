@@ -103,7 +103,7 @@ execute(#{command := "check"}) ->
 execute(#{command := "help"}) ->
     io:format("This command has not been implemented yet");
 execute(_) ->
-    io:format("Unknown command. Only generate is available right now.")
+    io:format("Unknown command. Only generate is available right now.").
 
 
 filter_by_generator_and_create_record({Name, Path}) ->
