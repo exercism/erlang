@@ -4,25 +4,21 @@
 
 -export([
     available/0,
-    init/1,
-    version/1,
-    generate_test/2
+    version/0,
+    generate_test/1
 ]).
 
 -spec available() -> true.
 available() ->
     true.
 
-init(Name) ->
-    {ok, Name}.
+version() -> "2".
 
-version(_) -> "2".
-
-generate_test(#{description := Desc, expected := Exp, property := Prop}, State) ->
+generate_test(#{description := Desc, expected := Exp, property := Prop}) ->
     TestName = tgen:to_test_name(Desc),
     Expected = binary_to_list(Exp),
     Property = binary_to_list(Prop),
-    
+
     Fn = erl_syntax:function(
         erl_syntax:text(TestName), [
             erl_syntax:clause(none, [
@@ -31,5 +27,5 @@ generate_test(#{description := Desc, expected := Exp, property := Prop}, State) 
                         erl_syntax:abstract(Expected),
                         erl_syntax:application(
                             erl_syntax:text("?TESTED_MODULE:" ++ Property), [])])])]),
-    
-    {ok, Fn, State}.
+
+    {ok, Fn, [{Prop, []}]}.
