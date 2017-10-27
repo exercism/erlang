@@ -29,9 +29,11 @@
 }.
 
 -callback available() -> boolean().
--callback init(canonical_data()) -> {ok, term()}.
--callback version(term()) -> string().
--callback generate_test(exercise_json(), term()) -> {ok, erl_syntax:syntax_tree() | [erl_syntax:syntax_tree()]}.
+-callback version() -> string().
+-callback generate_test(exercise_json()) ->
+    {ok,
+        erl_syntax:syntax_tree() | [erl_syntax:syntax_tree()],
+        [{string() | binary(), non_neg_integer()}]}.
 
 
 -spec check(string()) -> {true, atom()} | false.
@@ -49,15 +51,9 @@ generate(Generator = #tgen{}) ->
     io:format("Generating ~s", [Generator#tgen.name]),
     case file:read_file(Generator#tgen.path) of
         {ok, Content} ->
-            {ModName, TestModule} = process_json(Generator, Content),
-            TestfilePath = iolist_to_binary([Generator#tgen.dest, "/test/", ModName, ".erl"]),
+            Files = process_json(Generator, Content),
             io:format(", finished~n"),
-            #{
-                name   => Generator#tgen.name,
-                module => ModName,
-                impl   => TestModule,
-                path   => TestfilePath
-            };
+            Files;
         {error, Reason} ->
             io:format(", failed (~p)~n", [Reason]),
             {error, Reason, Generator#tgen.path}
@@ -69,13 +65,15 @@ process_json(#tgen{name = GName, module = Module}, Content) ->
     case jsx:decode(Content, [return_maps, {labels, attempt_atom}]) of
         _JSON = #{exercise := GName, cases := Cases} ->
             % io:format("Parsed JSON: ~p~n", [JSON]),
-            {TestImpls, _State} = lists:foldl(fun (Spec, {Tests, State}) ->
-                {ok, Test, NewState} = Module:generate_test(Spec, State),
-                {[Test|Tests], NewState}
-            end, {[], undefined}, Cases),
-            {ModuleName, ModuleContent} = generate_module(binary_to_list(GName), TestImpls, Module:version(undefined)), % TODO: Read version dynamically and pass as Integer!
+            {TestImpls, Props} = lists:foldl(fun (Spec, {Tests, OldProperties}) ->
+                {ok, Test, Properties} = Module:generate_test(Spec),
+                {[Test|Tests], combine(OldProperties, Properties)}
+            end, {[], []}, Cases),
+            {TestModuleName, TestModuleContent} = generate_test_module(binary_to_list(GName), TestImpls, Module:version()),
+            {StubModuleName, StubModuleContent} = generate_stub_module(binary_to_list(GName), Props, Module:version()),
 
-            {ModuleName, io_lib:format("~s", [ModuleContent])};
+            [#{exercise => GName, name => TestModuleName, folder => "test", content => io_lib:format("~s", [TestModuleContent])},
+             #{exercise => GName, name => StubModuleName, folder => "src",  content => io_lib:format("~s", [StubModuleContent])}];
         #{exercise := Name} ->
             io:format("Name in JSON (~p) and name for generator (~p) do not line up", [Name, GName])
     end.
@@ -98,7 +96,43 @@ slugify(Name) when is_list(Name) ->
         (_) -> false
     end, Name).
 
-generate_module(ModuleName, Tests, Version) ->
+generate_stub_module(ModuleName, Props, Version) ->
+    SluggedModName = slugify(ModuleName),
+    VersionName = "test_version",
+    Props1 = Props ++ [{VersionName, []}],
+
+    Funs = lists:map(fun ({Name, []}) ->
+        erl_syntax:function(
+            erl_syntax:text(binary_to_list(Name)), [
+            erl_syntax:clause(none, [
+                erl_syntax:abstract(undefined)])])
+        end, Props) ++ [
+            erl_syntax:function(
+                erl_syntax:text(VersionName), [
+                    erl_syntax:clause(none, [
+                        erl_syntax:text(Version)])])],
+
+    Abstract = [
+        erl_syntax:attribute(
+            erl_syntax:text("module"),
+            [erl_syntax:atom(SluggedModName)]),
+        nl,
+        erl_syntax:attribute(
+            erl_syntax:text("export"),
+            [erl_syntax:list(lists:map(fun ({Name, Args}) ->
+                erl_syntax:text(lists:flatten(io_lib:format("~s/~B", [Name, length(Args)])))
+            end, Props1))]),
+        nl,
+        nl
+    ] ++ inter(nl, Funs),
+
+    {SluggedModName, lists:flatten(
+        lists:map(
+            fun (nl) -> io_lib:format("~n", []);
+                (Tree) -> io_lib:format("~s~n", [erl_prettypr:format(Tree)])
+            end, Abstract))}.
+
+generate_test_module(ModuleName, Tests, Version) ->
     SluggedModName = slugify(ModuleName),
 
     Abstract = [
@@ -132,3 +166,15 @@ generate_module(ModuleName, Tests, Version) ->
 inter(_, []) -> [];
 inter(_, [X]) -> [X];
 inter(Delim, [X|Xs]) -> [X, Delim|Xs].
+
+combine(List, []) -> List;
+combine(List, [{Name, Arity}|Xs]) when is_list(Name) ->
+    combine(List, [{list_to_binary(Name), Arity}|Xs]);
+combine(List, [{Name, _} = X|Xs]) when is_binary(Name) ->
+    List1 = insert(List, X),
+    combine(List1, Xs).
+
+insert([], X) -> [X];
+insert([X|_] = Xs, X) -> Xs;
+insert([X|XS], Y) when X < Y -> [X|insert(XS, Y)];
+insert([X|XS], Y) when X > Y -> [Y, X|XS].

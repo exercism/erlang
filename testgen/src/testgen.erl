@@ -84,19 +84,22 @@ execute(#{command := "generate", spec_path := SpecPath, out_path := OutPath, exe
     Generators1 = lists:map(fun (Generator) -> Generator#tgen{dest = iolist_to_binary([OutPath, $/, Generator#tgen.name])} end, Generators0),
     Contents = lists:map(fun tgen:generate/1, Generators1),
     lists:map(
-        fun
-            (#{name := Name, impl := Impl, path := Path}) ->
-                io:format("Writing ~s", [Name]),
-                case file:open(Path, [write]) of
-                    {ok, IODevice} ->
-                        io:format(IODevice, "~s", [Impl]),
-                        file:close(IODevice),
-                        io:format(", finished~n");
-                    {error, Reason} ->
-                        io:format("Can not open ~p for writing because of ~p.~n", [Path, Reason])
-                end;
-            ({error, Reason, Path}) ->
-                io:format("Can not open ~p for reading because of ~p.~n", [Path, Reason])
+        fun (Xs = [#{exercise := ExName}|_]) ->
+            io:format("Writing ~s", [ExName]),
+            lists:map(fun
+                (#{exercise := GName, name := Name, folder := Folder, content := Content}) ->
+                    Path = lists:flatten(io_lib:format("~s/~s/~s/~s.erl", [OutPath, GName, Folder, Name])),
+                    case file:open(Path, [write]) of
+                        {ok, IODevice} ->
+                            io:format(IODevice, "~s", [Content]),
+                            file:close(IODevice);
+                        {error, Reason} ->
+                            io:format("Can not open ~p for writing because of ~p.~n", [Path, Reason])
+                    end
+                end, Xs),
+            io:format(", finished~n");
+        ({error, Reason, Path}) ->
+            io:format("Can not open ~p for reading because of ~p.~n", [Path, Reason])
         end, Contents);
 execute(#{command := "check"}) ->
     io:format("This command has not been implemented yet");
