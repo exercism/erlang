@@ -9,6 +9,7 @@
     call_fun/2,
     atom/1,
     simple_fun/2,
+    simple_fun/3,
     raw/1,
     value/1
 ]).
@@ -60,6 +61,13 @@ atom(Name) when is_binary(Name) ->
 simple_fun(Name, Body) ->
     erl_syntax:function(
         atom(Name), [erl_syntax:clause(none, Body)]).
+
+simple_fun(Name, Args, Body) when is_list(Args) ->
+    erl_syntax:function(
+        atom(Name), [erl_syntax:clause(
+            lists:map(fun (Arg) -> erl_syntax:text(Arg) end, Args),
+            none,
+            Body)]).
 
 raw(Text) when is_list(Text) ->
     erl_syntax:text(Text).
