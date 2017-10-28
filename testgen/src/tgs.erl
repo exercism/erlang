@@ -5,7 +5,8 @@
     export/1,
     include/1,
     define/2,
-    parens/1
+    parens/1,
+    call_fun/2
 ]).
 
 module(Name) when is_atom(Name) ->
@@ -42,3 +43,7 @@ define(Name, Substitution) when is_list(Name) ->
 
 parens(Tree) ->
     erl_syntax:parentheses(Tree).
+
+call_fun(Name, Args) when is_list(Name) ->
+    erl_syntax:application(
+        erl_syntax:text(Name), Args).
