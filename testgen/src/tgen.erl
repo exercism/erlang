@@ -133,7 +133,7 @@ generate_test_module(ModuleName, Tests, Version) ->
         tgs:module(SluggedModName ++ "_tests"),
         nl,
         tgs:define("TESTED_MODULE",
-            erl_syntax:parentheses(
+            tgs:parens(
                 erl_syntax:application(
                     erl_syntax:text("sut"), [
                         erl_syntax:atom(SluggedModName)]))),
