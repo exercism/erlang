@@ -6,7 +6,8 @@
     include/1,
     define/2,
     parens/1,
-    call_fun/2
+    call_fun/2,
+    atom/1
 ]).
 
 module(Name) when is_atom(Name) ->
@@ -47,3 +48,6 @@ parens(Tree) ->
 call_fun(Name, Args) when is_list(Name) ->
     erl_syntax:application(
         erl_syntax:text(Name), Args).
+
+atom(Name) when is_list(Name); is_atom(Name) ->
+    erl_syntax:atom(Name).

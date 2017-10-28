@@ -105,7 +105,7 @@ generate_stub_module(ModuleName, Props, Version) ->
         erl_syntax:function(
             erl_syntax:text(binary_to_list(Name)), [
             erl_syntax:clause(none, [
-                erl_syntax:abstract(undefined)])])
+                tgs:atom(undefined)])])
         end, Props) ++ [
             erl_syntax:function(
                 erl_syntax:text(VersionName), [
@@ -134,8 +134,7 @@ generate_test_module(ModuleName, Tests, Version) ->
         nl,
         tgs:define("TESTED_MODULE",
             tgs:parens(
-                tgs:call_fun("sut", [
-                    erl_syntax:atom(SluggedModName)]))),
+                tgs:call_fun("sut", [tgs:atom(SluggedModName)]))),
         tgs:define("TEST_VERSION", erl_syntax:text(Version)),
         tgs:include("exercism.hrl"),
         nl,
