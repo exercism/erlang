@@ -129,7 +129,7 @@ generate_test_module(ModuleName, Tests, Version) ->
         tgs:define("TESTED_MODULE",
             tgs:parens(
                 tgs:call_fun("sut", [tgs:atom(SluggedModName)]))),
-        tgs:define("TEST_VERSION", erl_syntax:text(Version)),
+        tgs:define("TEST_VERSION", tgs:raw(Version)),
         tgs:include("exercism.hrl"),
         nl,
         nl] ++ inter(nl, Tests),

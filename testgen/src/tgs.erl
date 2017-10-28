@@ -9,7 +9,8 @@
     call_fun/2,
     atom/1,
     simple_fun/2,
-    raw/1
+    raw/1,
+    value/1
 ]).
 
 module(Name) when is_atom(Name) ->
@@ -60,5 +61,8 @@ simple_fun(Name, Body) ->
     erl_syntax:function(
         atom(Name), [erl_syntax:clause(none, Body)]).
 
-raw(Value) ->
-    erl_syntax:text(Value).
+raw(Text) when is_list(Text) ->
+    erl_syntax:text(Text).
+
+value(Value) ->
+    erl_syntax:abstract(Value).

@@ -19,13 +19,9 @@ generate_test(#{description := Desc, expected := Exp, property := Prop}) ->
     Expected = binary_to_list(Exp),
     Property = binary_to_list(Prop),
 
-    Fn = erl_syntax:function(
-        erl_syntax:text(TestName), [
-            erl_syntax:clause(none, [
-                erl_syntax:application(
-                    erl_syntax:text("?assertEqual"), [
-                        erl_syntax:abstract(Expected),
-                        erl_syntax:application(
-                            erl_syntax:text("?TESTED_MODULE:" ++ Property), [])])])]),
+    Fn = tgs:simple_fun(TestName, [
+            tgs:call_fun("?assertEqual", [
+                tgs:value(Expected),
+                tgs:call_fun("?TESTED_MODULE:" ++ Property, [])])]),
 
     {ok, Fn, [{Prop, []}]}.
