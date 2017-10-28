@@ -142,7 +142,7 @@ generate_test_module(ModuleName, Tests, Version) ->
 
 inter(_, []) -> [];
 inter(_, [X]) -> [X];
-inter(Delim, [X|Xs]) -> [X, Delim|Xs].
+inter(Delim, [X|Xs]) -> [X, Delim|inter(Delim, Xs)].
 
 combine(List, []) -> List;
 combine(List, [{Name, Arity}|Xs]) when is_list(Name) ->
