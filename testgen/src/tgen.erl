@@ -115,11 +115,7 @@ generate_stub_module(ModuleName, Props, Version) ->
     Abstract = [
         tgs:module(SluggedModName),
         nl,
-        erl_syntax:attribute(
-            erl_syntax:text("export"),
-            [erl_syntax:list(lists:map(fun ({Name, Args}) ->
-                erl_syntax:text(lists:flatten(io_lib:format("~s/~B", [Name, length(Args)])))
-            end, Props1))]),
+        tgs:export(Props1),
         nl,
         nl
     ] ++ inter(nl, Funs),
