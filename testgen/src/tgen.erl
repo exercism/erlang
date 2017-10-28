@@ -29,7 +29,7 @@
 }.
 
 -callback available() -> boolean().
--callback version() -> string().
+-callback version() -> pos_integer().
 -callback generate_test(exercise_json()) ->
     {ok,
         erl_syntax:syntax_tree() | [erl_syntax:syntax_tree()],
@@ -102,26 +102,14 @@ generate_stub_module(ModuleName, Props, Version) ->
     Props1 = Props ++ [{VersionName, []}],
 
     Funs = lists:map(fun ({Name, []}) ->
-        erl_syntax:function(
-            erl_syntax:text(binary_to_list(Name)), [
-            erl_syntax:clause(none, [
-                erl_syntax:abstract(undefined)])])
+            tgs:simple_fun(Name, [tgs:atom(undefined)])
         end, Props) ++ [
-            erl_syntax:function(
-                erl_syntax:text(VersionName), [
-                    erl_syntax:clause(none, [
-                        erl_syntax:text(Version)])])],
+            tgs:simple_fun(VersionName, [tgs:value(Version)])],
 
     Abstract = [
-        erl_syntax:attribute(
-            erl_syntax:text("module"),
-            [erl_syntax:atom(SluggedModName)]),
+        tgs:module(SluggedModName),
         nl,
-        erl_syntax:attribute(
-            erl_syntax:text("export"),
-            [erl_syntax:list(lists:map(fun ({Name, Args}) ->
-                erl_syntax:text(lists:flatten(io_lib:format("~s/~B", [Name, length(Args)])))
-            end, Props1))]),
+        tgs:export(Props1),
         nl,
         nl
     ] ++ inter(nl, Funs),
@@ -136,24 +124,13 @@ generate_test_module(ModuleName, Tests, Version) ->
     SluggedModName = slugify(ModuleName),
 
     Abstract = [
-        erl_syntax:attribute(
-            erl_syntax:text("module"),
-            [erl_syntax:atom(SluggedModName ++ "_tests")]),
+        tgs:module(SluggedModName ++ "_tests"),
         nl,
-        erl_syntax:attribute(
-            erl_syntax:text("define"), [
-                erl_syntax:text("TESTED_MODULE"),
-                erl_syntax:parentheses(
-                    erl_syntax:application(
-                        erl_syntax:text("sut"), [
-                            erl_syntax:atom(SluggedModName)]))]),
-        erl_syntax:attribute(
-            erl_syntax:text("define"), [
-                erl_syntax:text("TEST_VERSION"),
-                erl_syntax:text(Version)]),
-        erl_syntax:attribute(
-            erl_syntax:text("include"), [
-                erl_syntax:abstract("exercism.hrl")]),
+        tgs:define("TESTED_MODULE",
+            tgs:parens(
+                tgs:call_fun("sut", [tgs:atom(SluggedModName)]))),
+        tgs:define("TEST_VERSION", tgs:value(Version)),
+        tgs:include("exercism.hrl"),
         nl,
         nl] ++ inter(nl, Tests),
 
