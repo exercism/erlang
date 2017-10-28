@@ -12,7 +12,7 @@
 available() ->
     true.
 
-version() -> "2".
+version() -> 2.
 
 generate_test(#{description := Desc, expected := Exp, property := Prop}) ->
     TestName = tgen:to_test_name(Desc),

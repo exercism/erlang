@@ -29,7 +29,7 @@
 }.
 
 -callback available() -> boolean().
--callback version() -> string().
+-callback version() -> pos_integer().
 -callback generate_test(exercise_json()) ->
     {ok,
         erl_syntax:syntax_tree() | [erl_syntax:syntax_tree()],
@@ -104,7 +104,7 @@ generate_stub_module(ModuleName, Props, Version) ->
     Funs = lists:map(fun ({Name, []}) ->
             tgs:simple_fun(Name, [tgs:atom(undefined)])
         end, Props) ++ [
-            tgs:simple_fun(VersionName, [tgs:raw(Version)])],
+            tgs:simple_fun(VersionName, [tgs:value(Version)])],
 
     Abstract = [
         tgs:module(SluggedModName),
@@ -129,7 +129,7 @@ generate_test_module(ModuleName, Tests, Version) ->
         tgs:define("TESTED_MODULE",
             tgs:parens(
                 tgs:call_fun("sut", [tgs:atom(SluggedModName)]))),
-        tgs:define("TEST_VERSION", tgs:raw(Version)),
+        tgs:define("TEST_VERSION", tgs:value(Version)),
         tgs:include("exercism.hrl"),
         nl,
         nl] ++ inter(nl, Tests),
