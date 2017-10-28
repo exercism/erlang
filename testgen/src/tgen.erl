@@ -101,8 +101,11 @@ generate_stub_module(ModuleName, Props, Version) ->
     VersionName = "test_version",
     Props1 = Props ++ [{VersionName, []}],
 
-    Funs = lists:map(fun ({Name, []}) ->
-            tgs:simple_fun(Name, [tgs:atom(undefined)])
+    Funs = lists:map(fun
+            ({Name, []}) ->
+                tgs:simple_fun(Name, [tgs:atom(undefined)]);
+            ({Name, Args}) when is_list(Args) ->
+                tgs:simple_fun(Name, Args, [tgs:atom(undefined)])
         end, Props) ++ [
             tgs:simple_fun(VersionName, [tgs:value(Version)])],
 
