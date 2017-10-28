@@ -90,7 +90,7 @@ slugify(Name) when is_binary(Name) ->
         list_to_binary(slugify(binary_to_list(Name)));
 slugify(Name) when is_list(Name) ->
     lists:filtermap(fun
-        (C) when (($a =< C) and (C =< $z)) or (C == $_) -> {true, C};
+        (C) when (($0 =< C) and (C =< $9)) or (($a =< C) and (C =< $z)) or (C == $_) -> {true, C};
         (C) when (($A =< C) and (C =< $Z)) -> {true, C - $A + $a};
         (C) when (C == $\s) or (C == $-)-> {true, $_};
         (_) -> false
