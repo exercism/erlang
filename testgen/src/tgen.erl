@@ -113,9 +113,7 @@ generate_stub_module(ModuleName, Props, Version) ->
                         erl_syntax:text(Version)])])],
 
     Abstract = [
-        erl_syntax:attribute(
-            erl_syntax:text("module"),
-            [erl_syntax:atom(SluggedModName)]),
+        tgs:module(SluggedModName),
         nl,
         erl_syntax:attribute(
             erl_syntax:text("export"),
@@ -136,9 +134,7 @@ generate_test_module(ModuleName, Tests, Version) ->
     SluggedModName = slugify(ModuleName),
 
     Abstract = [
-        erl_syntax:attribute(
-            erl_syntax:text("module"),
-            [erl_syntax:atom(SluggedModName ++ "_tests")]),
+        tgs:module(SluggedModName ++ "_tests"),
         nl,
         erl_syntax:attribute(
             erl_syntax:text("define"), [
