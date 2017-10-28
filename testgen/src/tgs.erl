@@ -7,7 +7,9 @@
     define/2,
     parens/1,
     call_fun/2,
-    atom/1
+    atom/1,
+    simple_fun/2,
+    raw/1
 ]).
 
 module(Name) when is_atom(Name) ->
@@ -50,4 +52,13 @@ call_fun(Name, Args) when is_list(Name) ->
         erl_syntax:text(Name), Args).
 
 atom(Name) when is_list(Name); is_atom(Name) ->
-    erl_syntax:atom(Name).
+    erl_syntax:atom(Name);
+atom(Name) when is_binary(Name) ->
+    atom(binary_to_list(Name)).
+
+simple_fun(Name, Body) ->
+    erl_syntax:function(
+        atom(Name), [erl_syntax:clause(none, Body)]).
+
+raw(Value) ->
+    erl_syntax:text(Value).

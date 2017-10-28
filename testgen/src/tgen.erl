@@ -102,15 +102,9 @@ generate_stub_module(ModuleName, Props, Version) ->
     Props1 = Props ++ [{VersionName, []}],
 
     Funs = lists:map(fun ({Name, []}) ->
-        erl_syntax:function(
-            erl_syntax:text(binary_to_list(Name)), [
-            erl_syntax:clause(none, [
-                tgs:atom(undefined)])])
+            tgs:simple_fun(Name, [tgs:atom(undefined)])
         end, Props) ++ [
-            erl_syntax:function(
-                erl_syntax:text(VersionName), [
-                    erl_syntax:clause(none, [
-                        erl_syntax:text(Version)])])],
+            tgs:simple_fun(VersionName, [tgs:raw(Version)])],
 
     Abstract = [
         tgs:module(SluggedModName),
