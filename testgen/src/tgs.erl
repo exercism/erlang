@@ -3,7 +3,8 @@
 -export([
     module/1,
     export/1,
-    include/1
+    include/1,
+    define/2
 ]).
 
 module(Name) when is_atom(Name) ->
@@ -31,3 +32,9 @@ include(File) when is_list(File) ->
     erl_syntax:attribute(
         erl_syntax:text("include"), [
             erl_syntax:abstract(File)]).
+
+define(Name, Substitution) when is_list(Name) ->
+    erl_syntax:attribute(
+        erl_syntax:text("define"), [
+            erl_syntax:text(Name),
+            Substitution]).

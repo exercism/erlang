@@ -132,17 +132,12 @@ generate_test_module(ModuleName, Tests, Version) ->
     Abstract = [
         tgs:module(SluggedModName ++ "_tests"),
         nl,
-        erl_syntax:attribute(
-            erl_syntax:text("define"), [
-                erl_syntax:text("TESTED_MODULE"),
-                erl_syntax:parentheses(
-                    erl_syntax:application(
-                        erl_syntax:text("sut"), [
-                            erl_syntax:atom(SluggedModName)]))]),
-        erl_syntax:attribute(
-            erl_syntax:text("define"), [
-                erl_syntax:text("TEST_VERSION"),
-                erl_syntax:text(Version)]),
+        tgs:define("TESTED_MODULE",
+            erl_syntax:parentheses(
+                erl_syntax:application(
+                    erl_syntax:text("sut"), [
+                        erl_syntax:atom(SluggedModName)]))),
+        tgs:define("TEST_VERSION", erl_syntax:text(Version)),
         tgs:include("exercism.hrl"),
         nl,
         nl] ++ inter(nl, Tests),
