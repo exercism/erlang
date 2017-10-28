@@ -143,9 +143,7 @@ generate_test_module(ModuleName, Tests, Version) ->
             erl_syntax:text("define"), [
                 erl_syntax:text("TEST_VERSION"),
                 erl_syntax:text(Version)]),
-        erl_syntax:attribute(
-            erl_syntax:text("include"), [
-                erl_syntax:abstract("exercism.hrl")]),
+        tgs:include("exercism.hrl"),
         nl,
         nl] ++ inter(nl, Tests),
 
