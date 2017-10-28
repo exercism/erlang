@@ -1,18 +1,18 @@
 -module(leap_tests).
 
 -define(TESTED_MODULE, (sut(leap))).
--define(TEST_VERSION, 1).
+-define(TEST_VERSION, 2).
 -include("exercism.hrl").
 
 
-leap_year_test() ->
-  ?assert(?TESTED_MODULE:leap_year(1996)).
+year_divisible_by_400_leap_year_test() ->
+    ?assert(?TESTED_MODULE:leap_year(2000)).
 
-non_leap_year_test() ->
-  ?assertNot(?TESTED_MODULE:leap_year(1997)).
+year_divisible_by_100_not_divisible_by_400_common_year_test() ->
+    ?assertNot(?TESTED_MODULE:leap_year(2100)).
 
-century_test() ->
-  ?assertNot(?TESTED_MODULE:leap_year(1900)).
+year_divisible_by_4_not_divisible_by_100_leap_year_test() ->
+    ?assert(?TESTED_MODULE:leap_year(2020)).
 
-fourth_century_test() ->
-  ?assert(?TESTED_MODULE:leap_year(2400)).
+year_not_divisible_by_4_common_year_test() ->
+    ?assertNot(?TESTED_MODULE:leap_year(2015)).
