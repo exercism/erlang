@@ -2,10 +2,14 @@
 -export([to_rna/1, test_version/0]).
 
 to_rna(Strand) ->
-  lists:map(fun transcribe_to_rna/1, Strand).
+    try lists:map(fun transcribe_to_rna/1, Strand) of
+        Result -> Result
+    catch
+        _:_ -> error
+    end.
 
 test_version() ->
-    1.
+    2.
 
 
 
