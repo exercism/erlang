@@ -90,7 +90,7 @@ slugify(Name) when is_binary(Name) ->
         list_to_binary(slugify(binary_to_list(Name)));
 slugify(Name) when is_list(Name) ->
     lists:filtermap(fun
-        (C) when (($a =< C) and (C =< $z)) or (C == $_) -> {true, C};
+        (C) when (($0 =< C) and (C =< $9)) or (($a =< C) and (C =< $z)) or (C == $_) -> {true, C};
         (C) when (($A =< C) and (C =< $Z)) -> {true, C - $A + $a};
         (C) when (C == $\s) or (C == $-)-> {true, $_};
         (_) -> false
@@ -101,8 +101,11 @@ generate_stub_module(ModuleName, Props, Version) ->
     VersionName = "test_version",
     Props1 = Props ++ [{VersionName, []}],
 
-    Funs = lists:map(fun ({Name, []}) ->
-            tgs:simple_fun(Name, [tgs:atom(undefined)])
+    Funs = lists:map(fun
+            ({Name, []}) ->
+                tgs:simple_fun(Name, [tgs:atom(undefined)]);
+            ({Name, Args}) when is_list(Args) ->
+                tgs:simple_fun(Name, Args, [tgs:atom(undefined)])
         end, Props) ++ [
             tgs:simple_fun(VersionName, [tgs:value(Version)])],
 
@@ -142,7 +145,7 @@ generate_test_module(ModuleName, Tests, Version) ->
 
 inter(_, []) -> [];
 inter(_, [X]) -> [X];
-inter(Delim, [X|Xs]) -> [X, Delim|Xs].
+inter(Delim, [X|Xs]) -> [X, Delim|inter(Delim, Xs)].
 
 combine(List, []) -> List;
 combine(List, [{Name, Arity}|Xs]) when is_list(Name) ->
