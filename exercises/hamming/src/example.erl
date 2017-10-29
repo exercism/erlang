@@ -1,15 +1,15 @@
 -module(example).
 
--export([hamming_distance/2, test_version/0]).
+-export([distance/2, test_version/0]).
 
-hamming_distance(From, To) ->
-  Comparisons = lists:zipwith(fun(X,Y) -> case X =:= Y of
-                                            true -> 0;
-                                            false -> 1
-                                          end
-                              end,
-                              From, To),
-  lists:sum(Comparisons).
+distance(Strand1, Strand2) ->
+    walk(Strand1, Strand2, 0).
 
 test_version() ->
-    1.
+    2.
+
+
+walk([], [], Dist) -> Dist;
+walk([A|As], [A|Bs], Dist) -> walk(As, Bs, Dist);
+walk([_|As], [_|Bs], Dist) -> walk(As, Bs, Dist + 1);
+walk(_, _, _) -> {error, "left and right strands must be of equal length"}.
