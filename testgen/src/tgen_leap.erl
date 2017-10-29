@@ -19,13 +19,13 @@ generate_test(#{description := Desc, expected := Exp, property := <<"leapYear">>
     Property = "leap_year",
 
     Assert = case Exp of
-        true -> "?assert";
-        false -> "?assertNot"
+        true -> "assert";
+        false -> "assertNot"
     end,
 
     Fn = tgs:simple_fun(TestName, [
-        tgs:call_fun(Assert, [
-            tgs:call_fun("?TESTED_MODULE:" ++ Property, [
+        tgs:call_macro(Assert, [
+            tgs:call_macro("TESTED_MODULE:" ++ Property, [
                 tgs:value(In)])])]),
 
     {ok, Fn, [{Property, ["Year"]}]}.

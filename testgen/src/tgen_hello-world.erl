@@ -20,8 +20,8 @@ generate_test(#{description := Desc, expected := Exp, property := Prop}) ->
     Property = binary_to_list(Prop),
 
     Fn = tgs:simple_fun(TestName, [
-            tgs:call_fun("?assertEqual", [
+            tgs:call_macro("assertEqual", [
                 tgs:value(Expected),
-                tgs:call_fun("?TESTED_MODULE:" ++ Property, [])])]),
+                tgs:call_macro("TESTED_MODULE:" ++ Property, [])])]),
 
     {ok, Fn, [{Prop, []}]}.
