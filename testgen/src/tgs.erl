@@ -1,16 +1,16 @@
 -module(tgs).
 
 -export([
-    module/1,
+    atom/1,
+    call_fun/2,
+    define/2,
     export/1,
     include/1,
-    define/2,
+    module/1,
     parens/1,
-    call_fun/2,
-    atom/1,
+    raw/1,
     simple_fun/2,
     simple_fun/3,
-    raw/1,
     value/1
 ]).
 
