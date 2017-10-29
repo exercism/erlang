@@ -5,4 +5,4 @@
 
 leap_year(Year) -> undefined.
 
-test_version() -> 2.
+test_version() -> 3.

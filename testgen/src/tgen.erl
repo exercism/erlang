@@ -65,11 +65,12 @@ process_json(#tgen{name = GName, module = Module}, Content) ->
     case jsx:decode(Content, [return_maps, {labels, attempt_atom}]) of
         _JSON = #{exercise := GName, cases := Cases} ->
             % io:format("Parsed JSON: ~p~n", [JSON]),
-            {TestImpls, Props} = lists:foldl(fun (Spec, {Tests, OldProperties}) ->
+            {TestImpls0, Props} = lists:foldl(fun (Spec, {Tests, OldProperties}) ->
                 {ok, Test, Properties} = Module:generate_test(Spec),
                 {[Test|Tests], combine(OldProperties, Properties)}
             end, {[], []}, Cases),
-            {TestModuleName, TestModuleContent} = generate_test_module(binary_to_list(GName), TestImpls, Module:version()),
+            TestImpls1 = lists:reverse(TestImpls0),
+            {TestModuleName, TestModuleContent} = generate_test_module(binary_to_list(GName), TestImpls1, Module:version()),
             {StubModuleName, StubModuleContent} = generate_stub_module(binary_to_list(GName), Props, Module:version()),
 
             [#{exercise => GName, name => TestModuleName, folder => "test", content => io_lib:format("~s", [TestModuleContent])},
