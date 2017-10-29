@@ -3,12 +3,12 @@
 -export([steps/1,
          test_version/0]).
 
-steps(N) when N =< 0 -> {error, "Only strictly positive numbers are allowed"};
+steps(N) when N =< 0 -> {error, "Only positive numbers are allowed"};
 steps(N) ->
   steps(N, 0).
 
 test_version() ->
-  1.
+  2.
 
 
 
