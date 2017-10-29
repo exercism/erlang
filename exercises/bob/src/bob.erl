@@ -1,8 +1,8 @@
 -module(bob).
 
--export([response_for/1, test_version/0]).
+-export([response/1, test_version/0]).
 
-response_for(String) ->
-  undefined.
 
-test_version() -> 1.
+response(String) -> undefined.
+
+test_version() -> 2.

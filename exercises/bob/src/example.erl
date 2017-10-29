@@ -1,33 +1,48 @@
 -module(example).
 
--export([response_for/1, test_version/0]).
+-export([response/1, test_version/0]).
 
--spec response_for(string()) -> string().
-response_for(String) ->
+-spec response(string()) -> string().
+response(String) ->
   first_match(
-    String,
-    [{fun is_all_spaces/1, "Fine. Be that way!"},
+    trim(String),
+    [{fun is_silent/1, "Fine. Be that way!"},
      {fun is_shouting/1, "Whoa, chill out!"},
      {fun is_question/1, "Sure."},
      {fun (_) -> true end, "Whatever."}]).
 
 test_version() ->
-    1.
+    2.
 
 
 
 first_match(S, [{F, Res} | Fs]) ->
-  case F(S) of
-    true -> Res;
-    false -> first_match(S, Fs)
-  end.
+    case F(S) of
+        true -> Res;
+        false -> first_match(S, Fs)
+    end.
 
 is_shouting(String) ->
-  lists:any(fun (C) -> C >= $A andalso C =< $Z end, String) andalso
-  string:to_upper(String) =:= String.
+    lists:any(fun (C) -> C >= $A andalso C =< $Z end, String) andalso
+    string:to_upper(String) =:= String.
 
 is_question(String) ->
-  lists:last(String) =:= $?.
+    lists:last(String) =:= $?.
 
-is_all_spaces(String) ->
-  re:run(String, "^(\\h|\\v)*$", [unicode]) =/= nomatch.
+is_silent("") -> true;
+is_silent(_) -> false.
+
+trim(String) ->
+    trim_left(trim_right(String)).
+
+trim_left("") -> "";
+trim_left([$\s|T]) -> trim_left(T);
+trim_left([$\t|T]) -> trim_left(T);
+trim_left([$\n|T]) -> trim_left(T);
+trim_left([$\r|T]) -> trim_left(T);
+trim_left(S) -> S.
+
+trim_right(S) ->
+    S1 = lists:reverse(S),
+    S2 = trim_left(S1),
+    lists:reverse(S2).
