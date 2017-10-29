@@ -9,7 +9,7 @@ leap_year(Year) ->
           not divisible_by(Year, 100)).
 
 test_version() ->
-    2.
+    3.
 
 
 
