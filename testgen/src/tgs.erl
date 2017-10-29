@@ -3,6 +3,7 @@
 -export([
     atom/1,
     call_fun/2,
+    call_macro/2,
     define/2,
     export/1,
     include/1,
@@ -52,6 +53,9 @@ parens(Tree) ->
 call_fun(Name, Args) when is_list(Name) ->
     erl_syntax:application(
         erl_syntax:text(Name), Args).
+
+call_macro(Name, Args) when is_list(Name) ->
+    call_fun("?" ++ Name, Args).
 
 atom(Name) when is_list(Name); is_atom(Name) ->
     erl_syntax:atom(Name);

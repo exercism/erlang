@@ -19,9 +19,9 @@ generate_test(#{description := Desc, expected := #{error := Message}, property :
     Property = binary_to_list(Prop),
 
     Fn = tgs:simple_fun(TestName, [
-        tgs:call_fun("?assertMatch", [
+        tgs:call_macro("assertMatch", [
             tgs:value({error, binary_to_list(Message)}),
-            tgs:call_fun("?TESTED_MODULE:" ++ Property, [
+            tgs:call_macro("TESTED_MODULE:" ++ Property, [
                 tgs:value(Num)])])]),
 
     {ok, Fn, [{Prop, ["N"]}]};
@@ -30,9 +30,9 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, number :
     Property = binary_to_list(Prop),
 
     Fn = tgs:simple_fun(TestName, [
-        tgs:call_fun("?assertMatch", [
+        tgs:call_macro("assertMatch", [
             tgs:value(Exp),
-            tgs:call_fun("?TESTED_MODULE:" ++ Property, [
+            tgs:call_macro("TESTED_MODULE:" ++ Property, [
                 tgs:value(Num)])])]),
 
     {ok, Fn, [{Prop, ["N"]}]}.
