@@ -1,18 +1,18 @@
 -module(example).
 
--export([response_for/1, test_version/0]).
+-export([response/1, test_version/0]).
 
--spec response_for(string()) -> string().
-response_for(String) ->
+-spec response(string()) -> string().
+response(String) ->
   first_match(
-    String,
+    string:trim(String),
     [{fun is_all_spaces/1, "Fine. Be that way!"},
      {fun is_shouting/1, "Whoa, chill out!"},
      {fun is_question/1, "Sure."},
      {fun (_) -> true end, "Whatever."}]).
 
 test_version() ->
-    1.
+    2.
 
 
 
