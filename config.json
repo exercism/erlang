@@ -103,6 +103,16 @@
       ]
     },
     {
+      "uuid": "97f3c252-09c1-b380-5f5f-45b6eebec416e2a0830",
+      "slug": "isogram",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+
+      ]
+    },
+    {
       "uuid": "d3cbfc9a-a495-4bf2-87d0-811d5f71fda6",
       "slug": "nucleotide-count",
       "core": false,
