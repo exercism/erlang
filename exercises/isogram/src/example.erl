@@ -8,13 +8,17 @@ is_isogram(String) ->
 check_isogram("") ->
     true;
 check_isogram([H|T]) ->
-    B = alpha(H) andalso found_in(H, T),
+    B = is_alpha(H) andalso is_found_in(H, T),
     not B andalso check_isogram(T).
 
-alpha(C_lower) ->
-    C_lower /= string:to_upper(C_lower).
+is_alpha(C) when ($a =< C), (C =< $z) ->
+    C /= string:to_upper(C);
+is_alpha(_) ->
+    false.
 
-found_in(C_lower, S_lower) ->
-    lists:any(fun(X) -> X == C_lower end, S_lower).
+is_found_in(C, S) when ($a =< C), (C =< $z) ->
+    lists:any(fun(X) -> X == C end, S);
+is_found_in(_, _) ->
+    false.
 
 test_version() -> 1.
