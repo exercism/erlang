@@ -137,7 +137,7 @@ generate_test_module(ModuleName, Tests, Version) ->
         tgs:define("TEST_VERSION", tgs:value(Version)),
         tgs:include("exercism.hrl"),
         nl,
-        nl] ++ inter(nl, Tests),
+        nl] ++ inter(nl, lists:flatten(Tests)),
 
     {SluggedModName ++ "_tests", lists:flatten(
         lists:map(
