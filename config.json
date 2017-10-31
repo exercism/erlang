@@ -323,6 +323,16 @@
       ]
     },
     {
+      "uuid": "5fc48c1b-0e1b-47b3-b30a-5281ec364aad",
+      "slug": "complex-numbers",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 5,
+      "topics": [
+
+      ]
+    },
+    {
       "uuid": "8ad0c97b-189d-46ac-bb72-2c72f1fe4728",
       "slug": "rotational-cipher",
       "core": false,
