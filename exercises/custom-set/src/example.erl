@@ -13,12 +13,7 @@ contains(Elem, #set{s = S}) ->
 
 difference(#set{s = S1}, #set{s = S2}) ->
 	#set{s = lists:foldl(
-		fun (E, S) ->
-			case maps:take(E, S) of
-				{_, NewS} -> NewS;
-				error -> S
-			end
-		end, S1, maps:keys(S2))}.
+		fun (E, S) -> maps:remove(E, S) end, S1, maps:keys(S2))}.
 
 disjoint(Set1, Set2) ->
 	empty(intersection(Set1, Set2)).
