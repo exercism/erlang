@@ -373,6 +373,16 @@
       ]
     },
     {
+      "uuid": "453aad9b-044e-473e-87c1-0193afb2cb13",
+      "slug": "custom-set",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 6,
+      "topics": [
+
+      ]
+    },
+    {
       "uuid": "249d0c9f-dadc-4168-ba9b-0c6bfe83618d",
       "slug": "meetup",
       "core": false,
