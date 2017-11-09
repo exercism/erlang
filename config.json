@@ -113,6 +113,16 @@
       ]
     },
     {
+      "uuid": "ceb71cdc-098f-d580-179c-732dd8258f8a76cf2be",
+      "slug": "pangram",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+
+      ]
+    },
+    {
       "uuid": "d3cbfc9a-a495-4bf2-87d0-811d5f71fda6",
       "slug": "nucleotide-count",
       "core": false,
