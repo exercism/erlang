@@ -7,6 +7,7 @@
     define/2,
     export/1,
     include/1,
+    include_lib/1,
     module/1,
     parens/1,
     raw/1,
@@ -39,6 +40,11 @@ fun_tuple_to_text({Name, Args}) when (is_list(Name) orelse is_binary(Name)) anda
 include(File) when is_list(File) ->
     erl_syntax:attribute(
         erl_syntax:text("include"), [
+            erl_syntax:abstract(File)]).
+
+include_lib(File) when is_list(File) ->
+    erl_syntax:attribute(
+        erl_syntax:text("include_lib"), [
             erl_syntax:abstract(File)]).
 
 define(Name, Substitution) when is_list(Name) ->
