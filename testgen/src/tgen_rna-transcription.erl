@@ -21,7 +21,7 @@ generate_test(#{description := Desc, expected := null, property := <<"toRna">>, 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertMatch", [
             tgs:value(error),
-            tgs:call_macro("TESTED_MODULE:" ++ Property, [
+            tgs:call_fun("rna_transcription:" ++ Property, [
                 tgs:value(binary_to_list(DNA))])])]),
 
     {ok, Fn, [{Property, ["Strand"]}]};
@@ -32,7 +32,7 @@ generate_test(#{description := Desc, expected := Exp, property := <<"toRna">>, d
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertMatch", [
             tgs:value(binary_to_list(Exp)),
-            tgs:call_macro("TESTED_MODULE:" ++ Property, [
+            tgs:call_fun("rna_transcription:" ++ Property, [
                 tgs:value(binary_to_list(DNA))])])]),
 
     {ok, Fn, [{Property, ["Strand"]}]}.
