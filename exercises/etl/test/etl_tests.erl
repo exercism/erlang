@@ -1,9 +1,7 @@
 -module(etl_tests).
 
--define(TESTED_MODULE, (sut(etl))).
--define(TEST_VERSION, 1).
--include("exercism.hrl").
-
+-include_lib("erl_exercism/include/exercism.hrl").
+-include_lib("eunit/include/eunit.hrl").
 
 transform_one_value_test() ->
   erl_transform([{1, ["a"]}], [{"a", 1}]).
@@ -32,4 +30,7 @@ transform_full_dataset_test() ->
   erl_transform(Old, Expected).
 
 erl_transform(Old, New) ->
-  ?assertEqual(lists:sort(New), lists:sort(?TESTED_MODULE:transform(Old))).
+  ?assertEqual(lists:sort(New), lists:sort(etl:transform(Old))).
+
+version_test() ->
+  ?assertMatch(1, etl:test_version()).
