@@ -23,7 +23,7 @@ generate_test(F = #{description := Desc, expected := Exp, property := Prop, inpu
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertMatch", [
             tgs:value(Expected),
-            tgs:call_macro("TESTED_MODULE:" ++ Property, [
+            tgs:call_fun("bob:" ++ Property, [
                 tgs:value(Sentence)])])]),
 
     {ok, Fn, [{Property, ["String"]}]}.
