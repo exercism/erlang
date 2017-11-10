@@ -22,6 +22,6 @@ generate_test(#{description := Desc, expected := Exp, property := Prop}) ->
     Fn = tgs:simple_fun(TestName, [
             tgs:call_macro("assertEqual", [
                 tgs:value(Expected),
-                tgs:call_macro("TESTED_MODULE:" ++ Property, [])])]),
+                tgs:call_fun("hello_world:" ++ Property, [])])]),
 
     {ok, Fn, [{Prop, []}]}.
