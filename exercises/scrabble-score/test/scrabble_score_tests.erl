@@ -1,11 +1,9 @@
 -module(scrabble_score_tests).
 
--define(TESTED_MODULE, (sut(scrabble_score))).
--define(TEST_VERSION, 1).
--include("exercism.hrl").
+-include_lib("erl_exercism/include/exercism.hrl").
+-include_lib("eunit/include/eunit.hrl").
 
-
--define(checkScore(N, S), ?assertEqual(N, ?TESTED_MODULE:score(S))).
+-define(checkScore(N, S), ?assertEqual(N, scrabble_score:score(S))).
 
 empty_word_scores_zero_test() -> ?checkScore(0, "").
 
@@ -20,3 +18,6 @@ complicated_word_scores_more_test() -> ?checkScore(22, "quirky").
 scores_are_case_insensitive_test() ->
   ?checkScore(41, "oxyphenbutazone"),
   ?checkScore(41, "OXYPHENBUTAZONE").
+
+version_test() ->
+  ?assertMatch(1, scrabble_score:test_version()).
