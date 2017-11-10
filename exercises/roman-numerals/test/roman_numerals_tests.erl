@@ -1,12 +1,10 @@
 -module(roman_numerals_tests).
 
--define(TESTED_MODULE, (sut(roman_numerals))).
--define(TEST_VERSION, 1).
--include("exercism.hrl").
-
+-include_lib("erl_exercism/include/exercism.hrl").
+-include_lib("eunit/include/eunit.hrl").
 
 expect_roman(Number, Expected) ->
-  ?assertEqual(Expected, ?TESTED_MODULE:numerals(Number)).
+  ?assertEqual(Expected, roman_numerals:numerals(Number)).
 
 convert_1_test() -> expect_roman(1, "I").
 
@@ -43,3 +41,6 @@ convert_911_test() -> expect_roman(911, "CMXI").
 convert_1024_test() -> expect_roman(1024, "MXXIV").
 
 convert_3000_test() -> expect_roman(3000, "MMM").
+
+version_test() ->
+  ?assertMatch(1, roman_numerals:test_version()).
