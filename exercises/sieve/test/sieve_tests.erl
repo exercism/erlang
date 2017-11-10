@@ -1,20 +1,19 @@
 -module(sieve_tests).
 
--define(TESTED_MODULE, (sut(sieve))).
--define(TEST_VERSION, 1).
--include("exercism.hrl").
+-include_lib("erl_exercism/include/exercism.hrl").
+-include_lib("eunit/include/eunit.hrl").
 
 no_primes_under_two_test() ->
-    ?assertEqual([], ?TESTED_MODULE:sieve(1)).
+    ?assertEqual([], sieve:sieve(1)).
 
 first_prime_test() ->
-    ?assertEqual([2], ?TESTED_MODULE:sieve(2)).
+    ?assertEqual([2], sieve:sieve(2)).
 
 primes_up_to_10_test() ->
-    ?assertEqual([2, 3, 5, 7], ?TESTED_MODULE:sieve(10)).
+    ?assertEqual([2, 3, 5, 7], sieve:sieve(10)).
 
 limit_is_prime_test() ->
-    ?assertEqual([2, 3, 5, 7, 11, 13], ?TESTED_MODULE:sieve(13)).
+    ?assertEqual([2, 3, 5, 7, 11, 13], sieve:sieve(13)).
 
 primes_up_to_1000_test() ->
     ?assertEqual(
@@ -35,4 +34,7 @@ primes_up_to_1000_test() ->
         811, 821, 823, 827, 829, 839, 853, 857, 859, 863,
         877, 881, 883, 887, 907, 911, 919, 929, 937, 941,
         947, 953, 967, 971, 977, 983, 991, 997 ],
-      ?TESTED_MODULE:sieve(1000)).
+      sieve:sieve(1000)).
+
+version_test() ->
+  ?assertMatch(1, sieve:test_version()).
