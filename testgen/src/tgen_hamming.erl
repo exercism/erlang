@@ -22,7 +22,7 @@ generate_test(#{description := Desc, expected := #{error := Message}, property :
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertMatch", [
             tgs:value({error, Reason}),
-            tgs:call_macro("TESTED_MODULE:" ++ Property, [
+            tgs:call_fun("hamming:" ++ Property, [
                 tgs:value(binary_to_list(S1)),
                 tgs:value(binary_to_list(S2))])])]),
 
@@ -34,7 +34,7 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, 'strand1
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertMatch", [
             tgs:value(Exp),
-            tgs:call_macro("TESTED_MODULE:" ++ Property, [
+            tgs:call_fun("hamming:" ++ Property, [
                 tgs:value(binary_to_list(S1)),
                 tgs:value(binary_to_list(S2))])])]),
 

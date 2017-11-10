@@ -1,8 +1,7 @@
 -module(rotational_cipher_tests).
 
--define(TESTED_MODULE, (sut(rotational_cipher))).
--define(TEST_VERSION, 1).
--include("exercism.hrl").
+-include_lib("erl_exercism/include/exercism.hrl").
+-include_lib("eunit/include/eunit.hrl").
 
 %%% To use this testsuite completely do run
 %%% rebar3 do eunit, proper
@@ -17,82 +16,85 @@
 %% Encryption tests
 
 encrypt_a_by_1_test() ->
-  ?assertEqual("b", ?TESTED_MODULE:encrypt("a", 1)).
+  ?assertEqual("b", rotational_cipher:encrypt("a", 1)).
 
 encrypt_a_by_26_same_output_as_input_test() ->
-  ?assertEqual("a", ?TESTED_MODULE:encrypt("a", 26)).
+  ?assertEqual("a", rotational_cipher:encrypt("a", 26)).
 
 encrypt_a_by_0_same_output_as_input_test() ->
-  ?assertEqual("a", ?TESTED_MODULE:encrypt("a", 0)).
+  ?assertEqual("a", rotational_cipher:encrypt("a", 0)).
 
 encrypt_m_by_13_test() ->
-  ?assertEqual("m", ?TESTED_MODULE:encrypt("z", 13)).
+  ?assertEqual("m", rotational_cipher:encrypt("z", 13)).
 
 encrypt_wraps_alphabet_test() ->
-  ?assertEqual("a", ?TESTED_MODULE:encrypt("z", 1)).
+  ?assertEqual("a", rotational_cipher:encrypt("z", 1)).
 
 encrypt_capital_letters_test() ->
-  ?assertEqual("TRL", ?TESTED_MODULE:encrypt("OMG", 5)).
+  ?assertEqual("TRL", rotational_cipher:encrypt("OMG", 5)).
 
 encrypt_spaces_test() ->
-  ?assertEqual("T R L", ?TESTED_MODULE:encrypt("O M G", 5)).
+  ?assertEqual("T R L", rotational_cipher:encrypt("O M G", 5)).
 
 encrypt_numbers_test() ->
-  ?assertEqual("Xiwxmrk 1 2 3 xiwxmrk", ?TESTED_MODULE:encrypt("Testing 1 2 3 testing", 4)).
+  ?assertEqual("Xiwxmrk 1 2 3 xiwxmrk", rotational_cipher:encrypt("Testing 1 2 3 testing", 4)).
 
 encrypt_punctuation_test() ->
-  ?assertEqual("Gzo'n zvo, Bmviyhv!", ?TESTED_MODULE:encrypt("Let's eat, Grandma!", 21)).
+  ?assertEqual("Gzo'n zvo, Bmviyhv!", rotational_cipher:encrypt("Let's eat, Grandma!", 21)).
 
 encrypt_all_letters_test() ->
-  ?assertEqual("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.", ?TESTED_MODULE:encrypt("The quick brown fox jumps over the lazy dog.", 13)).
+  ?assertEqual("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.", rotational_cipher:encrypt("The quick brown fox jumps over the lazy dog.", 13)).
 
 %% Decryption tests
 
 decrypt_b_by_1_test() ->
-  ?assertEqual("a", ?TESTED_MODULE:decrypt("b", 1)).
+  ?assertEqual("a", rotational_cipher:decrypt("b", 1)).
 
 decrypt_a_by_26_same_output_as_input_test() ->
-  ?assertEqual("a", ?TESTED_MODULE:decrypt("a", 26)).
+  ?assertEqual("a", rotational_cipher:decrypt("a", 26)).
 
 decrypt_a_by_0_same_output_as_input_test() ->
-  ?assertEqual("a", ?TESTED_MODULE:decrypt("a", 0)).
+  ?assertEqual("a", rotational_cipher:decrypt("a", 0)).
 
 decrypt_z_by_13_test() ->
-  ?assertEqual("z", ?TESTED_MODULE:decrypt("m", 13)).
+  ?assertEqual("z", rotational_cipher:decrypt("m", 13)).
 
 decrypt_wraps_alphabet_test() ->
-  ?assertEqual("z", ?TESTED_MODULE:decrypt("a", 1)).
+  ?assertEqual("z", rotational_cipher:decrypt("a", 1)).
 
 decrypt_capital_letters_test() ->
-  ?assertEqual("OMG", ?TESTED_MODULE:decrypt("TRL", 5)).
+  ?assertEqual("OMG", rotational_cipher:decrypt("TRL", 5)).
 
 decrypt_spaces_test() ->
-  ?assertEqual("O M G", ?TESTED_MODULE:decrypt("T R L", 5)).
+  ?assertEqual("O M G", rotational_cipher:decrypt("T R L", 5)).
 
 decrypt_numbers_test() ->
-  ?assertEqual("Testing 1 2 3 testing", ?TESTED_MODULE:decrypt("Xiwxmrk 1 2 3 xiwxmrk", 4)).
+  ?assertEqual("Testing 1 2 3 testing", rotational_cipher:decrypt("Xiwxmrk 1 2 3 xiwxmrk", 4)).
 
 decrypt_punctuation_test() ->
-  ?assertEqual("Let's eat, Grandma!", ?TESTED_MODULE:decrypt("Gzo'n zvo, Bmviyhv!", 21)).
+  ?assertEqual("Let's eat, Grandma!", rotational_cipher:decrypt("Gzo'n zvo, Bmviyhv!", 21)).
 
 decrypt_all_letters_test() ->
-  ?assertEqual("The quick brown fox jumps over the lazy dog.", ?TESTED_MODULE:decrypt("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.", 13)).
+  ?assertEqual("The quick brown fox jumps over the lazy dog.", rotational_cipher:decrypt("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.", 13)).
 
 %%% Properties tested via `proper`
 %
 %prop_decrypt_encrypt_is_id() ->
 %  ?FORALL({Input, N}, {string(), integer(0,26)},
-%    ?TESTED_MODULE:decrypt(?TESTED_MODULE:encrypt(Input, N), N) == Input).
+%    rotational_cipher:decrypt(rotational_cipher:encrypt(Input, N), N) == Input).
 %
 %prop_decrypt_is_encrypt_with_another_key() ->
 %  ?FORALL({Input, N}, {string(), integer(0,26)},
-%    ?TESTED_MODULE:decrypt(Input, 26 - N) == ?TESTED_MODULE:encrypt(Input, N)).
+%    rotational_cipher:decrypt(Input, 26 - N) == rotational_cipher:encrypt(Input, N)).
 %
 %prop_encrypt_13_twice_is_id() ->
 %  ?FORALL(Input, string(),
-%    ?TESTED_MODULE:encrypt(?TESTED_MODULE:encrypt(Input, 13), 13) == Input).
+%    rotational_cipher:encrypt(rotational_cipher:encrypt(Input, 13), 13) == Input).
 %
 %prop_decrypt_13_twice_is_id() ->
 %  ?FORALL(Input, string(),
-%    ?TESTED_MODULE:decrypt(?TESTED_MODULE:decrypt(Input, 13), 13) == Input).
+%    rotational_cipher:decrypt(rotational_cipher:decrypt(Input, 13), 13) == Input).
 %
+
+version_test() ->
+  ?assertMatch(1, rotational_cipher:test_version()).

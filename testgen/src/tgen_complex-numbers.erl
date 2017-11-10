@@ -27,8 +27,8 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, input :=
             erl_syntax:infix_expr(
                 tgs:value(Exp),
                 erl_syntax:operator("=="),
-                tgs:call_macro("TESTED_MODULE:" ++ Property, [
-                    tgs:call_macro("TESTED_MODULE:new", lists:map(fun tgs:value/1, Cplx))]))])]),
+                tgs:call_fun("complex_numbers:" ++ Property, [
+                    tgs:call_fun("complex_numbers:new", lists:map(fun tgs:value/1, Cplx))]))])]),
 
     {ok, Fn, [{Property, ["Z"]}]};
 generate_test(#{description := Desc, expected := Exp, property := Prop, input := Z}) ->
@@ -40,10 +40,10 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, input :=
 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assert", [
-            tgs:call_macro("TESTED_MODULE:equal", [
-                tgs:call_macro("TESTED_MODULE:new", lists:map(fun tgs:value/1, Expected)),
-                tgs:call_macro("TESTED_MODULE:" ++ Property, [
-                    tgs:call_macro("TESTED_MODULE:new", lists:map(fun tgs:value/1, Cplx))])])])]),
+            tgs:call_fun("complex_numbers:equal", [
+                tgs:call_fun("complex_numbers:new", lists:map(fun tgs:value/1, Expected)),
+                tgs:call_fun("complex_numbers:" ++ Property, [
+                    tgs:call_fun("complex_numbers:new", lists:map(fun tgs:value/1, Cplx))])])])]),
 
     {ok, Fn, [{Property, ["Z"]}]};
 generate_test(#{description := Desc, expected := Exp, property := <<"div">>, z1 := Z1, z2 := Z2}) ->
@@ -58,11 +58,11 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, z1 := Z1
 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assert", [
-            tgs:call_macro("TESTED_MODULE:equal", [
-                tgs:call_macro("TESTED_MODULE:new", lists:map(fun tgs:value/1, Expected)),
-                tgs:call_macro("TESTED_MODULE:" ++ Property, [
-                    tgs:call_macro("TESTED_MODULE:new", lists:map(fun tgs:value/1, Cplx1)),
-                    tgs:call_macro("TESTED_MODULE:new", lists:map(fun tgs:value/1, Cplx2))])])])]),
+            tgs:call_fun("complex_numbers:equal", [
+                tgs:call_fun("complex_numbers:new", lists:map(fun tgs:value/1, Expected)),
+                tgs:call_fun("complex_numbers:" ++ Property, [
+                    tgs:call_fun("complex_numbers:new", lists:map(fun tgs:value/1, Cplx1)),
+                    tgs:call_fun("complex_numbers:new", lists:map(fun tgs:value/1, Cplx2))])])])]),
 
     {ok, Fn, [{Property, ["Z1", "Z2"]}, {"equal", ["Z1", "Z2"]}, {"new", ["R", "I"]}]}.
 

@@ -22,11 +22,11 @@ generate_test(F=#{description := Desc, expected := Exp, property := Prop, set1 :
 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertEqual", [
-            tgs:call_macro("TESTED_MODULE:from_list", [
+            tgs:call_fun("custom_set:from_list", [
                 tgs:value(Exp)]),
-            tgs:call_macro("TESTED_MODULE:" ++ Property, [
-                tgs:call_macro("TESTED_MODULE:from_list", [tgs:value(Set1)]),
-                tgs:call_macro("TESTED_MODULE:from_list", [tgs:value(Set2)])])])]),
+            tgs:call_fun("custom_set:" ++ Property, [
+                tgs:call_fun("custom_set:from_list", [tgs:value(Set1)]),
+                tgs:call_fun("custom_set:from_list", [tgs:value(Set2)])])])]),
 
     {ok, Fn, [{Property, ["Set1", "Set2"]}]};
 generate_test(F=#{description := Desc, expected := Exp, property := Prop, set1 := Set1, set2 := Set2}) when Exp =:= true; Exp =:= false ->
@@ -40,9 +40,9 @@ generate_test(F=#{description := Desc, expected := Exp, property := Prop, set1 :
 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro(Assert, [
-            tgs:call_macro("TESTED_MODULE:" ++ Property, [
-                tgs:call_macro("TESTED_MODULE:from_list", [tgs:value(Set1)]),
-                tgs:call_macro("TESTED_MODULE:from_list", [tgs:value(Set2)])])])]),
+            tgs:call_fun("custom_set:" ++ Property, [
+                tgs:call_fun("custom_set:from_list", [tgs:value(Set1)]),
+                tgs:call_fun("custom_set:from_list", [tgs:value(Set2)])])])]),
 
     {ok, Fn, [{Property, ["Set1", "Set2"]}, {"from_list", ["List"]}]};
 generate_test(#{description := Desc, expected := Exp, property := Prop, set := Set, element := Elem}) when is_list(Exp) ->
@@ -51,11 +51,11 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, set := S
 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertEqual", [
-            tgs:call_macro("TESTED_MODULE:from_list", [
+            tgs:call_fun("custom_set:from_list", [
                 tgs:value(Exp)]),
-            tgs:call_macro("TESTED_MODULE:" ++ Property, [
+            tgs:call_fun("custom_set:" ++ Property, [
                 tgs:value(Elem),
-                tgs:call_macro("TESTED_MODULE:from_list", [
+                tgs:call_fun("custom_set:from_list", [
                     erl_syntax:abstract(Set)])])])]),
 
     {ok, Fn, [{Property, ["Elem", "Set"]}, {"from_list", ["List"]}]};
@@ -70,9 +70,9 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, set := S
 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro(Assert, [
-            tgs:call_macro("TESTED_MODULE:" ++ Property, [
+            tgs:call_fun("custom_set:" ++ Property, [
                 tgs:value(Elem),
-                tgs:call_macro("TESTED_MODULE:from_list", [
+                tgs:call_fun("custom_set:from_list", [
                     erl_syntax:abstract(Set)])])])]),
 
     {ok, Fn, [{Property, ["Elem", "Set"]}, {"from_list", ["List"]}]};
@@ -87,8 +87,8 @@ generate_test(#{description := Desc, expected := Exp, property := <<"empty">>, s
 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro(Assert, [
-            tgs:call_macro("TESTED_MODULE:" ++ Property, [
-                tgs:call_macro("TESTED_MODULE:from_list", [
+            tgs:call_fun("custom_set:" ++ Property, [
+                tgs:call_fun("custom_set:from_list", [
                     tgs:value(Set)])])])]),
 
     {ok, Fn, [{Property, ["Set"]}, {"from_list", ["List"]}]}.

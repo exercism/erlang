@@ -1,15 +1,16 @@
 -module(two_fer_tests).
 
--define(TESTED_MODULE, (sut(two_fer))).
--define(TEST_VERSION, 1).
--include("exercism.hrl").
-
+-include_lib("erl_exercism/include/exercism.hrl").
+-include_lib("eunit/include/eunit.hrl").
 
 say_you_test() ->
-  ?assertEqual("One for you, one for me.", ?TESTED_MODULE:two_fer()).
+  ?assertEqual("One for you, one for me.", two_fer:two_fer()).
 
 say_alice_test() ->
-  ?assertEqual("One for Alice, one for me.", ?TESTED_MODULE:two_fer("Alice")).
+  ?assertEqual("One for Alice, one for me.", two_fer:two_fer("Alice")).
 
 say_bob_test() ->
-  ?assertEqual("One for Bob, one for me.", ?TESTED_MODULE:two_fer("Bob")).
+  ?assertEqual("One for Bob, one for me.", two_fer:two_fer("Bob")).
+
+version_test() ->
+  ?assertMatch(1, two_fer:test_version()).

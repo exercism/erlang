@@ -1,9 +1,7 @@
 -module(word_count_tests).
 
--define(TESTED_MODULE, (sut(word_count))).
--define(TEST_VERSION, 1).
--include("exercism.hrl").
-
+-include_lib("erl_exercism/include/exercism.hrl").
+-include_lib("eunit/include/eunit.hrl").
 
 count_one_word_test() ->
   assert_count(
@@ -64,4 +62,7 @@ symbols_are_separators_test() ->
      {"broken", 1}]).
 
 assert_count(S, Expect) ->
-  ?assertEqual(orddict:from_list(Expect), orddict:from_list(dict:to_list(?TESTED_MODULE:count(S)))).
+  ?assertEqual(orddict:from_list(Expect), orddict:from_list(dict:to_list(word_count:count(S)))).
+
+version_test() ->
+  ?assertMatch(1, word_count:test_version()).

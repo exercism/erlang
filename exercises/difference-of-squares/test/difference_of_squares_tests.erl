@@ -1,13 +1,11 @@
 -module(difference_of_squares_tests).
 
--define(TESTED_MODULE, (sut(difference_of_squares))).
--define(TEST_VERSION, 1).
--include("exercism.hrl").
+-include_lib("erl_exercism/include/exercism.hrl").
+-include_lib("eunit/include/eunit.hrl").
 
-
--define(assertSumOfSquares(Expected, Number), ?assertEqual(Expected, ?TESTED_MODULE:sum_of_squares(Number))).
--define(assertSquareOfSums(Expected, Number), ?assertEqual(Expected, ?TESTED_MODULE:square_of_sums(Number))).
--define(assertDifference(Expected, Number), ?assertEqual(Expected, ?TESTED_MODULE:difference_of_squares(Number))).
+-define(assertSumOfSquares(Expected, Number), ?assertEqual(Expected, difference_of_squares:sum_of_squares(Number))).
+-define(assertSquareOfSums(Expected, Number), ?assertEqual(Expected, difference_of_squares:square_of_sums(Number))).
+-define(assertDifference(Expected, Number), ?assertEqual(Expected, difference_of_squares:difference_of_squares(Number))).
 
 %% Square the sum of the numbers up to the given number
 
@@ -44,3 +42,6 @@ difference_of_squares_10_test() ->
 
 difference_of_squares_100_test() ->
   ?assertDifference( 25164150, 100 ).
+
+version_test() ->
+  ?assertMatch(1, difference_of_squares:test_version()).

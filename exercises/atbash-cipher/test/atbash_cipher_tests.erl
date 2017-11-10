@@ -1,14 +1,13 @@
 -module(atbash_cipher_tests).
 
--define(TESTED_MODULE, (sut(atbash_cipher))).
--define(TEST_VERSION, 1).
--include("exercism.hrl").
+-include_lib("erl_exercism/include/exercism.hrl").
+-include_lib("eunit/include/eunit.hrl").
 
 encode(Str) ->
-    ?TESTED_MODULE:encode(Str).
+    atbash_cipher:encode(Str).
 
 decode(Str) ->
-    ?TESTED_MODULE:decode(Str).
+    atbash_cipher:decode(Str).
 
 encode_no_test() ->
     ?assertEqual("ml", encode("no")).
@@ -44,3 +43,6 @@ decode_word_test() ->
 decode_sentence_test() ->
     ?assertEqual("anobstacleisoftenasteppingstone",
                  decode("zmlyh gzxov rhlug vmzhg vkkrm thglm v")).
+
+version_test() ->
+  ?assertMatch(1, atbash_cipher:test_version()).
