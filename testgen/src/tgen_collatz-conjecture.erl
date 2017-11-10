@@ -21,7 +21,7 @@ generate_test(#{description := Desc, expected := #{error := Message}, property :
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertMatch", [
             tgs:value({error, binary_to_list(Message)}),
-            tgs:call_macro("TESTED_MODULE:" ++ Property, [
+            tgs:call_fun("collatz_conjecture:" ++ Property, [
                 tgs:value(Num)])])]),
 
     {ok, Fn, [{Prop, ["N"]}]};
@@ -32,7 +32,7 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, number :
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertMatch", [
             tgs:value(Exp),
-            tgs:call_macro("TESTED_MODULE:" ++ Property, [
+            tgs:call_fun("collatz_conjecture:" ++ Property, [
                 tgs:value(Num)])])]),
 
     {ok, Fn, [{Prop, ["N"]}]}.
