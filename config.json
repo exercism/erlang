@@ -103,7 +103,7 @@
       ]
     },
     {
-      "uuid": "97f3c252-09c1-b380-5f5f-45b6eebec416e2a0830",
+      "uuid": "94b997bb-8e8d-4519-ba97-199d0f35a80a",
       "slug": "isogram",
       "core": false,
       "unlocked_by": null,
@@ -113,7 +113,7 @@
       ]
     },
     {
-      "uuid": "ceb71cdc-098f-d580-179c-732dd8258f8a76cf2be",
+      "uuid": "9c092a14-475b-4b1b-ac4b-fb19467367ff",
       "slug": "pangram",
       "core": false,
       "unlocked_by": null,
@@ -213,7 +213,7 @@
       ]
     },
     {
-      "uuid": "1a8abaa2-04f5-0e80-7986-5fb33995971caeb1496",
+      "uuid": "ea369b85-b180-48ca-b602-c40811fc865f",
       "slug": "two-fer",
       "core": false,
       "unlocked_by": null,
@@ -313,7 +313,7 @@
       ]
     },
     {
-      "uuid": "28b7e4fa-0511-f480-5128-5531913fca21458a2d9",
+      "uuid": "9cfae4bf-cff8-49bc-aee9-a37d553cef81",
       "slug": "sieve",
       "core": false,
       "unlocked_by": null,
