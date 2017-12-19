@@ -43,6 +43,16 @@
       ]
     },
     {
+      "uuid": "63259a44-cdec-4e25-ab0e-eddc6f9a9ca1",
+      "slug": "raindrops",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+
+      ]
+    },
+    {
       "uuid": "8e9a98b1-bf4f-4c94-a258-a8618cc37f55",
       "slug": "rna-transcription",
       "core": false,
