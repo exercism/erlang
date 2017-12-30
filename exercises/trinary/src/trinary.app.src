@@ -1,6 +1,6 @@
 {application, trinary,
   [{description, "exercism.io - trinary"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,
