@@ -1,6 +1,6 @@
 {application, binary,
   [{description, "exercism.io - binary"},
-    {vsn, "git"},
+    {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
     {applications, [kernel,
