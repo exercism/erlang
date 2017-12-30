@@ -451,6 +451,16 @@
       "topics": [
 
       ]
+    },
+    {
+      "uuid": "3cfc8f3f-c2ba-43f6-a4d7-2e276b9b9966",
+      "slug": "binary",
+      "deprecated": true
+    },
+    {
+      "uuid": "70385285-85bc-4345-9fe5-cb2ec1134b74",
+      "slug": "trinary",
+      "deprecated": true
     }
   ],
   "foregone": [
