@@ -37,12 +37,12 @@ compatible with erlang syntax.
 2. Set up folder structure (`include`, `src`, and `test`).
 3. Copy `rebar.conf`, `src/*.app.src`, and `include/exercism.hrl` from
    another exercise.
-   3.1. Find the line `{eunit_tests, [{application, <erlangified_slug_name>}]}`
+   1. Find the line `{eunit_tests, [{application, <erlangified_slug_name>}]}`
         in `rebar.conf` and alter it to match the current exercise.
-   3.2. Rename `src/*.app.src` to `src/<erlangified_slug_name>`.
-   3.3. Change the old erlangified_slug_name on the first line to the new one.
-   3.4. Change the old slug-name on the second line to the new one.
-   3.5. Leave `include/exercism.hrl` untouched.
+   2. Rename `src/*.app.src` to `src/<erlangified_slug_name>`.
+   3. Change the old erlangified_slug_name on the first line to the new one.
+   4. Change the old slug-name on the second line to the new one.
+   5. Leave `include/exercism.hrl` untouched.
 4. Create a testfile/-module in `test`-folder. It is preferred to name
    it after the erlangified_slug_name and insert the boilerplate code
    shown below.
