@@ -203,6 +203,16 @@
       ]
     },
     {
+      "uuid": "ba4cd1e4-b5f0-4efc-a4c8-58c5252cae9e",
+      "slug": "isbn-verifier",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+
+      ]
+    },
+    {
       "uuid": "24ae9a43-4e1c-418b-97f6-2c83dbc0e14a",
       "slug": "gigasecond",
       "core": false,
