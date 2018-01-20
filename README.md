@@ -28,32 +28,32 @@ deprecated in the newest one.
 
 ### Implementing an exercise
 
-When there is a mention of “slug-name” it refers to the slug as used
-on exercism URLs, “erlangified_slug_name” does mean, that you have to
-replace dashes (`-`) in the slug by underscores (`_`) to make them
-compatible with erlang syntax.
+When there is a mention of "slug-name", it refers to the slug as used
+on exercism URLs.  In contrast, "erlangified_slug_name" is the slug-name
+with all dashes (`-`) replaced by underscores (`_`) to make the name
+compatible with Erlang syntax.
 
-1. Create a folder `exercises/<slug-name>`
-2. Set up folder structure (`include`, `src`, and `test`).
-3. Copy `rebar.conf`, `src/*.app.src`, and `include/exercism.hrl` from
-   another exercise.
-   1. Find the line `{eunit_tests, [{application, <erlangified_slug_name>}]}`
-        in `rebar.conf` and alter it to match the current exercise.
-   2. Rename `src/*.app.src` to `src/<erlangified_slug_name>`.
-   3. Change the old erlangified_slug_name on the first line to the new one.
-   4. Change the old slug-name on the second line to the new one.
-   5. Leave `include/exercism.hrl` untouched.
-4. Create a testfile/-module in `test`-folder. It is preferred to name
-   it after the erlangified_slug_name and insert the boilerplate code
-   shown below.
-5. Implement your example in `src/example.erl` and use `example` as
-   the name for the module.
-6. Add tests. Make sure you are using the macro `?TESTED_MODULE` when
-   referencing the students module.
-7. Run tests using `rebar3 eunit`.
+  1. Create a folder `exercises/<slug-name>`.
+  2. Set up folder structure (`src`, and `test`).
+  3. Copy `rebar.config` and `src/*.app.src` from another exercise.
+    1. Leave `rebar.config` unchanged.
+    1. Rename `src/*.app.src` to `src/<erlangified_slug_name>.app.src`.
+    1. On the first line of this file change the old erlangified_slug_name to the new one.
+    1. On the second line change the old slug-name to the new one.
+  4. In the `src`-folder, create two files: `example.erl` and `<erlangified_slug_name>.erl`.
+   The first is for your example solution, the second is the 'empty' solution to give
+   students a place to start.
+   You might take the files from another exercise as your starting point.
+   Ensure their module names match their (new) file names.
+  5. In the `test`-folder, create one file: `<erlangified_slug_name>_tests.erl`
+   and insert the boilerplate code shown below.
+   This file is for the test cases.
+  6. Implement/correct your solution in `src/example.erl`.
+  7. Add tests to `<erlangified_slug_name>_tests.erl`.
+  8. Run tests using `rebar3 eunit`.
 
-Repeat steps 5., 6., and 7. until all tests are implemented and your
-solution passes all tests.
+Repeat steps 6, 7, and 8 until all tests are implemented and your
+example solution passes them all.
 
 If there is a `exercises/<slug-name>/canonical-data.json`
 in [problem-specifications](https://github.com/exercism/problem-specifications), make sure to
@@ -75,13 +75,16 @@ students if the exercise becomes tricky or might not be obvious.
 -include("exercism.hrl").
 ```
 
+You will need to add entry for the exercise in the track's `config.json` file,
+which you will find in the respository's root directory (two levels up).
+For details see [Exercise configuration](https://github.com/exercism/docs/blob/master/language-tracks/configuration/exercises.md).
+
 ### Before pushing
 
 Please make sure, that all tests pass by running
 `_test/check-exercises.escript`. On windows you might need to call
-`escript _test/check-exercises.escript`. Also a run of `bin/configlet`
+`escript _test/check-exercises.escript`. Also a run of `bin/configlet lint`
 should pass without error message.
 
 Both programs will be run on Travis and a merge is unlikely when
 tests fail.
-
