@@ -27,58 +27,47 @@ Notice that this is a very specific algorithm, and the tests don't check
 that you've implemented the algorithm, only that you've come up with the
 correct list of primes.
 
+## Running tests
 
-## Getting Started
+In order to run the tests, issue the following command from the exercise
+directory:
 
-For installation and learning resources, refer to the
-[exercism help page](http://exercism.io/languages/haskell).
+For running the tests provided, `rebar3` is used as it is the official build and
+dependency management tool for erlang now. Please refer to [the tracks installation
+instructions](http://exercism.io/languages/erlang/installation) on how to do that.
 
-## Running the tests
-
-To run the test suite, execute the following command:
-
-```bash
-stack test
-```
-
-#### If you get an error message like this...
-
-```
-No .cabal file found in directory
-```
-
-You are probably running an old stack version and need
-to upgrade it.
-
-#### Otherwise, if you get an error message like this...
-
-```
-No compiler found, expected minor version match with...
-Try running "stack setup" to install the correct GHC...
-```
-
-Just do as it says and it will download and install
-the correct compiler version:
+In order to run the tests, you can issue the following command from the exercise
+directory.
 
 ```bash
-stack setup
+$ rebar3 eunit
 ```
 
-## Running *GHCi*
+### Test versioning
 
-If you want to play with your solution in GHCi, just run the command:
+Each problem defines a macro `TEST_VERSION` in the test file and
+verifies that the solution defines and exports a function `test_version`
+returning that same value.
 
-```bash
-stack ghci
+To make tests pass, add the following to your solution:
+
+```erlang
+-export([test_version/0]).
+
+test_version() ->
+  1.
 ```
 
-## Feedback, Issues, Pull Requests
+The benefit of this is that reviewers can see against which test version
+an iteration was written if, for example, a previously posted solution
+does not solve the current problem or passes current tests.
 
-The [exercism/haskell](https://github.com/exercism/haskell) repository on
-GitHub is the home for all of the Haskell exercises.
+## Questions?
 
-If you have feedback about an exercise, or want to help implementing a new
-one, head over there and create an issue.  We'll do our best to help you!
+For detailed information about the Erlang track, please refer to the
+[help page](http://exercism.io/languages/erlang) on the Exercism site.
+This covers the basic information on setting up the development
+environment expected by the exercises.
 
 ## Source
 
