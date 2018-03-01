@@ -18,7 +18,7 @@ $ brew install erlang rebar@3
 ### On Linux
 
 * Fedora 17+ and Fedora Rawhide: `sudo yum -y install erlang`
-* Arch Linux: Erlang is available on AUR via `yaourt -S erlang`
+* Arch Linux: `sudo pacman -S erlang`
 * Ubuntu/Debian: `sudo apt-get install erlang`
 
 It may happen that the packages above are dated. At least for ubuntu 16.04
