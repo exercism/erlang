@@ -6,6 +6,7 @@ Implement general base conversion. Given a number in base **a**,
 represented as a sequence of digits, convert it to base **b**.
 
 ## Note
+
 - Try to implement the conversion yourself.
   Do not use something else to perform the conversion for you.
 
@@ -27,7 +28,6 @@ The number 1120, *in base 3*, means:
 (1 * 3^3) + (1 * 3^2) + (2 * 3^1) + (0 * 3^0)
 
 I think you got the idea!
-
 
 *Yes. Those three numbers above are exactly the same. Congratulations!*
 
@@ -72,7 +72,6 @@ For detailed information about the Erlang track, please refer to the
 [help page](http://exercism.io/languages/erlang) on the Exercism site.
 This covers the basic information on setting up the development
 environment expected by the exercises.
-
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
