@@ -413,6 +413,14 @@
       ]
     },
     {
+      "uuid": "589b763c-2b3a-11e8-b467-0ed5f89f718b",
+      "slug": "pascals-triangle",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 6,
+      "topics": []
+    },
+    {
       "uuid": "058b48a9-03ec-43bc-88eb-9dbce8b79e59",
       "slug": "circular-buffer",
       "core": false,
@@ -451,15 +459,7 @@
       "topics": [
 
       ]
-    },
-    {
-      "uuid": "589b763c-2b3a-11e8-b467-0ed5f89f718b",
-      "slug": "pascals-triangle",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 6,
-      "topics": []
-    }    
+    }
   ],
   "foregone": [
     "binary-search",
