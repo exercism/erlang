@@ -177,6 +177,14 @@
       "topics": []
     },
     {
+      "slug": "bracket-push",
+      "uuid": "f93f5f18-3e3b-11e8-b467-0ed5f89f718b",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": []
+    },
+    {
       "slug": "gigasecond",
       "uuid": "24ae9a43-4e1c-418b-97f6-2c83dbc0e14a",
       "core": false,
