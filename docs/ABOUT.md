@@ -1,5 +1,7 @@
-Erlang is a programming language used to build massively scalable soft real-time systems with requirements on high availability.
-Some of its uses are in telecoms, banking, e-commerce, computer telephony and instant messaging.
-Erlang's runtime system has built-in support for concurrency, distribution and fault tolerance.
+Erlang is a functional programming language, used for creating  real-time distributed systems, which can easily scale in size. 
 
-The above description is a quote taken directly from the 'Getting Started' section of [the Erlang homepage](https://www.erlang.org).
+It's best for concurrent applications, such as instant messaging and banking platforms, as each function call has their own process and operates independently.
+This is useful as code can run for a very long time without issues occuring. 
+Also, processes and message passing are all built into the language by default - no need for any extra libraries!
+
+It was designed within Ericsson, a Swedish telecommunications company, for use in their networks, and is currently used inside telecommunication equipment.
