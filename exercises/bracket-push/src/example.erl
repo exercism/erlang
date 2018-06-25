@@ -1,4 +1,4 @@
--module(bracket_push).
+-module(example).
 
 -export([is_paired/1, test_version/0]).
 
