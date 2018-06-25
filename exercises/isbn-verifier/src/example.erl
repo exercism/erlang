@@ -1,4 +1,4 @@
--module(isbn_verifier).
+-module(example).
 
 -export([is_valid/1, test_version/0]).
 
