@@ -200,6 +200,17 @@
       ]
     },
     {
+      "slug": "armstrong-numbers",
+      "uuid": "a639ce2f-48e3-46cd-9d11-955ba2a9eaaa",
+      "core": false,
+      "unlocked_by": "collatz-conjecture",
+      "difficulty": 2,
+      "topics": [
+        "integers",
+        "mathematics"
+      ]
+    },
+    {
       "slug": "anagram",
       "uuid": "8f0570ae-223f-4da4-8b84-268b797b28ad",
       "core": false,
