@@ -120,6 +120,18 @@
       ]
     },
     {
+      "slug": "secret-handshake",
+      "uuid": "580309f9-65f1-480b-bdb6-c14846963c33",
+      "core": false,
+      "unlocked_by": "raindrops",
+      "difficulty": 1,
+      "topics": [
+        "control_flow_conditionals",
+        "pattern_matching",
+        "strings"
+      ]
+    },
+    {
       "slug": "grains",
       "uuid": "c3070adc-d434-4989-8d6b-d9e483e32d1c",
       "core": false,
