@@ -200,6 +200,17 @@
       ]
     },
     {
+      "slug": "perfect-numbers",
+      "uuid": "8c58533a-7a1f-11e8-adc0-fa7ae01bbebc",
+      "core": false,
+      "unlocked_by": "collatz-conjecture",
+      "difficulty": 2,
+      "topics": [
+        "integers",
+        "mathematics"
+      ]
+    },
+    {
       "slug": "armstrong-numbers",
       "uuid": "a639ce2f-48e3-46cd-9d11-955ba2a9eaaa",
       "core": false,
