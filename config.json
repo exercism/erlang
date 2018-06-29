@@ -541,6 +541,19 @@
       ]
     },
     {
+      "slug": "minesweeper",
+      "uuid": "2cf5d5ba-9820-4918-ac91-811b2a434655",
+      "core": false,
+      "unlocked_by": "accumulate",
+      "difficulty": 7,
+      "topics": [
+        "lists",
+        "parsing",
+        "strings",
+        "transforming"
+      ]
+    },
+    {
       "slug": "beer-song",
       "uuid": "2fedc6bf-6006-4c2d-bba7-9c66265b6f62",
       "core": false,
