@@ -16,4 +16,6 @@ fi
 cp ./bin/configlet ~/bin/configlet
 
 # install `jq`
-sudo apt install -y jq
+if ! which jq 2> /dev/null 1> /dev/null; then
+    sudo apt install -y jq
+fi
