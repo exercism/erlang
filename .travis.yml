@@ -16,4 +16,4 @@ cache:
   - directories:
     - $HOME/bin
 
-sudo: true
+sudo: false

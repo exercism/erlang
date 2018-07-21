@@ -14,8 +14,3 @@ fi
 # fetch configlet and move it into $PATH
 ./bin/fetch-configlet
 cp ./bin/configlet ~/bin/configlet
-
-# install `jq`
-if ! which jq 2> /dev/null 1> /dev/null; then
-    sudo apt install -y jq
-fi
