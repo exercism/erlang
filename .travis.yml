@@ -9,7 +9,6 @@ install:
 script:
 - configlet lint .
 - pushd testgen; rebar3 escriptize; popd # TODO: before merging into master, try to do this in a separate env via buildmatrix
-# - "./_test/check-exercises.escript"
 - "./bin/journey-test.sh"
 cache:
   - apt
@@ -17,4 +16,4 @@ cache:
   - directories:
     - $HOME/bin
 
-sudo: false
+sudo: true
