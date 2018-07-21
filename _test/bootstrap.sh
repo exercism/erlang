@@ -16,4 +16,4 @@ fi
 cp ./bin/configlet ~/bin/configlet
 
 # install `jq`
-apt install -y jq
+sudo apt install -y jq
