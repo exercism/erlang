@@ -14,3 +14,6 @@ fi
 # fetch configlet and move it into $PATH
 ./bin/fetch-configlet
 cp ./bin/configlet ~/bin/configlet
+
+# install `jq`
+apt get -y jq
