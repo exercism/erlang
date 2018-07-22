@@ -27,7 +27,7 @@ generate_test(#{description := Desc, expected := #{error := Message}, property :
                 tgs:value(binary_to_list(S2))])])]),
 
     {ok, Fn, [{Property, ["Strand1", "Strand2"]}]};
-generate_test(#{description := Desc, expected := Exp, property := Prop, 'strand1' := S1, 'strand2' := S2}) ->
+generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{strand1 := S1, strand2 := S2}}) ->
     TestName = tgen:to_test_name(Desc),
     Property = binary_to_list(Prop),
 
