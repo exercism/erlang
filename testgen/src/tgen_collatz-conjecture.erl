@@ -25,7 +25,7 @@ generate_test(#{description := Desc, expected := #{error := Message}, property :
                 tgs:value(Num)])])]),
 
     {ok, Fn, [{Prop, ["N"]}]};
-generate_test(#{description := Desc, expected := Exp, property := Prop, number := Num}) ->
+generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{number := Num}}) ->
     TestName = tgen:to_test_name(Desc),
     Property = binary_to_list(Prop),
 
