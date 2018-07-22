@@ -14,7 +14,7 @@ available() ->
 
 version() -> 2.
 
-generate_test(#{description := Desc, expected := null, property := <<"toRna">>, dna := DNA}) ->
+generate_test(#{description := Desc, expected := null, property := <<"toRna">>, input := #{dna := DNA}}) ->
     TestName = tgen:to_test_name(Desc),
     Property = "to_rna",
 
@@ -25,7 +25,7 @@ generate_test(#{description := Desc, expected := null, property := <<"toRna">>, 
                 tgs:value(binary_to_list(DNA))])])]),
 
     {ok, Fn, [{Property, ["Strand"]}]};
-generate_test(#{description := Desc, expected := Exp, property := <<"toRna">>, dna := DNA}) ->
+generate_test(#{description := Desc, expected := Exp, property := <<"toRna">>, input := #{dna := DNA}}) ->
     TestName = tgen:to_test_name(Desc),
     Property = "to_rna",
 
