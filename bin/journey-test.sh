@@ -25,10 +25,10 @@ function run_children () {
   local parent=${1}
   local config=${2}
 
-  local exercises=( $(cat ${config} | jq ".exercises[] | select(.unlocked_by == \"${parent}\") | .slug") )
+  local exercises=( $(cat ${config} | jq --raw-output ".exercises[] | select(.unlocked_by == \"${parent}\") | .slug") )
   
   for e in ${exercises[@]}; do
-    run_test ${e//\"/}
+    run_test ${e}
   done
 }
 
@@ -42,10 +42,10 @@ function run_core_tests () {
 
 function main () {
   local config=${1:-config.json}
-  local core_exercises=( $(cat ${config} | jq '.exercises[] | select(.core) | .slug') )
+  local core_exercises=( $(cat ${config} | jq --raw-output '.exercises[] | select(.core) | .slug') )
 
   for e in "${core_exercises[@]}"; do
-    run_core_tests ${e//\"/} ${config}
+    run_core_tests ${e} ${config}
   done
 }
 
