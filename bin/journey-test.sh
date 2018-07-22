@@ -54,7 +54,7 @@ main $@
 if [[ ${#failures[@]} != 0 ]] ; then
   printf "\n\n%d examples have failed:\n\n" ${#failures[@]}
 
-  for e in ${failures}; do printf "* %s\n" ${e}; done
+  for e in ${failures[@]}; do printf "* %s\n" ${e}; done
 
   exit ${#failures[@]}
 fi
