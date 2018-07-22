@@ -16,7 +16,7 @@ version() -> 1.
 
 generate_test(F = #{description := Desc, cases := Cases}) ->
     rewrap(lists:flatten(lists:map(fun generate_test/1, Cases)), {[], []});
-generate_test(#{description := Desc, expected := Exp, property := Prop, input := Z}) when is_number(Exp) ->
+generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{z := Z}}) when is_number(Exp) ->
     TestName = tgen:to_test_name(Desc),
     Property = binary_to_list(Prop),
 
@@ -31,7 +31,7 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, input :=
                     tgs:call_fun("complex_numbers:new", lists:map(fun tgs:value/1, Cplx))]))])]),
 
     {ok, Fn, [{Property, ["Z"]}]};
-generate_test(#{description := Desc, expected := Exp, property := Prop, input := Z}) ->
+generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{z := Z}}) ->
     TestName = tgen:to_test_name(Desc),
     Property = binary_to_list(Prop),
 
@@ -46,9 +46,9 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, input :=
                     tgs:call_fun("complex_numbers:new", lists:map(fun tgs:value/1, Cplx))])])])]),
 
     {ok, Fn, [{Property, ["Z"]}]};
-generate_test(#{description := Desc, expected := Exp, property := <<"div">>, z1 := Z1, z2 := Z2}) ->
-    generate_test(#{description => Desc, expected => Exp, property => <<"divide">>, z1 => Z1, z2 => Z2});
-generate_test(#{description := Desc, expected := Exp, property := Prop, z1 := Z1, z2 := Z2}) ->
+generate_test(#{description := Desc, expected := Exp, property := <<"div">>, input := #{z1 := Z1, z2 := Z2}}) ->
+    generate_test(#{description => Desc, expected => Exp, property => <<"divide">>, input => #{z1 => Z1, z2 => Z2}});
+generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{z1 := Z1, z2 := Z2}}) ->
     TestName = tgen:to_test_name(Desc),
     Property = binary_to_list(Prop),
 
@@ -71,5 +71,6 @@ rewrap([{ok, Fn, Props}|Tail], {Fns, AccProps}) ->
     rewrap(Tail, {[Fn|Fns], Props ++ AccProps}).
 
 to_num(N) when is_number(N) -> N;
+to_num(<<"ln(2)">>) -> math:log(2);
 to_num(<<"pi">>) -> math:pi();
 to_num(<<"e">>) -> math:exp(1).
