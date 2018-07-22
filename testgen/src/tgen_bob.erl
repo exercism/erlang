@@ -14,11 +14,11 @@ available() ->
 
 version() -> 2.
 
-generate_test(F = #{description := Desc, expected := Exp, property := Prop, input := Input}) ->
+generate_test(F = #{description := Desc, expected := Exp, property := Prop, input := #{heyBob := HeyBob}}) ->
     TestName = tgen:to_test_name(Desc),
     Property = binary_to_list(Prop),
     Expected = binary_to_list(Exp),
-    Sentence = binary_to_list(Input),
+    Sentence = binary_to_list(HeyBob),
 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertMatch", [
