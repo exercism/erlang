@@ -518,6 +518,17 @@
       ]
     },
     {
+      "slug": "crypto-square",
+      "uuid": "a534bd4a-8a72-11e8-9a94-a6cf71072f73",
+      "core": false,
+      "unlocked_by": "space-age",
+      "difficulty": 6,
+      "topics": [
+        "cryptography",
+        "strings"
+      ]
+    },
+    {
       "slug": "pascals-triangle",
       "uuid": "589b763c-2b3a-11e8-b467-0ed5f89f718b",
       "core": false,
