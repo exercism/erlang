@@ -3,7 +3,6 @@
 
 -module(crypto_square_tests).
 
--define(TESTED_MODULE, (sut(crypto_square))).
 -define(TEST_VERSION, 1).
 -include_lib("erl_exercism/include/exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
