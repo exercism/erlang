@@ -576,6 +576,16 @@
       ]
     },
     {
+      "slug": "dominoes",
+      "uuid": "767acde9-cbca-4cdd-afed-125f14e92e10",
+      "core": false,
+      "unlocked_by": "accumulate",
+      "difficulty": 8,
+      "topics": [
+        "algorithms"
+      ]
+    },
+    {
       "slug": "zipper",
       "uuid": "b6c242d3-40d5-484d-8466-1a32d2332288",
       "core": false,
