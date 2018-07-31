@@ -22,15 +22,5 @@ rna_complement_test() ->
     ?assertMatch("UGCACCAGAAUU",
 		 rna_transcription:to_rna("ACGTGGTCTTAA")).
 
-correctly_handles_invalid_input_rna_instead_of_dna_test() ->
-    ?assertMatch(error, rna_transcription:to_rna("U")).
-
-correctly_handles_completely_invalid_dna_input_test() ->
-    ?assertMatch(error, rna_transcription:to_rna("XXX")).
-
-correctly_handles_partially_invalid_dna_input_test() ->
-    ?assertMatch(error,
-		 rna_transcription:to_rna("ACGTXXXCTTAA")).
-
 version_test() ->
-    ?assertMatch(2, rna_transcription:test_version()).
+    ?assertMatch(3, rna_transcription:test_version()).

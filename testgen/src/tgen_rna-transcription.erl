@@ -12,7 +12,7 @@
 available() ->
     true.
 
-version() -> 2.
+version() -> 3.
 
 generate_test(#{description := Desc, expected := null, property := <<"toRna">>, input := #{dna := DNA}}) ->
     TestName = tgen:to_test_name(Desc),
