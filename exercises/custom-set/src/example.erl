@@ -48,4 +48,4 @@ subset(#set{s = S1}, #set{s = S2}) ->
 union(#set{s = S1}, #set{s = S2}) ->
 	#set{s = maps:merge(S1, S2)}.
 
-test_version() -> 1.
+test_version() -> 2.

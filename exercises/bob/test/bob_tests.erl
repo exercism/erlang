@@ -40,7 +40,7 @@ using_acronyms_in_regular_speech_test() ->
 			      "DMV.")).
 
 forceful_question_test() ->
-    ?assertMatch("Whoa, chill out!",
+    ?assertMatch("Calm down, I know what I'm doing!",
 		 bob:response("WHAT THE HELL WERE YOU THINKING?")).
 
 shouting_numbers_test() ->
@@ -105,4 +105,4 @@ non_question_ending_with_whitespace_test() ->
 		 bob:response("This is a statement ending with whitespace "
 			      "     ")).
 
-version_test() -> ?assertMatch(2, bob:test_version()).
+version_test() -> ?assertMatch(3, bob:test_version()).

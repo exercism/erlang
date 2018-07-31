@@ -12,9 +12,9 @@
 available() ->
     true.
 
-version() -> 3.
+version() -> 4.
 
-generate_test(#{description := Desc, expected := Exp, property := <<"leapYear">>, input := In}) ->
+generate_test(#{description := Desc, expected := Exp, property := <<"leapYear">>, input := #{year := Year}}) ->
     TestName = tgen:to_test_name(Desc),
     Property = "leap_year",
 
@@ -26,6 +26,6 @@ generate_test(#{description := Desc, expected := Exp, property := <<"leapYear">>
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro(Assert, [
             tgs:call_fun("leap:" ++ Property, [
-                tgs:value(In)])])]),
+                tgs:value(Year)])])]),
 
     {ok, Fn, [{Property, ["Year"]}]}.

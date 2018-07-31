@@ -10,7 +10,7 @@ year_not_divisible_by_4_common_year_test() ->
     ?assertNot(leap:leap_year(2015)).
 
 year_divisible_by_4_not_divisible_by_100_leap_year_test() ->
-    ?assert(leap:leap_year(2020)).
+    ?assert(leap:leap_year(1996)).
 
 year_divisible_by_100_not_divisible_by_400_common_year_test() ->
     ?assertNot(leap:leap_year(2100)).
@@ -18,4 +18,4 @@ year_divisible_by_100_not_divisible_by_400_common_year_test() ->
 year_divisible_by_400_leap_year_test() ->
     ?assert(leap:leap_year(2000)).
 
-version_test() -> ?assertMatch(3, leap:test_version()).
+version_test() -> ?assertMatch(4, leap:test_version()).

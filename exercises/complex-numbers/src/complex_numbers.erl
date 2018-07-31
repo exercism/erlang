@@ -26,4 +26,4 @@ real(Z) -> undefined.
 
 sub(Z1, Z2) -> undefined.
 
-test_version() -> 1.
+test_version() -> 2.

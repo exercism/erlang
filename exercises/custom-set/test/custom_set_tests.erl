@@ -95,6 +95,11 @@ sets_with_different_elements_are_not_equal_test() ->
 						      3]),
 				custom_set:from_list([1, 2, 4]))).
 
+set_is_not_equal_to_larger_set_with_same_elements_test() ->
+    ?assertNot(custom_set:equal(custom_set:from_list([1, 2,
+						      3]),
+				custom_set:from_list([1, 2, 3, 4]))).
+
 add_to_empty_set_test() ->
     ?assertEqual(custom_set:from_list([3]),
 		 custom_set:add(3, custom_set:from_list([]))).
@@ -176,4 +181,4 @@ union_of_non_empty_sets_contains_all_unique_elements_test() ->
 				  custom_set:from_list([2, 3]))).
 
 version_test() ->
-    ?assertMatch(1, custom_set:test_version()).
+    ?assertMatch(2, custom_set:test_version()).
