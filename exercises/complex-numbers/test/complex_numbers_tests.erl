@@ -6,6 +6,30 @@
 -include_lib("eunit/include/eunit.hrl").
 
 
+real_part_of_a_purely_real_number_test() ->
+    ?assert(1 ==
+	      complex_numbers:real(complex_numbers:new(1, 0))).
+
+real_part_of_a_purely_imaginary_number_test() ->
+    ?assert(0 ==
+	      complex_numbers:real(complex_numbers:new(0, 1))).
+
+real_part_of_a_number_with_real_and_imaginary_part_test() ->
+    ?assert(1 ==
+	      complex_numbers:real(complex_numbers:new(1, 2))).
+
+imaginary_part_of_a_purely_real_number_test() ->
+    ?assert(0 ==
+	      complex_numbers:imaginary(complex_numbers:new(1, 0))).
+
+imaginary_part_of_a_purely_imaginary_number_test() ->
+    ?assert(1 ==
+	      complex_numbers:imaginary(complex_numbers:new(0, 1))).
+
+imaginary_part_of_a_number_with_real_and_imaginary_part_test() ->
+    ?assert(2 ==
+	      complex_numbers:imaginary(complex_numbers:new(1, 2))).
+
 imaginary_unit_test() ->
     ?assert(complex_numbers:equal(complex_numbers:new(-1,
 						      0),
@@ -133,30 +157,6 @@ conjugate_a_number_with_real_and_imaginary_part_test() ->
 				  complex_numbers:conjugate(complex_numbers:new(1,
 										1)))).
 
-real_part_of_a_purely_real_number_test() ->
-    ?assert(1 ==
-	      complex_numbers:real(complex_numbers:new(1, 0))).
-
-real_part_of_a_purely_imaginary_number_test() ->
-    ?assert(0 ==
-	      complex_numbers:real(complex_numbers:new(0, 1))).
-
-real_part_of_a_number_with_real_and_imaginary_part_test() ->
-    ?assert(1 ==
-	      complex_numbers:real(complex_numbers:new(1, 2))).
-
-imaginary_part_of_a_purely_real_number_test() ->
-    ?assert(0 ==
-	      complex_numbers:imaginary(complex_numbers:new(1, 0))).
-
-imaginary_part_of_a_purely_imaginary_number_test() ->
-    ?assert(1 ==
-	      complex_numbers:imaginary(complex_numbers:new(0, 1))).
-
-imaginary_part_of_a_number_with_real_and_imaginary_part_test() ->
-    ?assert(2 ==
-	      complex_numbers:imaginary(complex_numbers:new(1, 2))).
-
 eulers_identityformula_test() ->
     ?assert(complex_numbers:equal(complex_numbers:new(-1,
 						      0),
@@ -174,5 +174,11 @@ exponential_of_a_purely_real_number_test() ->
 				  complex_numbers:exp(complex_numbers:new(1,
 									  0)))).
 
+exponential_of_a_number_with_real_and_imaginary_part_test() ->
+    ?assert(complex_numbers:equal(complex_numbers:new(-2,
+						      0),
+				  complex_numbers:exp(complex_numbers:new(6.93147180559945286227e-1,
+									  3.14159265358979311600)))).
+
 version_test() ->
-    ?assertMatch(1, complex_numbers:test_version()).
+    ?assertMatch(2, complex_numbers:test_version()).

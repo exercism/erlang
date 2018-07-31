@@ -41,4 +41,4 @@ real(#complex{r = A}) ->
 sub(#complex{r = A, i = B}, #complex{r = C, i = D}) ->
     #complex{r = A - C, i = B - D}.
 
-test_version() -> 1.
+test_version() -> 2.

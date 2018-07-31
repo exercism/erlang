@@ -12,7 +12,7 @@
 available() ->
     true.
 
-version() -> 1.
+version() -> 2.
 
 generate_test(F = #{description := Desc, cases := Cases}) ->
     rewrap(lists:flatten(lists:map(fun generate_test/1, Cases)), {[], []});
