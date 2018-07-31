@@ -14,7 +14,7 @@ available() ->
 
 version() -> 2.
 
-generate_test(F = #{description := Desc, cases := Cases}) ->
+generate_test(#{description := _Desc, cases := Cases}) ->
     rewrap(lists:flatten(lists:map(fun generate_test/1, Cases)), {[], []});
 generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{z := Z}}) when is_number(Exp) ->
     TestName = tgen:to_test_name(Desc),
