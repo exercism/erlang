@@ -12,7 +12,7 @@
 available() ->
     true.
 
-version() -> 3.
+version() -> 4.
 
 generate_test(#{description := Desc, expected := Exp, property := <<"leapYear">>, input := #{year := Year}}) ->
     TestName = tgen:to_test_name(Desc),
