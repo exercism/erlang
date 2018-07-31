@@ -24,4 +24,4 @@ subset(Set1, Set2) -> undefined.
 
 union(Set1, Set2) -> undefined.
 
-test_version() -> 1.
+test_version() -> 2.
