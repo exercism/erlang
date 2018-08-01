@@ -462,6 +462,16 @@
       ]
     },
     {
+      "slug": "change",
+      "uuid": "a71317c2-4d85-4449-811e-57d3a54a4d12",
+      "core": false,
+      "unlocked_by": "accumulate",
+      "difficulty": 5,
+      "topics": [
+        "algorithms"
+      ]
+    },
+    {
       "slug": "etl",
       "uuid": "60fc4ea6-28b0-4914-bcc3-a0caefca3cb5",
       "core": false,
