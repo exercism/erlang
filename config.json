@@ -319,6 +319,16 @@
       ]
     },
     {
+      "slug": "run-length-encoding",
+      "uuid": "13327e7d-0c07-4520-9b55-f9195b6224c3",
+      "core": false,
+      "unlocked_by": "strain",
+      "difficulty": 3,
+      "topics": [
+        "strings"
+      ]
+    },
+    {
       "slug": "robot-simulator",
       "uuid": "a2d4ca29-54e2-4969-bfc9-ee483acf9caf",
       "core": false,
