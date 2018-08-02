@@ -5,13 +5,13 @@
 new() ->
   undefined.
 
-add(Name, Grade, School) ->
+add(_Name, _Grade, _School) ->
   undefined.
 
-get(Grade, Students) ->
+get(_Grade, _Students) ->
   undefined.
 
-sort(School) ->
+sort(_School) ->
   undefined.
 
 test_version() -> 1.
