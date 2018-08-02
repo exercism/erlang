@@ -2,7 +2,7 @@
 
 -export([square/1, total/0, test_version/0]).
 
-square(N) ->
+square(_N) ->
   undefined.
 
 total() ->
