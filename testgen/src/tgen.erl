@@ -15,11 +15,11 @@
 
 -type tgen() :: #tgen{}.
 
--type canonical_data() :: #{
-    exercise := binary(),
-    version  := binary(),
-    cases    := exercise_json()
-}.
+% -type canonical_data() :: #{
+%     exercise := binary(),
+%     version  := binary(),
+%     cases    := exercise_json()
+% }.
 
 -type exercise_json() :: #{
     description := binary(),
@@ -106,7 +106,8 @@ generate_stub_module(ModuleName, Props, Version) ->
             ({Name, []}) ->
                 tgs:simple_fun(Name, [tgs:atom(undefined)]);
             ({Name, Args}) when is_list(Args) ->
-                tgs:simple_fun(Name, Args, [tgs:atom(undefined)])
+                UnderscoredArgs = lists:map(fun (Arg) -> [$_ | Arg] end, Args),
+                tgs:simple_fun(Name, UnderscoredArgs, [tgs:atom(undefined)])
         end, Props) ++ [
             tgs:simple_fun(VersionName, [tgs:value(Version)])],
 

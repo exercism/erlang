@@ -4,24 +4,24 @@
 	 union/2, test_version/0]).
 
 
-add(Elem, Set) -> undefined.
+add(_Elem, _Set) -> undefined.
 
-contains(Elem, Set) -> undefined.
+contains(_Elem, _Set) -> undefined.
 
-difference(Set1, Set2) -> undefined.
+difference(_Set1, _Set2) -> undefined.
 
-disjoint(Set1, Set2) -> undefined.
+disjoint(_Set1, _Set2) -> undefined.
 
-empty(Set) -> undefined.
+empty(_Set) -> undefined.
 
-equal(Set1, Set2) -> undefined.
+equal(_Set1, _Set2) -> undefined.
 
-from_list(List) -> undefined.
+from_list(_List) -> undefined.
 
-intersection(Set1, Set2) -> undefined.
+intersection(_Set1, _Set2) -> undefined.
 
-subset(Set1, Set2) -> undefined.
+subset(_Set1, _Set2) -> undefined.
 
-union(Set1, Set2) -> undefined.
+union(_Set1, _Set2) -> undefined.
 
 test_version() -> 2.
