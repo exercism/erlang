@@ -2,10 +2,10 @@
 
 -export([keep/2, discard/2, test_version/0]).
 
-keep(Fn, List) ->
+keep(_Fn, _List) ->
   undefined.
 
-discard(Fn, List) ->
+discard(_Fn, _List) ->
   undefined.
 
 test_version() -> 1.
