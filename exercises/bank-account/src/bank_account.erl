@@ -2,22 +2,22 @@
 
 -export([balance/1, charge/2, close/1, create/0, deposit/2, withdraw/2, test_version/0]).
 
-balance(Pid) ->
+balance(_Pid) ->
   undefined.
 
-charge(Pid, Amount) ->
+charge(_Pid, _Amount) ->
   undefined.
 
-close(Pid) ->
+close(_Pid) ->
   undefined.
 
 create() ->
   undefined.
 
-deposit(Pid, Amount) ->
+deposit(_Pid, _Amount) ->
   undefined.
 
-withdraw(Pid, Amount) ->
+withdraw(_Pid, _Amount) ->
   undefined.
 
 test_version() -> 1.

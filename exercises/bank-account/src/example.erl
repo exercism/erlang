@@ -13,7 +13,10 @@
 -export([
   init/1,
   handle_call/3,
-  handle_cast/2
+  handle_cast/2,
+  handle_info/2,
+  code_change/3,
+  terminate/2
 ]).
 
 -behaviour(gen_server).
@@ -78,3 +81,13 @@ handle_call({charge, _}, _From, Balance) ->
 
 handle_cast(_, Balance) ->
   {noreply, Balance}.
+
+
+handle_info(_, Balance) -> % Can be removed when we drop support of OTP 19
+  {noreply, Balance}.
+
+code_change(_, _, _) -> % Can be removed when we drop support of OTP 19
+  {error, code_change_not_supported}.
+
+terminate(_, _) -> % Can be removed when we drop support of OTP 19
+  ok.

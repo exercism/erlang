@@ -2,34 +2,34 @@
 
 -export([new_tree/3, from_tree/1, to_tree/1, up/1, left/1, right/1, value/1, set_value/2, set_left/2, set_right/2, test_version/0]).
 
-new_tree(Value, Left, Right) ->
+new_tree(_Value, _Left, _Right) ->
   undefined.
 
-to_tree(Zipper) ->
+to_tree(_Zipper) ->
   undefined.
 
-from_tree(Tree) ->
+from_tree(_Tree) ->
   undefined.
 
-value(Zipper) ->
+value(_Zipper) ->
   undefined.
 
-set_value(Zipper, Value) ->
+set_value(_Zipper, _Value) ->
   undefined.
 
-set_left(Zipper, Value) ->
+set_left(_Zipper, _Value) ->
   undefined.
 
-set_right(Zipper, Value) ->
+set_right(_Zipper, _Value) ->
   undefined.
 
-left(Zipper) ->
+left(_Zipper) ->
   undefined.
 
-right(Zipper) ->
+right(_Zipper) ->
   undefined.
 
-up(Zipper) ->
+up(_Zipper) ->
   undefined.
 
 

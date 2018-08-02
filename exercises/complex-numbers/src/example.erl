@@ -22,7 +22,7 @@ divide(#complex{r = A, i = B}, #complex{r = C, i = D}) ->
         i = (B * C - A * D) / (C * C + D * D)}.
 
 equal(#complex{r = A, i = B}, #complex{r = C, i = D}) when erlang:abs(A - C) < 0.005, erlang:abs(B - D) < 0.005 -> true;
-equal(X, Y) -> false.
+equal(_X, _Y) -> false.
 
 exp(#complex{r = A, i = B}) ->
     mul(

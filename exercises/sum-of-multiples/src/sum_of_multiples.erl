@@ -2,7 +2,7 @@
 
 -export([sumOfMultiples/2, test_version/0]).
 
-sumOfMultiples(Multiples, N) ->
+sumOfMultiples(_Multiples, _N) ->
   undefined.
 
 test_version() -> 1.

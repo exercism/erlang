@@ -14,7 +14,7 @@ available() ->
 
 version() -> 3.
 
-generate_test(F = #{description := Desc, expected := Exp, property := Prop, input := #{heyBob := HeyBob}}) ->
+generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{heyBob := HeyBob}}) ->
     TestName = tgen:to_test_name(Desc),
     Property = binary_to_list(Prop),
     Expected = binary_to_list(Exp),

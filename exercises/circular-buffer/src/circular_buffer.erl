@@ -2,19 +2,19 @@
 
 -export([create/1, read/1, size/1, write/2, write_attempt/2, test_version/0]).
 
-create(Size) ->
+create(_Size) ->
   undefined.
 
-read(Pid) ->
+read(_Pid) ->
   undefined.
 
-size(Pid) ->
+size(_Pid) ->
   undefined.
 
-write(Pid, Item) ->
+write(_Pid, _Item) ->
   undefined.
 
-write_attempt(Pid, Item) ->
+write_attempt(_Pid, _Item) ->
   undefined.
 
 test_version() -> 1.

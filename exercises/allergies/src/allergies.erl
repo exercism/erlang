@@ -2,7 +2,7 @@
 
 -export([allergies/1, test_version/0]).
 
-allergies(Score) ->
+allergies(_Score) ->
   undefined.
 
 test_version() -> 1.

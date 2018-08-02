@@ -4,26 +4,26 @@
 	 real/1, sub/2, test_version/0]).
 
 
-abs(Z) -> undefined.
+abs(_Z) -> undefined.
 
-add(Z1, Z2) -> undefined.
+add(_Z1, _Z2) -> undefined.
 
-conjugate(Z) -> undefined.
+conjugate(_Z) -> undefined.
 
-divide(Z1, Z2) -> undefined.
+divide(_Z1, _Z2) -> undefined.
 
-equal(Z1, Z2) -> undefined.
+equal(_Z1, _Z2) -> undefined.
 
-exp(Z) -> undefined.
+exp(_Z) -> undefined.
 
-imaginary(Z) -> undefined.
+imaginary(_Z) -> undefined.
 
-mul(Z1, Z2) -> undefined.
+mul(_Z1, _Z2) -> undefined.
 
-new(R, I) -> undefined.
+new(_R, _I) -> undefined.
 
-real(Z) -> undefined.
+real(_Z) -> undefined.
 
-sub(Z1, Z2) -> undefined.
+sub(_Z1, _Z2) -> undefined.
 
 test_version() -> 2.

@@ -2,10 +2,10 @@
 
 -export([encrypt/2, decrypt/2, test_version/0]).
 
-encrypt(String, N) ->
+encrypt(_String, _N) ->
   undefined.
 
-decrypt(String, N) ->
+decrypt(_String, _N) ->
   undefined.
 
 test_version() -> 1.

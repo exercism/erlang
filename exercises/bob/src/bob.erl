@@ -3,6 +3,6 @@
 -export([response/1, test_version/0]).
 
 
-response(String) -> undefined.
+response(_String) -> undefined.
 
 test_version() -> 3.

@@ -2,10 +2,10 @@
 
 -export([valid/1, create/1, test_version/0]).
 
-valid(Number) ->
+valid(_Number) ->
   undefined.
 
-create(Number) ->
+create(_Number) ->
   undefined.
 
 test_version() -> 1.

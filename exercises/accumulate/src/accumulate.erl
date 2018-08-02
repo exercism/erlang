@@ -2,7 +2,7 @@
 
 -export([accumulate/2, test_version/0]).
 
-accumulate(Fn, Ls) ->
+accumulate(_Fn, _Ls) ->
   undefined.
 
 test_version() -> 1.

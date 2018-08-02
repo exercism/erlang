@@ -2,7 +2,7 @@
 
 -export([ageOn/2, test_version/0]).
 
-ageOn(Planet, Seconds) ->
+ageOn(_Planet, _Seconds) ->
   undefined.
 
 test_version() -> 1.

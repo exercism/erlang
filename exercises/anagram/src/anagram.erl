@@ -2,7 +2,7 @@
 
 -export([find/2, test_version/0]).
 
-find(Word, Candidates) ->
+find(_Word, _Candidates) ->
   undefined.
 
 test_version() -> 1.

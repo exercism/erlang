@@ -2,10 +2,10 @@
 
 -export([encode/1, decode/1, test_version/0]).
 
-encode(String) ->
+encode(_String) ->
   undefined.
 
-decode(String) ->
+decode(_String) ->
   undefined.
 
 test_version() -> 1.
