@@ -2,28 +2,28 @@
 
 -export([advance/1, control/2, create/0, direction/1, left/1, right/1, place/3, position/1, test_version/0]).
 
-advance(Robot) ->
+advance(_Robot) ->
   undefined.
 
-control(Robot, String) ->
+control(_Robot, _String) ->
   undefined.
 
 create() ->
   undefined.
 
-direction(Robot) ->
+direction(_Robot) ->
   undefined.
 
-left(Robot) ->
+left(_Robot) ->
   undefined.
 
-right(Robot) ->
+right(_Robot) ->
   undefined.
 
-place(Robot, Direction, Position) ->
+place(_Robot, _Direction, _Position) ->
   undefined.
 
-position(Robot) ->
+position(_Robot) ->
   undefined.
 
 test_version() -> 1.
