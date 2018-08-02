@@ -2,7 +2,7 @@
 
 -export([kind/3, test_version/0]).
 
-kind(A, B, C) ->
+kind(_A, _B, _C) ->
   undefined.
 
 test_version() -> 1.
