@@ -5,7 +5,7 @@
 two_fer() ->
   undefined.
 
-two_fer(Name) ->
+two_fer(_Name) ->
   undefined.
 
 test_version() -> 1.
