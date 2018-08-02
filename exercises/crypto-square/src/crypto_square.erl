@@ -2,7 +2,7 @@
 
 -export([ciphertext/1, test_version/0]).
 
-ciphertext(Plaintext) ->
+ciphertext(_Plaintext) ->
 	undefined.
 
 test_version() -> 1.
