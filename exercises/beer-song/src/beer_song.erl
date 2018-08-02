@@ -2,13 +2,13 @@
 
 -export([verse/1, sing/1, sing/2, test_version/0]).
 
-verse(N) ->
+verse(_N) ->
   undefined.
 
-sing(N) ->
+sing(_N) ->
   undefined.
 
-sing(From, To) ->
+sing(_From, _To) ->
   undefined.
 
 test_version() -> 1.
