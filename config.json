@@ -49,6 +49,7 @@
       "difficulty": 1,
       "topics": [
         "control_flow_conditionals",
+        "mathematics",
         "pattern_matching"
       ]
     },
@@ -94,8 +95,8 @@
       "unlocked_by": null,
       "difficulty": 2,
       "topics": [
-        "lists",
-        "control_flow_conditionals"
+        "control_flow_conditionals",
+        "lists"
       ]
     },
     {
@@ -240,8 +241,8 @@
       "unlocked_by": "accumulate",
       "difficulty": 3,
       "topics": [
-        "lists",
         "filtering",
+        "lists",
         "strings"
       ]
     },
