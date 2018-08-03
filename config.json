@@ -549,6 +549,17 @@
       ]
     },
     {
+      "slug": "rail-fence-cipher",
+      "uuid": "9bb14014-9732-11e8-9eb6-529269fb1459",
+      "core": false,
+      "unlocked_by": "space-age",
+      "difficulty": 6,
+      "topics": [
+        "cryptography",
+        "strings"
+      ]
+    },
+    {
       "slug": "pascals-triangle",
       "uuid": "589b763c-2b3a-11e8-b467-0ed5f89f718b",
       "core": false,
