@@ -329,6 +329,18 @@
       ]
     },
     {
+      "slug": "protein-translation",
+      "uuid": "3c79d343-a180-4cab-9622-04203cbc564a",
+      "core": false,
+      "unlocked_by": "rna-transcription",
+      "difficulty": 3,
+      "topics": [
+        "control_flow_conditionals",
+        "pattern_matching",
+        "strings"
+      ]
+    },
+    {
       "slug": "robot-simulator",
       "uuid": "a2d4ca29-54e2-4969-bfc9-ee483acf9caf",
       "core": false,
