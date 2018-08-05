@@ -1,0 +1,9 @@
+{application, rail_fence_cipher,
+  [{description, "exercism.io - rail-fence-cipher"},
+    {vsn, "0.0.1"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+]}.
