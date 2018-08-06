@@ -578,6 +578,18 @@
       ]
     },
     {
+      "slug": "palindrome-products",
+      "uuid": "bc74b87d-d257-41e5-9233-10324a78367c",
+      "core": false,
+      "unlocked_by": "accumulate",
+      "difficulty": 6,
+      "topics": [
+        "algorithms",
+        "math",
+        "performance"
+      ]
+    },
+    {
       "slug": "circular-buffer",
       "uuid": "058b48a9-03ec-43bc-88eb-9dbce8b79e59",
       "core": false,

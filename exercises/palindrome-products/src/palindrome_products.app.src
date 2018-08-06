@@ -1,0 +1,9 @@
+{application, palindrome_products,
+  [{description, "exercism.io - palindrome-products"},
+    {vsn, "0.0.1"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+]}.
