@@ -1,3 +1,5 @@
+# Minesweeper
+
 Add the numbers to a minesweeper board.
 
 Minesweeper is a popular game where the user has to find the mines using
@@ -66,3 +68,5 @@ For detailed information about the Erlang track, please refer to the
 This covers the basic information on setting up the development
 environment expected by the exercises.
 
+## Submitting Incomplete Solutions
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.

@@ -1,5 +1,8 @@
-Given a string containing brackets `[]`, braces `{}` and parentheses `()`,
-verify that all the pairs are matched and nested correctly.
+# Bracket Push
+
+Given a string containing brackets `[]`, braces `{}`, parentheses `()`,
+or any combination thereof, verify that any and all pairs are matched
+and nested correctly.
 
 ## Running tests
 
@@ -43,3 +46,9 @@ For detailed information about the Erlang track, please refer to the
 This covers the basic information on setting up the development
 environment expected by the exercises.
 
+## Source
+
+Ginna Baker
+
+## Submitting Incomplete Solutions
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.

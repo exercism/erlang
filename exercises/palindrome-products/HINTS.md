@@ -1,3 +1,5 @@
+## Hints
+
 A goal of this exercise is teaching you about efficiency. There are many ways
 to create a solution that produces correct results, but some solutions are more
 efficient and thereby finish faster than others.
