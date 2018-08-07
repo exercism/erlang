@@ -1,3 +1,5 @@
+# Run Length Encoding
+
 Implement run-length encoding and decoding.
 
 Run-length encoding (RLE) is a simple form of data compression, where runs
@@ -63,3 +65,9 @@ For detailed information about the Erlang track, please refer to the
 This covers the basic information on setting up the development
 environment expected by the exercises.
 
+## Source
+
+Wikipedia [https://en.wikipedia.org/wiki/Run-length_encoding](https://en.wikipedia.org/wiki/Run-length_encoding)
+
+## Submitting Incomplete Solutions
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.

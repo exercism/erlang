@@ -100,3 +100,9 @@ For detailed information about the Erlang track, please refer to the
 This covers the basic information on setting up the development
 environment expected by the exercises.
 
+## Source
+
+Wikipedia [https://en.wikipedia.org/wiki/Transposition_cipher#Rail_Fence_cipher](https://en.wikipedia.org/wiki/Transposition_cipher#Rail_Fence_cipher)
+
+## Submitting Incomplete Solutions
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.

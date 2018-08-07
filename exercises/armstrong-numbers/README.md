@@ -1,3 +1,5 @@
+# Armstrong Numbers
+
 An [Armstrong number](https://en.wikipedia.org/wiki/Narcissistic_number) is a number that is the sum of its own digits each raised to the power of the number of digits.
 
 For example:
@@ -51,3 +53,9 @@ For detailed information about the Erlang track, please refer to the
 This covers the basic information on setting up the development
 environment expected by the exercises.
 
+## Source
+
+Wikipedia [https://en.wikipedia.org/wiki/Narcissistic_number](https://en.wikipedia.org/wiki/Narcissistic_number)
+
+## Submitting Incomplete Solutions
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.
