@@ -1,3 +1,6 @@
+%% based on canonical data version 1.1.0
+%% https://raw.githubusercontent.com/exercism/problem-specifications/master/exercises/sieve/canonical-data.json
+
 -module(sieve_tests).
 
 -include_lib("erl_exercism/include/exercism.hrl").
@@ -35,6 +38,3 @@ primes_up_to_1000_test() ->
         877, 881, 883, 887, 907, 911, 919, 929, 937, 941,
         947, 953, 967, 971, 977, 983, 991, 997 ],
       sieve:sieve(1000)).
-
-version_test() ->
-  ?assertMatch(1, sieve:test_version()).

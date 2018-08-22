@@ -1,16 +1,31 @@
 -module(example).
 
--export([sieve/1, test_version/0]).
+-export([sieve/1]).
 
-sieve(N) when N < 2 ->
-    [];
+%% This implementation incorporates the refinements
+%% from https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+
+sieve(N) when N<2 ->
+	[];
 sieve(N) ->
-    sieve(lists:seq(2,N), []).
+	sieve(lists:seq(3, N, 2), [2], trunc(math:sqrt(N))+1).
 
-sieve([], P) ->
-    lists:reverse(P);
-sieve([N|S], P) ->
-    R = lists:filter(fun(X) -> X rem N /= 0 end, S),
-    sieve(R, [N|P]).
+sieve([P|Candidates], Acc, StopAt) when P<StopAt ->
+	NewCandidates=filter_candidates(P, Candidates),
+	sieve(NewCandidates, [P|Acc], StopAt);
+sieve(Primes, Acc, _) ->
+	lists:reverse(Acc)++Primes.
 
-test_version() -> 1.
+
+filter_candidates(P, Candidates) ->
+	filter_candidates(P, P*P, Candidates, []).
+
+filter_candidates(_, _, [], Acc) ->
+	lists:reverse(Acc);
+filter_candidates(P, N, [C|Candidates], Acc) when C=:=N ->
+	filter_candidates(P, N+2*P, Candidates, Acc);
+filter_candidates(P, N, [C|Candidates], Acc) when C<N ->
+	filter_candidates(P, N, Candidates, [C|Acc]);
+filter_candidates(P, N, Candidates, Acc) ->
+	filter_candidates(P, N+2*P, Candidates, Acc).
+
