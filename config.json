@@ -489,6 +489,18 @@
       ]
     },
     {
+      "slug": "variable-length-quantity",
+      "uuid": "1acd7529-c487-4bea-9146-620b8ad5ef34",
+      "core": false,
+      "unlocked_by": "strain",
+      "difficulty": 5,
+      "topics": [
+        "bitwise_operations",
+        "integers",
+        "transforming"
+      ]
+    },
+    {
       "slug": "etl",
       "uuid": "60fc4ea6-28b0-4914-bcc3-a0caefca3cb5",
       "core": false,
