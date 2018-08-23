@@ -1,3 +1,5 @@
+# Change
+
 Correctly determine the fewest number of coins to be given to a customer such
 that the sum of the coins' value would equal the correct amount of change.
 
@@ -30,25 +32,6 @@ directory.
 $ rebar3 eunit
 ```
 
-### Test versioning
-
-Each problem defines a macro `TEST_VERSION` in the test file and
-verifies that the solution defines and exports a function `test_version`
-returning that same value.
-
-To make tests pass, add the following to your solution:
-
-```erlang
--export([test_version/0]).
-
-test_version() ->
-  1.
-```
-
-The benefit of this is that reviewers can see against which test version
-an iteration was written if, for example, a previously posted solution
-does not solve the current problem or passes current tests.
-
 ## Questions?
 
 For detailed information about the Erlang track, please refer to the
@@ -56,3 +39,9 @@ For detailed information about the Erlang track, please refer to the
 This covers the basic information on setting up the development
 environment expected by the exercises.
 
+## Source
+
+Software Craftsmanship - Coin Change Kata [https://web.archive.org/web/20130115115225/http://craftsmanship.sv.cmu.edu:80/exercises/coin-change-kata](https://web.archive.org/web/20130115115225/http://craftsmanship.sv.cmu.edu:80/exercises/coin-change-kata)
+
+## Submitting Incomplete Solutions
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.

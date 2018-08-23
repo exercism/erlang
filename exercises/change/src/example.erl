@@ -1,6 +1,6 @@
 -module(example).
 
--export([find_fewest_coins/2, test_version/0]).
+-export([find_fewest_coins/2]).
 
 find_fewest_coins(0, _) ->
 	[];
@@ -53,7 +53,3 @@ get_change2(Target, MoreCoins, undefined, Acc) ->
 
 get_change2(_, _, Current, _) ->
 	Current.
-
-	 
-
-test_version() -> 1.
