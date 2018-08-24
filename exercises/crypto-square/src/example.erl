@@ -1,6 +1,6 @@
 -module(example).
 
--export([ciphertext/1, test_version/0]).
+-export([ciphertext/1]).
 
 ciphertext(Plaintext) ->
 	Normalized=normalize(Plaintext),
@@ -75,5 +75,3 @@ transpose([[]|_]) ->
 
 transpose(Matrix) ->
 	[lists:map(fun hd/1, Matrix) | transpose(lists:map(fun tl/1, Matrix))].
-
-test_version() -> 1.
