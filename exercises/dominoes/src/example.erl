@@ -1,6 +1,6 @@
 -module(example).
 
--export([can_chain/1, test_version/0]).
+-export([can_chain/1]).
 
 can_chain([]) ->
 	true;
@@ -28,5 +28,3 @@ can_chain(First, Current={_, R}, [MaybeMatch={L, R}|NotVisited], Visited) ->
 
 can_chain(First, Current, [NonMatch|NotVisited], Visited) ->
 	can_chain(First, Current, NotVisited, [NonMatch|Visited]).
-
-test_version() -> 1.

@@ -1,8 +1,6 @@
 -module(dominoes).
 
--export([can_chain/1, test_version/0]).
+-export([can_chain/1]).
 
 can_chain(_Dominoes) ->
 	undefined.
-
-test_version() -> 1.
