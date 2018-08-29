@@ -655,6 +655,18 @@
       "topics": [
         "algorithms"
       ]
+    },
+    {
+      "slug": "connect",
+      "uuid": "211c12df-5254-4abf-850b-a9596b2aba3a",
+      "core": false,
+      "unlocked_by": "raindrops",
+      "difficulty": 8,
+      "topics": [
+        "algorithms",
+        "games",
+        "parsing"
+      ]
     }
   ]
 }
