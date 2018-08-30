@@ -5,8 +5,8 @@ number.
 
 The Sieve of Eratosthenes is a simple, ancient algorithm for finding all
 prime numbers up to any given limit. It does so by iteratively marking as
-composite (i.e. not prime) the multiples of each prime,
-starting with the multiples of 2.
+composite (i.e. not prime) the multiples of each prime, starting with the
+multiples of 2. It does not use any division or remainder operation.
 
 Create your range, starting at two and continuing up to and including the given limit. (i.e. [2, limit])
 
@@ -25,7 +25,9 @@ https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 
 Notice that this is a very specific algorithm, and the tests don't check
 that you've implemented the algorithm, only that you've come up with the
-correct list of primes.
+correct list of primes. A good first test is to check that you do not use
+division or remainder operations (div, /, mod or % depending on the
+language).
 
 ## Running tests
 
@@ -42,25 +44,6 @@ directory.
 ```bash
 $ rebar3 eunit
 ```
-
-### Test versioning
-
-Each problem defines a macro `TEST_VERSION` in the test file and
-verifies that the solution defines and exports a function `test_version`
-returning that same value.
-
-To make tests pass, add the following to your solution:
-
-```erlang
--export([test_version/0]).
-
-test_version() ->
-  1.
-```
-
-The benefit of this is that reviewers can see against which test version
-an iteration was written if, for example, a previously posted solution
-does not solve the current problem or passes current tests.
 
 ## Questions?
 
