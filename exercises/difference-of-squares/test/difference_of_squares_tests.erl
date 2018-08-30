@@ -4,19 +4,19 @@
 -include_lib("eunit/include/eunit.hrl").
 
 -define(assertSumOfSquares(Expected, Number), ?assertEqual(Expected, difference_of_squares:sum_of_squares(Number))).
--define(assertSquareOfSums(Expected, Number), ?assertEqual(Expected, difference_of_squares:square_of_sums(Number))).
+-define(assertSquareOfSum(Expected, Number), ?assertEqual(Expected, difference_of_squares:square_of_sum(Number))).
 -define(assertDifference(Expected, Number), ?assertEqual(Expected, difference_of_squares:difference_of_squares(Number))).
 
 %% Square the sum of the numbers up to the given number
 
-square_of_sums_5_test() ->
-  ?assertSquareOfSums( 225, 5 ).
+square_of_sum_5_test() ->
+  ?assertSquareOfSum( 225, 5 ).
 
-square_of_sums_10_test() ->
-  ?assertSquareOfSums( 3025, 10 ).
+square_of_sum_10_test() ->
+  ?assertSquareOfSum( 3025, 10 ).
 
-square_of_sums_100_test() ->
-  ?assertSquareOfSums( 25502500, 100 ).
+square_of_sum_100_test() ->
+  ?assertSquareOfSum( 25502500, 100 ).
 
 %% Sum the squares of the numbers up to the given number
 
@@ -29,7 +29,7 @@ sum_of_square_10_test() ->
 sum_of_square_100_test() ->
   ?assertSumOfSquares( 338350, 100 ).
 
-%% Subtract sum of squares from square of sums
+%% Subtract sum of squares from square of sum
 
 difference_of_squares_0_test() ->
   ?assertDifference( 0, 0 ).
