@@ -3,8 +3,6 @@
 
 -module(armstrong_numbers_tests).
 
--define(TESTED_MODULE, (sut(armstrong_numbers))).
--define(TEST_VERSION, 1).
 -include_lib("erl_exercism/include/exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 

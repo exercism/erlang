@@ -1,6 +1,6 @@
 -module(example).
 
--export([is_armstrong_number/1, test_version/0]).
+-export([is_armstrong_number/1]).
 
 is_armstrong_number(N) ->
 	{Digits, Count}=to_digits(N),
@@ -25,5 +25,3 @@ to_digits(N, Digits, Count) ->
 	Digit=N rem 10,
 	NewN=N div 10,
 	to_digits(NewN, [Digit|Digits], Count+1).
-
-test_version() -> 1.

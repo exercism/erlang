@@ -1,8 +1,6 @@
 -module(armstrong_numbers).
 
--export([is_armstrong_number/1, test_version/0]).
+-export([is_armstrong_number/1]).
 
 is_armstrong_number(_N) ->
 	undefined.
-
-test_version() -> 1.
