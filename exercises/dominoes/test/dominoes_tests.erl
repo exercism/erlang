@@ -3,7 +3,6 @@
 
 -module(dominoes_tests).
 
--define(TEST_VERSION, 1).
 -include_lib("erl_exercism/include/exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
@@ -42,6 +41,3 @@ separate_loops_test() ->
 
 nine_elements_test() ->
 	?assert(dominoes:can_chain([{1,2}, {5,3}, {3,1}, {1,2}, {2,4}, {1,6}, {2,3}, {3,4}, {5,6}])).
-
-version_test() ->
-	?assertMatch(?TEST_VERSION, dominoes:test_version()).
