@@ -3,7 +3,6 @@
 
 -module(crypto_square_tests).
 
--define(TEST_VERSION, 1).
 -include_lib("erl_exercism/include/exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
@@ -27,6 +26,3 @@ plaintext_8_chars_test() ->
 
 plaintext_54_chars_test() ->
 	?assertMatch("imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau ", crypto_square:ciphertext("If man was meant to stay on the ground, god would have given us roots.")).
-
-version_test() ->
-	?assertMatch(?TEST_VERSION, crypto_square:test_version()).
