@@ -1,6 +1,6 @@
 -module(example).
 
--export([is_paired/1, test_version/0]).
+-export([is_paired/1]).
 
 is_paired(Str) -> is_paired(Str, []).
 
@@ -11,5 +11,3 @@ is_paired([$]|More], [$[|Stack]) -> is_paired(More, Stack);
 is_paired([$)|More], [$(|Stack]) -> is_paired(More, Stack);
 is_paired([C|_], _) when C=:=$} orelse C=:=$] orelse C=:=$)-> false;
 is_paired([_|More], Stack) -> is_paired(More, Stack).
-
-test_version() -> 1.

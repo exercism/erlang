@@ -50,6 +50,3 @@ math_expression_test() ->
 
 complex_latex_expression_test()	->
 	?assert(bracket_push:is_paired("\\left(\\begin{array}{cc} \\frac{1}{3} & x\\\\ \\mathrm{e}^{x} &... x^2	\\end{array}\\right)")).
-
-version_test() -> ?assertMatch(1, bracket_push:test_version()).
-
