@@ -3,7 +3,6 @@
 
 -module(change_tests).
 
--define(TEST_VERSION, 1).
 -include_lib("erl_exercism/include/exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
@@ -80,7 +79,3 @@ negative_target_test() ->
 	Coins=[1, 2, 5],
 	Expected={error, invalid_target_value},
 	?assertMatch(Expected, change:find_fewest_coins(Target, Coins)).
-
-version_test() ->
-	?assertMatch(?TEST_VERSION, change:test_version()).
-
