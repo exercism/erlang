@@ -445,6 +445,16 @@
       ]
     },
     {
+      "slug": "saddle-points",
+      "uuid": "51061693-8f01-4dc6-a4c0-0f76771423f8",
+      "core": false,
+      "unlocked_by": "leap",
+      "difficulty": 4,
+      "topics": [
+        "matrices"
+      ]
+    },
+    {
       "slug": "largest-series-product",
       "uuid": "b312ff0e-90e3-4dd8-99dc-df4a9deb1907",
       "core": false,

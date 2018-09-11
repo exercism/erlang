@@ -1,0 +1,9 @@
+{application, saddle_points,
+  [{description, "exercism.io - saddle-points"},
+    {vsn, "0.0.1"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+]}.
