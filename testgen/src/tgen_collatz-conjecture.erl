@@ -13,7 +13,7 @@ available() ->
 
 generate_test(#{description := Desc, expected := #{error := Message}, property := Prop, input := #{number := Num}}) ->
     TestName = tgen:to_test_name(Desc),
-    Property = binary_to_list(Prop),
+    Property = tgen:to_property_name(Prop),
 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertMatch", [
@@ -24,7 +24,7 @@ generate_test(#{description := Desc, expected := #{error := Message}, property :
     {ok, Fn, [{Prop, ["N"]}]};
 generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{number := Num}}) ->
     TestName = tgen:to_test_name(Desc),
-    Property = binary_to_list(Prop),
+    Property = tgen:to_property_name(Prop),
 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertMatch", [

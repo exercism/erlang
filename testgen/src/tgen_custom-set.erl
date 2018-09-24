@@ -15,7 +15,7 @@ generate_test(#{description := _, cases := Cases}) ->
     rewrap(lists:flatten(lists:map(fun generate_test/1, Cases)), {[], []});
 generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{set1 := Set1, set2 := Set2}}) when is_list(Exp) ->
     TestName = tgen:to_test_name(Desc),
-    Property = binary_to_list(Prop),
+    Property = tgen:to_property_name(Prop),
 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertEqual", [
@@ -28,7 +28,7 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, input :=
     {ok, Fn, [{Property, ["Set1", "Set2"]}]};
 generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{set1 := Set1, set2 := Set2}}) when Exp =:= true; Exp =:= false ->
     TestName = tgen:to_test_name(Desc),
-    Property = binary_to_list(Prop),
+    Property = tgen:to_property_name(Prop),
 
     Assert = case Exp of
         true -> "assert";
@@ -44,7 +44,7 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, input :=
     {ok, Fn, [{Property, ["Set1", "Set2"]}, {"from_list", ["List"]}]};
 generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{set := Set, element := Elem}}) when is_list(Exp) ->
     TestName = tgen:to_test_name(Desc),
-    Property = binary_to_list(Prop),
+    Property = tgen:to_property_name(Prop),
 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertEqual", [
@@ -58,7 +58,7 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, input :=
     {ok, Fn, [{Property, ["Elem", "Set"]}, {"from_list", ["List"]}]};
 generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{set := Set, element := Elem}}) when Exp =:= true; Exp =:= false ->
     TestName = tgen:to_test_name(Desc),
-    Property = binary_to_list(Prop),
+    Property = tgen:to_property_name(Prop),
 
     Assert = case Exp of
         true -> "assert";
@@ -75,7 +75,7 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, input :=
     {ok, Fn, [{Property, ["Elem", "Set"]}, {"from_list", ["List"]}]};
 generate_test(#{description := Desc, expected := Exp, property := <<"empty">>, input := #{set := Set}}) when Exp =:= true; Exp =:= false ->
     TestName = tgen:to_test_name(Desc),
-    Property = binary_to_list(<<"empty">>),
+    Property = tgen:to_property_name(<<"empty">>),
 
     Assert = case Exp of
         true -> "assert";

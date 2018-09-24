@@ -13,7 +13,7 @@ available() ->
 
 generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{heyBob := HeyBob}}) ->
     TestName = tgen:to_test_name(Desc),
-    Property = binary_to_list(Prop),
+    Property = tgen:to_property_name(Prop),
     Expected = binary_to_list(Exp),
     Sentence = binary_to_list(HeyBob),
 

@@ -3,7 +3,8 @@
 -export([
     check/1,
     generate/1,
-    to_test_name/1
+    to_test_name/1,
+    to_property_name/1
 ]).
 
 -export_type([
@@ -86,15 +87,24 @@ to_test_name(Name) when is_binary(Name) ->
 to_test_name(Name) when is_list(Name) ->
     slugify(Name) ++ "_test".
 
-slugify(Name) when is_binary(Name) ->
-        list_to_binary(slugify(binary_to_list(Name)));
-slugify(Name) when is_list(Name) ->
-    lists:filtermap(fun
-        (C) when (($0 =< C) and (C =< $9)) or (($a =< C) and (C =< $z)) or (C == $_) -> {true, C};
-        (C) when (($A =< C) and (C =< $Z)) -> {true, C - $A + $a};
-        (C) when (C == $\s) or (C == $-)-> {true, $_};
-        (_) -> false
-    end, Name).
+-spec to_property_name(string() | binary()) -> string() | binary().
+to_property_name(Name) when is_binary(Name) ->
+    to_property_name(binary_to_list(Name));
+to_property_name(Name) when is_list(Name) ->
+    slugify(Name).
+
+slugify(Name) when is_binary(Name) -> list_to_binary(slugify(binary_to_list(Name)));
+slugify(Name) when is_list(Name) -> slugify(Name, false, []).
+
+slugify([], _, Acc) -> lists:reverse(Acc);
+slugify([$_|Name], _, Acc) -> slugify(Name, false, [$_|Acc]);
+slugify([$-|Name], _, Acc) -> slugify(Name, false, [$_|Acc]);
+slugify([$\s|Name], _, Acc) -> slugify(Name, false, [$_|Acc]);
+slugify([C|Name], _, Acc) when C>=$a andalso C=<$z -> slugify(Name, true, [C|Acc]);
+slugify([C|Name], _, Acc) when C>=$0 andalso C=<$9 -> slugify(Name, true, [C|Acc]);
+slugify([C|Name], false, Acc) when C>=$A andalso C=<$Z -> slugify(Name, false, [C-$A+$a|Acc]);
+slugify([C|Name], true, Acc) when C>=$A andalso C=<$Z -> slugify(Name, false, [C-$A+$a, $_|Acc]);
+slugify([_|Name], AllowSnail, Acc) -> slugify(Name, AllowSnail, Acc).
 
 generate_stub_module(ModuleName, Props) ->
     SluggedModName = slugify(ModuleName),
