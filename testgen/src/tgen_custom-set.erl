@@ -4,15 +4,12 @@
 
 -export([
     available/0,
-    version/0,
     generate_test/1
 ]).
 
 -spec available() -> true.
 available() ->
     true.
-
-version() -> 2.
 
 generate_test(#{description := _, cases := Cases}) ->
     rewrap(lists:flatten(lists:map(fun generate_test/1, Cases)), {[], []});
