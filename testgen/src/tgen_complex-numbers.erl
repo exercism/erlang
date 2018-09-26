@@ -15,7 +15,7 @@ generate_test(#{description := _Desc, cases := Cases}) ->
     rewrap(lists:flatten(lists:map(fun generate_test/1, Cases)), {[], []});
 generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{z := Z}}) when is_number(Exp) ->
     TestName = tgen:to_test_name(Desc),
-    Property = binary_to_list(Prop),
+    Property = tgen:to_property_name(Prop),
 
     Cplx = lists:map(fun to_num/1, Z),
 
@@ -30,7 +30,7 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, input :=
     {ok, Fn, [{Property, ["Z"]}]};
 generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{z := Z}}) ->
     TestName = tgen:to_test_name(Desc),
-    Property = binary_to_list(Prop),
+    Property = tgen:to_property_name(Prop),
 
     Cplx = lists:map(fun to_num/1, Z),
     Expected = lists:map(fun to_num/1, Exp),
@@ -47,7 +47,7 @@ generate_test(#{description := Desc, expected := Exp, property := <<"div">>, inp
     generate_test(#{description => Desc, expected => Exp, property => <<"divide">>, input => #{z1 => Z1, z2 => Z2}});
 generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{z1 := Z1, z2 := Z2}}) ->
     TestName = tgen:to_test_name(Desc),
-    Property = binary_to_list(Prop),
+    Property = tgen:to_property_name(Prop),
 
     Cplx1 = lists:map(fun to_num/1, Z1),
     Cplx2 = lists:map(fun to_num/1, Z2),

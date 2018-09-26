@@ -14,7 +14,7 @@ available() ->
 generate_test(#{description := Desc, expected := Exp, property := Prop}) ->
     TestName = tgen:to_test_name(Desc),
     Expected = binary_to_list(Exp),
-    Property = binary_to_list(Prop),
+    Property = tgen:to_property_name(Prop),
 
     Fn = tgs:simple_fun(TestName, [
             tgs:call_macro("assertEqual", [

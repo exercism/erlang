@@ -11,9 +11,9 @@
 available() ->
     true.
 
-generate_test(#{description := Desc, expected := null, property := <<"toRna">>, input := #{dna := DNA}}) ->
+generate_test(#{description := Desc, expected := null, property := Prop, input := #{dna := DNA}}) ->
     TestName = tgen:to_test_name(Desc),
-    Property = "to_rna",
+    Property = tgen:to_property_name(Prop),
 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertMatch", [
@@ -22,9 +22,9 @@ generate_test(#{description := Desc, expected := null, property := <<"toRna">>, 
                 tgs:value(binary_to_list(DNA))])])]),
 
     {ok, Fn, [{Property, ["Strand"]}]};
-generate_test(#{description := Desc, expected := Exp, property := <<"toRna">>, input := #{dna := DNA}}) ->
+generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{dna := DNA}}) ->
     TestName = tgen:to_test_name(Desc),
-    Property = "to_rna",
+    Property = tgen:to_property_name(Prop),
 
     Fn = tgs:simple_fun(TestName, [
         tgs:call_macro("assertMatch", [

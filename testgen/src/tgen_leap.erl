@@ -11,9 +11,9 @@
 available() ->
     true.
 
-generate_test(#{description := Desc, expected := Exp, property := <<"leapYear">>, input := #{year := Year}}) ->
+generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{year := Year}}) ->
     TestName = tgen:to_test_name(Desc),
-    Property = "leap_year",
+    Property = tgen:to_property_name(Prop),
 
     Assert = case Exp of
         true -> "assert";
