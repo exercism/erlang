@@ -70,9 +70,8 @@ students if the exercise becomes tricky or might not be obvious.
 ```erl
 -module(<test module name>).
 
--define(TESTED_MODULE, (sut(<erlangified_slug_name>))).
--define(TEST_VERSION, 1).
--include("exercism.hrl").
+-include_lib("erl_exercism/include/exercism.hrl").
+-include_lib("eunit/include/eunit.hrl").
 ```
 
 You will need to add entry for the exercise in the track's `config.json` file,
