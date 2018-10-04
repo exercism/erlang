@@ -612,6 +612,17 @@
       ]
     },
     {
+      "slug": "poker",
+      "uuid": "693be489-153f-409d-9c2d-52b718997785",
+      "core": false,
+      "unlocked_by": "raindrops",
+      "difficulty": 6,
+      "topics": [
+        "algorithms",
+        "strings"
+      ]
+    },
+    {
       "slug": "circular-buffer",
       "uuid": "058b48a9-03ec-43bc-88eb-9dbce8b79e59",
       "core": false,
