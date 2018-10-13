@@ -31,6 +31,9 @@ Also fetch the latest `rebar3` from rebar3.org and put it somewhere in
 your `$PATH` and make it executable. (PRs that describe this better or
 via package manager are welcome).
 
+* Arch Linux: [install](https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages)
+  the AUR package [`rebar3`](https://aur.archlinux.org/packages/rebar3).
+
 ### On Windows
 
 Assuming [`choco`](https://chocolatey.org/) is available (maybe you
