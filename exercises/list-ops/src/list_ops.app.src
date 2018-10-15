@@ -1,0 +1,9 @@
+{application, list_ops,
+  [{description, "exercism.io - list-ops"},
+    {vsn, "0.0.1"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.

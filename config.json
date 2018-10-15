@@ -689,6 +689,16 @@
         "games",
         "parsing"
       ]
+    },
+    {
+      "slug": "list-ops",
+      "uuid": "e80410bb-45e5-4007-ad97-e7470dd87ed5",
+      "core": false,
+      "unlocked_by": "rna-transcription",
+      "difficulty": 2,
+      "topics": [
+        "lists"
+      ]
     }
   ]
 }
