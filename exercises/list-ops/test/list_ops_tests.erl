@@ -1,3 +1,6 @@
+%% based on canonical data version 2.3.0
+%% https://raw.githubusercontent.com/exercism/problem-specifications/master/exercises/list-ops/canonical-data.json
+
 -module(list_ops_tests).
 
 -include_lib("erl_exercism/include/exercism.hrl").
@@ -82,5 +85,3 @@ reverse_empty_list_test() ->
 reverse_non_empty_list_test() ->
 	?assertEqual([7,5,3,1],
 		     list_ops:reverse([1,3,5,7])).
-
-version_test() -> ?assertMatch(1, list_ops:test_version()).

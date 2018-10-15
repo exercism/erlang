@@ -1,10 +1,7 @@
 -module(example).
 
 -export([append/2, concat/1, filter/2, length/1, map/2, foldl/3, foldr/3,
-	 reverse/1, test_version/0]).
-
-test_version() ->
-    1.
+	 reverse/1]).
 
 append(L1, L2) -> L1 ++ L2.
 
