@@ -4,17 +4,15 @@
 
 -export([
     available/0,
-    generate_test/1
+    generate_test/2
 ]).
 
 -spec available() -> true.
 available() ->
     true.
 
-generate_test(#{description := _, cases := Cases}) ->
-    rewrap(lists:flatten(lists:map(fun generate_test/1, Cases)), {[], []});
-generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{set1 := Set1, set2 := Set2}}) when is_list(Exp) ->
-    TestName = tgen:to_test_name(Desc),
+generate_test(N, #{description := Desc, expected := Exp, property := Prop, input := #{set1 := Set1, set2 := Set2}}) when is_list(Exp) ->
+    TestName = tgen:to_test_name(N, Desc),
     Property = tgen:to_property_name(Prop),
 
     Fn = tgs:simple_fun(TestName, [
@@ -26,8 +24,8 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, input :=
                 tgs:call_fun("custom_set:from_list", [tgs:value(Set2)])])])]),
 
     {ok, Fn, [{Property, ["Set1", "Set2"]}]};
-generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{set1 := Set1, set2 := Set2}}) when Exp =:= true; Exp =:= false ->
-    TestName = tgen:to_test_name(Desc),
+generate_test(N, #{description := Desc, expected := Exp, property := Prop, input := #{set1 := Set1, set2 := Set2}}) when Exp =:= true; Exp =:= false ->
+    TestName = tgen:to_test_name(N, Desc),
     Property = tgen:to_property_name(Prop),
 
     Assert = case Exp of
@@ -42,8 +40,8 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, input :=
                 tgs:call_fun("custom_set:from_list", [tgs:value(Set2)])])])]),
 
     {ok, Fn, [{Property, ["Set1", "Set2"]}, {"from_list", ["List"]}]};
-generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{set := Set, element := Elem}}) when is_list(Exp) ->
-    TestName = tgen:to_test_name(Desc),
+generate_test(N, #{description := Desc, expected := Exp, property := Prop, input := #{set := Set, element := Elem}}) when is_list(Exp) ->
+    TestName = tgen:to_test_name(N, Desc),
     Property = tgen:to_property_name(Prop),
 
     Fn = tgs:simple_fun(TestName, [
@@ -56,8 +54,8 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, input :=
                     erl_syntax:abstract(Set)])])])]),
 
     {ok, Fn, [{Property, ["Elem", "Set"]}, {"from_list", ["List"]}]};
-generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{set := Set, element := Elem}}) when Exp =:= true; Exp =:= false ->
-    TestName = tgen:to_test_name(Desc),
+generate_test(N, #{description := Desc, expected := Exp, property := Prop, input := #{set := Set, element := Elem}}) when Exp =:= true; Exp =:= false ->
+    TestName = tgen:to_test_name(N, Desc),
     Property = tgen:to_property_name(Prop),
 
     Assert = case Exp of
@@ -73,8 +71,8 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, input :=
                     erl_syntax:abstract(Set)])])])]),
 
     {ok, Fn, [{Property, ["Elem", "Set"]}, {"from_list", ["List"]}]};
-generate_test(#{description := Desc, expected := Exp, property := <<"empty">>, input := #{set := Set}}) when Exp =:= true; Exp =:= false ->
-    TestName = tgen:to_test_name(Desc),
+generate_test(N, #{description := Desc, expected := Exp, property := <<"empty">>, input := #{set := Set}}) when Exp =:= true; Exp =:= false ->
+    TestName = tgen:to_test_name(N, Desc),
     Property = tgen:to_property_name(<<"empty">>),
 
     Assert = case Exp of
@@ -89,7 +87,3 @@ generate_test(#{description := Desc, expected := Exp, property := <<"empty">>, i
                     tgs:value(Set)])])])]),
 
     {ok, Fn, [{Property, ["Set"]}, {"from_list", ["List"]}]}.
-
-rewrap([], {Fns, Props}) -> {ok, lists:reverse(Fns), Props};
-rewrap([{ok, Fn, Props}|Tail], {Fns, AccProps}) ->
-    rewrap(Tail, {[Fn|Fns], Props ++ AccProps}).
