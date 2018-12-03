@@ -1,8 +1,6 @@
 -module(bob).
 
--export([response/1, test_version/0]).
+-export([response/1]).
 
 
 response(_String) -> undefined.
-
-test_version() -> 3.
