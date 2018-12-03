@@ -1,6 +1,6 @@
 -module(luhn).
 
--export([valid/1, create/1, test_version/0]).
+-export([valid/1, test_version/0]).
 
 valid(_Number) ->
   undefined.
