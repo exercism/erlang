@@ -5,7 +5,4 @@
 valid(_Number) ->
   undefined.
 
-create(_Number) ->
-  undefined.
-
-test_version() -> 1.
+test_version() -> 2.
