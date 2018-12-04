@@ -4,15 +4,15 @@
 
 -export([
     available/0,
-    generate_test/1
+    generate_test/2
 ]).
 
 -spec available() -> true.
 available() ->
     true.
 
-generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{isbn := Isbn}}) ->
-    TestName = tgen:to_test_name(Desc),
+generate_test(N, #{description := Desc, expected := Exp, property := Prop, input := #{isbn := Isbn}}) ->
+    TestName = tgen:to_test_name(N, Desc),
     Property = tgen:to_property_name(Prop),
 
     Assert = case Exp of
