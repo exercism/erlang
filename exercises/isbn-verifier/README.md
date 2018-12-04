@@ -1,3 +1,5 @@
+# ISBN Verifier
+
 The [ISBN-10 verification process](https://en.wikipedia.org/wiki/International_Standard_Book_Number) is used to validate book identification
 numbers. These normally contain dashes and look like: `3-598-21508-8`
 
@@ -22,6 +24,9 @@ Since the result is 0, this proves that our ISBN is valid.
 
 ## Task
 
+Given a string the program should check if the provided string is a valid ISBN-10.
+Putting this into place requires some thinking about preprocessing/parsing of the string prior to calculating the check digit for the ISBN.
+
 The program should be able to verify ISBN-10 both with and without separating dashes.
 
 
@@ -35,7 +40,6 @@ Now, it's even trickier since the check digit of an ISBN-10 may be 'X' (represen
 * Generate a valid ISBN-13 from the input ISBN-10 (and maybe verify it again with a derived verifier).
 
 * Generate valid ISBN, maybe even from a given starting ISBN.
-
 ## Running tests
 
 In order to run the tests, issue the following command from the exercise
@@ -52,25 +56,6 @@ directory.
 $ rebar3 eunit
 ```
 
-### Test versioning
-
-Each problem defines a macro `TEST_VERSION` in the test file and
-verifies that the solution defines and exports a function `test_version`
-returning that same value.
-
-To make tests pass, add the following to your solution:
-
-```erlang
--export([test_version/0]).
-
-test_version() ->
-  1.
-```
-
-The benefit of this is that reviewers can see against which test version
-an iteration was written if, for example, a previously posted solution
-does not solve the current problem or passes current tests.
-
 ## Questions?
 
 For detailed information about the Erlang track, please refer to the
@@ -78,3 +63,9 @@ For detailed information about the Erlang track, please refer to the
 This covers the basic information on setting up the development
 environment expected by the exercises.
 
+## Source
+
+Converting a string into a number and some basic processing utilizing a relatable real world example. [https://en.wikipedia.org/wiki/International_Standard_Book_Number#ISBN-10_check_digit_calculation](https://en.wikipedia.org/wiki/International_Standard_Book_Number#ISBN-10_check_digit_calculation)
+
+## Submitting Incomplete Solutions
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.
