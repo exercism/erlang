@@ -1,7 +1,7 @@
 -module(example).
 
 -export([abs/1, add/2, conjugate/1, divide/2, equal/2, exp/1, imaginary/1, mul/2, new/2,
-    real/1, sub/2, test_version/0]).
+    real/1, sub/2]).
 
 -record(complex, {r = 0, i = 0}).
 
@@ -40,5 +40,3 @@ real(#complex{r = A}) ->
 
 sub(#complex{r = A, i = B}, #complex{r = C, i = D}) ->
     #complex{r = A - C, i = B - D}.
-
-test_version() -> 2.
