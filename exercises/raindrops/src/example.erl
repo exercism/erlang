@@ -1,30 +1,16 @@
 -module(example).
 
--export([convert/1, test_version/0]).
+-export([convert/1]).
 
-convert(Number) when Number rem 3 == 0 ->
-    pling(Number);
-convert(Number) when Number rem 5 == 0 ->
-    plang(Number);
-convert(Number) when Number rem 7 == 0 ->
-    plong(Number);
 convert(Number) ->
-    integer_to_list(Number).
+    case sounds(Number, [{3, "Pling"}, {5, "Plang"}, {7, "Plong"}], []) of
+        [] -> integer_to_list(Number);
+        Sounds -> lists:flatten(Sounds)
+    end.
 
-pling(Number) when Number rem 5 == 0 ->
-    "Pling" ++ plang(Number);
-pling(Number) when Number rem 7 == 0 ->
-    "Pling" ++ plong(Number);
-pling(_) ->
-    "Pling".
-
-plang(Number) when Number rem 7 == 0 ->
-    "Plang" ++ plong(Number);
-plang(_) ->
-    "Plang".
-
-plong(_) ->
-    "Plong".
-
-test_version() ->
-    1.
+sounds(_, [], Acc) ->
+    lists:reverse(Acc);
+sounds(N, [{F, Sound}|Sounds], Acc) when N rem F=:=0 ->
+    sounds(N, Sounds, [Sound|Acc]);
+sounds(N, [_|Sounds], Acc) ->
+    sounds(N, Sounds, Acc).
