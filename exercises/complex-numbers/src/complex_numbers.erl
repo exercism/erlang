@@ -1,7 +1,7 @@
 -module(complex_numbers).
 
 -export([abs/1, add/2, conjugate/1, divide/2, equal/2, exp/1, imaginary/1, mul/2, new/2,
-	 real/1, sub/2, test_version/0]).
+	 real/1, sub/2]).
 
 
 abs(_Z) -> undefined.
@@ -25,5 +25,3 @@ new(_R, _I) -> undefined.
 real(_Z) -> undefined.
 
 sub(_Z1, _Z2) -> undefined.
-
-test_version() -> 2.
