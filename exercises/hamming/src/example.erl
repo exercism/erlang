@@ -1,12 +1,9 @@
 -module(example).
 
--export([distance/2, test_version/0]).
+-export([distance/2]).
 
 distance(Strand1, Strand2) ->
     walk(Strand1, Strand2, 0).
-
-test_version() ->
-    2.
 
 
 walk([], [], Dist) -> Dist;
