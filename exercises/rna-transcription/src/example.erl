@@ -1,11 +1,8 @@
 -module(example).
--export([to_rna/1, test_version/0]).
+-export([to_rna/1]).
 
 to_rna(Strand) ->
     lists:map(fun transcribe_to_rna/1, Strand).
-
-test_version() ->
-    3.
 
 
 
