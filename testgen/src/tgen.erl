@@ -3,7 +3,7 @@
 -export([
     check/1,
     generate/1,
-    to_test_name/1,
+    to_test_name/1, to_test_name/2,
     to_property_name/1
 ]).
 
@@ -30,10 +30,13 @@
 }.
 
 -callback available() -> boolean().
--callback generate_test(exercise_json()) ->
+-callback prepare_tests([exercise_json()]) -> [exercise_json()].
+-callback generate_test(non_neg_integer(), exercise_json()) ->
     {ok,
         erl_syntax:syntax_tree() | [erl_syntax:syntax_tree()],
-        [{string() | binary(), non_neg_integer()}]}.
+        [{string() | binary(), non_neg_integer()}]} | ignore.
+
+-optional_callbacks([prepare_tests/1]).
 
 
 -spec check(string()) -> {true, atom()} | false.
@@ -63,12 +66,16 @@ process_json(G = #tgen{name = GName}, Content) when is_list(GName) ->
     process_json(G#tgen{name = list_to_binary(GName)}, Content);
 process_json(#tgen{name = GName, module = Module}, Content) ->
     case jsx:decode(Content, [return_maps, {labels, attempt_atom}]) of
-        _JSON = #{exercise := GName, cases := Cases, version := TestVersion} ->
+        _JSON = #{exercise := GName, cases := Cases0, version := TestVersion} ->
+            Cases1=flatten_cases(Cases0),
+            Cases2=prepare_tests(Module, Cases1),
             % io:format("Parsed JSON: ~p~n", [JSON]),
-            {TestImpls0, Props} = lists:foldl(fun (Spec, {Tests, OldProperties}) ->
-                {ok, Test, Properties} = Module:generate_test(Spec),
-                {[Test|Tests], combine(OldProperties, Properties)}
-            end, {[], []}, Cases),
+            {_, TestImpls0, Props} = lists:foldl(fun (Spec, {N, Tests, OldProperties}) ->
+                case Module:generate_test(N, Spec) of
+                    {ok, Test, Properties} -> {N+1, [Test|Tests], combine(OldProperties, Properties)};
+                    ignore -> {N, Tests, OldProperties}
+                end
+            end, {1, [], []}, Cases2),
             TestImpls1 = lists:reverse(TestImpls0),
             {TestModuleName, TestModuleContent} = generate_test_module(binary_to_list(GName), TestImpls1, binary_to_list(TestVersion)),
             {StubModuleName, StubModuleContent} = generate_stub_module(binary_to_list(GName), Props),
@@ -81,13 +88,19 @@ process_json(#tgen{name = GName, module = Module}, Content) ->
 
 
 
--spec to_test_name(string() | binary()) -> string() | binary().
+-spec to_test_name(string() | binary()) -> string().
 to_test_name(Name) when is_binary(Name) ->
     to_test_name(binary_to_list(Name));
 to_test_name(Name) when is_list(Name) ->
     slugify(Name) ++ "_test".
 
--spec to_property_name(string() | binary()) -> string() | binary().
+-spec to_test_name(non_neg_integer(), string() | binary()) -> string().
+to_test_name(N, Name) when is_binary(Name) ->
+    to_test_name(N, binary_to_list(Name));
+to_test_name(N, Name) when is_list(Name) ->
+    lists:flatten([integer_to_list(N), $_, slugify(Name), "_test"]).
+
+-spec to_property_name(string() | binary()) -> string().
 to_property_name(Name) when is_binary(Name) ->
     to_property_name(binary_to_list(Name));
 to_property_name(Name) when is_list(Name) ->
@@ -131,6 +144,13 @@ generate_stub_module(ModuleName, Props) ->
                 (Tree) -> io_lib:format("~s~n", [erl_prettypr:format(Tree)])
             end, Abstract))}.
 
+prepare_tests(Module, Tests) ->
+    {module, Module}=code:ensure_loaded(Module),
+    case erlang:function_exported(Module, prepare_test, 1) of
+        true -> Module:prepare_tests(Tests);
+        false -> Tests
+    end.
+
 generate_test_module(ModuleName, Tests, TestVersion) ->
     SluggedModName = slugify(ModuleName),
 
@@ -170,3 +190,13 @@ insert([], X) -> [X];
 insert([X|_] = Xs, X) -> Xs;
 insert([X|XS], Y) when X < Y -> [X|insert(XS, Y)];
 insert([X|XS], Y) when X > Y -> [Y, X|XS].
+
+
+flatten_cases(Cases) ->
+    flatten_cases(Cases, []).
+flatten_cases([], Acc) ->
+    lists:flatten(lists:reverse(Acc));
+flatten_cases([#{cases:=Nested}|Cases], Acc) ->
+    flatten_cases(Cases, [flatten_cases(Nested)|Acc]);
+flatten_cases([Case|Cases], Acc) ->
+    flatten_cases(Cases, [Case|Acc]).

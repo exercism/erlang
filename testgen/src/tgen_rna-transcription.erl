@@ -4,15 +4,15 @@
 
 -export([
     available/0,
-    generate_test/1
+    generate_test/2
 ]).
 
 -spec available() -> true.
 available() ->
     true.
 
-generate_test(#{description := Desc, expected := null, property := Prop, input := #{dna := DNA}}) ->
-    TestName = tgen:to_test_name(Desc),
+generate_test(N, #{description := Desc, expected := null, property := Prop, input := #{dna := DNA}}) ->
+    TestName = tgen:to_test_name(N, Desc),
     Property = tgen:to_property_name(Prop),
 
     Fn = tgs:simple_fun(TestName, [
@@ -22,8 +22,8 @@ generate_test(#{description := Desc, expected := null, property := Prop, input :
                 tgs:value(binary_to_list(DNA))])])]),
 
     {ok, Fn, [{Property, ["Strand"]}]};
-generate_test(#{description := Desc, expected := Exp, property := Prop, input := #{dna := DNA}}) ->
-    TestName = tgen:to_test_name(Desc),
+generate_test(N, #{description := Desc, expected := Exp, property := Prop, input := #{dna := DNA}}) ->
+    TestName = tgen:to_test_name(N, Desc),
     Property = tgen:to_property_name(Prop),
 
     Fn = tgs:simple_fun(TestName, [
