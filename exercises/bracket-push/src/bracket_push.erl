@@ -2,4 +2,5 @@
 
 -export([is_paired/1]).
 
-is_paired(_Str) -> undefined.
+
+is_paired(_String) -> undefined.

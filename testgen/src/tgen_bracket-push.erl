@@ -25,4 +25,4 @@ generate_test(#{description := Desc, expected := Exp, property := Prop, input :=
             tgs:call_fun("bracket_push:" ++ Property, [
                 tgs:value(binary_to_list(Val))])])]),
 
-    {ok, Fn, [{Prop, ["String"]}]}.
+    {ok, Fn, [{Property, ["String"]}]}.
