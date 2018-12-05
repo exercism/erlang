@@ -1,9 +1,9 @@
 -module(example).
 
--export([find/2, test_version/0]).
+-export([find_anagrams/2]).
 
--spec find(string(), [string()]) -> [string()].
-find(Word, Candidates) ->
+-spec find_anagrams(string(), [string()]) -> [string()].
+find_anagrams(Word, Candidates) ->
   lists:filter(anagram_check(normalize(Word)), Candidates).
 
 anagram_check({Lower, Sorted}) ->
@@ -21,6 +21,3 @@ anagram_check({Lower, Sorted}) ->
 normalize(S) ->
   Lower = string:to_lower(S),
   {Lower, lists:sort(Lower)}.
-
-test_version() ->
-    1.
