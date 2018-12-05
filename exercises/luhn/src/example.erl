@@ -1,5 +1,5 @@
 -module(example).
--export([valid/1, test_version/0]).
+-export([valid/1]).
 
 
 
@@ -58,8 +58,3 @@ valid(Number) ->
       end;
     _ -> false
   end.
-
-
-
-test_version() ->
-    2.
