@@ -1,8 +1,6 @@
 -module(anagram).
 
--export([find/2, test_version/0]).
+-export([find_anagrams/2]).
 
-find(_Word, _Candidates) ->
-  undefined.
 
-test_version() -> 1.
+find_anagrams(_Subject, _Candidates) -> undefined.
