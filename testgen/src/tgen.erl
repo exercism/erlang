@@ -30,12 +30,14 @@
 }.
 
 -callback available() -> boolean().
+-callback prepare_test_module() -> {ok, [erl_syntax:syntax_tree()]}.
 -callback prepare_tests([exercise_json()]) -> [exercise_json()].
 -callback generate_test(non_neg_integer(), exercise_json()) ->
     {ok,
         erl_syntax:syntax_tree() | [erl_syntax:syntax_tree()],
         [{string() | binary(), non_neg_integer()}]} | ignore.
 
+-optional_callbacks([prepare_test_module/0]).
 -optional_callbacks([prepare_tests/1]).
 
 
@@ -77,8 +79,8 @@ process_json(#tgen{name = GName, module = Module}, Content) ->
                 end
             end, {1, [], []}, Cases2),
             TestImpls1 = lists:reverse(TestImpls0),
-            {TestModuleName, TestModuleContent} = generate_test_module(binary_to_list(GName), TestImpls1, binary_to_list(TestVersion)),
-            {StubModuleName, StubModuleContent} = generate_stub_module(binary_to_list(GName), Props),
+            {TestModuleName, TestModuleContent} = generate_test_module(Module, binary_to_list(GName), TestImpls1, binary_to_list(TestVersion)),
+            {StubModuleName, StubModuleContent} = generate_stub_module(Module, binary_to_list(GName), Props),
 
             [#{exercise => GName, name => TestModuleName, folder => "test", content => io_lib:format("~s", [TestModuleContent])},
              #{exercise => GName, name => StubModuleName, folder => "src",  content => io_lib:format("~s", [StubModuleContent])}];
@@ -119,7 +121,7 @@ slugify([C|Name], false, Acc) when C>=$A andalso C=<$Z -> slugify(Name, false, [
 slugify([C|Name], true, Acc) when C>=$A andalso C=<$Z -> slugify(Name, false, [C-$A+$a, $_|Acc]);
 slugify([_|Name], AllowSnail, Acc) -> slugify(Name, AllowSnail, Acc).
 
-generate_stub_module(ModuleName, Props) ->
+generate_stub_module(_Module, ModuleName, Props) ->
     SluggedModName = slugify(ModuleName),
 
     Funs = lists:map(fun
@@ -144,6 +146,15 @@ generate_stub_module(ModuleName, Props) ->
                 (Tree) -> io_lib:format("~s~n", [erl_prettypr:format(Tree)])
             end, Abstract))}.
 
+prepare_test_module(Module) ->
+    {module, Module}=code:ensure_loaded(Module),
+    case erlang:function_exported(Module, prepare_test_module, 0) of
+        true ->
+            {ok, Tree}=Module:prepare_test_module(),
+            inter(nl, lists:flatten(Tree));
+        false -> []
+    end.
+
 prepare_tests(Module, Tests) ->
     {module, Module}=code:ensure_loaded(Module),
     case erlang:function_exported(Module, prepare_test, 1) of
@@ -151,7 +162,7 @@ prepare_tests(Module, Tests) ->
         false -> Tests
     end.
 
-generate_test_module(ModuleName, Tests, TestVersion) ->
+generate_test_module(Module, ModuleName, Tests, TestVersion) ->
     SluggedModName = slugify(ModuleName),
 
     Abstract = [
@@ -165,15 +176,19 @@ generate_test_module(ModuleName, Tests, TestVersion) ->
         tgs:module(SluggedModName ++ "_tests"),
         nl,
         tgs:include_lib("erl_exercism/include/exercism.hrl"),
-        tgs:include_lib("eunit/include/eunit.hrl"),
-        nl,
-        nl] ++ inter(nl, lists:flatten(Tests)),
+        tgs:include_lib("eunit/include/eunit.hrl")],
+
+    Preamble=prepare_test_module(Module),
+
+    Body=inter(nl, lists:flatten(Tests)),
+
+    Content=Abstract ++ [nl, nl] ++ Preamble ++ [nl, nl] ++ Body,
 
     {SluggedModName ++ "_tests", lists:flatten(
         lists:map(
             fun (nl) -> io_lib:format("~n", []);
                 (Tree) -> io_lib:format("~s~n", [erl_prettypr:format(Tree)])
-            end, Abstract))}.
+            end, Content))}.
 
 inter(_, []) -> [];
 inter(_, [X]) -> [X];
