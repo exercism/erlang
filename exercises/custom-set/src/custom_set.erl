@@ -1,7 +1,7 @@
 -module(custom_set).
 
 -export([add/2, contains/2, difference/2, disjoint/2, empty/1, equal/2, from_list/1, intersection/2, subset/2,
-	 union/2, test_version/0]).
+	 union/2]).
 
 
 add(_Elem, _Set) -> undefined.
@@ -23,5 +23,3 @@ intersection(_Set1, _Set2) -> undefined.
 subset(_Set1, _Set2) -> undefined.
 
 union(_Set1, _Set2) -> undefined.
-
-test_version() -> 2.

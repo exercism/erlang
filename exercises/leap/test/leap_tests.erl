@@ -8,17 +8,19 @@
 -include_lib("eunit/include/eunit.hrl").
 
 
-year_not_divisible_by_4_common_year_test() ->
+
+
+'1_year_not_divisible_by_4_common_year_test'() ->
     ?assertNot(leap:leap_year(2015)).
 
-year_divisible_by_4_not_divisible_by_100_leap_year_test() ->
+'2_year_divisible_by_4_not_divisible_by_100_leap_year_test'() ->
     ?assert(leap:leap_year(1996)).
 
-year_divisible_by_100_not_divisible_by_400_common_year_test() ->
+'3_year_divisible_by_100_not_divisible_by_400_common_year_test'() ->
     ?assertNot(leap:leap_year(2100)).
 
-year_divisible_by_400_leap_year_test() ->
+'4_year_divisible_by_400_leap_year_test'() ->
     ?assert(leap:leap_year(2000)).
 
-year_divisible_by_200_not_divisible_by_400_common_year_test() ->
+'5_year_divisible_by_200_not_divisible_by_400_common_year_test'() ->
     ?assertNot(leap:leap_year(1800)).

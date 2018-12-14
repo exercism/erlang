@@ -8,30 +8,32 @@
 -include_lib("eunit/include/eunit.hrl").
 
 
-empty_strands_test() ->
+
+
+'1_empty_strands_test'() ->
     ?assertMatch(0, hamming:distance([], [])).
 
-single_letter_identical_strands_test() ->
+'2_single_letter_identical_strands_test'() ->
     ?assertMatch(0, hamming:distance("A", "A")).
 
-single_letter_different_strands_test() ->
+'3_single_letter_different_strands_test'() ->
     ?assertMatch(1, hamming:distance("G", "T")).
 
-long_identical_strands_test() ->
+'4_long_identical_strands_test'() ->
     ?assertMatch(0,
 		 hamming:distance("GGACTGAAATCTG", "GGACTGAAATCTG")).
 
-long_different_strands_test() ->
+'5_long_different_strands_test'() ->
     ?assertMatch(9,
 		 hamming:distance("GGACGGATTCTG", "AGGACGGATTCT")).
 
-disallow_first_strand_longer_test() ->
+'6_disallow_first_strand_longer_test'() ->
     ?assertMatch({error,
 		  "left and right strands must be of equal "
 		  "length"},
 		 hamming:distance("AATG", "AAA")).
 
-disallow_second_strand_longer_test() ->
+'7_disallow_second_strand_longer_test'() ->
     ?assertMatch({error,
 		  "left and right strands must be of equal "
 		  "length"},

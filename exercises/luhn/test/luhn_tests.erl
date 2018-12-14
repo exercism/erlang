@@ -8,6 +8,8 @@
 -include_lib("eunit/include/eunit.hrl").
 
 
+
+
 '1_single_digit_strings_can_not_be_valid_test'() ->
     ?assertNot(luhn:valid("1")).
 
