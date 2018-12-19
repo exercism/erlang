@@ -39,7 +39,7 @@ map(Fun, [Curr|Rest], Acc) -> map(Fun, Rest, [Fun(Curr)|Acc]).
 foldl(Fun, Start, L) -> reduce_foldl(Fun, L, Start).
 reduce_foldl(_, [], Acc) -> Acc;
 reduce_foldl(Fun, [Curr|Rest], Acc) ->
-	reduce_foldl(Fun, Rest, Fun(Acc, Curr)).
+	reduce_foldl(Fun, Rest, Fun(Curr, Acc)).
 
 foldr(Fun, Start, L) -> reduce_foldr(Fun, reverse(L), Start).
 

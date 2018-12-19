@@ -64,7 +64,7 @@ foldl_direction_independent_function_applied_to_non_empty_list_test() ->
 
 foldl_direction_dependent_function_applied_to_non_empty_list_test() ->
 	?assertEqual(0,
-		     list_ops:foldl(fun(X,Y) -> X div Y end, 5, [2,5])).
+		     list_ops:foldl(fun(X,Y) -> Y div X end, 5, [2,5])).
 
 foldr_empty_list_test() ->
 	?assertEqual(2,
