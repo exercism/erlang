@@ -1,14 +1,11 @@
 -module(example).
 
--export([ageOn/2, test_version/0]).
+-export([age/2]).
 
--type planets() :: mercury | venus | earth | mars | jupiter | saturn | uranus | neptune.
--spec ageOn(planets(), integer()) -> float().
-ageOn(Planet, Seconds) ->
+-type planet() :: mercury | venus | earth | mars | jupiter | saturn | uranus | neptune.
+-spec age(planet(), integer()) -> float().
+age(Planet, Seconds) ->
   Seconds / secondsPerYear(Planet).
-
-test_version() ->
-    1.
 
 
 
