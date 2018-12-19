@@ -8,5 +8,7 @@
 -include_lib("eunit/include/eunit.hrl").
 
 
-say_hi_test() ->
+
+
+'1_say_hi_test'() ->
     ?assertEqual("Hello, World!", hello_world:hello()).

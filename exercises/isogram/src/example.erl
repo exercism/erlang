@@ -1,6 +1,6 @@
 -module(example).
 
--export([is_isogram/1, test_version/0]).
+-export([is_isogram/1]).
 
 is_isogram(String) ->
     check_isogram([C || C <- string:to_lower(String), ($a =< C), (C =< $z)]).
@@ -12,5 +12,3 @@ check_isogram([H|T]) ->
 
 is_not_found_in(C, S) ->
     lists:all(fun(X) -> X /= C end, S).
-
-test_version() -> 1.

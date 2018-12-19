@@ -1,7 +1,7 @@
 -module(example).
 
 -export([add/2, contains/2, difference/2, disjoint/2, empty/1, equal/2, from_list/1, intersection/2, subset/2,
-	 union/2, test_version/0]).
+	 union/2]).
 
 -record(set, {s = #{}}).
 
@@ -47,5 +47,3 @@ subset(#set{s = S1}, #set{s = S2}) ->
 
 union(#set{s = S1}, #set{s = S2}) ->
 	#set{s = maps:merge(S1, S2)}.
-
-test_version() -> 2.

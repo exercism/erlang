@@ -1,6 +1,6 @@
 -module(example).
 
--export([response/1, test_version/0]).
+-export([response/1]).
 
 -spec response(string()) -> string().
 response(String) ->
@@ -11,9 +11,6 @@ response(String) ->
      {fun is_shouting/1, "Whoa, chill out!"},
      {fun is_question/1, "Sure."},
      {fun (_) -> true end, "Whatever."}]).
-
-test_version() ->
-    3.
 
 
 

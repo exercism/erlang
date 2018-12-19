@@ -8,56 +8,58 @@
 -include_lib("eunit/include/eunit.hrl").
 
 
-the_sound_for_1_is_1_test() ->
+
+
+'1_the_sound_for_1_is_1_test'() ->
     ?assertEqual("1", raindrops:convert(1)).
 
-the_sound_for_3_is_pling_test() ->
+'2_the_sound_for_3_is_pling_test'() ->
     ?assertEqual("Pling", raindrops:convert(3)).
 
-the_sound_for_5_is_plang_test() ->
+'3_the_sound_for_5_is_plang_test'() ->
     ?assertEqual("Plang", raindrops:convert(5)).
 
-the_sound_for_7_is_plong_test() ->
+'4_the_sound_for_7_is_plong_test'() ->
     ?assertEqual("Plong", raindrops:convert(7)).
 
-the_sound_for_6_is_pling_as_it_has_a_factor_3_test() ->
+'5_the_sound_for_6_is_pling_as_it_has_a_factor_3_test'() ->
     ?assertEqual("Pling", raindrops:convert(6)).
 
-'2_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base_test'() ->
+'6_2_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base_test'() ->
     ?assertEqual("8", raindrops:convert(8)).
 
-the_sound_for_9_is_pling_as_it_has_a_factor_3_test() ->
+'7_the_sound_for_9_is_pling_as_it_has_a_factor_3_test'() ->
     ?assertEqual("Pling", raindrops:convert(9)).
 
-the_sound_for_10_is_plang_as_it_has_a_factor_5_test() ->
+'8_the_sound_for_10_is_plang_as_it_has_a_factor_5_test'() ->
     ?assertEqual("Plang", raindrops:convert(10)).
 
-the_sound_for_14_is_plong_as_it_has_a_factor_of_7_test() ->
+'9_the_sound_for_14_is_plong_as_it_has_a_factor_of_7_test'() ->
     ?assertEqual("Plong", raindrops:convert(14)).
 
-the_sound_for_15_is_pling_plang_as_it_has_factors_3_and_5_test() ->
+'10_the_sound_for_15_is_pling_plang_as_it_has_factors_3_and_5_test'() ->
     ?assertEqual("PlingPlang", raindrops:convert(15)).
 
-the_sound_for_21_is_pling_plong_as_it_has_factors_3_and_7_test() ->
+'11_the_sound_for_21_is_pling_plong_as_it_has_factors_3_and_7_test'() ->
     ?assertEqual("PlingPlong", raindrops:convert(21)).
 
-the_sound_for_25_is_plang_as_it_has_a_factor_5_test() ->
+'12_the_sound_for_25_is_plang_as_it_has_a_factor_5_test'() ->
     ?assertEqual("Plang", raindrops:convert(25)).
 
-the_sound_for_27_is_pling_as_it_has_a_factor_3_test() ->
+'13_the_sound_for_27_is_pling_as_it_has_a_factor_3_test'() ->
     ?assertEqual("Pling", raindrops:convert(27)).
 
-the_sound_for_35_is_plang_plong_as_it_has_factors_5_and_7_test() ->
+'14_the_sound_for_35_is_plang_plong_as_it_has_factors_5_and_7_test'() ->
     ?assertEqual("PlangPlong", raindrops:convert(35)).
 
-the_sound_for_49_is_plong_as_it_has_a_factor_7_test() ->
+'15_the_sound_for_49_is_plong_as_it_has_a_factor_7_test'() ->
     ?assertEqual("Plong", raindrops:convert(49)).
 
-the_sound_for_52_is_52_test() ->
+'16_the_sound_for_52_is_52_test'() ->
     ?assertEqual("52", raindrops:convert(52)).
 
-the_sound_for_105_is_pling_plang_plong_as_it_has_factors_3_5_and_7_test() ->
+'17_the_sound_for_105_is_pling_plang_plong_as_it_has_factors_3_5_and_7_test'() ->
     ?assertEqual("PlingPlangPlong", raindrops:convert(105)).
 
-the_sound_for_3125_is_plang_as_it_has_a_factor_5_test() ->
+'18_the_sound_for_3125_is_plang_as_it_has_a_factor_5_test'() ->
     ?assertEqual("Plang", raindrops:convert(3125)).

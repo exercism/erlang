@@ -8,53 +8,55 @@
 -include_lib("eunit/include/eunit.hrl").
 
 
-valid_isbn_number_test() ->
+
+
+'1_valid_isbn_number_test'() ->
     ?assert(isbn_verifier:is_valid("3-598-21508-8")).
 
-invalid_isbn_check_digit_test() ->
+'2_invalid_isbn_check_digit_test'() ->
     ?assertNot(isbn_verifier:is_valid("3-598-21508-9")).
 
-valid_isbn_number_with_a_check_digit_of_10_test() ->
+'3_valid_isbn_number_with_a_check_digit_of_10_test'() ->
     ?assert(isbn_verifier:is_valid("3-598-21507-X")).
 
-check_digit_is_a_character_other_than_x_test() ->
+'4_check_digit_is_a_character_other_than_x_test'() ->
     ?assertNot(isbn_verifier:is_valid("3-598-21507-A")).
 
-invalid_character_in_isbn_test() ->
+'5_invalid_character_in_isbn_test'() ->
     ?assertNot(isbn_verifier:is_valid("3-598-P1581-X")).
 
-x_is_only_valid_as_a_check_digit_test() ->
+'6_x_is_only_valid_as_a_check_digit_test'() ->
     ?assertNot(isbn_verifier:is_valid("3-598-2X507-9")).
 
-valid_isbn_without_separating_dashes_test() ->
+'7_valid_isbn_without_separating_dashes_test'() ->
     ?assert(isbn_verifier:is_valid("3598215088")).
 
-isbn_without_separating_dashes_and_x_as_check_digit_test() ->
+'8_isbn_without_separating_dashes_and_x_as_check_digit_test'() ->
     ?assert(isbn_verifier:is_valid("359821507X")).
 
-isbn_without_check_digit_and_dashes_test() ->
+'9_isbn_without_check_digit_and_dashes_test'() ->
     ?assertNot(isbn_verifier:is_valid("359821507")).
 
-too_long_isbn_and_no_dashes_test() ->
+'10_too_long_isbn_and_no_dashes_test'() ->
     ?assertNot(isbn_verifier:is_valid("3598215078X")).
 
-too_short_isbn_test() ->
+'11_too_short_isbn_test'() ->
     ?assertNot(isbn_verifier:is_valid("00")).
 
-isbn_without_check_digit_test() ->
+'12_isbn_without_check_digit_test'() ->
     ?assertNot(isbn_verifier:is_valid("3-598-21507")).
 
-check_digit_of_x_should_not_be_used_for_0_test() ->
+'13_check_digit_of_x_should_not_be_used_for_0_test'() ->
     ?assertNot(isbn_verifier:is_valid("3-598-21515-X")).
 
-empty_isbn_test() ->
+'14_empty_isbn_test'() ->
     ?assertNot(isbn_verifier:is_valid([])).
 
-input_is_9_characters_test() ->
+'15_input_is_9_characters_test'() ->
     ?assertNot(isbn_verifier:is_valid("134456729")).
 
-invalid_characters_are_not_ignored_test() ->
+'16_invalid_characters_are_not_ignored_test'() ->
     ?assertNot(isbn_verifier:is_valid("3132P34035")).
 
-input_is_too_long_but_contains_a_valid_isbn_test() ->
+'17_input_is_too_long_but_contains_a_valid_isbn_test'() ->
     ?assertNot(isbn_verifier:is_valid("98245726788")).

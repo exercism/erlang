@@ -8,55 +8,57 @@
 -include_lib("eunit/include/eunit.hrl").
 
 
-paired_square_brackets_test() ->
+
+
+'1_paired_square_brackets_test'() ->
     ?assert(bracket_push:is_paired("[]")).
 
-empty_string_test() ->
+'2_empty_string_test'() ->
     ?assert(bracket_push:is_paired([])).
 
-unpaired_brackets_test() ->
+'3_unpaired_brackets_test'() ->
     ?assertNot(bracket_push:is_paired("[[")).
 
-wrong_ordered_brackets_test() ->
+'4_wrong_ordered_brackets_test'() ->
     ?assertNot(bracket_push:is_paired("}{")).
 
-wrong_closing_bracket_test() ->
+'5_wrong_closing_bracket_test'() ->
     ?assertNot(bracket_push:is_paired("{]")).
 
-paired_with_whitespace_test() ->
+'6_paired_with_whitespace_test'() ->
     ?assert(bracket_push:is_paired("{ }")).
 
-partially_paired_brackets_test() ->
+'7_partially_paired_brackets_test'() ->
     ?assertNot(bracket_push:is_paired("{[])")).
 
-simple_nested_brackets_test() ->
+'8_simple_nested_brackets_test'() ->
     ?assert(bracket_push:is_paired("{[]}")).
 
-several_paired_brackets_test() ->
+'9_several_paired_brackets_test'() ->
     ?assert(bracket_push:is_paired("{}[]")).
 
-paired_and_nested_brackets_test() ->
+'10_paired_and_nested_brackets_test'() ->
     ?assert(bracket_push:is_paired("([{}({}[])])")).
 
-unopened_closing_brackets_test() ->
+'11_unopened_closing_brackets_test'() ->
     ?assertNot(bracket_push:is_paired("{[)][]}")).
 
-unpaired_and_nested_brackets_test() ->
+'12_unpaired_and_nested_brackets_test'() ->
     ?assertNot(bracket_push:is_paired("([{])")).
 
-paired_and_wrong_nested_brackets_test() ->
+'13_paired_and_wrong_nested_brackets_test'() ->
     ?assertNot(bracket_push:is_paired("[({]})")).
 
-paired_and_incomplete_brackets_test() ->
+'14_paired_and_incomplete_brackets_test'() ->
     ?assertNot(bracket_push:is_paired("{}[")).
 
-too_many_closing_brackets_test() ->
+'15_too_many_closing_brackets_test'() ->
     ?assertNot(bracket_push:is_paired("[]]")).
 
-math_expression_test() ->
+'16_math_expression_test'() ->
     ?assert(bracket_push:is_paired("(((185 + 223.85) * 15) - 543)/2")).
 
-complex_latex_expression_test() ->
+'17_complex_latex_expression_test'() ->
     ?assert(bracket_push:is_paired("\\left(\\begin{array}{cc} \\frac{1}{3} "
 				   "& x\\\\ \\mathrm{e}^{x} &... x^2 \\end{array}\\"
 				   "right)")).

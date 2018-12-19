@@ -1,8 +1,6 @@
 -module(pangram).
 
--export([is_pangram/1, test_version/0]).
+-export([is_pangram/1]).
 
-is_pangram(_Sentence) ->
-    undefined.
 
-test_version() -> 1.
+is_pangram(_Sentence) -> undefined.

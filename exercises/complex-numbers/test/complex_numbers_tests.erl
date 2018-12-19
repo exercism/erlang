@@ -8,97 +8,99 @@
 -include_lib("eunit/include/eunit.hrl").
 
 
-real_part_of_a_purely_real_number_test() ->
+
+
+'1_real_part_of_a_purely_real_number_test'() ->
     ?assert(1 ==
 	      complex_numbers:real(complex_numbers:new(1, 0))).
 
-real_part_of_a_purely_imaginary_number_test() ->
+'2_real_part_of_a_purely_imaginary_number_test'() ->
     ?assert(0 ==
 	      complex_numbers:real(complex_numbers:new(0, 1))).
 
-real_part_of_a_number_with_real_and_imaginary_part_test() ->
+'3_real_part_of_a_number_with_real_and_imaginary_part_test'() ->
     ?assert(1 ==
 	      complex_numbers:real(complex_numbers:new(1, 2))).
 
-imaginary_part_of_a_purely_real_number_test() ->
+'4_imaginary_part_of_a_purely_real_number_test'() ->
     ?assert(0 ==
 	      complex_numbers:imaginary(complex_numbers:new(1, 0))).
 
-imaginary_part_of_a_purely_imaginary_number_test() ->
+'5_imaginary_part_of_a_purely_imaginary_number_test'() ->
     ?assert(1 ==
 	      complex_numbers:imaginary(complex_numbers:new(0, 1))).
 
-imaginary_part_of_a_number_with_real_and_imaginary_part_test() ->
+'6_imaginary_part_of_a_number_with_real_and_imaginary_part_test'() ->
     ?assert(2 ==
 	      complex_numbers:imaginary(complex_numbers:new(1, 2))).
 
-imaginary_unit_test() ->
+'7_imaginary_unit_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(-1,
 						      0),
 				  complex_numbers:mul(complex_numbers:new(0, 1),
 						      complex_numbers:new(0,
 									  1)))).
 
-add_purely_real_numbers_test() ->
+'8_add_purely_real_numbers_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(3, 0),
 				  complex_numbers:add(complex_numbers:new(1, 0),
 						      complex_numbers:new(2,
 									  0)))).
 
-add_purely_imaginary_numbers_test() ->
+'9_add_purely_imaginary_numbers_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(0, 3),
 				  complex_numbers:add(complex_numbers:new(0, 1),
 						      complex_numbers:new(0,
 									  2)))).
 
-add_numbers_with_real_and_imaginary_part_test() ->
+'10_add_numbers_with_real_and_imaginary_part_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(4, 6),
 				  complex_numbers:add(complex_numbers:new(1, 2),
 						      complex_numbers:new(3,
 									  4)))).
 
-subtract_purely_real_numbers_test() ->
+'11_subtract_purely_real_numbers_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(-1,
 						      0),
 				  complex_numbers:sub(complex_numbers:new(1, 0),
 						      complex_numbers:new(2,
 									  0)))).
 
-subtract_purely_imaginary_numbers_test() ->
+'12_subtract_purely_imaginary_numbers_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(0,
 						      -1),
 				  complex_numbers:sub(complex_numbers:new(0, 1),
 						      complex_numbers:new(0,
 									  2)))).
 
-subtract_numbers_with_real_and_imaginary_part_test() ->
+'13_subtract_numbers_with_real_and_imaginary_part_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(-2,
 						      -2),
 				  complex_numbers:sub(complex_numbers:new(1, 2),
 						      complex_numbers:new(3,
 									  4)))).
 
-multiply_purely_real_numbers_test() ->
+'14_multiply_purely_real_numbers_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(2, 0),
 				  complex_numbers:mul(complex_numbers:new(1, 0),
 						      complex_numbers:new(2,
 									  0)))).
 
-multiply_purely_imaginary_numbers_test() ->
+'15_multiply_purely_imaginary_numbers_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(-2,
 						      0),
 				  complex_numbers:mul(complex_numbers:new(0, 1),
 						      complex_numbers:new(0,
 									  2)))).
 
-multiply_numbers_with_real_and_imaginary_part_test() ->
+'16_multiply_numbers_with_real_and_imaginary_part_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(-5,
 						      10),
 				  complex_numbers:mul(complex_numbers:new(1, 2),
 						      complex_numbers:new(3,
 									  4)))).
 
-divide_purely_real_numbers_test() ->
+'17_divide_purely_real_numbers_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(5.0e-1,
 						      0),
 				  complex_numbers:divide(complex_numbers:new(1,
@@ -106,7 +108,7 @@ divide_purely_real_numbers_test() ->
 							 complex_numbers:new(2,
 									     0)))).
 
-divide_purely_imaginary_numbers_test() ->
+'18_divide_purely_imaginary_numbers_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(5.0e-1,
 						      0),
 				  complex_numbers:divide(complex_numbers:new(0,
@@ -114,7 +116,7 @@ divide_purely_imaginary_numbers_test() ->
 							 complex_numbers:new(0,
 									     2)))).
 
-divide_numbers_with_real_and_imaginary_part_test() ->
+'19_divide_numbers_with_real_and_imaginary_part_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(4.4e-1,
 						      8.0e-2),
 				  complex_numbers:divide(complex_numbers:new(1,
@@ -122,61 +124,61 @@ divide_numbers_with_real_and_imaginary_part_test() ->
 							 complex_numbers:new(3,
 									     4)))).
 
-absolute_value_of_a_positive_purely_real_number_test() ->
+'20_absolute_value_of_a_positive_purely_real_number_test'() ->
     ?assert(5 ==
 	      complex_numbers:abs(complex_numbers:new(5, 0))).
 
-absolute_value_of_a_negative_purely_real_number_test() ->
+'21_absolute_value_of_a_negative_purely_real_number_test'() ->
     ?assert(5 ==
 	      complex_numbers:abs(complex_numbers:new(-5, 0))).
 
-absolute_value_of_a_purely_imaginary_number_with_positive_imaginary_part_test() ->
+'22_absolute_value_of_a_purely_imaginary_number_with_positive_imaginary_part_test'() ->
     ?assert(5 ==
 	      complex_numbers:abs(complex_numbers:new(0, 5))).
 
-absolute_value_of_a_purely_imaginary_number_with_negative_imaginary_part_test() ->
+'23_absolute_value_of_a_purely_imaginary_number_with_negative_imaginary_part_test'() ->
     ?assert(5 ==
 	      complex_numbers:abs(complex_numbers:new(0, -5))).
 
-absolute_value_of_a_number_with_real_and_imaginary_part_test() ->
+'24_absolute_value_of_a_number_with_real_and_imaginary_part_test'() ->
     ?assert(5 ==
 	      complex_numbers:abs(complex_numbers:new(3, 4))).
 
-conjugate_a_purely_real_number_test() ->
+'25_conjugate_a_purely_real_number_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(5, 0),
 				  complex_numbers:conjugate(complex_numbers:new(5,
 										0)))).
 
-conjugate_a_purely_imaginary_number_test() ->
+'26_conjugate_a_purely_imaginary_number_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(0,
 						      -5),
 				  complex_numbers:conjugate(complex_numbers:new(0,
 										5)))).
 
-conjugate_a_number_with_real_and_imaginary_part_test() ->
+'27_conjugate_a_number_with_real_and_imaginary_part_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(1,
 						      -1),
 				  complex_numbers:conjugate(complex_numbers:new(1,
 										1)))).
 
-eulers_identityformula_test() ->
+'28_eulers_identityformula_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(-1,
 						      0),
 				  complex_numbers:exp(complex_numbers:new(0,
 									  3.14159265358979311600)))).
 
-exponential_of_0_test() ->
+'29_exponential_of_0_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(1, 0),
 				  complex_numbers:exp(complex_numbers:new(0,
 									  0)))).
 
-exponential_of_a_purely_real_number_test() ->
+'30_exponential_of_a_purely_real_number_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(2.71828182845904509080,
 						      0),
 				  complex_numbers:exp(complex_numbers:new(1,
 									  0)))).
 
-exponential_of_a_number_with_real_and_imaginary_part_test() ->
+'31_exponential_of_a_number_with_real_and_imaginary_part_test'() ->
     ?assert(complex_numbers:equal(complex_numbers:new(-2,
 						      0),
 				  complex_numbers:exp(complex_numbers:new(6.93147180559945286227e-1,

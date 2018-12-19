@@ -8,21 +8,23 @@
 -include_lib("eunit/include/eunit.hrl").
 
 
-empty_rna_sequence_test() ->
+
+
+'1_empty_rna_sequence_test'() ->
     ?assertMatch([], rna_transcription:to_rna([])).
 
-rna_complement_of_cytosine_is_guanine_test() ->
+'2_rna_complement_of_cytosine_is_guanine_test'() ->
     ?assertMatch("G", rna_transcription:to_rna("C")).
 
-rna_complement_of_guanine_is_cytosine_test() ->
+'3_rna_complement_of_guanine_is_cytosine_test'() ->
     ?assertMatch("C", rna_transcription:to_rna("G")).
 
-rna_complement_of_thymine_is_adenine_test() ->
+'4_rna_complement_of_thymine_is_adenine_test'() ->
     ?assertMatch("A", rna_transcription:to_rna("T")).
 
-rna_complement_of_adenine_is_uracil_test() ->
+'5_rna_complement_of_adenine_is_uracil_test'() ->
     ?assertMatch("U", rna_transcription:to_rna("A")).
 
-rna_complement_test() ->
+'6_rna_complement_test'() ->
     ?assertMatch("UGCACCAGAAUU",
 		 rna_transcription:to_rna("ACGTGGTCTTAA")).
