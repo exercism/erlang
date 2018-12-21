@@ -1,8 +1,6 @@
 -module(triangle).
 
--export([kind/3, test_version/0]).
+-export([kind/3]).
 
-kind(_A, _B, _C) ->
-  undefined.
 
-test_version() -> 1.
+kind(_A, _B, _C) -> undefined.
