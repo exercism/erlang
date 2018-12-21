@@ -157,7 +157,7 @@ prepare_test_module(Module) ->
 
 prepare_tests(Module, Tests) ->
     {module, Module}=code:ensure_loaded(Module),
-    case erlang:function_exported(Module, prepare_test, 1) of
+    case erlang:function_exported(Module, prepare_tests, 1) of
         true -> Module:prepare_tests(Tests);
         false -> Tests
     end.
