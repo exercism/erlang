@@ -1,8 +1,6 @@
 -module(word_count).
 
--export([count/1, test_version/0]).
+-export([count_words/1]).
 
-count(_String) ->
-  undefined.
 
-test_version() -> 1.
+count_words(_Sentence) -> undefined.
