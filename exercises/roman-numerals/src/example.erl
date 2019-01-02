@@ -1,24 +1,20 @@
 -module(example).
 
--export([numerals/1, test_version/0]).
+-export([roman/1]).
 
 -define(DIGITS, [{"M", 1000}, {"CM", 900}, {"D", 500}, {"CD", 400},
                  {"C", 100}, {"XC", 90},  {"L", 50}, {"XL", 40},
                  {"X", 10}, {"IX", 9}, {"V", 5}, {"IV", 4}, {"I", 1}]).
 
--spec numerals(non_neg_integer()) -> string().
-numerals(Number) ->
+-spec roman(non_neg_integer()) -> string().
+roman(Number) ->
     to_roman(Number, "", ?DIGITS).
 
-test_version() ->
-    1.
 
 
-
-to_roman(0, Roman, _) -> Roman;
-to_roman(N, Roman, Digits) ->
-    {R, D} = hd(Digits),
+to_roman(0, Roman, _) -> lists:flatten(lists:reverse(Roman));
+to_roman(N, Roman, Digits=[{R, D}|More]) ->
     if
-        N >= D -> to_roman(N - D, Roman ++ R, Digits);
-        true   -> to_roman(N, Roman, tl(Digits))
+        N >= D -> to_roman(N - D, [R|Roman], Digits);
+        true   -> to_roman(N, Roman, More)
     end.
