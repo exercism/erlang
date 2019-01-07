@@ -1,6 +1,6 @@
 -module(example).
 
--export([encode/2, decode/2, test_version/0]).
+-export([encode/2, decode/2]).
 
 
 encode(Message, Rails) ->
@@ -33,6 +33,3 @@ enrail(up, Idx, Message, [H|T], []) ->
 
 enrail(Direction, Idx, [C|Message], Left, [R|Right]) ->
 	enrail(Direction, Idx+1, Message, [[{Idx, C}|R]|Left], Right).
-
-
-test_version() -> 1.
