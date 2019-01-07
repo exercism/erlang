@@ -1,17 +1,17 @@
 -module(example).
 
--export([gen_pascals_triangle/1, test_version/0]).
+-export([rows/1]).
 
-gen_pascals_triangle(N) when N < 0 -> -1;
-gen_pascals_triangle(0) -> [];
-gen_pascals_triangle(N) -> 
-	gen_pascals_triangle_helper(1, N, []).
+rows(N) when N < 0 -> -1;
+rows(0) -> [];
+rows(N) -> 
+	rows_helper(1, N, []).
 
-gen_pascals_triangle_helper(Count, N, CurrentResult) ->
+rows_helper(Count, N, CurrentResult) ->
 	case Count > N of 
 		true -> CurrentResult;
 		false -> 
-			gen_pascals_triangle_helper(
+			rows_helper(
 				Count + 1, 
 				N, 
 				CurrentResult ++ gen_next(CurrentResult))
@@ -26,5 +26,3 @@ gen_next(CurrentResult) ->
 		LastRowDropLast, 
 		ReverseLastRowDropLast),
 	[[1] ++ ZipList ++ [1]].
-
-test_version() -> 1.
