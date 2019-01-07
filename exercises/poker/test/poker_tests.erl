@@ -5,7 +5,7 @@
 -include_lib("erl_exercism/include/exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
--define(test(X,Y), ?assertEqual(Y, poker:best(X))).
+-define(test(X,Y), ?assertEqual(lists:sort(Y), lists:sort(poker:best(X)))).
 
 single_hand_always_wins_test() ->
     ?test([
