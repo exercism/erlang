@@ -1,8 +1,8 @@
 -module(example).
--export([best/1]).
+-export([best_hands/1]).
 
--spec best([string()]) -> [string()].
-best(Hands) ->
+-spec best_hands([string()]) -> [string()].
+best_hands(Hands) ->
     HandScores = [ {eval_hand(Hand), Hand} || Hand <- Hands ],
     {MaxScore, _} = lists:max(HandScores),
     [ Hand || {Score, Hand} <- HandScores, Score =:= MaxScore ].

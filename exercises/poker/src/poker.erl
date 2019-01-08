@@ -1,6 +1,6 @@
 -module(poker).
--export([best/1]).
 
--spec best([string()]) -> [string()].
-best(_Hands) ->
-    undefined.
+-export([best_hands/1]).
+
+
+best_hands(_Hands) -> undefined.
