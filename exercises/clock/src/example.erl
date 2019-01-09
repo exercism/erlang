@@ -3,8 +3,7 @@
 -export([create/2,
          is_equal/2,
          minutes_add/2,
-         to_string/1,
-         test_version/0]).
+         to_string/1]).
 
 -record(?MODULE, {normalized}).
 
@@ -29,9 +28,6 @@ to_string(#?MODULE{normalized = Mins}) ->
   Hour = Mins div ?MINUTES_PER_HOUR,
   Minutes = Mins rem ?MINUTES_PER_HOUR,
   lists:flatten(io_lib:format("~2.10.0b:~2.10.0b", [Hour, Minutes])).
-
-test_version() ->
-    1.
 
 
 
