@@ -119,6 +119,17 @@
       ]
     },
     {
+      "slug": "darts",
+      "uuid": "72c8d390-4f07-4ec2-8e5a-4f57cf04e29c",
+      "core": false,
+      "unlocked_by": "hello-world",
+      "difficulty": 1,
+      "topics": [
+        "control_flow_conditionals",
+        "math"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "580309f9-65f1-480b-bdb6-c14846963c33",
       "core": false,
