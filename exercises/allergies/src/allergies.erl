@@ -1,8 +1,8 @@
 -module(allergies).
 
--export([allergies/1, test_version/0]).
+-export([allergies/1, is_allergic_to/2]).
 
-allergies(_Score) ->
-  undefined.
 
-test_version() -> 1.
+allergies(_Score) -> undefined.
+
+is_allergic_to(_Substance, _Score) -> undefined.
