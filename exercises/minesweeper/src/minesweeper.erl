@@ -1,8 +1,6 @@
 -module(minesweeper).
 
--export([annotate/1, test_version/0]).
+-export([annotate/1]).
 
-annotate(_Minefield) ->
-	undefined.
 
-test_version() -> 1.
+annotate(_Minefield) -> undefined.
