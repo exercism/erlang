@@ -1,6 +1,6 @@
 -module(example).
 
--export([proteins/1, test_version/0]).
+-export([proteins/1]).
 
 proteins(Strand) ->
 	lists:reverse(proteins(Strand, [])).
@@ -58,5 +58,3 @@ proteins([$U, $G, $C|More], Acc) ->
 
 proteins([$U, $G, $G|More], Acc) ->
 	proteins(More, [tryptophan|Acc]).
-
-test_version() -> 1.
