@@ -1,8 +1,6 @@
 -module(roman_numerals).
 
--export([numerals/1, test_version/0]).
+-export([roman/1]).
 
-numerals(_Number) ->
-  undefined.
 
-test_version() -> 1.
+roman(_Number) -> undefined.
