@@ -1,8 +1,6 @@
 -module(pascals_triangle).
 
--export([gen_pascals_triangle/1, test_version/0]).
+-export([rows/1]).
 
-gen_pascals_triangle(_N) -> 
-	undefined.
 
-test_version() -> 1.
+rows(_Count) -> undefined.
