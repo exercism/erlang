@@ -623,6 +623,18 @@
       ]
     },
     {
+      "slug": "forth",
+      "uuid": "95335b21-a840-45f3-8d65-d7de7aec228a",
+      "core": false,
+      "unlocked_by": "collatz-conjecture",
+      "difficulty": 6,
+      "topics": [
+        "algorithms",
+        "parsing",
+        "strings"
+      ]
+    },
+    {
       "slug": "circular-buffer",
       "uuid": "058b48a9-03ec-43bc-88eb-9dbce8b79e59",
       "core": false,
