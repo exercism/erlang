@@ -2,5 +2,5 @@
 
 -export([winner/1]).
 
-winner(_Board) ->
-	undefined.
+
+winner(_Board) -> undefined.
