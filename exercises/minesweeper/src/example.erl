@@ -1,6 +1,6 @@
 -module(example).
 
--export([annotate/1, test_version/0]).
+-export([annotate/1]).
 
 %% no rows
 annotate([]) ->
@@ -71,6 +71,3 @@ process_row([PrevPrev|MorePrev=[PrevCur, PrevNext|_]], [CurPrev|MoreCur=[_, CurN
 %% translate a count into a character
 count_to_char(0) -> 16#20;
 count_to_char(N) -> $0+N.
-	
-
-test_version() -> 1.
