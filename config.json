@@ -131,6 +131,17 @@
       ]
     },
     {
+      "slug": "diamond",
+      "uuid": "fa949101-5771-477c-9221-0112dcbbdcde",
+      "core": false,
+      "unlocked_by": "hello-world",
+      "difficulty": 2,
+      "topics": [
+        "lists",
+        "strings"
+      ]
+    },
+    {
       "slug": "grains",
       "uuid": "c3070adc-d434-4989-8d6b-d9e483e32d1c",
       "core": false,
