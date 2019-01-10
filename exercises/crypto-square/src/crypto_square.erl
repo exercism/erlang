@@ -2,5 +2,5 @@
 
 -export([ciphertext/1]).
 
-ciphertext(_Plaintext) ->
-	undefined.
+
+ciphertext(_PlainText) -> undefined.
