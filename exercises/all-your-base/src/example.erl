@@ -1,33 +1,36 @@
 -module(example).
--export([convert/3, test_version/0]).
+-export([rebase/3]).
 
-convert(_Input, SrcBase, _DstBase) when SrcBase < 2 ->
-  {error, invalid_src_base};
-convert(_Input, _SrcBase, DstBase) when DstBase < 2 ->
-  {error, invalid_dst_base};
-convert(Input, SrcBase, DstBase) ->
-  case internalize(Input, SrcBase, 0) of
-    {ok, Value} -> externalize(Value, DstBase, []);
-    {error, Reason} -> {error, Reason}
-  end.
-
-test_version() ->
-  1.
+rebase(_Input, SrcBase, _DstBase) when SrcBase < 2 ->
+    {error, "input base must be >= 2"};
+rebase(_Input, _SrcBase, DstBase) when DstBase < 2 ->
+    {error, "output base must be >= 2"};
+rebase(Input, SrcBase, DstBase) ->
+    case lists:any(fun (D) -> D<0 orelse D>=SrcBase end, Input) of
+        true -> {error, "all digits must satisfy 0 <= d < input base"};
+        false -> output(to_base(to_dec(Input, SrcBase), DstBase))
+    end.
 
 
+output([]) ->
+    {ok, [0]};
+output(Digits) ->
+    {ok, Digits}.
 
-internalize([], _, Acc) ->
-  {ok, Acc};
-internalize([H|_], _Base, _Acc) when H < 0 ->
-  {error, negative};
-internalize([H|_], Base, _Acc) when H >= Base ->
-  {error, not_in_base};
-internalize([H|T], Base, Acc) ->
-  internalize(T, Base, Acc * Base + H).
 
-externalize(0, _Base, Acc) ->
-  {ok, Acc};
-externalize(Input, Base, Acc) ->
-  Digit = Input rem Base,
-  Input2 = Input div Base,
-  externalize(Input2, Base, [Digit|Acc]).
+to_dec(Digits, Base) ->
+    to_dec(Digits, Base, length(Digits)-1, 0).
+
+to_dec([], _, _, Acc) ->
+    Acc;
+to_dec([D|More], Base, N, Acc) ->
+    to_dec(More, Base, N-1, Acc+D*trunc(math:pow(Base, N))).
+
+
+to_base(Num, Base) ->
+    to_base(Num, Base, []).
+
+to_base(0, _, Acc) ->
+    Acc;
+to_base(Num, Base, Acc) ->
+    to_base(Num div Base, Base, [Num rem Base|Acc]).
