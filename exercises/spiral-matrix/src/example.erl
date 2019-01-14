@@ -1,7 +1,5 @@
 -module(example).
--export([test_version/0,make/1]).
-
-test_version() -> 1.
+-export([make/1]).
 
 make(N) ->
     Self = self(),
