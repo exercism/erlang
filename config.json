@@ -221,6 +221,16 @@
       ]
     },
     {
+      "slug": "prime-factors",
+      "uuid": "b6ff9201-e0fc-43e5-9501-cd0509f9ce1c",
+      "core": false,
+      "unlocked_by": "leap",
+      "difficulty": 3,
+      "topics": [
+        "math"
+      ]
+    },
+    {
       "slug": "sum-of-multiples",
       "uuid": "5af1c90a-f98d-4682-885b-9770c9223194",
       "core": false,

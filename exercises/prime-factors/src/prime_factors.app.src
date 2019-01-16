@@ -1,0 +1,9 @@
+{application, prime_factors,
+  [{description, "exercism.io - prime-factors"},
+    {vsn, "0.0.1"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+]}.
