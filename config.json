@@ -142,6 +142,17 @@
       ]
     },
     {
+      "slug": "queen-attack",
+      "uuid": "7fd5455c-46d2-4484-9c7d-04fa6ef305f4",
+      "core": false,
+      "unlocked_by": "hello-world",
+      "difficulty": 1,
+      "topics": [
+        "control_flow_conditionals",
+        "logic"
+      ]
+    },
+    {
       "slug": "diamond",
       "uuid": "fa949101-5771-477c-9221-0112dcbbdcde",
       "core": false,
