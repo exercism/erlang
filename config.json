@@ -488,6 +488,16 @@
       ]
     },
     {
+      "slug": "rational-numbers",
+      "uuid": "8b379d6e-196f-4ccc-808d-91fb6255e474",
+      "core": false,
+      "unlocked_by": "leap",
+      "difficulty": 5,
+      "topics": [
+        "math"
+      ]
+    },
+    {
       "slug": "complex-numbers",
       "uuid": "5fc48c1b-0e1b-47b3-b30a-5281ec364aad",
       "core": false,
