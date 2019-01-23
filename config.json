@@ -401,6 +401,17 @@
       ]
     },
     {
+      "slug": "sublist",
+      "uuid": "2f974a71-a432-410b-a432-1e44950ad018",
+      "core": false,
+      "unlocked_by": "bob",
+      "difficulty": 4,
+      "topics": [
+        "lists",
+        "sequences"
+      ]
+    },
+    {
       "slug": "word-count",
       "uuid": "43df8921-f0c3-4a0c-9bdf-eb89405049ad",
       "core": false,
