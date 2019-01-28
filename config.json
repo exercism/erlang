@@ -435,6 +435,17 @@
       ]
     },
     {
+      "slug": "transpose",
+      "uuid": "9af2325d-0450-45a3-a0da-8a18fafa0b7f",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "transforming"
+      ]
+    },
+    {
       "slug": "all-your-base",
       "uuid": "85e23906-6fd8-486a-add8-a6c932cef7e3",
       "core": false,
