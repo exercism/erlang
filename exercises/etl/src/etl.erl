@@ -1,8 +1,6 @@
 -module(etl).
 
--export([transform/1, test_version/0]).
+-export([transform/1]).
 
-transform(_Data) ->
-  undefined.
 
-test_version() -> 1.
+transform(_Old) -> undefined.

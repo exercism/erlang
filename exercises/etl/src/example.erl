@@ -1,6 +1,6 @@
 -module(example).
 
--export([transform/1, test_version/0]).
+-export([transform/1]).
 
 transform(OldValue) ->
   orddict:to_list(
@@ -10,9 +10,6 @@ transform(OldValue) ->
        )
      )
    ).
-
-test_version() ->
-    1.
 
 
 
