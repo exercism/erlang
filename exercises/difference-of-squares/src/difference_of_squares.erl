@@ -1,14 +1,10 @@
 -module(difference_of_squares).
 
--export([sum_of_squares/1, square_of_sum/1, difference_of_squares/1, test_version/0]).
+-export([difference_of_squares/1, square_of_sum/1, sum_of_squares/1]).
 
-sum_of_squares(_N) ->
-  undefined.
 
-square_of_sum(_N) ->
-  undefined.
+difference_of_squares(_Number) -> undefined.
 
-difference_of_squares(_N) ->
-  undefined.
+square_of_sum(_Number) -> undefined.
 
-test_version() -> 1.
+sum_of_squares(_Number) -> undefined.
