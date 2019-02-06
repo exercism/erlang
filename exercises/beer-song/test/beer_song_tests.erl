@@ -50,6 +50,3 @@ sing_all_the_rest_of_the_verses_test() ->
 
 compare_nested_lists(Response, Expected) ->
   ?assertEqual(lists:flatten(Expected), lists:flatten(Response)).
-
-version_test() ->
-  ?assertMatch(1, beer_song:test_version()).
