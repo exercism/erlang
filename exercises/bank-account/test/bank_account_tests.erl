@@ -88,6 +88,3 @@ charge_many_test() ->
   timer:sleep(100),
   Last = bank_account:balance(BankAccount),
   ?assert(Last =:= 5).
-
-version_test() ->
-  ?assertMatch(1, bank_account:test_version()).
