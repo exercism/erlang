@@ -1,15 +1,12 @@
 -module(example).
 
--export([encode/1, decode/1, test_version/0]).
+-export([encode/1, decode/1]).
 
 encode(String) ->
     join(chunk(convert(String), 5)).
 
 decode(String) ->
     convert(String).
-
-test_version() ->
-    1.
 
 %% Basic conversion routines
 convert(String) ->
