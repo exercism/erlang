@@ -45,9 +45,6 @@ discard_strings_test() ->
      ["apple", "banana", "cherimoya"],
      strain:discard(fun(S) -> string:sub_string(S, 1,1) =:= "z" end, Str)).
 
-version_test() ->
-  ?assertMatch(1, strain:test_version()).
-
 odd(N) -> N rem 2 > 0.
 
 even(N) -> N rem 2 =:= 0.

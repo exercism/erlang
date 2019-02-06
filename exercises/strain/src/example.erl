@@ -1,6 +1,6 @@
 -module(example).
 
--export([keep/2, discard/2, test_version/0]).
+-export([keep/2, discard/2]).
 
 -spec keep(fun((any()) -> boolean()), list(any())) -> list(any()).
 keep(_F, []) ->
@@ -14,6 +14,3 @@ keep(F, [H|T]) ->
 -spec discard(fun((any()) -> boolean()), list(any())) -> list(any()).
 discard(F, L) ->
   keep(fun(X) -> not(F(X)) end, L).
-
-test_version() ->
-    1.
