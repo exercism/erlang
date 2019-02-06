@@ -1,6 +1,6 @@
 -module(example).
 
--export( [create/1, read/1, size/1, write/2, write_attempt/2, test_version/0] ).
+-export( [create/1, read/1, size/1, write/2, write_attempt/2] ).
 
 create( Size ) -> erlang:spawn( fun() -> loop( 0, Size, queue:new() ) end ).
 
@@ -51,6 +51,3 @@ write( Max, Max, Item, Queue ) ->
 
 write_attempt( Max, Max, _Item, Queue ) -> {Max, Queue};
 write_attempt( Current, Max, Item, Queue ) -> write( Current, Max, Item, Queue ).
-
-test_version() ->
-    1.

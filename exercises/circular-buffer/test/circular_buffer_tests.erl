@@ -54,6 +54,3 @@ producer_consumer_test() ->
             {Ref, R} -> R
           end,
   ?assert( Reads =:= [{ok, 1}, {ok, 2}, {ok, 3}] ).
-
-version_test() ->
-  ?assertMatch(1, circular_buffer:test_version()).

@@ -1,6 +1,6 @@
 -module(circular_buffer).
 
--export([create/1, read/1, size/1, write/2, write_attempt/2, test_version/0]).
+-export([create/1, read/1, size/1, write/2, write_attempt/2]).
 
 create(_Size) ->
   undefined.
@@ -16,5 +16,3 @@ write(_Pid, _Item) ->
 
 write_attempt(_Pid, _Item) ->
   undefined.
-
-test_version() -> 1.
