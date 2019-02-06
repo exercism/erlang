@@ -1,6 +1,6 @@
 -module(bank_account).
 
--export([balance/1, charge/2, close/1, create/0, deposit/2, withdraw/2, test_version/0]).
+-export([balance/1, charge/2, close/1, create/0, deposit/2, withdraw/2]).
 
 balance(_Pid) ->
   undefined.
@@ -19,5 +19,3 @@ deposit(_Pid, _Amount) ->
 
 withdraw(_Pid, _Amount) ->
   undefined.
-
-test_version() -> 1.

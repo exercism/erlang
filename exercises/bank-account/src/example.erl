@@ -6,8 +6,7 @@
   close/1,
   create/0,
   deposit/2,
-  withdraw/2,
-  test_version/0
+  withdraw/2
 ]).
 
 -export([
@@ -23,9 +22,6 @@
 
 -record(account, {pid}).
 
-
-test_version() ->
-    1.
 
 
 %%% Public API
