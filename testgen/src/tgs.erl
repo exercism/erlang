@@ -1,6 +1,7 @@
 -module(tgs).
 
 -export([
+    assign/2,
     atom/1,
     call_fun/2,
     call_macro/2,
@@ -13,7 +14,8 @@
     raw/1,
     simple_fun/2,
     simple_fun/3,
-    value/1
+    value/1,
+    var/1
 ]).
 
 module(Name) when is_atom(Name) ->
@@ -63,6 +65,9 @@ call_fun(Name, Args) when is_list(Name) ->
 call_macro(Name, Args) when is_list(Name) ->
     call_fun("?" ++ Name, Args).
 
+assign(Var, Val) ->
+    erl_syntax:match_expr(Var, Val).
+
 atom(Name) when is_list(Name); is_atom(Name) ->
     erl_syntax:atom(Name);
 atom(Name) when is_binary(Name) ->
@@ -84,3 +89,6 @@ raw(Text) when is_list(Text) ->
 
 value(Value) ->
     erl_syntax:abstract(Value).
+
+var(Var) ->
+    erl_syntax:variable(Var).
