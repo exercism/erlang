@@ -1,8 +1,6 @@
 -module(largest_series_product).
 
--export([lsp/2, test_version/0]).
+-export([largest_product/2]).
 
-lsp(_String, _N) ->
-  undefined.
 
-test_version() -> 1.
+largest_product(_Digits, _Span) -> undefined.
