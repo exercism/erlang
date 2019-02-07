@@ -1,33 +1,21 @@
 -module(example).
 
--export([add/3, get/2, sort/1, new/0, test_version/0]).
+-export([add/3, get/2, get/1, new/0]).
 
-%% Define the grade school type
--type school() :: [{integer(),[string(),...]}].
 
--spec add(string(), integer(), school()) -> school().
-add(Name, Grade, School) ->
-  case get(Grade, School) of
-    [] ->
-      orddict:store(Grade, [Name], School);
-    Class ->
-      orddict:store(Grade, ordsets:add_element(Name, Class), School)
-  end.
-
--spec get(integer(), school()) -> [string()].
-get(Grade, Students) ->
-  case orddict:find(Grade, Students) of
-    {ok, Class} -> Class;
-    _ -> []
-  end.
-
--spec sort(school()) -> school().
-sort(S) ->
-  S.
-
--spec new() -> school().
 new() ->
-  [].
+    #{}.
 
-test_version() ->
-    1.
+add(Name, Grade, School) ->
+    Class=maps:get(Grade, School, ordsets:new()),
+    School#{Grade => ordsets:add_element(Name, Class)}.
+
+get(Grade, School) ->
+    ordsets:to_list(maps:get(Grade, School, ordsets:new())).
+
+get(School) ->
+    maps:fold(
+        fun (_, Class, Acc) -> Acc++ordsets:to_list(Class) end,
+        [],
+        School
+    ).
