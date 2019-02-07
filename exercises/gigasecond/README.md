@@ -1,6 +1,7 @@
 # Gigasecond
 
-Calculate the moment when someone has lived for 10^9 seconds.
+Given a moment, determine the moment that would be after a gigasecond
+has passed.
 
 A gigasecond is 10^9 (1,000,000,000) seconds.
 
@@ -19,25 +20,6 @@ directory.
 ```bash
 $ rebar3 eunit
 ```
-
-### Test versioning
-
-Each problem defines a macro `TEST_VERSION` in the test file and
-verifies that the solution defines and exports a function `test_version`
-returning that same value.
-
-To make tests pass, add the following to your solution:
-
-```erlang
--export([test_version/0]).
-
-test_version() ->
-  1.
-```
-
-The benefit of this is that reviewers can see against which test version
-an iteration was written if, for example, a previously posted solution
-does not solve the current problem or passes current tests.
 
 ## Questions?
 

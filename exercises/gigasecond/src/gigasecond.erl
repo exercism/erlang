@@ -1,8 +1,6 @@
 -module(gigasecond).
 
--export([from/1, test_version/0]).
+-export([from/1]).
 
-from(_DateTime) ->
-  undefined.
 
-test_version() -> 1.
+from(_From) -> undefined.
