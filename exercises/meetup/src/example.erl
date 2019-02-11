@@ -1,5 +1,5 @@
 -module(example).
--export([schedule/4, test_version/0]).
+-export([meetup/4]).
 
 -type year() :: non_neg_integer().
 -type month() :: 1..12.
@@ -11,15 +11,12 @@
 -define (DAY_MAP, #{monday => 1, tuesday => 2, wednesday => 3, thursday => 4,
                     friday => 5, saturday => 6, sunday => 7}).
 
--spec schedule(year(), month(), day_of_week(), period()) -> date().
-schedule(Year, Month, DayOfWeek, Period) ->
+-spec meetup(year(), month(), day_of_week(), period()) -> date().
+meetup(Year, Month, DayOfWeek, Period) ->
   DoW = maps:get(DayOfWeek, ?DAY_MAP),
   [Day] = [Day || Day <- day_range(Period, Year, Month),
                   calendar:day_of_the_week({Year, Month, Day}) =:= DoW],
   {Year, Month, Day}.
-
-test_version() ->
-    1.
 
 
 
