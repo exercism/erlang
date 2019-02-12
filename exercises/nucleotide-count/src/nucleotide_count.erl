@@ -1,11 +1,8 @@
 -module(nucleotide_count).
 
--export([count/2, nucleotide_counts/1, test_version/0]).
+-export([count/2, nucleotide_counts/1]).
 
-count(_Dna, _N) ->
-  undefined.
 
-nucleotide_counts(_Dna) ->
-  undefined.
+count(_Strand, _Nucleotide) -> undefined.
 
-test_version() -> 1.
+nucleotide_counts(_Strand) -> undefined.
