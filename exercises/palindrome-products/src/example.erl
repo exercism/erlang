@@ -1,9 +1,9 @@
 -module(example).
 
--export([smallest/2, largest/2, test_version/0]).
+-export([smallest/2, largest/2]).
 
 
-smallest(Min, Max) when Min>Max -> {error, invalid_range};
+smallest(Min, Max) when Min>Max -> error(badarg);
 
 smallest(Min, Max) ->
 	case smallest(Min, Max, Min, Min, undefined) of
@@ -38,7 +38,7 @@ smallest(Min, Max, Cur1, Cur2, Best) ->
 	end.
 
 
-largest(Min, Max) when Min>Max -> {error, invalid_range};
+largest(Min, Max) when Min>Max -> error(badarg);
 
 largest(Min, Max) ->
 	case largest(Min, Max, Max, Max, undefined) of
@@ -85,6 +85,3 @@ dedup_factors(Factors) ->
 		end,
 		Factors
 	).
-
-
-test_version() -> 1.

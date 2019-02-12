@@ -1,11 +1,8 @@
 -module(palindrome_products).
 
--export([smallest/2, largest/2, test_version/0]).
+-export([largest/2, smallest/2]).
 
-smallest(_Min, _Max) ->
-	undefined.
 
-largest(_Min, _Max) ->
-	undefined.
+largest(_Min, _Max) -> undefined.
 
-test_version() -> 1.
+smallest(_Min, _Max) -> undefined.
