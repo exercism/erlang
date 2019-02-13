@@ -90,5 +90,9 @@ raw(Text) when is_list(Text) ->
 value(Value) ->
     erl_syntax:abstract(Value).
 
+var("_") ->
+    erl_syntax:underscore();
+var(<<"_">>) ->
+    erl_syntax:underscore();
 var(Var) ->
     erl_syntax:variable(Var).
