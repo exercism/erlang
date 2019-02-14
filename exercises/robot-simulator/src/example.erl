@@ -1,20 +1,14 @@
 -module(example).
 
 -export([advance/1,
-         control/2,
          create/0,
          direction/1,
          left/1,
          place/3,
          position/1,
-         right/1,
-         test_version/0]).
+         right/1]).
 
 advance( Robot ) -> Robot ! advance.
-
-control( Robot, String ) ->
-  Funs = lists:flatten( [control_function(X) || X <- String] ),
-  [X(Robot) || X <- Funs].
 
 create() -> erlang:spawn( fun() -> loop( undefined, {undefined, undefined} ) end ).
 
@@ -28,15 +22,7 @@ position( Robot ) -> request( Robot, position ).
 
 right( Robot ) -> Robot ! {turn, right}.
 
-test_version() ->
-    1.
 
-
-
-control_function( $A ) -> fun advance/1;
-control_function( $L ) -> fun left/1;
-control_function( $R ) -> fun right/1;
-control_function( _C ) -> [].
 
 loop( Direction, Position ) ->
   receive
