@@ -1,6 +1,6 @@
 -module(example).
 
--export([encode/1, decode/1, test_version/0]).
+-export([encode/1, decode/1]).
 
 encode(String) ->
 	lists:flatten(encode_string(String)).
@@ -62,6 +62,3 @@ decode_sequence([C|More], Acc) ->
 	N=list_to_integer(lists:reverse(Acc)),
 	Seq=[C || _ <- lists:seq(1, N)],
 	{Seq, More}.
-
-
-test_version() -> 1.
