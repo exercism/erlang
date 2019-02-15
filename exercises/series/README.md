@@ -1,18 +1,18 @@
 # Series
 
 Given a string of digits, output all the contiguous substrings of length `n` in
-that string.
+that string in the order that they appear.
 
 For example, the string "49142" has the following 3-digit series:
 
-- 491
-- 914
-- 142
+- "491"
+- "914"
+- "142"
 
 And the following 4-digit series:
 
-- 4914
-- 9142
+- "4914"
+- "9142"
 
 And if you ask for a 6-digit series from a 5-digit string, you deserve
 whatever you get.
@@ -35,25 +35,6 @@ directory.
 ```bash
 $ rebar3 eunit
 ```
-
-### Test versioning
-
-Each problem defines a macro `TEST_VERSION` in the test file and
-verifies that the solution defines and exports a function `test_version`
-returning that same value.
-
-To make tests pass, add the following to your solution:
-
-```erlang
--export([test_version/0]).
-
-test_version() ->
-  1.
-```
-
-The benefit of this is that reviewers can see against which test version
-an iteration was written if, for example, a previously posted solution
-does not solve the current problem or passes current tests.
 
 ## Questions?
 

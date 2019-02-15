@@ -1,8 +1,6 @@
 -module(series).
 
--export([from_string/2, test_version/0]).
+-export([slices/2]).
 
-from_string(_Width, _String) ->
-  undefined.
 
-test_version() -> 1.
+slices(_SliceLength, _Series) -> undefined.
