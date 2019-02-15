@@ -1,6 +1,6 @@
 -module(example).
 
--export([encrypt/2, decrypt/2, test_version/0]).
+-export([encrypt/2, decrypt/2]).
 
 encrypt(String, N) ->
   lists:map(fun
@@ -14,6 +14,3 @@ encrypt(String, N) ->
 
 decrypt(String, N) ->
   encrypt(String, 26 - N).
-
-test_version() ->
-  1.

@@ -1,11 +1,8 @@
 -module(rotational_cipher).
 
--export([encrypt/2, decrypt/2, test_version/0]).
+-export([decrypt/2, encrypt/2]).
 
-encrypt(_String, _N) ->
-  undefined.
 
-decrypt(_String, _N) ->
-  undefined.
+decrypt(_String, _Key) -> undefined.
 
-test_version() -> 1.
+encrypt(_String, _Key) -> undefined.
