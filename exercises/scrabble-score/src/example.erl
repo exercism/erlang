@@ -1,12 +1,9 @@
 -module(example).
 
--export([score/1, test_version/0]).
+-export([score/1]).
 
 score( Word ) ->
   lists:foldl(fun(X, Sum) -> get_char_value(X) + Sum end, 0, Word).
-
-test_version() ->
-    1.
 
 get_char_value( $q ) -> 10;
 get_char_value( $z ) -> 10;
@@ -25,6 +22,4 @@ get_char_value( $p ) ->  3;
 get_char_value( $d ) ->  2;
 get_char_value( $g ) ->  2;
 get_char_value( C ) when C >= $a, C =< $z ->  1;
-get_char_value( C ) when C >= $A, C =< $Z ->
-  [C2] = string:to_lower( [C] ),
-  get_char_value( C2 ).
+get_char_value( C ) when C >= $A, C =< $Z -> get_char_value(C-$A+$a).
