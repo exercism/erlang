@@ -96,6 +96,3 @@ set_value_from_deep_focus_test() ->
     Act3 = zipper:set_value(Act2, 5),
     Act4 = zipper:to_tree(Act3),
     ?assertMatch(Exp, Act4).
-
-version_test() ->
-  ?assertMatch(1, zipper:test_version()).
