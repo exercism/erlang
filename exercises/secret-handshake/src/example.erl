@@ -1,6 +1,6 @@
 -module(example).
 
--export([commands/1, test_version/0]).
+-export([commands/1]).
 
 commands(N) when N band 2#10000=:=2#10000 ->
 	commands(N, [2#1000, 2#0100, 2#0010, 2#0001]);
@@ -15,5 +15,3 @@ action(2#0001) -> "wink";
 action(2#0010) -> "double blink";
 action(2#0100) -> "close your eyes";
 action(2#1000) -> "jump".
-
-test_version() -> 1.
