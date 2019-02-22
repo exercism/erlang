@@ -1,6 +1,6 @@
 -module(example).
 
--export([from_tree/1, to_tree/1, up/1, left/1, right/1, value/1, set_value/2, set_left/2, set_right/2, new_tree/3, test_version/0]).
+-export([from_tree/1, to_tree/1, up/1, left/1, right/1, value/1, set_value/2, set_left/2, set_right/2, new_tree/3]).
 
 -export_type([tree/0, zipper/0]).
 
@@ -23,9 +23,6 @@ new_tree(Value, Left, Right) ->
     #tree{value = Value,
           left  = Left,
           right = Right}.
-
-test_version() ->
-    1.
 
 %% Zipper API
 %% ==========
