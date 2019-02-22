@@ -10,6 +10,3 @@ single_test() ->
 double_test() ->
   Frequencies = dict:to_list( parallel_letter_frequency:dict(["asd", "asd"]) ),
   ?assert( lists:sort(Frequencies) =:= [{$a,2},{$d,2},{$s,2}] ).
-
-version_test() ->
-  ?assertMatch(1, parallel_letter_frequency:test_version()).
