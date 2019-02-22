@@ -7,6 +7,7 @@ count(Dna, N) ->
 
   lists:foldl(
     fun(X, Sum) ->
+        validate([X]),
         case [X] =:= N of
           true -> 1 + Sum;
           false -> Sum
@@ -18,7 +19,7 @@ count(Dna, N) ->
 validate(N) ->
   case lists:member(N, ["A", "T", "C", "G"]) of
     true -> true;
-    _ -> erlang:error("Invalid nucleotide")
+    _ -> error(badarg)
   end.
 
 nucleotide_counts(Dna) ->
