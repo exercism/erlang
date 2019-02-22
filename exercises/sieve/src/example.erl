@@ -1,19 +1,19 @@
 -module(example).
 
--export([sieve/1]).
+-export([primes/1]).
 
 %% This implementation incorporates the refinements
 %% from https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 
-sieve(N) when N<2 ->
+primes(N) when N<2 ->
 	[];
-sieve(N) ->
-	sieve(lists:seq(3, N, 2), [2], trunc(math:sqrt(N))+1).
+primes(N) ->
+	primes(lists:seq(3, N, 2), [2], trunc(math:sqrt(N))+1).
 
-sieve([P|Candidates], Acc, StopAt) when P<StopAt ->
+primes([P|Candidates], Acc, StopAt) when P<StopAt ->
 	NewCandidates=filter_candidates(P, Candidates),
-	sieve(NewCandidates, [P|Acc], StopAt);
-sieve(Primes, Acc, _) ->
+	primes(NewCandidates, [P|Acc], StopAt);
+primes(Primes, Acc, _) ->
 	lists:reverse(Acc)++Primes.
 
 
