@@ -1,6 +1,6 @@
 -module(example).
 
--export([classify/1, test_version/0]).
+-export([classify/1]).
 
 classify(1) ->
 	deficient;
@@ -9,7 +9,7 @@ classify(N) when N>1 ->
 	classify(N, aliquot(N));
 
 classify(_) ->
-	{error, "Classification is only possible for natural numbers."}.
+	error(badarg).
 
 classify(N, N) ->
 	perfect;
@@ -31,5 +31,3 @@ aliquot(N, D, Acc) when N rem D=:=0 ->
 
 aliquot(N, D, Acc) ->
 	aliquot(N, D-1, Acc).
-
-test_version() -> 1.
