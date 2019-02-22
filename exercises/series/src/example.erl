@@ -1,14 +1,14 @@
 -module(example).
 
--export( [from_string/2, test_version/0] ).
+-export([slices/2]).
 
-from_string( Width, String ) -> rows( erlang:length(String), Width, String ).
+slices(Width, String) when Width>0, String=/=[], Width=<length(String) ->
+    rows(length(String), Width, String);
+slices(_, _) ->
+    error(badarg).
 
-test_version() ->
-    1.
-
-
-rows( Length, Width, [_H | T]=String ) when Length > Width ->
-  {Row, _Rest} = lists:split( Width, String ),
-  [Row | rows( Length - 1, Width, T )];
-rows( _Length, _Width, String ) -> [String].
+rows(Length, Width, String=[_|T]) when Length>Width ->
+    {Row, _}=lists:split(Width, String),
+    [Row|rows(Length-1, Width, T)];
+rows(_, _, String) ->
+    [String].
