@@ -1,6 +1,6 @@
 -module(sieve).
 
--export([sieve/1]).
+-export([primes/1]).
 
-sieve(_N) ->
-  undefined.
+
+primes(_Limit) -> undefined.
