@@ -2,5 +2,5 @@
 
 -export([is_armstrong_number/1]).
 
-is_armstrong_number(_N) ->
-	undefined.
+
+is_armstrong_number(_Number) -> undefined.
