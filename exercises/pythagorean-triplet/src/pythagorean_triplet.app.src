@@ -1,0 +1,9 @@
+{application, pythagorean_triplet,
+  [{description, "exercism.io - pythagorean-triplet"},
+    {vsn, "0.0.1"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+]}.

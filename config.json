@@ -620,6 +620,17 @@
       ]
     },
     {
+      "slug": "pythagorean-triplet",
+      "uuid": "d1afdffa-0340-43b7-8015-4d706c10b8da",
+      "core": false,
+      "unlocked_by": "strain",
+      "difficulty": 6,
+      "topics": [
+        "algorithms",
+        "math"
+      ]
+    },
+    {
       "slug": "custom-set",
       "uuid": "453aad9b-044e-473e-87c1-0193afb2cb13",
       "core": false,
