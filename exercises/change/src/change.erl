@@ -2,5 +2,5 @@
 
 -export([find_fewest_coins/2]).
 
-find_fewest_coins(_Amount, _Coins) ->
-	undefined.
+
+find_fewest_coins(_Target, _Coins) -> undefined.
