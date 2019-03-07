@@ -3,6 +3,11 @@
 -include_lib("erl_exercism/include/exercism.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
+accumulate_empty_list_test() ->
+  Fn = fun() -> ok end,
+  Ls = [],
+  ?assertEqual([], accumulate:accumulate(Fn, Ls)).
+
 accumulate_squares_test() ->
   Fn = fun(Number) -> Number * Number end,
   Ls = [1, 2, 3],
