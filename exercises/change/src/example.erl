@@ -6,7 +6,7 @@ find_fewest_coins(0, _) ->
 	[];
 
 find_fewest_coins(Target, _) when Target<0 ->
-	{error, invalid_target_value};
+	error(invalid_target_value);
 
 find_fewest_coins(Target, Coins) ->
 	find_best(Target, Coins).
