@@ -16,7 +16,11 @@ test: $(EXERCISE_FOLDERS:%=%_test)
 	@cd $*; $(REBAR3) eunit
 
 run_tesgen: testgen/_build/default/bin/testgen
-	$<
+ifndef GENERATE
+	$< generate
+else
+	$< generate ${GENERATE}
+endif
 .PHONY: run_testgen
 
 testgen/_build/default/bin/testgen:
