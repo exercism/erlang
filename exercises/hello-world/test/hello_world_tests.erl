@@ -10,5 +10,6 @@
 
 
 
-'1_say_hi_test'() ->
-    ?assertEqual("Hello, World!", hello_world:hello()).
+'1_say_hi_test_'() ->
+    {"Say Hi!",
+     ?_assertEqual("Hello, World!", hello_world:hello())}.
