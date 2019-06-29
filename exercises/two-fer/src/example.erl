@@ -5,4 +5,4 @@ two_fer() ->
     two_fer("you").
 
 two_fer(Name) ->
-    lists:flatten(io_lib:format("One for ~s, one for me.", [Name])).
+    io_lib:format("One for ~s, one for me.", [Name]).
