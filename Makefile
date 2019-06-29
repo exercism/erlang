@@ -26,3 +26,10 @@ endif
 testgen/_build/default/bin/testgen:
 	cd testgen && rebar3 escriptize
 .PHONY: testgen/_build/default/bin/testgen
+
+gen_helper: run_testgen
+ifndef GENERATE
+	_test/check-exercises.escript all
+else
+	_test/check-exercises.escript single ${GENERATE}
+endif
