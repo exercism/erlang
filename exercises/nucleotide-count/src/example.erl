@@ -1,6 +1,6 @@
 -module(example).
 
--export([count/2, nucleotide_counts/1, validate/1, test_version/0]).
+-export([count/2, nucleotide_counts/1, validate/1]).
 
 count(Dna, N) ->
   validate(N),
@@ -27,6 +27,3 @@ nucleotide_counts(Dna) ->
    {"T", count(Dna, "T")},
    {"C", count(Dna, "C")},
    {"G", count(Dna, "G")}].
-
-test_version() ->
-    1.
