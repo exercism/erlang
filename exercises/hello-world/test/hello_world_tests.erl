@@ -8,8 +8,26 @@
 -include_lib("eunit/include/eunit.hrl").
 
 
+-define(assertStringEqual(Expect, Expr),
+        begin ((fun () ->
+            __X = (Expect),
+            __Y = (Expr),
+            case string:equal(__X, __Y) of
+                true -> ok;
+                false -> erlang:error({assertStringEqual,
+                    [{module, ?MODULE},
+                     {line, ?LINE},
+                     {expression, (??Expr)},
+                     {expected, unicode:characters_to_list(__X)},
+                     {value, unicode:characters_to_list(__Y)}]})
+            end
+        end)())
+    end).
+
+-define(_assertStringEqual(Expect, Expr), ?_test(?assertStringEqual(Expect, Expr))).
 
 
 '1_say_hi_test_'() ->
     {"Say Hi!",
-     ?_assertEqual("Hello, World!", hello_world:hello())}.
+     ?_assertStringEqual("Hello, World!",
+			 hello_world:hello())}.
