@@ -14,6 +14,7 @@
     raw/1,
     simple_fun/2,
     simple_fun/3,
+    string/1,
     value/1,
     var/1
 ]).
@@ -86,6 +87,10 @@ simple_fun(Name, Args, Body) when is_list(Args) ->
 
 raw(Text) when is_list(Text) ->
     erl_syntax:text(Text).
+
+string(Str) ->
+    List = unicode:characters_to_list(Str),
+    value(List).
 
 value(Value) ->
     erl_syntax:abstract(Value).
