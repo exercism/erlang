@@ -21,13 +21,16 @@ generate_test(N, #{description := Desc, expected := Exp, property := Prop, input
     Candidates1=[binary_to_list(V) || V <- Candidates],
     Exp1=lists:sort([binary_to_list(V) || V <- Exp]),
 
-    Fn = tgs:simple_fun(TestName, [
-        tgs:call_macro("assertMatch", [
-            tgs:value(Exp1),
-            tgs:call_fun("lists:sort", [
-                tgs:call_fun("anagram:" ++ Property, [
-                    tgs:value(binary_to_list(Subject)),
-                    tgs:value(Candidates1)]
+    Fn = tgs:simple_fun(TestName ++ "_", [
+        erl_syntax:tuple([
+            tgs:string(Desc),
+            tgs:call_macro("_assertMatch", [
+                tgs:value(Exp1),
+                tgs:call_fun("lists:sort", [
+                    tgs:call_fun("anagram:" ++ Property, [
+                        tgs:value(binary_to_list(Subject)),
+                        tgs:value(Candidates1)]
+                    )]
                 )]
             )]
         )]
