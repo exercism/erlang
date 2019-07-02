@@ -1,8 +1,8 @@
-* update generators [6%]
+* update generators [8%]
 ** DONE all-your-base
 ** DONE allergies
 ** TODO anagram
-** TODO armstrong-numbers
+** DONE armstrong-numbers
 ** TODO atbash-cipher
 ** TODO bob
 ** TODO bracket-push
