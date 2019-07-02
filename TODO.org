@@ -1,5 +1,5 @@
-* update generators [4%]
-** TODO all-your-base
+* update generators [6%]
+** DONE all-your-base
 ** DONE allergies
 ** TODO anagram
 ** TODO armstrong-numbers
