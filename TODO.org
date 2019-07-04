@@ -1,10 +1,10 @@
-* update generators [11%]
+* update generators [12%]
 ** DONE all-your-base
 ** DONE allergies
 ** DONE anagram
 ** DONE armstrong-numbers
 ** DONE atbash-cipher
-** TODO bob
+** DONE bob
 ** TODO bracket-push
 ** TODO change
 ** TODO clock
