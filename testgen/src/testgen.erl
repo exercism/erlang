@@ -11,6 +11,7 @@
 
 %% escript Entry point
 main(Args) ->
+    {ok, _} = application:ensure_all_started(testgen),
     Config = process_args(Args, #{}),
     execute(Config).
 
@@ -79,10 +80,12 @@ execute(#{command := "generate", spec_path := SpecPath, out_path := OutPath, exe
         undefined -> put(log_unavailable, true);
         _ -> ok
     end,
-    SpecFiles = lists:map(fun (Exercise) -> {Exercise, iolist_to_binary([SpecPath, $/, Exercise, "/canonical-data.json"])} end, Exercises),
-    Generators0 = lists:filtermap(fun filter_by_generator_and_create_record/1, SpecFiles),
-    Generators1 = lists:map(fun (Generator) -> Generator#tgen{dest = iolist_to_binary([OutPath, $/, Generator#tgen.name])} end, Generators0),
-    Contents = lists:map(fun tgen:generate/1, Generators1),
+    {ok, Modules} = application:get_key(testgen, modules),
+    Generators0   = lists:filter(generator_module(Exercises), Modules),
+    ok            = code:atomic_load(Generators0),
+    Generators1   = lists:map(create_record(SpecPath), Generators0),
+    Generators2   = lists:map(fun (Generator) -> Generator#tgen{dest = iolist_to_binary([OutPath, $/, Generator#tgen.name])} end, Generators1),
+    Contents      = lists:map(fun tgen:generate/1, Generators2),
     lists:map(
         fun (Xs = [#{exercise := ExName}|_]) ->
             io:format("Writing ~s", [ExName]),
@@ -109,18 +112,19 @@ execute(_) ->
     io:format("Unknown command. Only generate is available right now.~n").
 
 
-filter_by_generator_and_create_record({Name, Path}) ->
-    case tgen:check(Name) of
-        {true, Module} ->
-            {true, #tgen{
-                module = Module,
-                name   = Name,
-                path   = Path
-            }};
-        _ ->
-            case get(log_unavailable) of
-                true -> io:format("No generator for '~s' available~n", [Name]);
-                _ -> ok
-            end,
-            false
+create_record(SpecPath) ->
+    fun (Module) ->
+        "tgen_" ++ Name = atom_to_list(Module),
+        Path = filename:join([SpecPath, Name, "canonical-data.json"]),
+        #tgen{
+            module = Module,
+            name   = Name,
+            path   = Path
+        }
+    end.
+
+generator_module(Exercises) ->
+    fun F(Mod) when is_atom(Mod) -> F(atom_to_list(Mod));
+        F("tgen_" ++ Ex) -> lists:member(Ex, Exercises);
+        F(_) -> false
     end.
