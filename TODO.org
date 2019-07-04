@@ -1,4 +1,4 @@
-* update generators [17%]
+* update generators [19%]
 ** DONE all-your-base
 ** DONE allergies
 ** DONE anagram
@@ -60,4 +60,4 @@
 ** TODO transpose
 ** TODO triangle
 ** DONE two-fer
-** TODO word-count
+** DONE word-count
