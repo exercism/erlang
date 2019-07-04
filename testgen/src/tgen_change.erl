@@ -28,41 +28,47 @@ generate_test(N, #{description := Desc, expected := #{error := _}, property := P
     TestName = tgen:to_test_name(N, Desc),
     Property = tgen:to_property_name(Prop),
 
-    Fn = tgs:simple_fun(TestName, [
+    Fn = tgs:simple_fun(TestName ++ "_", [
         tgs:assign(tgs:var("Target"), tgs:value(Target)),
         tgs:assign(tgs:var("Coins"), tgs:raw(format_intlist(Coins))),
-        tgs:call_macro("assertError", [
-            tgs:var("_"),
-            tgs:call_fun("change:" ++ Property, [
-                tgs:var("Target"), tgs:var("Coins")])])]),
+        erl_syntax:tuple([
+            tgs:string(Desc),
+            tgs:call_macro("_assertError", [
+                tgs:var("_"),
+                tgs:call_fun("change:" ++ Property, [
+                    tgs:var("Target"), tgs:var("Coins")])])])]),
 
     {ok, Fn, [{Property, ["Target", "Coins"]}]};
 generate_test(N, #{description := Desc, expected := undefined, property := Prop, input := #{target := Target, coins := Coins}}) ->
     TestName = tgen:to_test_name(N, Desc),
     Property = tgen:to_property_name(Prop),
 
-    Fn = tgs:simple_fun(TestName, [
+    Fn = tgs:simple_fun(TestName ++ "_", [
         tgs:assign(tgs:var("Target"), tgs:value(Target)),
         tgs:assign(tgs:var("Coins"), tgs:raw(format_intlist(Coins))),
         tgs:assign(tgs:var("Expected"), tgs:value(undefined)),
-        tgs:call_macro("assertEqual", [
-            tgs:var("Expected"),
-            tgs:call_fun("change:" ++ Property, [
-                tgs:var("Target"), tgs:var("Coins")])])]),
+        erl_syntax:tuple([
+            tgs:string(Desc),
+            tgs:call_macro("_assertEqual", [
+                tgs:var("Expected"),
+                tgs:call_fun("change:" ++ Property, [
+                    tgs:var("Target"), tgs:var("Coins")])])])]),
 
     {ok, Fn, [{Property, ["Target", "Coins"]}]};
 generate_test(N, #{description := Desc, expected := Exp, property := Prop, input := #{target := Target, coins := Coins}}) ->
     TestName = tgen:to_test_name(N, Desc),
     Property = tgen:to_property_name(Prop),
 
-    Fn = tgs:simple_fun(TestName, [
+    Fn = tgs:simple_fun(TestName ++ "_", [
         tgs:assign(tgs:var("Target"), tgs:value(Target)),
         tgs:assign(tgs:var("Coins"), tgs:raw(format_intlist(Coins))),
         tgs:assign(tgs:var("Expected"), tgs:raw(format_intlist(lists:sort(Exp)))),
-        tgs:call_macro("assertEqual", [
-            tgs:var("Expected"),
-            tgs:call_fun("change:" ++ Property, [
-                tgs:var("Target"), tgs:var("Coins")])])]),
+        erl_syntax:tuple([
+            tgs:string(Desc),
+            tgs:call_macro("_assertEqual", [
+                tgs:var("Expected"),
+                tgs:call_fun("change:" ++ Property, [
+                    tgs:var("Target"), tgs:var("Coins")])])])]),
 
     {ok, Fn, [{Property, ["Target", "Coins"]}]}.
 

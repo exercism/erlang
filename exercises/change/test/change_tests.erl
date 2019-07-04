@@ -10,79 +10,93 @@
 
 
 
-'1_single_coin_change_test'() ->
+'1_single_coin_change_test_'() ->
     Target = 25,
     Coins = [1, 5, 10, 25, 100],
     Expected = [25],
-    ?assertEqual(Expected,
-		 change:find_fewest_coins(Target, Coins)).
+    {"single coin change",
+     ?_assertEqual(Expected,
+		   change:find_fewest_coins(Target, Coins))}.
 
-'2_multiple_coin_change_test'() ->
+'2_multiple_coin_change_test_'() ->
     Target = 15,
     Coins = [1, 5, 10, 25, 100],
     Expected = [5, 10],
-    ?assertEqual(Expected,
-		 change:find_fewest_coins(Target, Coins)).
+    {"multiple coin change",
+     ?_assertEqual(Expected,
+		   change:find_fewest_coins(Target, Coins))}.
 
-'3_change_with_lilliputian_coins_test'() ->
+'3_change_with_lilliputian_coins_test_'() ->
     Target = 23,
     Coins = [1, 4, 15, 20, 50],
     Expected = [4, 4, 15],
-    ?assertEqual(Expected,
-		 change:find_fewest_coins(Target, Coins)).
+    {"change with Lilliputian Coins",
+     ?_assertEqual(Expected,
+		   change:find_fewest_coins(Target, Coins))}.
 
-'4_change_with_lower_elbonia_coins_test'() ->
+'4_change_with_lower_elbonia_coins_test_'() ->
     Target = 63,
     Coins = [1, 5, 10, 21, 25],
     Expected = [21, 21, 21],
-    ?assertEqual(Expected,
-		 change:find_fewest_coins(Target, Coins)).
+    {"change with Lower Elbonia Coins",
+     ?_assertEqual(Expected,
+		   change:find_fewest_coins(Target, Coins))}.
 
-'5_large_target_values_test'() ->
+'5_large_target_values_test_'() ->
     Target = 999,
     Coins = [1, 2, 5, 10, 20, 50, 100],
     Expected =
 	[2, 2, 5, 20, 20, 50, 100, 100, 100, 100, 100, 100, 100, 100, 100],
-    ?assertEqual(Expected,
-		 change:find_fewest_coins(Target, Coins)).
+    {"large target values",
+     ?_assertEqual(Expected,
+		   change:find_fewest_coins(Target, Coins))}.
 
-'6_possible_change_without_unit_coins_available_test'() ->
+'6_possible_change_without_unit_coins_available_test_'() ->
     Target = 21,
     Coins = [2, 5, 10, 20, 50],
     Expected = [2, 2, 2, 5, 10],
-    ?assertEqual(Expected,
-		 change:find_fewest_coins(Target, Coins)).
+    {"possible change without unit coins available",
+     ?_assertEqual(Expected,
+		   change:find_fewest_coins(Target, Coins))}.
 
-'7_another_possible_change_without_unit_coins_available_test'() ->
+'7_another_possible_change_without_unit_coins_available_test_'() ->
     Target = 27,
     Coins = [4, 5],
     Expected = [4, 4, 4, 5, 5, 5],
-    ?assertEqual(Expected,
-		 change:find_fewest_coins(Target, Coins)).
+    {"another possible change without unit "
+     "coins available",
+     ?_assertEqual(Expected,
+		   change:find_fewest_coins(Target, Coins))}.
 
-'8_no_coins_make_0_change_test'() ->
+'8_no_coins_make_0_change_test_'() ->
     Target = 0,
     Coins = [1, 5, 10, 21, 25],
     Expected = [],
-    ?assertEqual(Expected,
-		 change:find_fewest_coins(Target, Coins)).
+    {"no coins make 0 change",
+     ?_assertEqual(Expected,
+		   change:find_fewest_coins(Target, Coins))}.
 
-'9_error_testing_for_change_smaller_than_the_smallest_of_coins_test'() ->
+'9_error_testing_for_change_smaller_than_the_smallest_of_coins_test_'() ->
     Target = 3,
     Coins = [5, 10],
     Expected = undefined,
-    ?assertEqual(Expected,
-		 change:find_fewest_coins(Target, Coins)).
+    {"error testing for change smaller than "
+     "the smallest of coins",
+     ?_assertEqual(Expected,
+		   change:find_fewest_coins(Target, Coins))}.
 
-'10_error_if_no_combination_can_add_up_to_target_test'() ->
+'10_error_if_no_combination_can_add_up_to_target_test_'() ->
     Target = 94,
     Coins = [5, 10],
     Expected = undefined,
-    ?assertEqual(Expected,
-		 change:find_fewest_coins(Target, Coins)).
+    {"error if no combination can add up to "
+     "target",
+     ?_assertEqual(Expected,
+		   change:find_fewest_coins(Target, Coins))}.
 
-'11_cannot_find_negative_change_values_test'() ->
+'11_cannot_find_negative_change_values_test_'() ->
     Target = -5,
     Coins = [1, 2, 5],
-    ?assertError(_,
-		 change:find_fewest_coins(Target, Coins)).
+    {"cannot find negative change values",
+     ?_assertError(_,
+		   change:find_fewest_coins(Target, Coins))}.
