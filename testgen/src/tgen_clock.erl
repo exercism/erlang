@@ -4,12 +4,15 @@
 
 -export([
     available/0,
+    revision/0,
     generate_test/2
 ]).
 
 -spec available() -> true.
 available() ->
     true.
+
+revision() -> 1.
 
 generate_test(N, #{description := Desc, expected := Exp, property := <<"create">>, input := #{hour := Hour, minute := Minute}}) ->
     TestName = tgen:to_test_name(N, Desc),
