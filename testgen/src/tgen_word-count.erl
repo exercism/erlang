@@ -4,6 +4,7 @@
 
 -export([
     available/0,
+    revision/0,
     prepare_test_module/0,
     generate_test/2
 ]).
@@ -11,6 +12,8 @@
 -spec available() -> true.
 available() ->
     true.
+
+revision() -> 1.
 
 prepare_test_module() ->
     {
@@ -43,10 +46,13 @@ generate_test(N, #{description := Desc, expected := Exp, property := Prop, input
         Exp
     ),
 
-    Fn = tgs:simple_fun(TestName, [
-        tgs:call_fun("assertCount", [
-            tgs:value(Exp1),
-            tgs:call_fun("word_count:" ++ Property, [
-                tgs:value(binary_to_list(Sentence))])])]),
+    Fn = tgs:simple_fun(TestName ++ "_", [
+        erl_syntax:tuple([
+            tgs:string(Desc),
+            tgs:call_macro("_test", [
+                tgs:call_fun("assertCount", [
+                    tgs:value(Exp1),
+                    tgs:call_fun("word_count:" ++ Property, [
+                        tgs:value(binary_to_list(Sentence))])])])])]),
 
     {ok, Fn, [{Property, ["Sentence"]}]}.
