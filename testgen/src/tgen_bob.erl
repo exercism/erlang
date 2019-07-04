@@ -20,10 +20,12 @@ generate_test(N, #{description := Desc, expected := Exp, property := Prop, input
     Expected = binary_to_list(Exp),
     Sentence = binary_to_list(HeyBob),
 
-    Fn = tgs:simple_fun(TestName, [
-        tgs:call_macro("assertMatch", [
-            tgs:value(Expected),
-            tgs:call_fun("bob:" ++ Property, [
-                tgs:value(Sentence)])])]),
+    Fn = tgs:simple_fun(TestName ++ "_", [
+        erl_syntax:tuple([
+            tgs:string(Desc),
+            tgs:call_macro("_assertMatch", [
+                tgs:value(Expected),
+                tgs:call_fun("bob:" ++ Property, [
+                    tgs:value(Sentence)])])])]),
 
     {ok, Fn, [{Property, ["String"]}]}.
