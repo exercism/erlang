@@ -1,4 +1,4 @@
-* update generators [14%]
+* update generators [16%]
 ** DONE all-your-base
 ** DONE allergies
 ** DONE anagram
@@ -6,7 +6,7 @@
 ** DONE atbash-cipher
 ** DONE bob
 ** DONE bracket-push
-** TODO change
+** DONE change
 ** TODO clock
 ** TODO collatz-conjecture
 ** TODO complex-numbers
