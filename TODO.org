@@ -1,4 +1,4 @@
-* update generators [19%]
+* update generators [20%]
 ** DONE all-your-base
 ** DONE allergies
 ** DONE anagram
@@ -8,7 +8,7 @@
 ** DONE bracket-push
 ** DONE change
 ** DONE clock
-** TODO collatz-conjecture
+** DONE collatz-conjecture
 ** TODO complex-numbers
 ** TODO connect
 ** TODO crypto-square
