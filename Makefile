@@ -14,22 +14,3 @@ test: $(EXERCISE_FOLDERS:%=%_test)
 	fi
 	@echo "running tests for $(*:exercises/%_test=%)"
 	@cd $*; $(REBAR3) eunit
-
-run_testgen: testgen/_build/default/bin/testgen
-ifndef GENERATE
-	$< generate
-else
-	$< generate ${GENERATE}
-endif
-.PHONY: run_testgen
-
-testgen/_build/default/bin/testgen:
-	cd testgen && rebar3 escriptize
-.PHONY: testgen/_build/default/bin/testgen
-
-gen_helper: run_testgen
-ifndef GENERATE
-	_test/check-exercises.escript all
-else
-	_test/check-exercises.escript single ${GENERATE}
-endif
