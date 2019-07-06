@@ -9,7 +9,6 @@ install:
 - "./_test/bootstrap.sh"
 script:
 - configlet lint .
-- pushd testgen; rebar3 escriptize; popd # TODO: before merging into master, try to do this in a separate env via buildmatrix
 - "./bin/journey-test.sh"
 cache:
   - apt
