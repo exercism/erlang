@@ -1,9 +1,10 @@
-name: CI
+name: Exercism Erlang Track verification
 
 on: [push]
 
 jobs:
-  build:
+  test_erlang:
+    name: Test examples against OTP ${{ matrix.otp }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
