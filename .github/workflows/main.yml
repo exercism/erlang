@@ -1,0 +1,28 @@
+name: Exercism Erlang Track verification
+
+on: [push]
+
+jobs:
+  configlet:
+    name: check track configuration
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: get configlet
+      run: ./bin/fetch-configlet
+    - name: run configlet
+      run: ./bin/configlet lint .
+  test_erlang:
+    name: Test examples against OTP ${{ matrix.otp }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        otp: ["20.3", "21.3", "22.0"]
+    container:
+      image: erlang:${{ matrix.otp }}
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: apt update && apt install --yes jq
+    - name: run tests
+      run: ./bin/journey-test.sh
