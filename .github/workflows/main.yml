@@ -14,5 +14,5 @@ jobs:
     - uses: actions/checkout@v1
     - name: run tests
       run: |
-        apt install jq
+        apt update && apt install jq
         ./bin/journey-test.sh
