@@ -8,10 +8,9 @@ jobs:
     strategy:
       matrix:
         otp: ["20.3", "21.3", "22.0"]
+    container:
+      image: erlang:${{ matrix.otp }}
     steps:
     - uses: actions/checkout@v1
-    - uses: docker://erlang:${{ matrix.otp }}
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+    - name: run tests
+      run: ./bin/journey.sh
