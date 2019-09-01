@@ -13,4 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: run tests
-      run: ./bin/journey-test.sh
+      run: |
+        apt install jq
+        ./bin/journey-test.sh
