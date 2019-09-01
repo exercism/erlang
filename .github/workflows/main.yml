@@ -13,4 +13,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: run tests
-      run: ./bin/journey.sh
+      run: ./bin/journey-test.sh
