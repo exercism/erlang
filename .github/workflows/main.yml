@@ -1,0 +1,17 @@
+name: CI
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        otp: [20.3, 21.3, 22.0]
+    steps:
+    - uses: actions/checkout@v1
+    - uses: docker://erlang:${{ matrix.otp }}
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
