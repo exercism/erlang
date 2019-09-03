@@ -1,17 +1,4 @@
 ---
 language: erlang
-otp_release:
-- 20.3
-- 21.3
-- 22.0
-install:
-- "kerl update releases; kerl list releases"
-- "./_test/bootstrap.sh"
 script:
-- configlet lint .
-- "./bin/journey-test.sh"
-cache:
-  - apt
-  - cache bundler
-  - directories:
-    - $HOME/bin
+- printf "We are draining travis from this project, we will always pass. Please check GitHub actions when you want to add additional checks"
