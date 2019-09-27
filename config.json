@@ -757,6 +757,16 @@
       ]
     },
     {
+      "slug": "book-store",
+      "uuid": "21db1eaa-db00-49fc-9ec5-c2913a9ff616",
+      "core": false,
+      "unlocked_by": "space-age",
+      "difficulty": 7,
+      "topics": [
+        "algorithms"
+      ]
+    },
+    {
       "slug": "dominoes",
       "uuid": "767acde9-cbca-4cdd-afed-125f14e92e10",
       "core": false,
