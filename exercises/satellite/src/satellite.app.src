@@ -1,0 +1,9 @@
+{application, satellite,
+  [{description, "exercism.io - satellite"},
+    {vsn, "0.0.1"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+]}.

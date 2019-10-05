@@ -587,6 +587,16 @@
       ]
     },
     {
+      "slug": "satellite",
+      "uuid": "f69d4fd0-3547-4be0-8d09-f368b80b9df7",
+      "core": false,
+      "unlocked_by": "bob",
+      "difficulty": 5,
+      "topics": [
+        "trees"
+      ]
+    },
+    {
       "slug": "etl",
       "uuid": "60fc4ea6-28b0-4914-bcc3-a0caefca3cb5",
       "core": false,
