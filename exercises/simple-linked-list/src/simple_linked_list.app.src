@@ -1,0 +1,9 @@
+{application, simple_linked_list,
+  [{description, "exercism.io - simple-linked-list"},
+    {vsn, "0.0.1"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
