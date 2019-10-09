@@ -1,6 +1,6 @@
 name: Exercism Erlang Track verification
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   configlet:
