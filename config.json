@@ -834,7 +834,7 @@
       "slug": "simple-linked-list",
       "uuid": "56a794de-40ee-4ff2-a1dd-f9b83f62d4b0",
       "core": false,
-      "unlocked_by": "null",
+      "unlocked_by": "strain",
       "difficulty": 3,
       "topics": [
         "data_structures",
