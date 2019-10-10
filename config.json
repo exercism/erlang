@@ -830,8 +830,7 @@
         "lists"
       ]
     },
-    {
-<<<<<<< HEAD
+    
       "slug": "simple-linked-list",
       "uuid": "56a794de-40ee-4ff2-a1dd-f9b83f62d4b0",
       "core": false,
@@ -848,12 +847,6 @@
       "uuid": "a8f7f17e-567b-43ec-9ee5-6288367f0ae4",
       "core": false,
       "unlocked_by": "strain",
-=======
-      "slug": "binary-search-tree",
-      "uuid": "a8f7f17e-567b-43ec-9ee5-6288367f0ae4",
-      "core": false,
-      "unlocked_by": null,
->>>>>>> 73ac5d1407a84e06c0c22ff31748d06aa74d3c99
       "difficulty": 3,
       "topics": [
         "recursion",
