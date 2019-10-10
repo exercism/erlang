@@ -25,4 +25,4 @@ jobs:
     - name: Install dependencies
       run: apt update && apt install --yes jq
     - name: run tests
-      run: ./bin/journey-test.sh
+      run: ./bin/run_ci.sh
