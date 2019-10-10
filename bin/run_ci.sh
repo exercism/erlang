@@ -13,11 +13,13 @@ function run_test () {
   
   pushd exercises/${exercise} > /dev/null
 
-  printf "\n\n\nRunning tests for %.20s.\n======================================\n" ${exercise}
+  printf "Testing: %s -- " ${exercise}
   output=$(rebar3 eunit 2>&1)
   if ! [ "$?" == "0" ]; then
     register_fail ${exercise}
-    echo "${output}"
+    printf "FAIL\n%s" "${output}"
+  else
+    printf "PASS\n"
   fi
 
   rm -rf _deps
@@ -55,7 +57,7 @@ function main () {
 
 main $@
 
-if [[ ${#failures[@]} != 0 ]] ; then
+if [[ ${#failures[@]} != 0 ]]; then
   printf "\n\n%d examples have failed:\n\n" ${#failures[@]}
 
   for e in ${failures[@]}; do printf "* %s\n" ${e}; done
