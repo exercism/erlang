@@ -27,25 +27,6 @@ function run_test () {
   popd > /dev/null
 }
 
-function run_children () {
-  local parent=${1}
-  local config=${2}
-
-  local exercises=( $(cat ${config} | jq --raw-output ".exercises[] | select(.unlocked_by == \"${parent}\") | .slug") )
-  
-  for e in ${exercises[@]}; do
-    run_test ${e}
-  done
-}
-
-function run_core_tests () {
-  local exercise=${1}
-  local config=${2}
-
-  run_test ${exercise}
-  run_children ${exercise} ${config}
-}
-
 function main () {
   local config=${1:-config.json}
   local exercises=( $(cat config.json | jq '.exercises[].slug' --raw-output | sort) )
