@@ -69,16 +69,33 @@
   NL = simple_linked_list:to_native_list(L),
   ?assertMatch(NL, [2, 1]).
 
-'13_empty_list_can_be_reversed_test'() ->
+'13_can_convert_from_an_empty_native_list_test'() ->
+  L = simple_linked_list:from_native_list([]),
+  ?assertMatch(L, simple_linked_list:empty()).
+
+'14_can_convert_from_a_non_empty_native_list_test'() ->
+  L = simple_linked_list:cons(2, simple_linked_list:cons(1, simple_linked_list:empty())),
+  L2 = simple_linked_list:from_native_list([2,1]),
+  ?assertMatch(L, L2).
+
+'15_converting_to_and_from_a_native_list_is_identity_test'() ->
+  L = simple_linked_list:cons(2, simple_linked_list:cons(1, simple_linked_list:empty())),
+  L2 = simple_linked_list:from_native_list(simple_linked_list:to_native_list(L)),
+  L3 = [1,2],
+  L4 = simple_linked_list:to_native_list(simple_linked_list:from_native_list(L3)),
+  ?assertMatch(L, L2),
+  ?assertMatch(L3, L4).
+
+'16_empty_list_can_be_reversed_test'() ->
   L = simple_linked_list:empty(),
   ?assertMatch(L, (simple_linked_list:reverse(L))).
 
-'14_non_empty_list_can_be_reversed_test'() ->
+'17_non_empty_list_can_be_reversed_test'() ->
   L = simple_linked_list:from_native_list([1,2,3]),
   L2 = simple_linked_list:from_native_list([3,2,1]),
   ?assertMatch(L, (simple_linked_list:reverse(L2))).
 
-'15_can_reverse_a_reversal_test'() ->
+'18_can_reverse_a_reversal_test'() ->
   NL = lists:seq(1, 10),
   L = simple_linked_list:reverse(simple_linked_list:from_native_list(NL)),
   L2 = simple_linked_list:reverse(simple_linked_list:reverse(L)),
