@@ -42,10 +42,10 @@ function run_core_tests () {
 
 function main () {
   local config=${1:-config.json}
-  local core_exercises=( $(cat ${config} | jq --raw-output '.exercises[] | select(.core) | .slug') )
+  local exercises=( $(cat config.json | jq '.exercises[].slug' --raw-output | sort) )
 
-  for e in "${core_exercises[@]}"; do
-    run_core_tests ${e} ${config}
+  for e in "${exercises[@]}"; do
+    run_test ${e} ${config}
   done
 }
 
