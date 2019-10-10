@@ -2,10 +2,10 @@
 
 # set -ex
 
-red=$(tput setaf 1)
-green=$(tput setaf 2)
-yellow=$(tput setaf 3)
-reset=$(tput sgr0)
+red=$(tput -Txterm setaf 1)
+green=$(tput -Txterm setaf 2)
+yellow=$(tput -Txterm setaf 3)
+reset=$(tput -Txterm sgr0)
 
 failures=()
 
@@ -15,7 +15,7 @@ function register_fail () {
 
 function run_test () {
   local exercise=${1}
-  
+
   pushd exercises/${exercise} > /dev/null
 
   printf "%sTesting%s: %s -- " "${yellow}" "${reset}" "${exercise}"
