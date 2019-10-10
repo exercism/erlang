@@ -18,6 +18,8 @@ function run_test () {
     register_fail ${exercise}
   fi
 
+  rm -rf _deps
+
   popd
 }
 
