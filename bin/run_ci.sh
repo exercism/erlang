@@ -11,16 +11,18 @@ function register_fail () {
 function run_test () {
   local exercise=${1}
   
-  pushd exercises/${exercise}
+  pushd exercises/${exercise} > /dev/null
 
-  printf "\n\n\nRunning tests for %.20s.\n======================================\n" ${exercise} 
-  if ! rebar3 eunit; then
+  printf "\n\n\nRunning tests for %.20s.\n======================================\n" ${exercise}
+  output=$(rebar3 eunit 2>&1)
+  if ! [ "$?" == "0" ]; then
     register_fail ${exercise}
+    echo "${output}"
   fi
 
   rm -rf _deps
 
-  popd
+  popd > /dev/null
 }
 
 function run_children () {
