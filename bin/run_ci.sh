@@ -2,6 +2,11 @@
 
 # set -ex
 
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+reset=$(tput sgr0)
+
 failures=()
 
 function register_fail () {
@@ -13,13 +18,13 @@ function run_test () {
   
   pushd exercises/${exercise} > /dev/null
 
-  printf "Testing: %s -- " ${exercise}
+  printf "%sTesting%s: %s -- " "${yellow}" "${reset}" "${exercise}"
   output=$(rebar3 eunit 2>&1)
   if ! [ "$?" == "0" ]; then
     register_fail ${exercise}
-    printf "FAIL\n%s" "${output}"
+    printf "%sFAIL%s\n%s" "${red}" "${reset}" "${output}"
   else
-    printf "PASS\n"
+    printf "%sPASS%s\n" "${green}" "${reset}"
   fi
 
   rm -rf _deps
