@@ -26,8 +26,8 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "strings",
-        "arity"
+        "arity",
+        "strings"
       ]
     },
     {
@@ -830,7 +830,7 @@
         "lists"
       ]
     },
-    
+    {
       "slug": "simple-linked-list",
       "uuid": "56a794de-40ee-4ff2-a1dd-f9b83f62d4b0",
       "core": false,
