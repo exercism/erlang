@@ -2,6 +2,11 @@
 
 # set -ex
 
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+reset=$(tput sgr0)
+
 failures=()
 
 function register_fail () {
@@ -11,47 +16,34 @@ function register_fail () {
 function run_test () {
   local exercise=${1}
   
-  pushd exercises/${exercise}
+  pushd exercises/${exercise} > /dev/null
 
-  printf "\n\n\nRunning tests for %.20s.\n======================================\n" ${exercise} 
-  if ! rebar3 eunit; then
+  printf "%sTesting%s: %s -- " "${yellow}" "${reset}" "${exercise}"
+  output=$(rebar3 eunit 2>&1)
+  if ! [ "$?" == "0" ]; then
     register_fail ${exercise}
+    printf "%sFAIL%s\n%s" "${red}" "${reset}" "${output}"
+  else
+    printf "%sPASS%s\n" "${green}" "${reset}"
   fi
 
-  popd
-}
+  rm -rf _deps
 
-function run_children () {
-  local parent=${1}
-  local config=${2}
-
-  local exercises=( $(cat ${config} | jq --raw-output ".exercises[] | select(.unlocked_by == \"${parent}\") | .slug") )
-  
-  for e in ${exercises[@]}; do
-    run_test ${e}
-  done
-}
-
-function run_core_tests () {
-  local exercise=${1}
-  local config=${2}
-
-  run_test ${exercise}
-  run_children ${exercise} ${config}
+  popd > /dev/null
 }
 
 function main () {
   local config=${1:-config.json}
-  local core_exercises=( $(cat ${config} | jq --raw-output '.exercises[] | select(.core) | .slug') )
+  local exercises=( $(cat config.json | jq '.exercises[].slug' --raw-output | sort) )
 
-  for e in "${core_exercises[@]}"; do
-    run_core_tests ${e} ${config}
+  for e in "${exercises[@]}"; do
+    run_test ${e} ${config}
   done
 }
 
 main $@
 
-if [[ ${#failures[@]} != 0 ]] ; then
+if [[ ${#failures[@]} != 0 ]]; then
   printf "\n\n%d examples have failed:\n\n" ${#failures[@]}
 
   for e in ${failures[@]}; do printf "* %s\n" ${e}; done
