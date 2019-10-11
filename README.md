@@ -85,5 +85,5 @@ Please make sure, that all tests pass by running
 `escript _test/check-exercises.escript`. Also a run of `bin/configlet lint`
 should pass without error message.
 
-Both programs will be run on Travis and a merge is unlikely when
+Both programs will be run on Travis and a merge is unlikely if
 tests fail.
