@@ -243,6 +243,16 @@
       ]
     },
     {
+      "slug": "list-ops",
+      "uuid": "e80410bb-45e5-4007-ad97-e7470dd87ed5",
+      "core": false,
+      "unlocked_by": "rna-transcription",
+      "difficulty": 2,
+      "topics": [
+        "lists"
+      ]
+    },
+    {
       "slug": "prime-factors",
       "uuid": "b6ff9201-e0fc-43e5-9501-cd0509f9ce1c",
       "core": false,
@@ -377,6 +387,18 @@
         "control_flow_conditionals",
         "pattern_matching",
         "strings"
+      ]
+    },
+    {
+      "slug": "simple-linked-list",
+      "uuid": "56a794de-40ee-4ff2-a1dd-f9b83f62d4b0",
+      "core": false,
+      "unlocked_by": "strain",
+      "difficulty": 3,
+      "topics": [
+        "data_structures",
+        "lists",
+        "recursion"
       ]
     },
     {
@@ -818,28 +840,6 @@
         "algorithms",
         "games",
         "parsing"
-      ]
-    },
-    {
-      "slug": "list-ops",
-      "uuid": "e80410bb-45e5-4007-ad97-e7470dd87ed5",
-      "core": false,
-      "unlocked_by": "rna-transcription",
-      "difficulty": 2,
-      "topics": [
-        "lists"
-      ]
-    },
-    {
-      "slug": "simple-linked-list",
-      "uuid": "56a794de-40ee-4ff2-a1dd-f9b83f62d4b0",
-      "core": false,
-      "unlocked_by": "strain",
-      "difficulty": 3,
-      "topics": [
-        "data_structures",
-        "lists",
-        "recursion"
       ]
     }
   ]
