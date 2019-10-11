@@ -521,6 +521,17 @@
       ]
     },
     {
+      "slug": "nth-prime",
+      "uuid": "8600a843-ec71-4f1a-b9fe-2ed515035101",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "math"
+      ]
+    },
+    {
       "slug": "largest-series-product",
       "uuid": "b312ff0e-90e3-4dd8-99dc-df4a9deb1907",
       "core": false,
