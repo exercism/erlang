@@ -1,12 +1,12 @@
 -module(binary_search_tree).
-
--export([empty/0, value/1, left/1, right/1, insert/2, to_list/1]).
+ 
+-export([empty/0, data/1, left/1, right/1, insert/2, sorted_data/1]).
 
 %% empty tree
 empty() -> undefined.
 
-%% value at the top of _BST
-value(_BST) -> undefined.
+%% data at the top of _BST
+data(_BST) -> undefined.
 
 %% left subtree
 left(_BST) -> undefined.
@@ -18,4 +18,6 @@ right(_BST) -> undefined.
 insert(_BST, _Value) -> undefined.
 
 %% convert _BST to a sorted list
-to_list(_BST) -> undefined.
+sorted_data(_BST) -> undefined.
+
+
