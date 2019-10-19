@@ -4,7 +4,7 @@
 
 -type substance() :: eggs | peanuts | shellfish |strawberries |tomatoes | chocolate | pollen | cats.
 
--spec allergies(integer()) -> list(substance()) .
+-spec allergies(integer()) -> [substance()] .
 
 allergies(_Score) -> undefined.
 

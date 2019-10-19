@@ -7,7 +7,7 @@
 create(_Size) ->
   undefined.
 
--spec read(pid()) -> {ok, Item :: any()} | {error, empty}.
+-spec read(pid()) -> {ok, Item :: term()} | {error, empty}.
 
 read(_Pid) ->
   undefined.
@@ -17,12 +17,12 @@ read(_Pid) ->
 size(_Pid) ->
   undefined.
 
--spec write(pid(), Item :: any()) -> ok.
+-spec write(pid(), Item :: term()) -> ok.
 
 write(_Pid, _Item) ->
   undefined.
 
--spec write_attempt(pid(), Item :: any()) -> ok | {error, full}.
+-spec write_attempt(pid(), Item :: term()) -> ok | {error, full}.
 
 write_attempt(_Pid, _Item) ->
   undefined.
