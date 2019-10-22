@@ -2,7 +2,7 @@
 
 -export([steps/1]).
 
-steps(N) when N =< 0 -> {error, "Only positive numbers are allowed"};
+steps(N) when N =< 0 -> erlang:error(badarg);
 steps(N) ->
   steps(N, 0).
 
