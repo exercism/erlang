@@ -76,6 +76,17 @@
       ]
     },
     {
+      "slug": "resistor-color",
+      "uuid": "2cedac68-ef94-453e-bd7f-14b9450f721c",
+      "core": false,
+      "unlocked_by": "raindrops",
+      "difficulty": 1,
+      "topics": [
+        "maps",
+        "transforming"
+      ]
+    },
+    {
       "slug": "rna-transcription",
       "uuid": "8e9a98b1-bf4f-4c94-a258-a8618cc37f55",
       "core": true,
