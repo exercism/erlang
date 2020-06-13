@@ -25,3 +25,7 @@
 
 '5_a_dart_lands_in_the_inner_circle_test'() ->
     ?assertEqual(10, darts:score(0, 0)).
+
+'6_a_dart_lands_outside_the_top_right_corner_of_inner_circle_test'() ->
+    ?assertEqual(5, darts:score(1, 1)).
+
