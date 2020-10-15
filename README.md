@@ -19,8 +19,9 @@ or `docs/INSTALLATION.md` in this repository. Also run
 `bin/fetch-configlet` to download the JSON-checker.
 
 Please make sure you use one of the releases of erlang/OTP as
-specified in `.travis.yml`, as these are the ones officially tested
-and supported by this track.
+specified in `.github/workflows/main.yml` (see the
+`jobs.test_erlang.strategy.matrix.otp` key), as these are the ones
+officially tested and supported by this track.
 
 Feel free to use any feature that was introduced in the oldest version
 of the range, while also avoiding everything that has been removed or
