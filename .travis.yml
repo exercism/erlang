@@ -1,4 +1,0 @@
----
-language: erlang
-script:
-- printf "We are draining travis from this project, we will always pass. Please check GitHub actions when you want to add additional checks"
