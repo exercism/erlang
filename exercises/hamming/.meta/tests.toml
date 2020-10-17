@@ -21,8 +21,12 @@
 # disallow second strand longer
 "8a2d4ed0-ead5-4fdd-924d-27c4cf56e60e" = true
 
+# We do consider empty strands just shorter than the other one.
+# There is no need to treat them differently to cases
+# 919f8ef0-b767-4d1b-8516-6379d07fcb28 and
+# 8a2d4ed0-ead5-4fdd-924d-27c4cf56e60e
 # disallow left empty strand
-"5dce058b-28d4-4ca7-aa64-adfe4e17784c" = true
+"5dce058b-28d4-4ca7-aa64-adfe4e17784c" = false
 
 # disallow right empty strand
-"38826d4b-16fb-4639-ac3e-ba027dec8b5f" = true
+"38826d4b-16fb-4639-ac3e-ba027dec8b5f" = false
