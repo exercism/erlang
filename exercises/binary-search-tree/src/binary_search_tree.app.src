@@ -1,0 +1,9 @@
+{application, binary_search_tree,
+  [{description, "exercism.io - binary-search-tree"},
+    {vsn, "1.0.0"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.

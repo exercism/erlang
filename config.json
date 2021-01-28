@@ -26,8 +26,8 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "strings",
-        "arity"
+        "arity",
+        "strings"
       ]
     },
     {
@@ -851,6 +851,18 @@
         "data_structures",
         "lists",
         "recursion"
+      ]
+    },
+    {
+      "slug": "binary-search-tree",
+      "uuid": "a8f7f17e-567b-43ec-9ee5-6288367f0ae4",
+      "core": false,
+      "unlocked_by": "strain",
+      "difficulty": 3,
+      "topics": [
+        "recursion",
+        "searching",
+        "trees"
       ]
     }
   ]
