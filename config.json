@@ -14,11 +14,6 @@
     "indent_style": "space",
     "indent_size": 4
   },
-  "foregone": [
-    "binary-search",
-    "lens-person",
-    "linked-list"
-  ],
   "exercises": {
     "practice": [
       {
@@ -865,6 +860,11 @@
         "difficulty": 3,
         "topics": []
       }
+    ],
+    "foregone": [
+      "binary-search",
+      "lens-person",
+      "linked-list"
     ]
   }
 }
