@@ -16,7 +16,7 @@ function register_fail () {
 function run_test () {
   local exercise=${1}
 
-  pushd exercises/${exercise} > /dev/null
+  pushd exercises/practice/${exercise} > /dev/null
 
   printf "%sTesting%s: %s -- " "${yellow}" "${reset}" "${exercise}"
   output=$(rebar3 eunit 2>&1)
@@ -34,7 +34,7 @@ function run_test () {
 
 function main () {
   local config=${1:-config.json}
-  local exercises=( $(cat config.json | jq '.exercises[].slug' --raw-output | sort) )
+  local exercises=( $(cat config.json | jq '.exercises.practice[].slug' --raw-output | sort) )
 
   for e in "${exercises[@]}"; do
     run_test ${e} ${config}
