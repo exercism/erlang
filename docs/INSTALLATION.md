@@ -3,7 +3,7 @@
 If you have any trouble installing erlang please consider joining the 
 [gitter support channel](https://gitter.im/exercism/xerlang)
 
-### Homebrew for Mac OS X
+## Homebrew for Mac OS X
 
 Update your Homebrew to latest:
 
@@ -17,7 +17,7 @@ Install Erlang and Rebar3:
 $ brew install erlang rebar@3
 ```
 
-### On Linux
+## On Linux
 
 * Fedora 17+ and Fedora Rawhide: `sudo yum -y install erlang`
 * Arch Linux: `sudo pacman -S erlang`
@@ -36,7 +36,7 @@ via package manager are welcome).
 * Arch Linux: [install](https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages)
   the AUR package [`rebar3`](https://aur.archlinux.org/packages/rebar3).
 
-### On Windows
+## On Windows
 
 Assuming [`choco`](https://chocolatey.org/) is available (maybe you
 already installed `exercism` CLI using it).
@@ -46,7 +46,7 @@ choco install erlang
 choco install rebar3
 ```
 
-### Installing from Source
+## Installing from Source
 
 Get [a recent Erlang OTP](http://www.erlang.org/download.html) and follow their
 [build-instructions](https://github.com/erlang/otp/blob/maint/HOWTO/INSTALL.md).
