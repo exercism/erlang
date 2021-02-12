@@ -1,3 +1,5 @@
+# About
+
 Erlang is a functional programming language, used for creating  real-time distributed systems, which can easily scale in size. 
 
 It's best for concurrent applications, such as instant messaging and banking platforms, as each function call has their own process and operates independently.

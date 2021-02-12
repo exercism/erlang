@@ -1,3 +1,5 @@
+# Installation
+
 If you have any trouble installing erlang please consider joining the 
 [gitter support channel](https://gitter.im/exercism/xerlang)
 

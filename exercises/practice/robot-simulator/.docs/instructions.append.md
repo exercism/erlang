@@ -1,3 +1,5 @@
+# Instructions append
+
 This exercise does require some kind of global state for your
 robot. In erlang this can be done in various ways (starting with most
 idiomatic one):
