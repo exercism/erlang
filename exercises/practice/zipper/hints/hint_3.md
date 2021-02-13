@@ -1,3 +1,5 @@
+# hint 3
+
 ```erl
 -type trail :: {left,  any(), tree(), trail()}
              | {right, any(), tree(), trail()}
