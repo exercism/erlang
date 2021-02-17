@@ -14,6 +14,20 @@
     "indent_style": "space",
     "indent_size": 4
   },
+  "files": {
+    "solution": [
+      "src/%{snake_slug}.erl"
+    ],
+    "test": [
+      "test/%{snake_slug}_tests.erl"
+    ],
+    "example": [
+      "src/example.erl"
+    ],
+    "exemplar": [
+      ".meta/exemplar.erl"
+    ]
+  },
   "exercises": {
     "concept": [],
     "practice": [
