@@ -18,8 +18,10 @@ function run_test () {
 
   pushd exercises/practice/${exercise} > /dev/null
 
+  ln -s $(pwd)/.meta/example.erl src/example.erl
+
   printf "%sTesting%s: %s -- " "${yellow}" "${reset}" "${exercise}"
-  output=$(rebar3 eunit 2>&1)
+  output=$(rebar3 eunit)
   if ! [ "$?" == "0" ]; then
     register_fail ${exercise}
     printf "%sFAIL%s\n%s" "${red}" "${reset}" "${output}"
@@ -27,7 +29,7 @@ function run_test () {
     printf "%sPASS%s\n" "${green}" "${reset}"
   fi
 
-  rm -rf _deps
+  rm -rf _deps _build src/example.erl
 
   popd > /dev/null
 }
