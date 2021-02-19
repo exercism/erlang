@@ -4,7 +4,7 @@
     "solution": [],
     "test": [],
     "example": [
-      ".meta/src/example.erl"
+      ".meta/example.erl"
     ]
   },
   "source": "Inspired by the 'Deaf Grandma' exercise in Chris Pine's Learn to Program tutorial.",

@@ -4,7 +4,7 @@
     "solution": [],
     "test": [],
     "example": [
-      ".meta/src/example.erl"
+      ".meta/example.erl"
     ]
   },
   "source_url": "https://github.com/exercism/problem-specifications/issues/757"

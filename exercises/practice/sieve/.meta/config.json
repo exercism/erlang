@@ -4,7 +4,7 @@
     "solution": [],
     "test": [],
     "example": [
-      ".meta/src/example.erl"
+      ".meta/example.erl"
     ]
   },
   "source": "Sieve of Eratosthenes at Wikipedia",

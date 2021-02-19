@@ -4,7 +4,7 @@
     "solution": [],
     "test": [],
     "example": [
-      ".meta/src/example.erl"
+      ".meta/example.erl"
     ]
   },
   "source": "Chapter 9 in Chris Pine's online Learn to Program tutorial.",
