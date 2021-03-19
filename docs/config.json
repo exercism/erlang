@@ -1,0 +1,25 @@
+{
+  "docs": [
+    {
+      "uuid": "07a27deb-7c71-41f8-a0a8-fabe712bb83f",
+      "slug": "installation",
+      "path": "docs/INSTALLATION.md",
+      "title": "Installing Erlang locally",
+      "blurb": "Learn how to install Erlang locally to solve Exercism's exercises on your own machine"
+    },
+    {
+      "uuid": "617d5683-a6d0-4ab6-a67d-541a6a0a039d",
+      "slug": "learning",
+      "path": "docs/LEARNING.md",
+      "title": "How to learn Erlang",
+      "blurb": "An overview of how to get started from scratch with Erlang"
+    },
+    {
+      "uuid": "c668c236-71dc-4f76-9595-990ea2e9cd6e",
+      "slug": "tests",
+      "path": "docs/TESTS.md",
+      "title": "Testing on the Erlang track",
+      "blurb": "Learn how to test your Erlang exercises on Exercism"
+    }
+  ]
+}
