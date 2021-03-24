@@ -1,6 +1,13 @@
 {
   "blurb": "Create a custom set type.",
-  "authors": [],
+  "authors": [
+    "NobbZ"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "juhlig"
+  ],
   "files": {
     "solution": [],
     "test": [],

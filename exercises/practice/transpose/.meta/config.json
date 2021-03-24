@@ -1,6 +1,13 @@
 {
   "blurb": "Take input text and output it transposed.",
-  "authors": [],
+  "authors": [
+    "juhlig"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "NobbZ"
+  ],
   "files": {
     "solution": [],
     "test": [],

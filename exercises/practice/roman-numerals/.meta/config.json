@@ -1,6 +1,18 @@
 {
   "blurb": "Write a function to convert from normal numbers to Roman Numerals.",
-  "authors": [],
+  "authors": [
+    "ksyu"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "JordanAdams",
+    "juhlig",
+    "kytrinyx",
+    "NobbZ",
+    "paulmr",
+    "xymbol"
+  ],
   "files": {
     "solution": [],
     "test": [],

@@ -1,6 +1,13 @@
 {
   "blurb": "Rebuild binary trees from pre-order and in-order traversals.",
-  "authors": [],
+  "authors": [
+    "juhlig"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "NobbZ"
+  ],
   "files": {
     "solution": [],
     "test": [],

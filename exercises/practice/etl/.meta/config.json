@@ -1,6 +1,21 @@
 {
   "blurb": "We are going to do the `Transform` step of an Extract-Transform-Load.",
-  "authors": [],
+  "authors": [
+    "milo-hyben"
+  ],
+  "contributors": [
+    "adolfopa",
+    "ErikSchierboom",
+    "etrepum",
+    "iHiD",
+    "JordanAdams",
+    "juhlig",
+    "kytrinyx",
+    "macintux",
+    "NobbZ",
+    "tmcgilchrist",
+    "xymbol"
+  ],
   "files": {
     "solution": [],
     "test": [],

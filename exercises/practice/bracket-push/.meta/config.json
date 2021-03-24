@@ -1,5 +1,12 @@
 {
-  "authors": [],
+  "authors": [
+    "juhlig"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "NobbZ"
+  ],
   "files": {
     "solution": [],
     "test": [],

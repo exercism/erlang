@@ -1,6 +1,18 @@
 {
   "blurb": "Given a word, compute the Scrabble score for that word.",
-  "authors": [],
+  "authors": [
+    "NobbZ"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "JordanAdams",
+    "juhlig",
+    "kytrinyx",
+    "tmcgilchrist",
+    "xymbol",
+    "yurrriq"
+  ],
   "files": {
     "solution": [],
     "test": [],

@@ -1,6 +1,13 @@
 {
   "blurb": "Implement variable length quantity encoding and decoding.",
-  "authors": [],
+  "authors": [
+    "juhlig"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "NobbZ"
+  ],
   "files": {
     "solution": [],
     "test": [],
