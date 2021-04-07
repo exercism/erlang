@@ -2,8 +2,12 @@
   "blurb": "Implement variable length quantity encoding and decoding.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/variable_length_quantity.erl"
+    ],
+    "test": [
+      "test/variable_length_quantity_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

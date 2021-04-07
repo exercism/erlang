@@ -2,8 +2,12 @@
   "blurb": "Bob is a lackadaisical teenager. In conversation, his responses are very limited.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/bob.erl"
+    ],
+    "test": [
+      "test/bob_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

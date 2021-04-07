@@ -2,8 +2,12 @@
   "blurb": "There exists exactly one Pythagorean triplet for which a + b + c = 1000. Find the product a * b * c.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/pythagorean_triplet.erl"
+    ],
+    "test": [
+      "test/pythagorean_triplet_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

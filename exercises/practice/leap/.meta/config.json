@@ -2,8 +2,12 @@
   "blurb": "Given a year, report if it is a leap year.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/leap.erl"
+    ],
+    "test": [
+      "test/leap_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

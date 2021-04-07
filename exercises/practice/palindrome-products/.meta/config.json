@@ -2,8 +2,12 @@
   "blurb": "Detect palindrome products in a given range.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/palindrome_products.erl"
+    ],
+    "test": [
+      "test/palindrome_products_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

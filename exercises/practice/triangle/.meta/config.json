@@ -2,8 +2,12 @@
   "blurb": "Determine if a triangle is equilateral, isosceles, or scalene.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/triangle.erl"
+    ],
+    "test": [
+      "test/triangle_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

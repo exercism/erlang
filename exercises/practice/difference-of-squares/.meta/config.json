@@ -2,8 +2,12 @@
   "blurb": "Find the difference between the square of the sum and the sum of the squares of the first N natural numbers.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/difference_of_squares.erl"
+    ],
+    "test": [
+      "test/difference_of_squares_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

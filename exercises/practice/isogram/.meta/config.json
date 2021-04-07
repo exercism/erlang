@@ -2,8 +2,12 @@
   "blurb": "Determine if a word or phrase is an isogram.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/isogram.erl"
+    ],
+    "test": [
+      "test/isogram_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

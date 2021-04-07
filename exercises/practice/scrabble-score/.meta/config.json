@@ -2,8 +2,12 @@
   "blurb": "Given a word, compute the Scrabble score for that word.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/scrabble_score.erl"
+    ],
+    "test": [
+      "test/scrabble_score_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

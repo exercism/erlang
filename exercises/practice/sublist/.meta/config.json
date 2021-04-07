@@ -2,8 +2,12 @@
   "blurb": "Write a function to determine if a list is a sublist of another list.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/sublist.erl"
+    ],
+    "test": [
+      "test/sublist_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

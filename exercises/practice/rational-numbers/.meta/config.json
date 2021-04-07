@@ -2,8 +2,12 @@
   "blurb": "Implement rational numbers.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/rational_numbers.erl"
+    ],
+    "test": [
+      "test/rational_numbers_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

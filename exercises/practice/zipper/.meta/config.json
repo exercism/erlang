@@ -2,8 +2,12 @@
   "blurb": "Creating a zipper for a binary tree.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/zipper.erl"
+    ],
+    "test": [
+      "test/zipper_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

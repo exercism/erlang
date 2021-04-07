@@ -2,8 +2,12 @@
   "blurb": "Given a decimal number, convert it to the appropriate sequence of events for a secret handshake.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/secret_handshake.erl"
+    ],
+    "test": [
+      "test/secret_handshake_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

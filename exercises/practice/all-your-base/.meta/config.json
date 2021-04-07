@@ -2,8 +2,12 @@
   "blurb": "Convert a number, represented as a sequence of digits in one base, to any other base.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/all_your_base.erl"
+    ],
+    "test": [
+      "test/all_your_base_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

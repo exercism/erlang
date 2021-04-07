@@ -2,8 +2,12 @@
   "blurb": "Produce the lyrics to that beloved classic, that field-trip favorite: 99 Bottles of Beer on the Wall.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/beer_song.erl"
+    ],
+    "test": [
+      "test/beer_song_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

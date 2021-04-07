@@ -2,8 +2,12 @@
   "blurb": "Rebuild binary trees from pre-order and in-order traversals.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/satellite.erl"
+    ],
+    "test": [
+      "test/satellite_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]
