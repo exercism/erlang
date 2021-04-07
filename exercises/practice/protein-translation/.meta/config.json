@@ -2,8 +2,12 @@
   "blurb": "Translate RNA sequences into proteins.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/protein_translation.erl"
+    ],
+    "test": [
+      "test/protein_translation_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

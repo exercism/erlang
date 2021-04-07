@@ -2,8 +2,12 @@
   "blurb": "Implement the classic method for composing secret messages called a square code.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/crypto_square.erl"
+    ],
+    "test": [
+      "test/crypto_square_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

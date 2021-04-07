@@ -2,8 +2,12 @@
   "blurb": "Clean up user-entered phone numbers so that they can be sent SMS messages.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/phone_number.erl"
+    ],
+    "test": [
+      "test/phone_number_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

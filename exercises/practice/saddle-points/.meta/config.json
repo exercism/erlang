@@ -2,8 +2,12 @@
   "blurb": "Detect saddle points in a matrix.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/saddle_points.erl"
+    ],
+    "test": [
+      "test/saddle_points_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

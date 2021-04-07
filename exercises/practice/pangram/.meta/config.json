@@ -2,8 +2,12 @@
   "blurb": "Determine if a sentence is a pangram.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/pangram.erl"
+    ],
+    "test": [
+      "test/pangram_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

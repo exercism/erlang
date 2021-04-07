@@ -2,8 +2,12 @@
   "blurb": "Given a phrase, count the occurrences of each word in that phrase.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/word_count.erl"
+    ],
+    "test": [
+      "test/word_count_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

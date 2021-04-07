@@ -2,8 +2,12 @@
   "blurb": "Convert a number to a string, the content of which depends on the number's factors.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/raindrops.erl"
+    ],
+    "test": [
+      "test/raindrops_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

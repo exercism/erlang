@@ -2,8 +2,12 @@
   "blurb": "Implement an evaluator for a very simple subset of Forth",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/forth.erl"
+    ],
+    "test": [
+      "test/forth_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

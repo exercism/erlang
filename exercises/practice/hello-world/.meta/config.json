@@ -2,8 +2,12 @@
   "blurb": "The classical introductory exercise. Just say \"Hello, World!\"",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/hello_world.erl"
+    ],
+    "test": [
+      "test/hello_world_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

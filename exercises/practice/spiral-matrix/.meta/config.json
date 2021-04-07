@@ -2,8 +2,12 @@
   "blurb": " Given the size, return a square matrix of numbers in spiral order.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/spiral_matrix.erl"
+    ],
+    "test": [
+      "test/spiral_matrix_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

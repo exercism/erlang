@@ -2,8 +2,12 @@
   "blurb": "Take input text and output it transposed.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/transpose.erl"
+    ],
+    "test": [
+      "test/transpose_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

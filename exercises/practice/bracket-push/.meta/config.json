@@ -1,8 +1,12 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/bracket_push.erl"
+    ],
+    "test": [
+      "test/bracket_push_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

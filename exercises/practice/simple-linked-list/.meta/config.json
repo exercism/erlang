@@ -2,8 +2,12 @@
   "blurb": "Write a simple linked list implementation that uses Elements and a List",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/simple_linked_list.erl"
+    ],
+    "test": [
+      "test/simple_linked_list_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

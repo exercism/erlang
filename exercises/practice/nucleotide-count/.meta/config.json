@@ -2,8 +2,12 @@
   "blurb": "Given a DNA string, compute how many times each nucleotide occurs in the string.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/nucleotide_count.erl"
+    ],
+    "test": [
+      "test/nucleotide_count_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

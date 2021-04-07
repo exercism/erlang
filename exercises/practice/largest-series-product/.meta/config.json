@@ -2,8 +2,12 @@
   "blurb": "Given a string of digits, calculate the largest product for a contiguous substring of digits of length n.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/largest_series_product.erl"
+    ],
+    "test": [
+      "test/largest_series_product_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

@@ -2,8 +2,12 @@
   "blurb": "Create a sentence of the form \"One for X, one for me.\"",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/two_fer.erl"
+    ],
+    "test": [
+      "test/two_fer_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]
