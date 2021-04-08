@@ -1,4 +1,5 @@
 {
+  "blurb": "Make sure the brackets and braces all match.",
   "authors": [],
   "files": {
     "solution": [
@@ -10,5 +11,6 @@
     "example": [
       ".meta/example.erl"
     ]
-  }
+  },
+  "source": "Ginna Baker"
 }
