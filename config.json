@@ -415,7 +415,7 @@
       {
         "slug": "perfect-numbers",
         "name": "Perfect Numbers",
-        "uuid": "8c58533a-7a1f-11e8-adc0-fa7ae01bbebc",
+        "uuid": "bef8daa7-bcfd-4e81-8623-b7f4337b2d46",
         "practices": [],
         "prerequisites": [],
         "difficulty": 2,
@@ -463,7 +463,7 @@
       {
         "slug": "pascals-triangle",
         "name": "Pascals Triangle",
-        "uuid": "589b763c-2b3a-11e8-b467-0ed5f89f718b",
+        "uuid": "e4e82567-34b2-452b-aef8-da7109763c96",
         "practices": [],
         "prerequisites": [],
         "difficulty": 6,
@@ -861,7 +861,7 @@
       {
         "slug": "crypto-square",
         "name": "Crypto Square",
-        "uuid": "a534bd4a-8a72-11e8-9a94-a6cf71072f73",
+        "uuid": "fc548e5d-510e-4cfc-9c41-a4793a8c1b2f",
         "practices": [],
         "prerequisites": [],
         "difficulty": 6,
@@ -873,7 +873,7 @@
       {
         "slug": "rail-fence-cipher",
         "name": "Rail Fence Cipher",
-        "uuid": "9bb14014-9732-11e8-9eb6-529269fb1459",
+        "uuid": "fe9e6c2e-102f-4949-adc1-4f9a8af73190",
         "practices": [],
         "prerequisites": [],
         "difficulty": 6,
@@ -946,7 +946,7 @@
       {
         "slug": "bracket-push",
         "name": "Bracket Push",
-        "uuid": "f93f5f18-3e3b-11e8-b467-0ed5f89f718b",
+        "uuid": "8ff6b6f3-9c0a-4a17-af48-0c207ef7c694",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3,
