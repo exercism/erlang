@@ -12,7 +12,9 @@
   "version": 3,
   "online_editor": {
     "indent_style": "space",
-    "indent_size": 4
+    "indent_size": 4,
+    "ace_editor_language": "erlang",
+    "highlightjs_language": "erlang"
   },
   "files": {
     "solution": [
@@ -962,15 +964,15 @@
   "concepts": [],
   "key_features": [],
   "tags": [
-      "paradigm/functional",
-      "typing/dynamic",
-      "typing/strong",
-      "execution_mode/compiled",
-      "platform/windows",
-      "platform/mac",
-      "platform/linux",
-      "runtime/beam",
-      "used_for/backends",
-      "used_for/embedded_systems"
+    "paradigm/functional",
+    "typing/dynamic",
+    "typing/strong",
+    "execution_mode/compiled",
+    "platform/windows",
+    "platform/mac",
+    "platform/linux",
+    "runtime/beam",
+    "used_for/backends",
+    "used_for/embedded_systems"
   ]
 }
