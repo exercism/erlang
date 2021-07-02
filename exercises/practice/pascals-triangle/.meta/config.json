@@ -8,8 +8,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/pascals_triangle.erl"
+    ],
+    "test": [
+      "test/pascals_triangle_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

@@ -15,8 +15,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/accumulate.erl"
+    ],
+    "test": [
+      "test/accumulate_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

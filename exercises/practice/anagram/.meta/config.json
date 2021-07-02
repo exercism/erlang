@@ -16,8 +16,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/anagram.erl"
+    ],
+    "test": [
+      "test/anagram_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

@@ -9,8 +9,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/satellite.erl"
+    ],
+    "test": [
+      "test/satellite_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

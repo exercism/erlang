@@ -14,8 +14,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/roman_numerals.erl"
+    ],
+    "test": [
+      "test/roman_numerals_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

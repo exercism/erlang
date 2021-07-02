@@ -17,8 +17,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/etl.erl"
+    ],
+    "test": [
+      "test/etl_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

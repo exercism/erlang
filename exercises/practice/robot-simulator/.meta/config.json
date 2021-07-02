@@ -12,8 +12,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/robot_simulator.erl"
+    ],
+    "test": [
+      "test/robot_simulator_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

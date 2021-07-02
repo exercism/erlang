@@ -17,8 +17,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/sum_of_multiples.erl"
+    ],
+    "test": [
+      "test/sum_of_multiples_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

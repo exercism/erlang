@@ -19,8 +19,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/rna_transcription.erl"
+    ],
+    "test": [
+      "test/rna_transcription_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

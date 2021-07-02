@@ -10,8 +10,12 @@
     "kytrinyx"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/complex_numbers.erl"
+    ],
+    "test": [
+      "test/complex_numbers_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

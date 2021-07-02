@@ -12,8 +12,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/circular_buffer.erl"
+    ],
+    "test": [
+      "test/circular_buffer_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

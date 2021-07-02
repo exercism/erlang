@@ -16,8 +16,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/word_count.erl"
+    ],
+    "test": [
+      "test/word_count_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

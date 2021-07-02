@@ -9,8 +9,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/transpose.erl"
+    ],
+    "test": [
+      "test/transpose_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

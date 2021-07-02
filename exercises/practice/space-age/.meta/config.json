@@ -15,8 +15,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/space_age.erl"
+    ],
+    "test": [
+      "test/space_age_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

@@ -9,8 +9,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/run_length_encoding.erl"
+    ],
+    "test": [
+      "test/run_length_encoding_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

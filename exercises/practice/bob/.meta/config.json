@@ -16,8 +16,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/bob.erl"
+    ],
+    "test": [
+      "test/bob_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

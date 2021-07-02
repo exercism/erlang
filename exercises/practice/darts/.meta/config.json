@@ -9,8 +9,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/darts.erl"
+    ],
+    "test": [
+      "test/darts_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

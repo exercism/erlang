@@ -10,8 +10,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/two_fer.erl"
+    ],
+    "test": [
+      "test/two_fer_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

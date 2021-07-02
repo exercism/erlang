@@ -9,8 +9,12 @@
     "juhlig"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/custom_set.erl"
+    ],
+    "test": [
+      "test/custom_set_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

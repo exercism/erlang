@@ -9,8 +9,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/rail_fence_cipher.erl"
+    ],
+    "test": [
+      "test/rail_fence_cipher_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

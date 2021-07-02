@@ -9,8 +9,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/queen_attack.erl"
+    ],
+    "test": [
+      "test/queen_attack_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

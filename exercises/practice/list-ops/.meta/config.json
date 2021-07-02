@@ -11,8 +11,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/list_ops.erl"
+    ],
+    "test": [
+      "test/list_ops_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

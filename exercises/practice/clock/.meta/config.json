@@ -14,8 +14,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/clock.erl"
+    ],
+    "test": [
+      "test/clock_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

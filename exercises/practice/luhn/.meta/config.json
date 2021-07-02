@@ -17,8 +17,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/luhn.erl"
+    ],
+    "test": [
+      "test/luhn_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

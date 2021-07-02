@@ -16,8 +16,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/nucleotide_count.erl"
+    ],
+    "test": [
+      "test/nucleotide_count_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

@@ -10,8 +10,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/poker.erl"
+    ],
+    "test": [
+      "test/poker_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

@@ -15,8 +15,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/grade_school.erl"
+    ],
+    "test": [
+      "test/grade_school_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

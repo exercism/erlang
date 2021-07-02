@@ -12,8 +12,12 @@
     "wojtii"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/collatz_conjecture.erl"
+    ],
+    "test": [
+      "test/collatz_conjecture_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

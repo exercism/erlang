@@ -9,8 +9,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/armstrong_numbers.erl"
+    ],
+    "test": [
+      "test/armstrong_numbers_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

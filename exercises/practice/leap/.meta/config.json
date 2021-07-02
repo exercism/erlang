@@ -13,8 +13,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/leap.erl"
+    ],
+    "test": [
+      "test/leap_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

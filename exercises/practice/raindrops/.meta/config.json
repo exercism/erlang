@@ -9,8 +9,12 @@
     "vassilevsky"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/raindrops.erl"
+    ],
+    "test": [
+      "test/raindrops_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

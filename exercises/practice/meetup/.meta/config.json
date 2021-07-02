@@ -13,8 +13,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/meetup.erl"
+    ],
+    "test": [
+      "test/meetup_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

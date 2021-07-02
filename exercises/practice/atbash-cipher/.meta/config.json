@@ -13,8 +13,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/atbash_cipher.erl"
+    ],
+    "test": [
+      "test/atbash_cipher_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

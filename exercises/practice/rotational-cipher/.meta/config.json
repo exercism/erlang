@@ -12,8 +12,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/rotational_cipher.erl"
+    ],
+    "test": [
+      "test/rotational_cipher_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

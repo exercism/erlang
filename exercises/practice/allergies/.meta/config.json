@@ -15,8 +15,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/allergies.erl"
+    ],
+    "test": [
+      "test/allergies_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

@@ -9,8 +9,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/nth_prime.erl"
+    ],
+    "test": [
+      "test/nth_prime_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

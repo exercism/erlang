@@ -14,8 +14,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/phone_number.erl"
+    ],
+    "test": [
+      "test/phone_number_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

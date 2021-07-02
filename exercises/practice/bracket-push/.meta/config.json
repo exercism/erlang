@@ -1,17 +1,21 @@
 {
+  "blurb": "Make sure the brackets and braces all match.",
   "authors": [
     "juhlig"
   ],
   "contributors": [
-    "ErikSchierboom",
-    "iHiD",
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/bracket_push.erl"
+    ],
+    "test": [
+      "test/bracket_push_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]
-  }
+  },
+  "source": "Ginna Baker"
 }

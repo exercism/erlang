@@ -15,8 +15,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/hello_world.erl"
+    ],
+    "test": [
+      "test/hello_world_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

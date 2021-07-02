@@ -9,8 +9,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/isbn_verifier.erl"
+    ],
+    "test": [
+      "test/isbn_verifier_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

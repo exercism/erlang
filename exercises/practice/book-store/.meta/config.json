@@ -9,8 +9,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/book_store.erl"
+    ],
+    "test": [
+      "test/book_store_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

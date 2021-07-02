@@ -9,8 +9,12 @@
     "NobbZ"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/connect.erl"
+    ],
+    "test": [
+      "test/connect_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]

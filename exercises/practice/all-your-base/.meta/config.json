@@ -12,8 +12,12 @@
     "xymbol"
   ],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "src/all_your_base.erl"
+    ],
+    "test": [
+      "test/all_your_base_tests.erl"
+    ],
     "example": [
       ".meta/example.erl"
     ]
