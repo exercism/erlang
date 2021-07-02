@@ -1,6 +1,13 @@
 {
   "blurb": "Check if a given string is a valid ISBN-10 number.",
-  "authors": [],
+  "authors": [
+    "juhlig"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "NobbZ"
+  ],
   "files": {
     "solution": [
       "src/isbn_verifier.erl"

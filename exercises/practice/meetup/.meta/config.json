@@ -1,6 +1,17 @@
 {
   "blurb": "Calculate the date of meetups.",
   "authors": [],
+  "contributors": [
+    "ErikSchierboom",
+    "etrepum",
+    "iHiD",
+    "JordanAdams",
+    "juhlig",
+    "kytrinyx",
+    "NobbZ",
+    "tmcgilchrist",
+    "xymbol"
+  ],
   "files": {
     "solution": [
       "src/meetup.erl"

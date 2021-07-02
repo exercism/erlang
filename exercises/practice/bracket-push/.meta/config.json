@@ -1,6 +1,11 @@
 {
   "blurb": "Make sure the brackets and braces all match.",
-  "authors": [],
+  "authors": [
+    "juhlig"
+  ],
+  "contributors": [
+    "NobbZ"
+  ],
   "files": {
     "solution": [
       "src/bracket_push.erl"

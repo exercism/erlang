@@ -1,6 +1,18 @@
 {
   "blurb": "Clean up user-entered phone numbers so that they can be sent SMS messages.",
-  "authors": [],
+  "authors": [
+    "tmcgilchrist"
+  ],
+  "contributors": [
+    "adolfopa",
+    "ErikSchierboom",
+    "etrepum",
+    "iHiD",
+    "JordanAdams",
+    "kytrinyx",
+    "NobbZ",
+    "xymbol"
+  ],
   "files": {
     "solution": [
       "src/phone_number.erl"

@@ -1,6 +1,13 @@
 {
   "blurb": "Translate RNA sequences into proteins.",
-  "authors": [],
+  "authors": [
+    "juhlig"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "NobbZ"
+  ],
   "files": {
     "solution": [
       "src/protein_translation.erl"

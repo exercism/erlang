@@ -1,6 +1,12 @@
 {
   "blurb": "Determine if a word or phrase is an isogram.",
   "authors": [],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "juhlig",
+    "NobbZ"
+  ],
   "files": {
     "solution": [
       "src/isogram.erl"

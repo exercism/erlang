@@ -1,6 +1,17 @@
 {
   "blurb": "Creating a zipper for a binary tree.",
-  "authors": [],
+  "authors": [
+    "NobbZ"
+  ],
+  "contributors": [
+    "allison-lara",
+    "ErikSchierboom",
+    "iHiD",
+    "JordanAdams",
+    "juhlig",
+    "kytrinyx",
+    "xymbol"
+  ],
   "files": {
     "solution": [
       "src/zipper.erl"

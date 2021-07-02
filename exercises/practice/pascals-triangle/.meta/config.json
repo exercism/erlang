@@ -1,6 +1,12 @@
 {
   "blurb": "Compute Pascal's triangle up to a given number of rows.",
   "authors": [],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "juhlig",
+    "NobbZ"
+  ],
   "files": {
     "solution": [
       "src/pascals_triangle.erl"

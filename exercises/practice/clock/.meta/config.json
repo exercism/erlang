@@ -1,6 +1,18 @@
 {
   "blurb": "Implement a clock that handles times without dates.",
-  "authors": [],
+  "authors": [
+    "lehoff"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "JordanAdams",
+    "juhlig",
+    "kytrinyx",
+    "NobbZ",
+    "tmcgilchrist",
+    "xymbol"
+  ],
   "files": {
     "solution": [
       "src/clock.erl"

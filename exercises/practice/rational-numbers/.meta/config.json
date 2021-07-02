@@ -1,6 +1,13 @@
 {
   "blurb": "Implement rational numbers.",
-  "authors": [],
+  "authors": [
+    "juhlig"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "NobbZ"
+  ],
   "files": {
     "solution": [
       "src/rational_numbers.erl"

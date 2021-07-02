@@ -1,6 +1,14 @@
 {
   "blurb": "Implement complex numbers.",
-  "authors": [],
+  "authors": [
+    "NobbZ"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "juhlig",
+    "kytrinyx"
+  ],
   "files": {
     "solution": [
       "src/complex_numbers.erl"

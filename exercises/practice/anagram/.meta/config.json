@@ -1,6 +1,20 @@
 {
   "blurb": "Given a word and a list of possible anagrams, select the correct sublist.",
-  "authors": [],
+  "authors": [
+    "robinhilliard"
+  ],
+  "contributors": [
+    "adolfopa",
+    "ErikSchierboom",
+    "etrepum",
+    "iHiD",
+    "JordanAdams",
+    "juhlig",
+    "kytrinyx",
+    "NobbZ",
+    "tmcgilchrist",
+    "xymbol"
+  ],
   "files": {
     "solution": [
       "src/anagram.erl"

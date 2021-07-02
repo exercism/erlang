@@ -1,6 +1,13 @@
 {
   "blurb": "Correctly determine change to be given using the least number of coins",
-  "authors": [],
+  "authors": [
+    "juhlig"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "NobbZ"
+  ],
   "files": {
     "solution": [
       "src/change.erl"

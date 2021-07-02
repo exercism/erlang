@@ -1,6 +1,13 @@
 {
   "blurb": "Detect palindrome products in a given range.",
-  "authors": [],
+  "authors": [
+    "juhlig"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "NobbZ"
+  ],
   "files": {
     "solution": [
       "src/palindrome_products.erl"

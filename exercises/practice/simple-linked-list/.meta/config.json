@@ -1,6 +1,13 @@
 {
   "blurb": "Write a simple linked list implementation that uses Elements and a List",
-  "authors": [],
+  "authors": [
+    "voila"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "NobbZ"
+  ],
   "files": {
     "solution": [
       "src/simple_linked_list.erl"

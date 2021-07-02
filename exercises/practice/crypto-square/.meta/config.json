@@ -1,6 +1,13 @@
 {
   "blurb": "Implement the classic method for composing secret messages called a square code.",
-  "authors": [],
+  "authors": [
+    "juhlig"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "NobbZ"
+  ],
   "files": {
     "solution": [
       "src/crypto_square.erl"

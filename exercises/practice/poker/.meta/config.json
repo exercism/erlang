@@ -1,6 +1,14 @@
 {
   "blurb": "Pick the best hand(s) from a list of poker hands.",
-  "authors": [],
+  "authors": [
+    "chilikk"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "juhlig",
+    "NobbZ"
+  ],
   "files": {
     "solution": [
       "src/poker.erl"

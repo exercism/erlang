@@ -1,6 +1,13 @@
 {
   "blurb": "Implement encoding and decoding for the rail fence cipher.",
-  "authors": [],
+  "authors": [
+    "juhlig"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "iHiD",
+    "NobbZ"
+  ],
   "files": {
     "solution": [
       "src/rail_fence_cipher.erl"
