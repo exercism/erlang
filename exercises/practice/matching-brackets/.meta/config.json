@@ -8,10 +8,10 @@
   ],
   "files": {
     "solution": [
-      "src/bracket_push.erl"
+      "src/matching_brackets.erl"
     ],
     "test": [
-      "test/bracket_push_tests.erl"
+      "test/matching_brackets_tests.erl"
     ],
     "example": [
       ".meta/example.erl"
