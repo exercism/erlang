@@ -12,7 +12,7 @@ jobs:
     container:
       image: erlang:${{ matrix.otp }}
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
     - name: Install dependencies
       run: apt update && apt install --yes jq
     - name: run tests
