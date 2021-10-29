@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        otp: ["20.3", "21.3", "22.0"]
+        otp: ["20.3", "21.3", "22.3", "23.3", "24.1"]
     container:
       image: erlang:${{ matrix.otp }}
     steps:
