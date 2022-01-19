@@ -7,4 +7,4 @@ single_test() ->
   ?assert( parallel_letter_frequency:dict(["asd"]) =:= #{$a => 1, $d => 1, $s => 1} ).
 
 double_test() ->
-  ?assert(  parallel_letter_frequency:dict(["asd", "asd"]) =:= #{$a => 2, $d => 2, $s => 2} ).
+  ?assert( parallel_letter_frequency:dict(["asd", "asd"]) =:= #{$a => 2, $d => 2, $s => 2} ).
