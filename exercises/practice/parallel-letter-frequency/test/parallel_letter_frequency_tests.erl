@@ -4,9 +4,7 @@
 -include_lib("eunit/include/eunit.hrl").
 
 single_test() ->
-  Frequencies = maps:to_list( parallel_letter_frequency:dict(["asd"]) ),
-  ?assert( lists:sort(Frequencies) =:= [{$a,1},{$d,1},{$s,1}] ).
+  ?assert( parallel_letter_frequency:dict(["asd"]) =:= #{$a => 1, $d => 1, $s => 1} ).
 
 double_test() ->
-  Frequencies = maps:to_list( parallel_letter_frequency:dict(["asd", "asd"]) ),
-  ?assert( lists:sort(Frequencies) =:= [{$a,2},{$d,2},{$s,2}] ).
+  ?assert(  parallel_letter_frequency:dict(["asd", "asd"]) =:= #{$a => 2, $d => 2, $s => 2} ).
