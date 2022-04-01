@@ -11,6 +11,7 @@ jobs:
     steps:
     - name: Get latest OTP versions
       id: versions
+      env: { GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} }
       run: |
         all_versions=$(gh api graphql -f query='query { repository(owner: "erlang", name: "otp") { releases(last: 100) { nodes { tagName } } } }' --jq '.data.repository.releases.nodes[].tagName | select(. | contains("rc") | not) | .[4:8]' | sort -u)
         latest_versions=$(./bin/bin/get_latest_majors.py <<< "$all_versions")
