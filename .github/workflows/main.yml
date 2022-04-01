@@ -3,12 +3,26 @@ name: Exercism Erlang Track verification
 on: [push, pull_request]
 
 jobs:
+  create_otp_matrix:
+    name: Generate a list of last OTP versions
+    runs-on: ubuntu-latest
+    outputs:
+      otps: ${{ steps.versions.outputs.versions }}
+    steps:
+    - name: Get latest OTP versions
+      id: versions
+      run: |
+        all_versions=$(gh api graphql -f query='query { repository(owner: "erlang", name: "otp") { releases(last: 100) { nodes { tagName } } } }' --jq '.data.repository.releases.nodes[].tagName | select(. | contains("rc") | not) | .[4:8]' | sort -u)
+        latest_versions=$(./bin/bin/get_latest_majors.py <<< "$all_versions")
+        printf "::set-output name=versions::%s" "$latest_versions"
+
   test_erlang:
     name: Test examples against OTP ${{ matrix.otp }}
     runs-on: ubuntu-latest
+    needs: [create_otp_matrix]
     strategy:
       matrix:
-        otp: ["22.3", "23.3", "24.1"]
+        otp: ${{fromJson(needs.create_otp_matrix.outputs.otps)}}
     container:
       image: erlang:${{ matrix.otp }}
     steps:
