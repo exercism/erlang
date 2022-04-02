@@ -17,7 +17,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         all_versions=$(gh api graphql -f query='query { repository(owner: "erlang", name: "otp") { releases(last: 100) { nodes { tagName } } } }' --jq '.data.repository.releases.nodes[].tagName | select(. | contains("rc") | not) | .[4:8]' | sort -u)
-        latest_versions=$(./bin/get_latest_majors.py <<< "$all_versions")
+        latest_versions=$(./bin/get_latest_majors_for_ci_matrix.py <<< "$all_versions")
         printf "::set-output name=versions::%s" "$latest_versions"
 
   test_erlang:
