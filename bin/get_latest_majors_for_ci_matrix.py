@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
 
+"""
+This script receives a newline separated list of major/minor versions on its
+stdin and produces a JSON list of major/minor versions.
+
+The returned list will only contain the latest minor release for each major
+release.
+
+This is used in the CI scripts to create a buildmatrix that contains the latest
+minors of the last 3 to 4 majors.
+"""
+
 import sys
 import json
 
