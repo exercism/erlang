@@ -15,10 +15,10 @@ If a given number:
 - 30 is divisible by 3 and 5, but not 7, so the result would be `"PlingPlang"`.
 - 34 is not divisible by 3, 5, or 7, so the result would be `"34"`.
 
-~~~~exercism/note
+```exercism/note
 A common way to test if one number is evenly divisible by another is to compare the [remainder][remainder] or [modulus][modulo] to zero.
 Most languages provide operators or functions for one (or both) of these.
 
 [remainder]: https://exercism.org/docs/programming/operators/remainder
 [modulo]: https://en.wikipedia.org/wiki/Modulo_operation
-~~~~
+```

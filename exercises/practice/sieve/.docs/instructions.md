@@ -16,10 +16,10 @@ Then you repeat the following steps:
 You keep repeating these steps until you've gone through every number in your list.
 At the end, all the unmarked numbers are prime.
 
-~~~~exercism/note
+```exercism/note
 The tests don't check that you've implemented the algorithm, only that you've come up with the correct list of primes.
 To check you are implementing the Sieve correctly, a good first test is to check that you do not use division or remainder operations.
-~~~~
+```
 
 ## Example
 
