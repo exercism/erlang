@@ -33,12 +33,16 @@ evaluate([Instr|Instructions], State) ->
     evaluate(Instructions, exec(Instr, State)).
 
 
+is_forth_number("-") -> false;
+is_forth_number("-" ++ N) -> is_forth_number(N);
+is_forth_number(N) -> lists:all(fun (C) -> C>=$0 andalso C=<$9 end, N).
+
 define(Dfn0, State=#state{instructions=Instructions, definitions=Definitions}) ->
     %% split into name and definition tokens
     [Name|Dfn1]=string:tokens(Dfn0, " "),
 
     %% ensure name is not a number
-    false=lists:all(fun (C) -> C>=$0 andalso C=<$9 end, Name),
+    false=is_forth_number(Name),
 
     %% drop trailing ;
     Dfn2=lists:sublist(Dfn1, length(Dfn1)-1),
@@ -47,7 +51,7 @@ define(Dfn0, State=#state{instructions=Instructions, definitions=Definitions}) -
     Dfn3=lists:map(
         fun
             (Tok) ->
-                case lists:all(fun (C) -> C>=$0 andalso C=<$9 end, Tok) of
+                case is_forth_number(Tok) of
                     %% number, keep as is
                     true -> Tok;
 
@@ -81,7 +85,7 @@ exec(Instr, State) ->
     lists:foldl(
         fun
             (Tok, Acc=#state{instructions=Instructions, definitions=Definitions, stack=Stack}) ->
-                case lists:all(fun (C) -> C>=$0 andalso C=<$9 end, Tok) of
+                case is_forth_number(Tok) of
                     %% number, put on stack
                     true -> Acc#state{stack=[list_to_integer(Tok)|Stack]};
 
