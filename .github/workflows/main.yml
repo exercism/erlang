@@ -20,13 +20,27 @@ jobs:
         latest_versions=$(./bin/get_latest_majors_for_ci_matrix.py <<< "$all_versions")
         printf "::set-output name=versions::%s" "$latest_versions"
 
-  test_erlang:
+  create_exercise_matrix:
+    name: Generate a list of practice exercises
+    runs-on: ubuntu-latest
+    outputs:
+      practices: ${{ steps.exercises.outputs.exercises }}
+    steps:
+    - name: Clone the repository
+      uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+    - name: Get all practice exercises
+      id: exercises
+      run: |
+        printf "::set-output name=exercises::%s" "$(jq --compact-output '.exercises.practice | map(.slug)' config.json)"
+
+  test_practice:
     name: Test examples against OTP ${{ matrix.otp }}
     runs-on: ubuntu-latest
-    needs: [create_otp_matrix]
+    needs: [create_otp_matrix, create_exercise_matrix]
     strategy:
       matrix:
         otp: ${{fromJson(needs.create_otp_matrix.outputs.otps)}}
+        exercise: ${{fromJson(needs.create_exercise_matrix.outputs.practices)}}
     container:
       image: erlang:${{ matrix.otp }}
     steps:
@@ -34,4 +48,4 @@ jobs:
     - name: Install dependencies
       run: apt update && apt install --yes jq
     - name: run tests
-      run: ./bin/run_ci.sh
+      run: ./bin/run_single.sh ${{ matrix.exercise }}
