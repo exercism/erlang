@@ -1,6 +1,11 @@
 -module(example).
 -export([count_words/1]).
 
+count_words("'" ++ S) ->
+    case lists:reverse(S) of
+        "'" ++ S2 -> count_words(lists:reverse(S2));
+        _ -> count_words("'"++S)
+    end;
 count_words(S) ->
     lists:foldl(
         fun
