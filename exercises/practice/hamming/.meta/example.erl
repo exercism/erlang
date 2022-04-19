@@ -9,4 +9,4 @@ distance(Strand1, Strand2) ->
 walk([], [], Dist) -> Dist;
 walk([A|As], [A|Bs], Dist) -> walk(As, Bs, Dist);
 walk([_|As], [_|Bs], Dist) -> walk(As, Bs, Dist + 1);
-walk(_, _, _) -> {error, "left and right strands must be of equal length"}.
+walk(_, _, _) -> {error, badarg}.
