@@ -4,14 +4,14 @@
 
 
 new() ->
-    {#{}, #{}}.
+    {#{}, ordsets:new()}.
 
 add(Name, Grade, {Grades, Names}) ->
-    case maps:get(Name, Names, undefined) of
-        undefined -> 
+    case ordsets:is_element(Name, Names) of
+        false -> 
             Class=maps:get(Grade, Grades, ordsets:new()),
-            {Grades#{Grade => ordsets:add_element(Name, Class)}, maps:put(Name, Grade, Names)};
-        _OldGrade ->
+            {Grades#{Grade => ordsets:add_element(Name, Class)}, ordsets:add_element(Name, Names)};
+        true ->
             {Grades, Names}
     end.
 
@@ -19,4 +19,4 @@ get(Grade, {Grades, _Names}) ->
     ordsets:to_list(maps:get(Grade, Grades, ordsets:new())).
 
 get({_Grades, Names}) ->
-    maps:keys(Names).
+    ordsets:to_list(Names).
