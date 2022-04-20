@@ -131,7 +131,6 @@
     S2 = grade_school:add("James", 2, S1),
     S3 = grade_school:add("James", 3, S2),
     S4 = grade_school:add("Paul", 3, S3),
-    % io:format("~p~n", [S4]),
     {"Student not added to multiple grades",
      ?_assertEqual(["Blair", "James"],
 		   lists:sort(grade_school:get(2, S4)))}.
