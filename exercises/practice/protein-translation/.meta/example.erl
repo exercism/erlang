@@ -3,19 +3,22 @@
 -export([proteins/1]).
 
 proteins(Strand) ->
-	lists:reverse(proteins(Strand, [])).
+	case proteins(Strand, []) of
+		{ok, Proteins} -> {ok, lists:reverse(Proteins)};
+	    {error, Error} -> {error, Error}
+	end.
 
 proteins([], Acc) ->
-	Acc;
+	{ok, Acc};
 
 proteins([$U, $A, $A|_], Acc) ->
-	Acc;
+	{ok, Acc};
 
 proteins([$U, $A, $G|_], Acc) ->
-	Acc;
+	{ok, Acc};
 
 proteins([$U, $G, $A|_], Acc) ->
-	Acc;
+	{ok, Acc};
 
 proteins([$A, $U, $G|More], Acc) ->
 	proteins(More, [methionine|Acc]);
@@ -57,4 +60,7 @@ proteins([$U, $G, $C|More], Acc) ->
 	proteins(More, [cysteine|Acc]);
 
 proteins([$U, $G, $G|More], Acc) ->
-	proteins(More, [tryptophan|Acc]).
+	proteins(More, [tryptophan|Acc]);
+
+proteins(_, _) ->
+	{error, badarg}.

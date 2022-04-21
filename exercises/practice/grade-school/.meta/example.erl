@@ -4,18 +4,19 @@
 
 
 new() ->
-    #{}.
+    {#{}, ordsets:new()}.
 
-add(Name, Grade, School) ->
-    Class=maps:get(Grade, School, ordsets:new()),
-    School#{Grade => ordsets:add_element(Name, Class)}.
+add(Name, Grade, {Grades, Names}) ->
+    case ordsets:is_element(Name, Names) of
+        false -> 
+            Class=maps:get(Grade, Grades, ordsets:new()),
+            {Grades#{Grade => ordsets:add_element(Name, Class)}, ordsets:add_element(Name, Names)};
+        true ->
+            {Grades, Names}
+    end.
 
-get(Grade, School) ->
-    ordsets:to_list(maps:get(Grade, School, ordsets:new())).
+get(Grade, {Grades, _Names}) ->
+    ordsets:to_list(maps:get(Grade, Grades, ordsets:new())).
 
-get(School) ->
-    maps:fold(
-        fun (_, Class, Acc) -> Acc++ordsets:to_list(Class) end,
-        [],
-        School
-    ).
+get({_Grades, Names}) ->
+    ordsets:to_list(Names).

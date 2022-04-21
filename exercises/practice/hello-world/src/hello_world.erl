@@ -2,5 +2,5 @@
 
 -export([hello/0]).
 
-hello() ->
-  "Goodbye, Mars!".
+
+hello() -> "Goodbye, Mars!".
