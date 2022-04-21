@@ -9,16 +9,16 @@ jobs:
     outputs:
       otps: ${{ steps.versions.outputs.versions }}
     steps:
-    - name: Clone the repository
-      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
-    - name: Get latest OTP versions
-      id: versions
-      env: 
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        all_versions=$(gh api graphql -f query='query { repository(owner: "erlang", name: "otp") { releases(last: 100, orderBy: {field: CREATED_AT, direction: ASC}) { nodes { tagName } } } }' --jq '.data.repository.releases.nodes[].tagName | select(. | contains("rc") | not) | .[4:8]' | sort -u -n)
-        latest_versions=$(./bin/get_latest_majors_for_ci_matrix.py <<< "$all_versions")
-        printf "::set-output name=versions::%s" "$latest_versions"
+      - name: Clone the repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - name: Get latest OTP versions
+        id: versions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          all_versions=$(gh api graphql -f query='query { repository(owner: "erlang", name: "otp") { releases(last: 100, orderBy: {field: CREATED_AT, direction: ASC}) { nodes { tagName } } } }' --jq '.data.repository.releases.nodes[].tagName | select(. | contains("rc") | not) | .[4:8]' | sort -u -n)
+          latest_versions=$(./bin/get_latest_majors_for_ci_matrix.py <<< "$all_versions")
+          printf "::set-output name=versions::%s" "$latest_versions"
 
   test_erlang:
     name: Test examples against OTP ${{ matrix.otp }}
@@ -30,8 +30,8 @@ jobs:
     container:
       image: erlang:${{ matrix.otp }}
     steps:
-    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
-    - name: Install dependencies
-      run: apt update && apt install --yes jq
-    - name: run tests
-      run: ./bin/run_ci.sh
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - name: Install dependencies
+        run: apt update && apt install --yes jq
+      - name: run tests
+        run: ./bin/run_ci.sh
