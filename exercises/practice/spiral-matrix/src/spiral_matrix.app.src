@@ -1,5 +1,5 @@
 {application, spiral_matrix,
-  [{description, "exercism.io - spiral-matrix"},
+  [{description, "exercism.org - spiral-matrix"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

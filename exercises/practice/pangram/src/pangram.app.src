@@ -1,5 +1,5 @@
 {application, pangram,
-  [{description, "exercism.io - pangram"},
+  [{description, "exercism.org - pangram"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

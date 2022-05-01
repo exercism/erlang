@@ -1,5 +1,5 @@
 {application, book_store,
-  [{description, "exercism.io - book-store"},
+  [{description, "exercism.org - book-store"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

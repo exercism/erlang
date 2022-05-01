@@ -1,5 +1,5 @@
 {application, anagram,
-  [{description, "exercism.io - anagram"},
+  [{description, "exercism.org - anagram"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

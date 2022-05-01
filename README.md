@@ -14,7 +14,7 @@ If you create “claiming” PRs with obviously unfinished code, please provide 
 ### Setting up your system for local development on the track
 
 Please make sure you have installed erlang/OTP and `rebar3` as
-described on [Installing Erlang](http://exercism.io/languages/erlang/installation)
+described on [Installing Erlang](http://exercism.org/languages/erlang/installation)
 or `docs/INSTALLATION.md` in this repository. Also run
 `bin/fetch-configlet` to download the JSON-checker.
 

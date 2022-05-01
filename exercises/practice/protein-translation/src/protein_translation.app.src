@@ -1,5 +1,5 @@
 {application, protein_translation,
-  [{description, "exercism.io - protein-translation"},
+  [{description, "exercism.org - protein-translation"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

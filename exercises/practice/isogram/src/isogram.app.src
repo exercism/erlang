@@ -1,5 +1,5 @@
 {application, isogram,
-  [{description, "exercism.io - isogram"},
+  [{description, "exercism.org - isogram"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

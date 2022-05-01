@@ -1,5 +1,5 @@
 {application, two_fer,
-  [{description, "exercism.io - two-fer"},
+  [{description, "exercism.org - two-fer"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

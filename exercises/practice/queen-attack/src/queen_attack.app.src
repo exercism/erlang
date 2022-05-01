@@ -1,5 +1,5 @@
 {application, queen_attack,
-  [{description, "exercism.io - queen-attack"},
+  [{description, "exercism.org - queen-attack"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

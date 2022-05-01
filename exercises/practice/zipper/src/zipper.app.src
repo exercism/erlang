@@ -1,5 +1,5 @@
 {application, zipper,
-  [{description, "exercism.io - zipper"},
+  [{description, "exercism.org - zipper"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

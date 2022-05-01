@@ -1,5 +1,5 @@
 {application, meetup,
-  [{description, "exercism.io - meetup"},
+  [{description, "exercism.org - meetup"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

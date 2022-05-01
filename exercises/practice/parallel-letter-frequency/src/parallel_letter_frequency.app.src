@@ -1,5 +1,5 @@
 {application, parallel_letter_frequency,
-  [{description, "exercism.io - parallel-letter-frequency"},
+  [{description, "exercism.org - parallel-letter-frequency"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

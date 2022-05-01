@@ -1,5 +1,5 @@
 {application, nth_prime,
-  [{description, "exercism.io - nth-prime"},
+  [{description, "exercism.org - nth-prime"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

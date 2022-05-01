@@ -1,5 +1,5 @@
 {application, armstrong_numbers,
-  [{description, "exercism.io - armstrong-numbers"},
+  [{description, "exercism.org - armstrong-numbers"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

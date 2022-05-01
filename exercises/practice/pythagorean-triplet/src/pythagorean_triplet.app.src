@@ -1,5 +1,5 @@
 {application, pythagorean_triplet,
-  [{description, "exercism.io - pythagorean-triplet"},
+  [{description, "exercism.org - pythagorean-triplet"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

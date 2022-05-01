@@ -1,5 +1,5 @@
 {application, bob,
-  [{description, "exercism.io - bob"},
+  [{description, "exercism.org - bob"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

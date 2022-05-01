@@ -1,5 +1,5 @@
 {application, word_count,
-  [{description, "exercism.io - word-count"},
+  [{description, "exercism.org - word-count"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

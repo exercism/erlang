@@ -1,5 +1,5 @@
 {application, rotational_cipher,
-  [{description, "exercism.io - rotational-cipher"},
+  [{description, "exercism.org - rotational-cipher"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
