@@ -9,16 +9,16 @@ jobs:
     outputs:
       otps: ${{ steps.versions.outputs.versions }}
     steps:
-    - name: Clone the repository
-      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
-    - name: Get latest OTP versions
-      id: versions
-      env: 
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        all_versions=$(gh api graphql -f query='query { repository(owner: "erlang", name: "otp") { releases(last: 100) { nodes { tagName } } } }' --jq '.data.repository.releases.nodes[].tagName | select(. | contains("rc") | not) | .[4:8]' | sort -u -n)
-        latest_versions=$(./bin/get_latest_majors_for_ci_matrix.py <<< "$all_versions")
-        printf "::set-output name=versions::%s" "$latest_versions"
+      - name: Clone the repository
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      - name: Get latest OTP versions
+        id: versions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          all_versions=$(gh api graphql -f query='query { repository(owner: "erlang", name: "otp") { releases(last: 100) { nodes { tagName } } } }' --jq '.data.repository.releases.nodes[].tagName | select(. | contains("rc") | not) | .[4:8]' | sort -u -n)
+          latest_versions=$(./bin/get_latest_majors_for_ci_matrix.py <<< "$all_versions")
+          printf "::set-output name=versions::%s" "$latest_versions"
 
   test_erlang:
     name: Test examples against OTP ${{ matrix.otp }}
@@ -30,8 +30,8 @@ jobs:
     container:
       image: erlang:${{ matrix.otp }}
     steps:
-    - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
-    - name: Install dependencies
-      run: apt update && apt install --yes jq
-    - name: run tests
-      run: ./bin/run_ci.sh
+      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      - name: Install dependencies
+        run: apt update && apt install --yes jq
+      - name: run tests
+        run: ./bin/run_ci.sh
