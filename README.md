@@ -1,7 +1,5 @@
 # Exercism Erlang Track
 
-[![Join the chat at https://gitter.im/exercism/erlang](https://badges.gitter.im/exercism/erlang.svg)](https://gitter.im/exercism/erlang?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 Exercism exercises in Erlang
 
 ## Contributing guide
