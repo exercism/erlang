@@ -1,0 +1,17 @@
+{
+  "authors": [],
+  "files": {
+    "solution": [
+      "src/resistor_color.erl"
+    ],
+    "test": [
+      "test/resistor_color_tests.erl"
+    ],
+    "example": [
+      ".meta/example.erl"
+    ]
+  },
+  "blurb": "Convert a resistor band's color to its numeric representation.",
+  "source": "Maud de Vries, Erik Schierboom",
+  "source_url": "https://github.com/exercism/problem-specifications/issues/1458"
+}
