@@ -1,5 +1,4 @@
 {
-  "blurb": "Make sure the brackets and braces all match.",
   "authors": [
     "juhlig"
   ],
@@ -17,5 +16,6 @@
       ".meta/example.erl"
     ]
   },
+  "blurb": "Make sure the brackets and braces all match.",
   "source": "Ginna Baker"
 }

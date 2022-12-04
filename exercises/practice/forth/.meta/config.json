@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement an evaluator for a very simple subset of Forth.",
   "authors": [
     "juhlig"
   ],
@@ -18,5 +17,6 @@
     "example": [
       ".meta/example.erl"
     ]
-  }
+  },
+  "blurb": "Implement an evaluator for a very simple subset of Forth."
 }

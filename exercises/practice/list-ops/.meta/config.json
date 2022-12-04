@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement basic list operations.",
   "authors": [
     "bgottlob"
   ],
@@ -20,5 +19,6 @@
     "example": [
       ".meta/example.erl"
     ]
-  }
+  },
+  "blurb": "Implement basic list operations."
 }

@@ -1,5 +1,4 @@
 {
-  "blurb": "Write a function to determine if a list is a sublist of another list.",
   "authors": [
     "juhlig"
   ],
@@ -18,5 +17,6 @@
     "example": [
       ".meta/example.erl"
     ]
-  }
+  },
+  "blurb": "Write a function to determine if a list is a sublist of another list."
 }

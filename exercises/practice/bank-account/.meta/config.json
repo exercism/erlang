@@ -1,5 +1,4 @@
 {
-  "blurb": "Simulate a bank account supporting opening/closing, withdraws, and deposits of money. Watch out for concurrent transactions!",
   "authors": [],
   "contributors": [
     "ErikSchierboom",
@@ -22,5 +21,6 @@
     "example": [
       ".meta/example.erl"
     ]
-  }
+  },
+  "blurb": "Simulate a bank account supporting opening/closing, withdraws, and deposits of money. Watch out for concurrent transactions!"
 }

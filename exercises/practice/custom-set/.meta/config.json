@@ -1,5 +1,4 @@
 {
-  "blurb": "Create a custom set type.",
   "authors": [
     "NobbZ"
   ],
@@ -18,5 +17,6 @@
     "example": [
       ".meta/example.erl"
     ]
-  }
+  },
+  "blurb": "Create a custom set type."
 }
