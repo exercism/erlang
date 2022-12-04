@@ -1,5 +1,5 @@
 {application, clock,
-  [{description, "exercism.io - clock"},
+  [{description, "exercism.org - clock"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

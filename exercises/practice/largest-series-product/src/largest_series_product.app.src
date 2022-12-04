@@ -1,5 +1,5 @@
 {application, largest_series_product,
-  [{description, "exercism.io - largest-series-product"},
+  [{description, "exercism.org - largest-series-product"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

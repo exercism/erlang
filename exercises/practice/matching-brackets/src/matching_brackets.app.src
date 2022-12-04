@@ -1,5 +1,5 @@
 {application, matching_brackets,
-  [{description, "exercism.io - matching-brackets"},
+  [{description, "exercism.org - matching-brackets"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

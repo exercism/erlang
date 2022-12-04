@@ -1,5 +1,5 @@
 {application, darts,
-  [{description, "exercism.io - darts"},
+  [{description, "exercism.org - darts"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

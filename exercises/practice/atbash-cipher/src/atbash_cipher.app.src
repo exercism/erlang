@@ -1,5 +1,5 @@
 {application, atbash_cipher,
-  [{description, "exercism.io - atbash-cipher"},
+  [{description, "exercism.org - atbash-cipher"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

@@ -1,5 +1,5 @@
 {application, transpose,
-  [{description, "exercism.io - transpose"},
+  [{description, "exercism.org - transpose"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

@@ -1,5 +1,5 @@
 {application, difference_of_squares,
-  [{description, "exercism.io - difference-of-squares"},
+  [{description, "exercism.org - difference-of-squares"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

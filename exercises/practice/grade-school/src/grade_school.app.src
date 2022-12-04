@@ -1,5 +1,5 @@
 {application, grade_school,
-  [{description, "exercism.io - grade-school"},
+  [{description, "exercism.org - grade-school"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

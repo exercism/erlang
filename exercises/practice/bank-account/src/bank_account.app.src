@@ -1,5 +1,5 @@
 {application, bank_account,
-  [{description, "exercism.io - bank-account"},
+  [{description, "exercism.org - bank-account"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

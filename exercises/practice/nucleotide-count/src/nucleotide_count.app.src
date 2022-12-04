@@ -1,5 +1,5 @@
 {application, nucleotide_count,
-  [{description, "exercism.io - nucleotide-count"},
+  [{description, "exercism.org - nucleotide-count"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

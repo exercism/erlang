@@ -1,5 +1,5 @@
 {application, leap,
-  [{description, "exercism.io - leap"},
+  [{description, "exercism.org - leap"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

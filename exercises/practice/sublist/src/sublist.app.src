@@ -1,5 +1,5 @@
 {application, sublist,
-  [{description, "exercism.io - sublist"},
+  [{description, "exercism.org - sublist"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

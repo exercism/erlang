@@ -1,5 +1,5 @@
 {application, list_ops,
-  [{description, "exercism.io - list-ops"},
+  [{description, "exercism.org - list-ops"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

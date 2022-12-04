@@ -1,5 +1,5 @@
 {application, luhn,
-  [{description, "exercism.io - luhn"},
+  [{description, "exercism.org - luhn"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

@@ -1,5 +1,5 @@
 {application, pascals_triangle,
-  [{description, "exercism.io - pascals-triangle"},
+  [{description, "exercism.org - pascals-triangle"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

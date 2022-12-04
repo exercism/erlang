@@ -1,5 +1,5 @@
 {application, custom_set,
-  [{description, "exercism.io - custom-set"},
+  [{description, "exercism.org - custom-set"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

@@ -1,5 +1,5 @@
 {application, dominoes,
-  [{description, "exercism.io - dominoes"},
+  [{description, "exercism.org - dominoes"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

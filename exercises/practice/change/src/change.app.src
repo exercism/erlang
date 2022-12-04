@@ -1,5 +1,5 @@
 {application, change,
-  [{description, "exercism.io - change"},
+  [{description, "exercism.org - change"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

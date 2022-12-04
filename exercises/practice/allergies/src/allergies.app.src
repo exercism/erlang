@@ -1,5 +1,5 @@
 {application, allergies,
-  [{description, "exercism.io - allergies"},
+  [{description, "exercism.org - allergies"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

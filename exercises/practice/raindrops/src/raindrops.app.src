@@ -1,5 +1,5 @@
 {application, raindrops,
-  [{description, "exercism.io - raindrops"},
+  [{description, "exercism.org - raindrops"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

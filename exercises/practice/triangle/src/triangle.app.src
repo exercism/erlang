@@ -1,5 +1,5 @@
 {application, triangle,
-  [{description, "exercism.io - triangle"},
+  [{description, "exercism.org - triangle"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

@@ -1,5 +1,5 @@
 {application, grains,
-  [{description, "exercism.io - grains"},
+  [{description, "exercism.org - grains"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

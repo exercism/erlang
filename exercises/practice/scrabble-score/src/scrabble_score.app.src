@@ -1,5 +1,5 @@
 {application, scrabble_score,
-  [{description, "exercism.io - scrabble-score"},
+  [{description, "exercism.org - scrabble-score"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

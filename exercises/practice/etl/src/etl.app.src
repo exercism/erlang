@@ -1,5 +1,5 @@
 {application, etl,
-  [{description, "exercism.io - etl"},
+  [{description, "exercism.org - etl"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

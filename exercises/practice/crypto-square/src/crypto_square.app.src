@@ -1,5 +1,5 @@
 {application, crypto_square,
-  [{description, "exercism.io - crypto-square"},
+  [{description, "exercism.org - crypto-square"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

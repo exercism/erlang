@@ -1,5 +1,5 @@
 {application, simple_linked_list,
-  [{description, "exercism.io - simple-linked-list"},
+  [{description, "exercism.org - simple-linked-list"},
     {vsn, "0.0.0"},
     {modules, []},
     {registered, []},

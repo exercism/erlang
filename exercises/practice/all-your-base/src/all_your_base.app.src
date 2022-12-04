@@ -1,5 +1,5 @@
 {application, all_your_base,
-  [{description, "exercism.io - all-your-base"},
+  [{description, "exercism.org - all-your-base"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

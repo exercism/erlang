@@ -1,5 +1,5 @@
 {application, minesweeper,
-  [{description, "exercism.io - minesweeper"},
+  [{description, "exercism.org - minesweeper"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

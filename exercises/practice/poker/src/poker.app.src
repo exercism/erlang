@@ -1,5 +1,5 @@
 {application, poker,
-  [{description, "exercism.io - poker"},
+  [{description, "exercism.org - poker"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

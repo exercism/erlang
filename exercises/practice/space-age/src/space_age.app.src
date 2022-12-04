@@ -1,5 +1,5 @@
 {application, space_age,
-  [{description, "exercism.io - space-age"},
+  [{description, "exercism.org - space-age"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

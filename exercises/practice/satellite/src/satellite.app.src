@@ -1,5 +1,5 @@
 {application, satellite,
-  [{description, "exercism.io - satellite"},
+  [{description, "exercism.org - satellite"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

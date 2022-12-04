@@ -1,5 +1,5 @@
 {application, rail_fence_cipher,
-  [{description, "exercism.io - rail-fence-cipher"},
+  [{description, "exercism.org - rail-fence-cipher"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},

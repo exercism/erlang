@@ -1,5 +1,5 @@
 {application, diamond,
-  [{description, "exercism.io - diamond"},
+  [{description, "exercism.org - diamond"},
     {vsn, "0.0.1"},
     {modules, []},
     {registered, []},
