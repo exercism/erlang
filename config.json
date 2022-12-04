@@ -973,7 +973,38 @@
     ]
   },
   "concepts": [],
-  "key_features": [],
+  "key_features": [
+    {
+      "title": "Functional",
+      "content": "Multi-clause functions with pattern matching and guards are the building blocks of Erlang code.",
+      "icon": "functional"
+    },
+    {
+      "title": "Dynamically typed",
+      "content": "Erlang has no compile-time type checks, favoring run-time pattern matching.",
+      "icon": "dynamically-typed"
+    },
+    {
+      "title": "Immutable",
+      "content": "All data in Erlang is immutable, allowing for safer and easier-to-reason-about concurrency.",
+      "icon": "immutable"
+    },
+    {
+      "title": "Concurrent",
+      "content": "Erlang uses the actor model - shared-nothing concurrency via message passing.",
+      "icon": "concurrency"
+    },
+    {
+      "title": "Fault tolerant",
+      "content": "Erlang runs in a VM known for running low-latency, distributed and fault-tolerant systems.",
+      "icon": "safe"
+    },
+    {
+      "title": "Flexible package manager",
+      "content": "Can pull in both Erlang and Elixir packages, both public and private",
+      "icon": "tooling"
+    }
+  ],
   "tags": [
     "paradigm/functional",
     "typing/dynamic",
