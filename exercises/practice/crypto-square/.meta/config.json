@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement the classic method for composing secret messages called a square code.",
   "authors": [
     "juhlig"
   ],
@@ -19,6 +18,7 @@
       ".meta/example.erl"
     ]
   },
+  "blurb": "Implement the classic method for composing secret messages called a square code.",
   "source": "J Dalbey's Programming Practice problems",
   "source_url": "http://users.csc.calpoly.edu/~jdalbey/103/Projects/ProgrammingPractice.html"
 }

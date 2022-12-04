@@ -1,5 +1,4 @@
 {
-  "blurb": "Creating a zipper for a binary tree.",
   "authors": [
     "NobbZ"
   ],
@@ -22,5 +21,6 @@
     "example": [
       ".meta/example.erl"
     ]
-  }
+  },
+  "blurb": "Creating a zipper for a binary tree."
 }

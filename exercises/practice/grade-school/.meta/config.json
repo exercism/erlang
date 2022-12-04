@@ -1,5 +1,4 @@
 {
-  "blurb": "Given students' names along with the grade that they are in, create a roster for the school.",
   "authors": [
     "tmcgilchrist"
   ],
@@ -25,6 +24,7 @@
       ".meta/example.erl"
     ]
   },
+  "blurb": "Given students' names along with the grade that they are in, create a roster for the school.",
   "source": "A pairing session with Phil Battos at gSchool",
   "source_url": "http://gschool.it"
 }
