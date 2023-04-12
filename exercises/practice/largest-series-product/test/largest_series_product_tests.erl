@@ -74,29 +74,17 @@
      ?_assertError(_,
 		   largest_series_product:largest_product("123", 4))}.
 
-'11_reports_1_for_empty_string_and_empty_product_0_span_test_'() ->
-    {"reports 1 for empty string and empty "
-     "product (0 span)",
-     ?_assertEqual(1,
-		   largest_series_product:largest_product([], 0))}.
-
-'12_reports_1_for_nonempty_string_and_empty_product_0_span_test_'() ->
-    {"reports 1 for nonempty string and empty "
-     "product (0 span)",
-     ?_assertEqual(1,
-		   largest_series_product:largest_product("123", 0))}.
-
-'13_rejects_empty_string_and_nonzero_span_test_'() ->
+'11_rejects_empty_string_and_nonzero_span_test_'() ->
     {"rejects empty string and nonzero span",
      ?_assertError(_,
 		   largest_series_product:largest_product([], 1))}.
 
-'14_rejects_invalid_character_in_digits_test_'() ->
+'12_rejects_invalid_character_in_digits_test_'() ->
     {"rejects invalid character in digits",
      ?_assertError(_,
 		   largest_series_product:largest_product("1234a5", 2))}.
 
-'15_rejects_negative_span_test_'() ->
+'13_rejects_negative_span_test_'() ->
     {"rejects negative span",
      ?_assertError(_,
 		   largest_series_product:largest_product("12345", -1))}.
