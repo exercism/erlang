@@ -10,7 +10,7 @@ jobs:
       otps: ${{ steps.versions.outputs.versions }}
     steps:
     - name: Clone the repository
-      uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
     - name: Get latest OTP versions
       id: versions
       env: 
@@ -30,7 +30,7 @@ jobs:
     container:
       image: erlang:${{ matrix.otp }}
     steps:
-    - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac
+    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
     - name: Install dependencies
       run: apt update && apt install --yes jq
     - name: run tests
