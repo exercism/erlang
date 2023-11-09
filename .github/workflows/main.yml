@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   create_otp_matrix:
     name: Generate a list of last OTP versions
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     outputs:
       otps: ${{ steps.versions.outputs.versions }}
     steps:
@@ -22,7 +22,7 @@ jobs:
 
   test_erlang:
     name: Test examples against OTP ${{ matrix.otp }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [create_otp_matrix]
     strategy:
       matrix:
