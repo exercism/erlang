@@ -33,7 +33,6 @@
     ]
   },
   "exercises": {
-    "concept": [],
     "practice": [
       {
         "slug": "hello-world",
@@ -953,8 +952,7 @@
         "uuid": "8ff6b6f3-9c0a-4a17-af48-0c207ef7c694",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 3,
-        "topics": []
+        "difficulty": 3
       },
       {
         "slug": "resistor-color",
@@ -962,8 +960,7 @@
         "uuid": "0cba2715-411b-4f75-87e6-7d79009b320d",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 1,
-        "topics": []
+        "difficulty": 1
       }
     ],
     "foregone": [
@@ -972,7 +969,6 @@
       "linked-list"
     ]
   },
-  "concepts": [],
   "key_features": [
     {
       "title": "Functional",
@@ -1006,14 +1002,14 @@
     }
   ],
   "tags": [
+    "execution_mode/compiled",
     "paradigm/functional",
+    "platform/linux",
+    "platform/mac",
+    "platform/windows",
+    "runtime/beam",
     "typing/dynamic",
     "typing/strong",
-    "execution_mode/compiled",
-    "platform/windows",
-    "platform/mac",
-    "platform/linux",
-    "runtime/beam",
     "used_for/backends",
     "used_for/embedded_systems"
   ]
