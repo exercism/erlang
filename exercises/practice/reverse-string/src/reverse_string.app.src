@@ -1,0 +1,9 @@
+{application, reverse_string,
+  [{description, "exercism.io - reverse string"},
+    {vsn, "0.0.1"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
