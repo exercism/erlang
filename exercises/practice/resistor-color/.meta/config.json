@@ -1,5 +1,7 @@
 {
-  "authors": [],
+  "authors": [
+    "juhlig"
+  ],
   "files": {
     "solution": [
       "src/resistor_color.erl"
