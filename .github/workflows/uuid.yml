@@ -6,12 +6,12 @@ jobs:
   uuid:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
-    - run: sudo apt install --yes jq
-    - run: |
-        bad_uuid=$(cat config.json | jq --raw-output '.exercises | map(.uuid) | .[]' | grep -vE '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' || true)
-        if [[ -n "$bad_uuid" ]]; then
-          printf "Invalid UUID(s) found:"
-          printf "%s" "${bad_uuid}"
-          exit 1
-        fi
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - run: sudo apt install --yes jq
+      - run: |
+          bad_uuid=$(cat config.json | jq --raw-output '.exercises | map(.uuid) | .[]' | grep -vE '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' || true)
+          if [[ -n "$bad_uuid" ]]; then
+            printf "Invalid UUID(s) found:"
+            printf "%s" "${bad_uuid}"
+            exit 1
+          fi
