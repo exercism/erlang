@@ -1,4 +1,4 @@
--module(eliuds_eggs).
+-module(example).
 
 -export([eggCount/1]).
 
