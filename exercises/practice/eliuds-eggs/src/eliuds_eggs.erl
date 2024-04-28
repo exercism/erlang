@@ -3,4 +3,4 @@
 -export([eggCount/1]).
 
 
-eggCount(Number) -> undefined.
+eggCount(_Number) -> undefined.
