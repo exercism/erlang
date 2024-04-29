@@ -1,6 +1,6 @@
 -module(eliuds_eggs).
 
--export([eggCount/1]).
+-export([egg_count/1]).
 
 
-eggCount(_Number) -> undefined.
+egg_count(_Number) -> undefined.
