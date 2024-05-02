@@ -1,0 +1,9 @@
+{application, eliuds_eggs,
+  [{description, "exercism.org - eliuds-eggs"},
+    {vsn, "0.0.1"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
