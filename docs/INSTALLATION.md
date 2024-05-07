@@ -45,5 +45,5 @@ choco install rebar3
 
 ## Installing from Source
 
-Get [a recent Erlang OTP](http://www.erlang.org/download.html) and follow their
+Get [a recent Erlang OTP](http://www.erlang.org/downloads) and follow their
 [build-instructions](https://github.com/erlang/otp/blob/maint/HOWTO/INSTALL.md).
