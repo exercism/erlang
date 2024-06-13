@@ -6,7 +6,7 @@ jobs:
   uuid:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29
+    - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
     - run: sudo apt install --yes jq
     - run: |
         bad_uuid=$(cat config.json | jq --raw-output '.exercises | map(.uuid) | .[]' | grep -vE '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' || true)
