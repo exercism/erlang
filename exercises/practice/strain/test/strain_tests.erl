@@ -12,7 +12,7 @@ keep_everything_test() ->
 keep_first_last_test() ->
   ?assertEqual([1, 3], strain:keep(fun(X) -> odd(X) end, [1,2,3])).
 
-keep_nothin_test() ->
+keep_nothing_test() ->
   ?assertEqual([], strain:keep(fun(X) -> even(X) end, [1,3,5,7])).
 
 keep_neither_first_nor_last_test() ->
@@ -23,6 +23,12 @@ keep_strings_test() ->
   ?assertEqual(
      ["zebra", "zombies", "zealot"],
      strain:keep(fun(S) -> string:sub_string(S, 1,1) =:= "z" end, Str)).
+
+keep_lists_test() ->
+  List = [[1, 2, 3], [5, 5, 5], [5, 1, 2], [2, 1, 2], [1, 5, 2], [2, 2, 1], [1, 2, 5]],
+  ?assertEqual(
+     [[5, 5, 5], [5, 1, 2], [1, 5, 2], [1, 2, 5]],
+     strain:keep(fun(L) -> lists:member(5, L) end, List)).
 
 empty_discard_test() ->
   ?assertEqual([], strain:discard(fun(X) -> X < 10 end, [])).
@@ -44,6 +50,12 @@ discard_strings_test() ->
   ?assertEqual(
      ["apple", "banana", "cherimoya"],
      strain:discard(fun(S) -> string:sub_string(S, 1,1) =:= "z" end, Str)).
+
+discard_lists_test() ->
+  List = [[1, 2, 3], [5, 5, 5], [5, 1, 2], [2, 1, 2], [1, 5, 2], [2, 2, 1], [1, 2, 5]],
+  ?assertEqual(
+     [[1, 2, 3], [2, 1, 2], [2, 2, 1]],
+     strain:discard(fun(L) -> lists:member(5, L) end, List)).
 
 odd(N) -> N rem 2 > 0.
 
