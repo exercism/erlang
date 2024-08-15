@@ -1,4 +1,4 @@
--module(acronym).
+-module(example).
 
 -export([abbreviate/1]).
 
