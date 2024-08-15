@@ -1,0 +1,9 @@
+{application, acronym,
+  [{description, "exercism.org - acronym"},
+    {vsn, "0.0.0"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
