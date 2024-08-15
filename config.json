@@ -120,6 +120,18 @@
         ]
       },
       {
+        "slug": "acronym",
+        "name": "Acronym",
+        "uuid": "16e89060-3e51-46d2-8dc2-88082b83254f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "pattern_matching",
+          "strings"
+        ]
+      },
+      {
         "slug": "bob",
         "name": "Bob",
         "uuid": "fced3620-26f2-4439-822c-27e1d59e24e1",
