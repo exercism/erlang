@@ -1,0 +1,9 @@
+{application, resistor_color_duo,
+  [{description, "exercism.io - resistor color duo"},
+    {vsn, "0.0.1"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
