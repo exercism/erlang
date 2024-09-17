@@ -3,4 +3,4 @@
 -export([square_root/1]).
 
 
-square(_Radicand) -> undefined.
+square_root(_Radicand) -> undefined.
