@@ -40,7 +40,7 @@
 
 '9_yacht_of_threes_counted_as_fives_test_'() ->
     {"Yacht of threes counted as fives",
-     ?_assertMatch(0, yacht:score([3, 3, 3, 3, 3], fives"))}.
+     ?_assertMatch(0, yacht:score([3, 3, 3, 3, 3], fives))}.
 
 '10_fives_test_'() ->
     {"Fives",
