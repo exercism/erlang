@@ -5,52 +5,52 @@
 
 create_test() ->
   BankAccount = bank_account:create(),
-  ?assert(bank_account:balance(BankAccount) =:= 0).
+  ?assertMatch(0, bank_account:balance(BankAccount)).
 
 close_account_test() ->
   BankAccount = bank_account:create(),
   bank_account:deposit(BankAccount, 1),
   Amount = bank_account:close(BankAccount),
-  ?assert(Amount =:= 1),
-  ?assertEqual({error, account_closed}, bank_account:balance( BankAccount )).
+  ?assertMatch(1, Amount),
+  ?assertMatch({error, account_closed}, bank_account:balance(BankAccount)).
 
 deposit_test() ->
   BankAccount = bank_account:create(),
   bank_account:deposit(BankAccount, 1),
-  ?assert(bank_account:balance(BankAccount) =:= 1).
+  ?assertMatch(1, bank_account:balance(BankAccount)).
 
 deposit_fail_test() ->
   BankAccount = bank_account:create(),
   bank_account:deposit(BankAccount, -1),
-  ?assert(bank_account:balance(BankAccount) =:= 0).
+  ?assertMatch(0, bank_account:balance(BankAccount)).
 
 deposit_many_test() ->
   BankAccount = bank_account:create(),
   [erlang:spawn( fun () -> bank_account:deposit(BankAccount, X) end ) || X <- lists:seq(1, 10)],
   timer:sleep(100),
   Last = bank_account:balance(BankAccount),
-  ?assert(Last =:= 55).
+  ?assertMatch(55, Last).
 
 withdraw_test() ->
   BankAccount = bank_account:create(),
   bank_account:deposit(BankAccount, 10 ),
   Amount = bank_account:withdraw(BankAccount, 1),
-  ?assert(Amount =:= 1),
-  ?assert(bank_account:balance(BankAccount) =:= 9).
+  ?assertMatch(1, Amount),
+  ?assertMatch(9, bank_account:balance(BankAccount)).
 
 withdraw_fail_test() ->
   BankAccount = bank_account:create(),
   bank_account:deposit(BankAccount, 10),
   Amount = bank_account:withdraw(BankAccount, -1),
-  ?assert(Amount =:= 0),
-  ?assert(bank_account:balance(BankAccount) =:= 10).
+  ?assertMatch(0, Amount),
+  ?assertMatch(10, bank_account:balance(BankAccount)).
 
 withdraw_excessive_test() ->
   BankAccount = bank_account:create(),
   bank_account:deposit(BankAccount, 10 ),
   Amount = bank_account:withdraw(BankAccount, 20),
-  ?assert(Amount =:= 10),
-  ?assert(bank_account:balance(BankAccount) =:= 0).
+  ?assertMatch(10, Amount),
+  ?assertMatch(0, bank_account:balance(BankAccount)).
 
 withdraw_many_test() ->
   BankAccount = bank_account:create(),
@@ -58,28 +58,28 @@ withdraw_many_test() ->
   [erlang:spawn( fun () -> bank_account:withdraw(BankAccount, X) end ) || X <- lists:seq(1, 10)],
   timer:sleep(100),
   Last = bank_account:balance(BankAccount),
-  ?assert(Last =:= 0).
+  ?assertMatch(0, Last).
 
 charge_test() ->
   BankAccount = bank_account:create(),
   bank_account:deposit(BankAccount, 10),
   Amount = bank_account:charge(BankAccount, 2),
-  ?assert(Amount =:= 2),
-  ?assert(bank_account:balance(BankAccount) =:= 8).
+  ?assertMatch(2, Amount),
+  ?assertMatch(8, bank_account:balance(BankAccount)).
 
 charge_fail_test() ->
   BankAccount = bank_account:create(),
   bank_account:deposit(BankAccount, 10),
   Amount = bank_account:charge(BankAccount, -2),
-  ?assert(Amount =:= 0),
-  ?assert(bank_account:balance(BankAccount) =:= 10).
+  ?assertMatch(0, Amount),
+  ?assertMatch(10, bank_account:balance(BankAccount)).
 
 charge_excessive_test() ->
   BankAccount = bank_account:create(),
   bank_account:deposit(BankAccount, 10),
   Amount = bank_account:charge(BankAccount, 20),
-  ?assert(Amount =:= 0),
-  ?assert(bank_account:balance(BankAccount) =:= 10).
+  ?assertMatch(0, Amount),
+  ?assertMatch(10, bank_account:balance(BankAccount)).
 
 charge_many_test() ->
   BankAccount = bank_account:create(),
@@ -87,4 +87,4 @@ charge_many_test() ->
   [erlang:spawn( fun () -> bank_account:charge(BankAccount, 10) end ) || _X <- lists:seq(1, 10)],
   timer:sleep(100),
   Last = bank_account:balance(BankAccount),
-  ?assert(Last =:= 5).
+  ?assertMatch(5, Last).
