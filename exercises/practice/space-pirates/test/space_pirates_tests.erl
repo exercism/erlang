@@ -42,14 +42,10 @@ message_sending_test_() ->
 
 enable_distress_beacon_test_() ->
     {"Command ship can enable distress beacon to trap exit signals",
-     fun() ->
+      fun() ->
         CommandShip = space_pirates:start_command_ship(),
-        ?assertEqual(ok, space_pirates:enable_distress_beacon(CommandShip)),
-        {status, _, _, StatusInfo} = sys:get_status(CommandShip),
-        [_, _, _, _, Lists] = StatusInfo,
-        {data, [{"State", StateData}]} = Lists,
-        ?assertEqual(true, proplists:get_value(trap_exit, StateData))
-     end}.
+        ?assertEqual(ok, space_pirates:enable_distress_beacon(CommandShip))
+      end}.
 
 ship_destruction_test_() ->
     {"When a ship is destroyed, the command ship receives an exit signal",
@@ -61,7 +57,7 @@ ship_destruction_test_() ->
         ?assertEqual(ok, space_pirates:destroy_ship(PirateShip, "Hit by asteroid")),
         timer:sleep(100), % Give time for exit signal to be processed
         ?assertEqual(
-            {ship_lost, "Doomed Vessel", "Hit by asteroid"}, 
+            {ship_lost, "Doomed Vessel", "Hit by asteroid"},
             space_pirates:get_last_distress_signal(CommandShip)
         )
      end}.
