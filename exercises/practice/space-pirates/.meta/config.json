@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "Maartz"
+  ],
+  "files": {
+    "solution": [
+      "src/space_pirates.erl"
+    ],
+    "test": [
+      "test/space_pirates_tests.erl"
+    ],
+    "example": [
+      ".meta/example.erl"
+    ]
+  },
+  "blurb": "Learn Erlang's process model by building a communication system for a fleet of space pirates."
+}

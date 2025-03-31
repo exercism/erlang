@@ -1021,6 +1021,19 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
+      },
+      {
+        "slug": "space-pirates",
+        "name": "space-pirates",
+        "uuid": "c9e78be6-8e53-4507-a143-ae927069d901",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "processes",
+          "references",
+          "concurrency"
+        ]
       }
     ],
     "foregone": [
