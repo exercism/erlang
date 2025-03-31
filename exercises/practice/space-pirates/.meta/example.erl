@@ -80,12 +80,9 @@ enable_distress_beacon(CommandShip) ->
 
 %% Link two ship processes
 link_ships(ShipA, ShipB) ->
-  link_process(ShipA, ShipB),
-  ok.
-
-%% Helper function to link processes
-link_process(Ship, ToLink) ->
-  Ship ! {link_to, ToLink},
+  ShipA ! {link_to, ShipB},
+  ShipB ! {link_to, ShipA},
+  timer:sleep(10), % Small delay to ensure linking
   ok.
 
 %% Destroy a ship with a reason
