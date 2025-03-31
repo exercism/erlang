@@ -1,2 +1,1 @@
 -module(space_pirates).
--compile(export_all).
