@@ -70,8 +70,13 @@ get_last_message(Ship, Ref) ->
 
 %% Enable the command ship to trap exit signals from linked ships
 enable_distress_beacon(CommandShip) ->
-  CommandShip ! {enable_distress_beacon},
-  ok.
+  CommandShip ! {enable_distress_beacon, self()},
+  receive
+    {distress_beacon_enabled, true} ->
+      ok
+  after 1000 ->
+    {error, timeout}
+  end.
 
 %% Link two ship processes
 link_ships(ShipA, ShipB) ->
@@ -163,8 +168,9 @@ authenticate_message(Ship, AuthRef) ->
 %% Main loop for the command ship process
 command_ship_loop(State) ->
   receive
-    {enable_distress_beacon} ->
+    {enable_distress_beacon, From} ->
       process_flag(trap_exit, true),
+      From ! {distress_beacon_enabled, true},
       command_ship_loop(State#ship_state{trap_exit = true});
     {register_ship, Name, Pid} ->
       NewRegistry = [{Name, Pid} | State#ship_state.ships_registry],
