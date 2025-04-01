@@ -85,16 +85,18 @@
     {"random character has each ability within range and valid hitpoints",
      fun() ->
         Characters = [dnd_character:character() || _ <- lists:seq(1, 20)],
-
+        
         lists:foreach(fun(Character) ->
-            #{strength := Strength,
+            #{
+              strength := Strength,
               dexterity := Dexterity,
               constitution := Constitution,
               intelligence := Intelligence,
               wisdom := Wisdom,
               charisma := Charisma,
-              hitpoints := Hitpoints} = Character,
-
+              hitpoints := Hitpoints
+            } = Character,
+              
             ?assert(Strength >= 3 andalso Strength =< 18),
             ?assert(Dexterity >= 3 andalso Dexterity =< 18),
             ?assert(Constitution >= 3 andalso Constitution =< 18),
@@ -105,3 +107,4 @@
         end, Characters),
         ok
      end}.
+
