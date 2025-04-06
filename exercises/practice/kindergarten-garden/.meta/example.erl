@@ -1,4 +1,4 @@
--module(kindergarten_garden).
+-module(example).
 
 -export([plants/2]).
 
