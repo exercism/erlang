@@ -1,0 +1,9 @@
+{application, kindergarten_garden,
+  [{description, "exercism.org - kindergarten-garden"},
+    {vsn, "0.0.1"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
