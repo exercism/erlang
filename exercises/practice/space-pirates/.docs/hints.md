@@ -1,4 +1,34 @@
-# hint_3
+## General
+
+The Basics of Process Communication
+
+In Erlang, every communication between processes happens through message passing.
+
+Think of your ships not as objects with methods, but as independent beings that can only talk to each other by sending messages.
+
+When a ship goes down, it doesn't call a function - it simply stops receiving messages.
+
+How would other ships know it's gone? You'll need to establish connections between your processes that can detect when one disappears.
+
+Remember: in space, no one can hear you scream - unless you've set up the right message handling!
+
+___
+
+Monitoring Your Fleet
+
+To build a robust fleet communication system, you'll need to use these key Erlang concepts:
+
+`link/1`` - Creates a bidirectional connection between processes
+`process_flag(trap_exit, true)`` - Makes a process receive notifications when linked processes die
+`spawn_link/1` - Creates a new process that's automatically linked to its parent
+
+When setting up your command ship, make sure it can "trap exits" so it receives notifications when ships are destroyed.
+
+Your message pattern matching should look for `{'EXIT', Pid, Reason}` messages that indicate a ship has gone down.
+
+For secure communications, remember that `make_ref/0` creates a unique reference that can't be guessed - perfect for authenticating messages between ships!
+
+___
 
 Implementation Blueprint
 
@@ -54,7 +84,7 @@ command_loop(State) ->
 
 For secure message authentication:
 
-Create references with make_ref()
+Create references with `make_ref()`
 Register them with both sender and receiver
 Verify that incoming messages contain a registered reference
 Remember that pirates can't be trusted - always verify before accepting a message!
