@@ -32,6 +32,6 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
     - name: Install dependencies
-      run: apt update && apt install --yes jq
+      run: sudo apt-get update && sudo apt-get install --yes jq
     - name: run tests
       run: ./bin/run_ci.sh
