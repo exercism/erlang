@@ -6,9 +6,16 @@ jobs:
   uuid:
     runs-on: ubuntu-24.04
     steps:
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-    - run: sudo apt-get update && sudo apt-get install --yes jq
-    - run: |
+    - name: Install jq
+      uses: dcarbone/install-jq-action@b7ef57d46ece78760b4019dbc4080a1ba2a40b45
+      with:
+        version: 1.7
+
+    - name: Checkout
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+    - name: Check
+      run: |
         bad_uuid=$(cat config.json | jq --raw-output '.exercises | map(.uuid) | .[]' | grep -vE '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' || true)
         if [[ -n "$bad_uuid" ]]; then
           printf "Invalid UUID(s) found:"
