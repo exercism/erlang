@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   create_otp_matrix:
     name: Generate a list of last OTP versions
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     outputs:
       otps: ${{ steps.versions.outputs.versions }}
     steps:
@@ -22,7 +22,7 @@ jobs:
 
   test_erlang:
     name: Test examples against OTP ${{ matrix.otp }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs: [create_otp_matrix]
     strategy:
       matrix:
@@ -30,8 +30,13 @@ jobs:
     container:
       image: erlang:${{ matrix.otp }}
     steps:
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-    - name: Install dependencies
-      run: apt update && apt install --yes jq
+    - name: install jq
+      uses: dcarbone/install-jq-action@b7ef57d46ece78760b4019dbc4080a1ba2a40b45
+      with:
+        version: 1.7
+
+    - name: checkout
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
     - name: run tests
       run: ./bin/run_ci.sh
