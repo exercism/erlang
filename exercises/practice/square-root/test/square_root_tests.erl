@@ -7,7 +7,7 @@
 
 
 '1_root_of_1_test_'() ->
-    {"root of l",
+    {"root of 1",
      ?_assertMatch(1, square_root:square_root(1))}.
 
 '2_root_of_4_test_'() ->
