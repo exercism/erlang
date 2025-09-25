@@ -1,0 +1,23 @@
+{
+  "authors": [
+    "juhlig"
+  ],
+  "contributors": [
+    "BNAndras",
+    "ErikSchierboom",
+    "iHiD",
+    "NobbZ"
+  ],
+  "files": {
+    "solution": [
+      "src/flower_field.erl"
+    ],
+    "test": [
+      "test/flower_field_tests.erl"
+    ],
+    "example": [
+      ".meta/example.erl"
+    ]
+  },
+  "blurb": "Mark all the flowers in a garden."
+}
