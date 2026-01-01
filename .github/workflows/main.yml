@@ -10,7 +10,7 @@ jobs:
       otps: ${{ steps.versions.outputs.versions }}
     steps:
     - name: Clone the repository
-      uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
     - name: Get latest OTP versions
       id: versions
       env: 
@@ -36,7 +36,7 @@ jobs:
         version: 1.7
 
     - name: checkout
-      uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
 
     - name: run tests
       run: ./bin/run_ci.sh
