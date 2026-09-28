@@ -1,0 +1,9 @@
+{application, game_of_life,
+  [{description, "exercism.org - game-of-life"},
+    {vsn, "0.0.1"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
