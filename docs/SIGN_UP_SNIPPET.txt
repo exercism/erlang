@@ -1,0 +1,14 @@
+most_common_word(Text) ->
+    Words = string:lexemes(string:lowercase(Text), " "),
+    {Best, BestCount, _} = lists:foldl(
+        fun(Word, {Best0, BestCount0, Counts0}) ->
+            Counts = maps:update_with(Word, fun(C) -> C + 1 end, 1, Counts0),
+            Count = maps:get(Word, Counts),
+            if
+                Count > BestCount0 -> {Word, Count, Counts};
+                true -> {Best0, BestCount0, Counts}
+            end
+        end,
+        {"", 0, #{}},
+        Words),
+    lists:flatten(io_lib:format("\"~s\" appears ~b times", [Best, BestCount])).
