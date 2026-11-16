@@ -1,0 +1,10 @@
+{application, space_pirates,
+  [{description, "exercism.org - space-pirates"},
+    {vsn, "0.0.1"},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib]},
+    {env, []}
+  ]}.
+
