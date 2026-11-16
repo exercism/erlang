@@ -8,4 +8,5 @@ checks:
   - configlet / configlet
   - i18n / completeness
   - uuid
+  - Tests
   - Validate required checks
